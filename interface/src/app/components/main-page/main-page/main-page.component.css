@@ -1,0 +1,33 @@
+.header-item {
+    line-height: 70px;
+    padding-top: 25px;
+    color: #000000;
+    justify-content: center;
+    text-align: center;
+    font-size: 45px;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+
+/*.buttons {
+    color: white;
+    background-color: #3333cc;
+    margin-top: 10px;
+    padding-left: 20px;
+    text-align: center;
+}*/
+
+.button-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    height: auto;
+    column-gap: 10px;
+}
+
+.button {
+    color: white;
+    background-color: #3333cc;
+    margin-top: 10px;
+    text-align: center;
+    
+}
