@@ -1,0 +1,32 @@
+.content {
+  width: 100%;
+  height: 100%;
+}
+
+.layout {
+  padding: 2rem 5rem;
+}
+
+section {
+  margin-bottom: 3rem;
+}
+
+section.drones-section {
+  h1 {
+    display: flex;
+    align-items: center;
+  }
+
+  .drones {
+    height: auto;
+
+    .drones-cards {
+      display: flex;
+      margin-bottom: 1rem;
+
+      app-drone-card {
+        margin-right: 2rem;
+      }
+    }
+  }
+}

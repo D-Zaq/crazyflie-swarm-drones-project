@@ -1,0 +1,16 @@
+<mat-card>
+    <mat-card-actions>
+      <button mat-button (onclick) = "this.identify()">Identify</button>
+      <button mat-button>Start mission</button>
+      <button mat-button>Land</button>
+    </mat-card-actions>
+    <div class="mat-card-header">
+        <mat-card-title>{{droneData.name}}</mat-card-title>
+    </div>
+    <div class="mat-card-subtitle">
+        <span>Speed</span> {{ droneData.speed }} km/h
+    </div>
+    <div class="mat-card-subtitle">
+        <span>Battery</span> {{ droneData.battery }} %
+    </div>
+</mat-card>
