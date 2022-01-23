@@ -1,3 +1,17 @@
+export class DroneC {
+    constructor(
+    name: string,
+    speed: number,
+    battery: number,
+    ledOn: boolean,
+    _id?: number,
+    real?: boolean,
+    updatedAt?: Date,
+    createdAt?: Date,
+    lastUpdatedBy?: string,
+    ){}
+}
+
 export interface Drone {
     name: string;
     speed: number;
@@ -5,6 +19,7 @@ export interface Drone {
     ledOn: boolean;
     real?: boolean;
 }
+
 
 export const DRONE_1: Drone = {
     name: 'Drone 1',
