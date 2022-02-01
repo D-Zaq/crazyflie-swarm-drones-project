@@ -1,0 +1,3 @@
+[submodule "crazyflie-firmware"]
+	path = crazyflie-firmware
+	url = https://gitlab.com/Zakaria.Diabi/crazyflie-firmware
