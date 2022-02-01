@@ -3,7 +3,7 @@ import {HttpClient, HttpErrorResponse} from '@angular/common/http';
 import {Observable} from 'rxjs/Observable';
 import 'rxjs/add/operator/catch';
 import {API_URL} from '../../env';
-import {DroneC} from '../../objects/drones';
+// import {IDrone} from '../../objects/drones';
 
 @Injectable({
   providedIn: 'root'
@@ -20,7 +20,7 @@ export class DronesService {
   }
 
   // GET list of public, future events
-  getDrones(): Observable<DroneC[]> {
+  getDrones(): Observable<any> {
     return this.http
       .get(`${API_URL}/drones`)
       .catch(DronesService._handleError);

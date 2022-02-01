@@ -6,7 +6,7 @@ from marshmallow import Schema, fields
 from .entity import Entity, Base
 
 
-class Exam(Entity, Base):
+class Drone(Entity, Base):
     __tablename__ = 'drones'
 
     name = Column(String)

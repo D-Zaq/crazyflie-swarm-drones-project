@@ -24,16 +24,16 @@ def get_drones():
 
     # serializing as JSON
     session.close()
-    return jsonify(drones.data)
+    return jsonify(drones)
 
 
 @app.route('/drones', methods=['POST'])
 def add_drone():
     # mount drone object
-    posted_drone = DroneSchema(only=('name', 'speed'))\
+    posted_drone = DroneSchema(only=('name', 'speed', 'battery', 'ledOn', 'real'))\
         .load(request.get_json())
 
-    drone = Drone(**posted_drone.data, created_by="HTTP post request")
+    drone = Drone(**posted_drone, created_by="HTTP post request")
     
     # persist drone
     session = Session()
@@ -41,11 +41,13 @@ def add_drone():
     session.commit()
 
     # return created drone
-    new_drone = DroneSchema().dump(drone).data
+    new_drone = DroneSchema().dump(drone)
     session.close()
     return jsonify(new_drone), 201
 
 
+if __name__ == '__main__':
+    app.run()
 # # start session
 # session = Session()
 

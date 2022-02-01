@@ -1,15 +1,14 @@
-export class DroneC {
-    constructor(
-    name: string,
-    speed: number,
-    battery: number,
-    ledOn: boolean,
-    _id?: number,
-    real?: boolean,
-    updatedAt?: Date,
-    createdAt?: Date,
-    lastUpdatedBy?: string,
-    ){}
+export interface IDrone {
+
+    name: string;
+    speed: number;
+    battery: number;
+    ledOn: boolean;
+    _id?: number;
+    real?: boolean;
+    updatedAt?: Date;
+    createdAt?: Date;
+    lastUpdatedBy?: string;
 }
 
 export interface Drone {
