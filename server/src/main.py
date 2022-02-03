@@ -3,14 +3,19 @@ from flask_cors import CORS
 from flask import Flask, jsonify, request
 from .entities.entity import Session, engine, Base
 from .entities.drone import Drone, DroneSchema
+import logging
+# import cflib
+from .crazyradio_controller import CrazyradioController
 
-# creating the Flask application
+# creating the Flask applicationError: While importing 'src.main', an ImportError was raised.
+
 app = Flask(__name__)
 CORS(app)
 
 # generate database schema
 Base.metadata.create_all(engine)
 
+logging.basicConfig(level=logging.ERROR)
 
 @app.route('/drones')
 def get_drones():
@@ -47,7 +52,34 @@ def add_drone():
 
 
 if __name__ == '__main__':
+    # cflib.crtp.init_drivers(enable_debug_driver=False)
+
+    crazyradioControllerThread = CrazyradioController().start()
+    print('Crazyradio controller launched')
+
+    crazyradioControllerThread.join()
     app.run()
+
+
+
+
+
+def exitHandler(sig, frame):
+    print('Closing server application')
+    CrazyradioController.stopServer()
+
+
+
+
+
+# def exitHandler(sig, frame):
+#     print('Closing server application')
+#     CrazyradioController.stopServer()
+
+
+
+
+
 # # start session
 # session = Session()
 
