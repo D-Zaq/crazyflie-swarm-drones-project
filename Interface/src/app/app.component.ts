@@ -8,26 +8,26 @@ import {IDrone} from './objects/drones';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent implements OnInit, OnDestroy{
-  // title = 'Interface';
-  title = 'app'
-  dronesListSubs: Subscription = new Subscription;
-  dronesList: IDrone[] = [];
+export class AppComponent {
+  title = 'Interface';
+  // title = 'app'
+  // dronesListSubs: Subscription = new Subscription;
+  // dronesList: IDrone[] = [];
 
-  constructor(private droneApi: DronesService) {
-  }
+  // constructor(private droneApi: DronesService) {
+  // }
 
-  ngOnInit() {
-    this.dronesListSubs = this.droneApi
-      .getDrones()
-      .subscribe((res: IDrone[]) => {
-          this.dronesList = res;
-        },
-        console.error
-      );
-  }
+  // ngOnInit() {
+  //   this.dronesListSubs = this.droneApi
+  //     .getDrones()
+  //     .subscribe((res: IDrone[]) => {
+  //         this.dronesList = res;
+  //       },
+  //       console.error
+  //     );
+  // }
 
-  ngOnDestroy() {
-    this.dronesListSubs.unsubscribe();
-  }
+  // ngOnDestroy() {
+  //   this.dronesListSubs.unsubscribe();
+  // }
 }

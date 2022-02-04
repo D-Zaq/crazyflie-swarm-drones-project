@@ -12,6 +12,10 @@ export class DronesService {
 
   // constructor() { }
 
+  serverAddress = "http://localhost:5000";
+  crazyflieServerAddress = "http://localhost:5000/crazyflie";
+  argosServerAddress = "http://localhost:5000/argos";
+
   constructor(private http: HttpClient) {
   }
 
@@ -20,21 +24,41 @@ export class DronesService {
   }
 
   // GET list of public, future events
-  getDrones(): Observable<any> {
+  // getDrones(): Observable<any> {
+  //   return this.http
+  //     .get(`${API_URL}/drones`)
+  //     .catch(DronesService._handleError);
+  // }
+
+  identifyDrone(uri: string){
+    // this calls the communication service method with the needed parameters for request
+    // const messageStr = JSON.stringify(uri);
+    // console.log(messageStr);
     return this.http
-      .get(`${API_URL}/drones`)
-      .catch(DronesService._handleError);
+      .post(
+        this.crazyflieServerAddress,
+        uri
+        )
+      .catch(DronesService._handleError)
   }
 
-  identifyDrone(): void{
+  startMission(letter:string){
     // this calls the communication service method with the needed parameters for request
+    return this.http
+      .post(
+        this.argosServerAddress,
+        letter
+        )
+      .catch(DronesService._handleError)
   }
 
-  startMission(): void{
+  landDrone(letter:string){
     // this calls the communication service method with the needed parameters for request
-  }
-
-  landDrone(): void{
-    // this calls the communication service method with the needed parameters for request
+    return this.http
+      .post(
+        this.argosServerAddress,
+        letter
+        )
+      .catch(DronesService._handleError)
   }
 }
