@@ -1,11 +1,11 @@
 <mat-card>
     <mat-card-actions>
-      <button mat-button (onclick) = "this.identify()">Identify</button>
-      <button mat-button>Start mission</button>
-      <button mat-button>Land</button>
+      <button mat-button (click) = "this.identify()">Identify</button>
+      <button mat-button (click) = "this.startMission()">Start mission</button>
+      <button mat-button (click) = "this.land()">Land</button>
     </mat-card-actions>
     <div class="mat-card-header">
-        <mat-card-title>{{droneData.name}}</mat-card-title>
+        <mat-card-title>{{droneData.identifier}}</mat-card-title>
     </div>
     <div class="mat-card-subtitle">
         <span>Speed</span> {{ droneData.speed }} km/h

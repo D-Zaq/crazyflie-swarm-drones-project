@@ -12,21 +12,26 @@ export class DroneCardComponent implements OnInit {
 
   @Input() droneData: Drone = DRONE_1;
 
-  constructor(public drones:DronesService) { }
+  constructor(public droneService:DronesService) { }
 
   ngOnInit(): void {
   }
 
   identify(): void {
-    this.drones.identifyDrone();
+    console.log(this.droneData.name);
+    this.droneService.identifyDrone(this.droneData.name).subscribe();
   }
 
   startMission(): void {
-    this.drones.startMission();
+    let startMissionLetter: string;
+    startMissionLetter = "s";
+    this.droneService.startMission(startMissionLetter).subscribe();
   }
 
   land(): void {
-    this.drones.landDrone();
+    let land: string;
+    land = "c";
+    this.droneService.landDrone(land).subscribe();
   }
 
 
