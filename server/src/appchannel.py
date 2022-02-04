@@ -50,13 +50,6 @@ class AppChannel:
         print(
             f'New Crazyradio client connected on uri {self.uri}')
 
-        self.sendMessage(Message(
-            type="onLed",
-            data={
-                "name": self.uri
-            }
-        ))
-
     def disconnected(self, droneUri) -> None:
         """Callback when the Crazyflie is disconnected (called in all cases)"""
 
@@ -75,6 +68,8 @@ class AppChannel:
         print('Connection to %s lost: %s' % (self.uri, msg))
 
     def sendMessage(self, message: Message) -> None:
+
+        print('in AppChannel send message')
         command = 'onLed'
         self._cf.appchannel.send_packet(struct.pack("<B", bool(command)))
 
