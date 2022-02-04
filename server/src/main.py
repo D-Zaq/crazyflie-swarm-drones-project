@@ -1,7 +1,5 @@
 # coding=utf-8
 from crypt import methods
-from io import StringIO
-import json
 from flask_cors import CORS
 from flask import Flask, jsonify, request
 # from flask import Flask
@@ -10,6 +8,8 @@ from flask import Flask, jsonify, request
 import logging
 import cflib
 from crazyradio_server import CrazyradioController
+#from argos_server import ArgosServer
+from argos_server2 import server
 
 # creating the Flask applicationError: While importing 'src.main', an ImportError was raised.
 
@@ -44,6 +44,9 @@ def handleArgosPost():
     data = request.data.decode('utf-8')
     print(f'"post request >>>>>>>>>" {data}')
     # calls argos server message sending method
+    #ArgosServer.connectServer(data)
+    #ArgosServer.sendCommand(data)
+    server.sendCommand(data)
     return jsonify("post hello !")
 
 
@@ -82,13 +85,20 @@ def handleArgosPost():
 
 
 if __name__ == '__main__':
-    cflib.crtp.init_drivers(enable_debug_driver=False)
+    #cflib.crtp.init_drivers(enable_debug_driver=False)
 
-    crazyradioControllerThread = CrazyradioController().start()
-    print('Crazyradio controller launched')
+    #crazyradioControllerThread = CrazyradioController().start()
+    
+    #print('Crazyradio controller launched')
 
-    crazyradioControllerThread.join()
-    print('app launched')
+    #crazyradioControllerThread.join()
+
+    #ArgosServer2().start()
+    argosServer = server()
+    argosServer.connectServ()
+    #argosControllerThread = ArgosServer().start()
+    #argosControllerThread.join()
+    #print('app launched')
     app.run()
 
 
