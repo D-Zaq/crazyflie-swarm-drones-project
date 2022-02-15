@@ -69,7 +69,6 @@ void CCrazyflieSensing::Init(TConfigurationNode& t_node) {
    Reset();
 }
 
-https://www.geeksforgeeks.org/socket-programming-cc/
 int CCrazyflieSensing::connectServer(){
    int sock = 0;
     struct sockaddr_in serv_addr;
