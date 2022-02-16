@@ -10,7 +10,7 @@ from flask import Flask, jsonify, request
 import logging
 import cflib
 from crazyflie_server import CrazyflieServer
-from argos_server2 import server
+from argos_server2 import ArgosServer
 
 # creating the Flask applicationError: While importing 'src.main', an ImportError was raised.
 
@@ -45,11 +45,10 @@ def handleArgosPost():
     data = request.data.decode('utf-8')
     print(f'"post request >>>>>>>>>" {data}')
     # calls argos server message sending method
-    #ArgosServer.connectServer(data)
-    #ArgosServer.sendCommand(data)
-    server.sendCommand(data)
+    # ArgosServer.connectServer(data)
+    # ArgosServer.sendCommand(data)
+    ArgosServer.sendCommand(data)
     return jsonify("post hello !")
-
 
 
 # @app.route('/drones')
@@ -85,21 +84,22 @@ def handleArgosPost():
 #     session.close()
 #     return jsonify(new_drone), 201
 
-
 if __name__ == '__main__':
 
     # To test 'Identify': comment lines: argosServer = server() , argosServer.connectServ()
     # To test ARGoS sim: comment lines: CrazyflieServerThread = CrazyflieServer().start() , CrazyflieServerThread.join()
     cflib.crtp.init_drivers(enable_debug_driver=False)
 
+    argosServerThread = ArgosServer.start()
+    print('Argos server launched')
+    argosServerThread.join()
+
     CrazyflieServerThread = CrazyflieServer().start()
+
     print('Crazyflie server launched')
-
     CrazyflieServerThread.join()
-    print('app launched')
-    argosServer = server()
-    argosServer.connectServ()
 
+    print('app launched')
     app.run()
 
 
