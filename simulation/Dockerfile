@@ -70,14 +70,16 @@ EXPOSE 80
 EXPOSE 4000
 
 # Build your code (here examples)
-#WORKDIR ./simulation
+#WORKDIR ./root/simulation
 
 RUN cd /root/simulation &&\
     mkdir build && cd build &&\
     cmake -DCMAKE_BUILD_TYPE=Debug .. &&\
     make -j $(nproc)
 
-#CMD ["argos3", "-c", "./experiments/crazyflie_sensing.argos"]
+#TODO: make .sh file to replace CMD
+CMD cd simulation && argos3 -c ./experiments/crazyflie_sensing.argos
+
 
 
 # Clone your repository
