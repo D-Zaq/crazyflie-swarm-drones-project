@@ -79,28 +79,6 @@ RUN cd /root/simulation &&\
 
 #CMD ["argos3", "-c", "./experiments/crazyflie_sensing.argos"]
 
-# Make ssh dir
-#RUN mkdir /root/.ssh/
-
-# Copy over private key, and set permissions
-# Warning! Anyone who gets their hands on this image will be able
-# to retrieve this private key file from the corresponding image layer
-#ADD id_rsa /root/.ssh/id_rsa
-
-# Create known_hosts
-#RUN touch /root/.ssh/known_hosts
-# Add gitlab key
-# RUN ssh-keyscan gitlab.com >> /root/.ssh/known_hosts
-
-# RUN git clone git@gitlab.com:polytechnique-montr-al/inf3995/20221/equipe-103/INF3995-103.git &&\
-#     cd simulation &&\
-#     git checkout simulation
-
-# RUN cd /root/examples &&\
-#     mkdir build && cd build &&\
-#     cmake -DCMAKE_BUILD_TYPE=Debug .. &&\
-#     make -j $(nproc)
-
 
 # Clone your repository
 # If your repository is private, you will need to use ssh keys, look here: 
