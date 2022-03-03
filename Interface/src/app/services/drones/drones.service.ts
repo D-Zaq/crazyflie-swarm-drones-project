@@ -15,6 +15,7 @@ export class DronesService {
   serverAddress = "http://localhost:5000";
   crazyflieServerAddress = "http://localhost:5000/crazyflie";
   argosServerAddress = "http://localhost:5000/argos";
+  argosDataAddress = "http://localhost:5000/argosData";
 
   constructor(private http: HttpClient) {
   }
@@ -60,5 +61,10 @@ export class DronesService {
         letter
         )
       .catch(DronesService._handleError)
+  }
+
+  getData() {
+    return this.http.get<any>(this.argosDataAddress)
+      .catch(DronesService._handleError);
   }
 }

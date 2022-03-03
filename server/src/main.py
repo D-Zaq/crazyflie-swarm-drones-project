@@ -2,7 +2,11 @@
 from crypt import methods
 from io import StringIO
 import json
+import math
+import random
+from xml.etree.ElementTree import tostring
 from flask_cors import CORS
+from scipy import rand
 from flask import Flask, jsonify, request
 # from flask import Flask
 # from entities.entity import Session
@@ -50,6 +54,19 @@ def handleArgosPost():
     ArgosServer.sendCommand(data)
     return jsonify("post hello !")
 
+
+@app.route('/argosData', methods=["GET"])
+def handleArgosDataPolling():
+    # b = random.randint(0, 99)
+    # string = str(b)
+    # print("llllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllll", string)
+    ArgosServer.sendCommand('i')
+    buffer = ArgosServer.conn.recv(80000)
+    string = buffer.decode("utf-8")
+    print(string)
+    string = string[-10:]
+    print(string)
+    return jsonify(string)
 
 # @app.route('/drones')
 # def get_drones():
