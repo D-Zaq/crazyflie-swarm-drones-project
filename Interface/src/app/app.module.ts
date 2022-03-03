@@ -9,6 +9,9 @@ import { SideBarComponent } from './components/side-bar/side-bar.component';
 import { MaterialModule } from './material.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { DronesService } from './services/drones/drones.service';
+import { LogPageComponent } from './components/log-page/log-page.component';
+import { MissionComponent } from './components/mission/mission.component';
+import { MapComponent } from './components/map/map.component';
 
 @NgModule({
   declarations: [
@@ -16,6 +19,9 @@ import { DronesService } from './services/drones/drones.service';
     MainPageComponent,
     DroneCardComponent,
     SideBarComponent,
+    LogPageComponent,
+    MissionComponent,
+    MapComponent,
   ],
   imports: [
     BrowserModule,

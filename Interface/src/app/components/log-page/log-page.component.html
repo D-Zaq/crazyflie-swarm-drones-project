@@ -1,0 +1,24 @@
+<div class="log-container">
+    <table>
+        <tr>
+            <th>Start Time</th>
+            <th>End Time</th>
+            <th>X</th>
+            <th>Y</th>
+            <th>Z</th>
+            <th>Battery</th>
+            <th>Speed</th>
+            <th>Rotation angle</th>
+        </tr>
+        <tr *ngFor="let log of this.logArray; let i = index">
+            <td> {{log.StartTime}}</td>
+            <td> {{log.EndTime}} </td>
+            <td>{{log.X}}</td>
+            <td>{{log.Y}}</td>
+            <td>{{log.Z}}</td>
+            <td>{{log.Battery}}</td>
+            <td>{{log.Speed}}</td>
+            <td>{{log.RotationAngle}}</td>
+        </tr>
+    </table>
+</div>

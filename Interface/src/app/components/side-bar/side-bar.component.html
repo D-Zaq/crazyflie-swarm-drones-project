@@ -1,4 +1,4 @@
-<nav class="sidebar">
+<nav id = "sidebar" class="sidebar"  >
     <ul>
         <li>
             <div [id]="toolLabels.Drones">
@@ -16,7 +16,7 @@
             </div>
         </li>
         <li>
-            <div [id]="toolLabels.Log">
+            <div [id]="toolLabels.Log" (click)="showLog()">
                 <span>
                     {{toolLabels.Log}}
                 </span>

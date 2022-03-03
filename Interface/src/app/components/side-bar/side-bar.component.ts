@@ -8,22 +8,25 @@ import { ToolLabels, TOOL_LABELS } from 'src/app/objects/menu';
 })
 export class SideBarComponent implements OnInit {
 
-  toolLabels!: ToolLabels;
+  toolLabels: ToolLabels = TOOL_LABELS;
+  isVisible: boolean = true;
 
-  constructor() {
-    this.initialize()
-   }
 
-  private initialize(): void {
-    this.toolLabels = TOOL_LABELS;
-}
+  constructor() {}
 
   ngOnInit(): void {
     
   }
 
   showLog() {
-    console.log("Log clocked");
+    window.open('/log-page',"_blank");
+  }
+
+  hideSidebar() {
+    var sidebar = document.getElementById("sidebar");
+    if (sidebar != null)
+      sidebar.hidden = true;
+    console.log ("Helooooo!")
   }
 
 }
