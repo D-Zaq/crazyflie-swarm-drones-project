@@ -19,17 +19,17 @@ section.drones-section {
 
   .drones {
     height: auto;
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
 
-    .drones-cards {
-      display: flex;
-      margin-bottom: 1rem;
-
-      app-drone-card {
-        margin-right: 2rem;
-      }
+    app-drone-card {
+      margin-right: 2rem;
     }
   }
 }
+
+
 
 .footer-item {
   text-align: center;

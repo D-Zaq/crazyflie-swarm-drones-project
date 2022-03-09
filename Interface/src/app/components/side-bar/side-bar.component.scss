@@ -4,18 +4,23 @@
     align-items: center;
     justify-content: space-between;
     position: fixed;
-    background-color: rgba($color: rgb(118, 233, 162), $alpha: 0.25);
+    background-color: rgba($color: rgb(69, 126, 90), $alpha: 0.25);
     overflow: auto;
     user-select: none;
     padding: 10px;
+    top: 100px;
 }
 
 .sidebar ul li div {
     min-height: 120px;
     min-width: 120px;
-    background-color: aquamarine;
+    background-color: rgb(93, 168, 143);
     border: 2px solid;
     cursor: pointer;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .sidebar ul {
@@ -29,7 +34,7 @@
 
 }
 .sidebar ul li div span {
-    color: black;
-    font-size: 20px;
+    color: rgba(255, 255, 255, 0.788);
+    font-size: 2em;
     font-style: bold;
 }

@@ -1,5 +1,5 @@
 .mat-card {
-  width: 22rem;
+  width: 15rem;
   border: 5px solid #4a4b52;
   box-shadow: 0px 0px 11px 5px rgba(0, 0, 0, 0.25);
   border-radius: 0.5rem;
@@ -8,11 +8,11 @@
 }
 
 .mat-card-header {
-  height: 12rem;
   display: flex;
   justify-content: center;
   align-items: center;
   position: relative;
+  margin: 0;
 }
 
 .mat-card-subtitle {
@@ -24,7 +24,7 @@
 
 .mat-card-actions {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-evenly;
   align-items: center;
   color: rgb(213, 221, 228);
 }
@@ -32,3 +32,15 @@
 button {
   background-color: rgba($color: rgb(200, 218, 207), $alpha: 0.25);
 }
+
+.drones-cards {
+  display: flex;
+  margin-bottom: 1rem;
+
+  
+}
+
+.mat-card-actions .mat-button, .mat-card-actions .mat-raised-button, .mat-card-actions .mat-stroked-button {
+  margin: 0;
+}
+

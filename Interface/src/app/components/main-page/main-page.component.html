@@ -1,18 +1,13 @@
 <div class="content">
       <div class="layout">
         <section class="drones-section">
-          <div class="title">
-            <h1> Drones :</h1>
-          </div>
           <div>
             <div class="drones">
-              <ng-container *ngIf="this.drones.length">
-                  <div class="drones-cards">
+              <ng-container *ngIf="this.drones.length">    
                     <app-drone-card
                     [droneData]="drone"
                     *ngFor="let drone of this.drones"
                     ></app-drone-card>
-                  </div>
               </ng-container>
               <p *ngIf="!this.drones.length">No robot to display.</p>
             </div>
