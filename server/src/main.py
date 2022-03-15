@@ -1,9 +1,8 @@
 # coding=utf-8
 from crypt import methods
-from io import StringIO
-import json
-import math
-import random
+import requests
+import threading
+import time
 from xml.etree.ElementTree import tostring
 from flask_cors import CORS
 from scipy import rand
@@ -15,6 +14,8 @@ import logging
 import cflib
 from crazyflie_server import CrazyflieServer
 from argos_server2 import ArgosServer
+# from logs_handler import initializeLogging
+from log import ServerLog
 
 # creating the Flask applicationError: While importing 'src.main', an ImportError was raised.
 
@@ -24,7 +25,9 @@ CORS(app)
 # generate database schema
 # Base.metadata.create_all(engine)
 
-logging.basicConfig(level=logging.ERROR)
+# logging.basicConfig(level=logging.ERROR)
+
+logs = []
 
 
 @app.route('/')
@@ -68,6 +71,12 @@ def handleArgosDataPolling():
     print(string)
     return jsonify(string)
 
+
+@app.route('/logs', methods=["GET"])
+def handleLogsPolling():
+    print("llllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllll GGGGGGGGGGEEEEEEEEEEEEEEEETTTTTTTTTTTTTTTTT")
+    return jsonify(logs)
+
 # @app.route('/drones')
 # def get_drones():
 #     # fetching from the database
@@ -101,22 +110,70 @@ def handleArgosDataPolling():
 #     session.close()
 #     return jsonify(new_drone), 201
 
+def start_runner():
+    def start_loop():
+        not_started = True
+        while not_started:
+            print('In start loop')
+            try:
+                r = requests.get('http://127.0.0.1:5000/')
+                if r.status_code == 200:
+                    print('Server started, quiting start_loop')
+                    global flaskLaunched
+                    flaskLaunched = True
+                    not_started = False
+                print(r.status_code)
+            except:
+                print('Server not yet started')
+            time.sleep(2)
+
+    print('Started runner')
+    thread = threading.Thread(target=start_loop)
+    thread.start()
+
+
+class DashboardLogger(logging.Handler):
+    def emit(self, record: logging.LogRecord) -> None:
+        logEntry = self.format(record)
+        # if(flaskLaunched == True):
+        #     requests.get('http://127.0.0.1:5000/argosData')
+        global logs
+        logs.append(ServerLog(
+                    log=logEntry,
+                    timestamp=int(record.created)
+                    ))
+        # print("looooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooggggggggggggggssssssssssssssssss", logEntry)
+
+
 if __name__ == '__main__':
 
     # To test 'Identify': comment lines: argosServer = server() , argosServer.connectServ()
     # To test ARGoS sim: comment lines: CrazyflieServerThread = CrazyflieServer().start() , CrazyflieServerThread.join()
     cflib.crtp.init_drivers(enable_debug_driver=False)
+    # Some initializations
+
+    fmt = '%(asctime)s : %(levelname)s : %(message)s'
+
+    rootLogger = logging.getLogger()
+    rootLogger.setLevel(level=logging.INFO)
+    formatter = logging.Formatter(fmt=fmt)
+    rootLogger.addHandler(logging.FileHandler('debug.log'))
+    rootLogger.addHandler(DashboardLogger())
+    for handler in rootLogger.handlers:
+        if isinstance(handler, logging.FileHandler):
+            handler.setFormatter(formatter)
 
     argosServerThread = ArgosServer.start()
-    print('Argos server launched')
+    logging.info('Argos server launched')
     argosServerThread.join()
 
     CrazyflieServerThread = CrazyflieServer().start()
 
-    print('Crazyflie server launched')
+    logging.info('Crazyflie server launched')
     CrazyflieServerThread.join()
 
-    print('app launched')
+    logging.info('app launched')
+    # start_runner()
     app.run()
 
 

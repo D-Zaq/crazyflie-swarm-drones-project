@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { interval } from 'rxjs';
-import { startWith, switchMap } from 'rxjs/operators';
+import { interval, Subject } from 'rxjs';
+import { startWith, switchMap, takeUntil } from 'rxjs/operators';
 import { Drone, DRONE_1, DRONE_2 } from 'src/app/objects/drones';
 import { DronesService } from 'src/app/services/drones/drones.service';
 
@@ -12,17 +12,22 @@ import { DronesService } from 'src/app/services/drones/drones.service';
 export class MainPageComponent implements OnInit {
 
   drones: Drone[] = [DRONE_1, DRONE_2];
-
+  private unsubscribe$ = (new Subject<void>());
+  
   constructor(public droneService:DronesService) { }
 
   ngOnInit(): void {
-    interval(1000)
+    interval(10000)
       .pipe(
         startWith(0),
-        switchMap(() => this.droneService.getData())
+        takeUntil(this.unsubscribe$),
       )
-      .subscribe(res => this.drones[1].battery = res);
-    
+      .subscribe(() => this.droneService.getData().subscribe(res => this.drones[1].battery = res));
+  }
+
+  ngOnDestroy(){
+    this.unsubscribe$.next();
+    this.unsubscribe$.complete();
   }
 
 }

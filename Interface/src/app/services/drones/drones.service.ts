@@ -5,6 +5,8 @@ import 'rxjs/add/operator/catch';
 import {API_URL} from '../../env';
 // import {IDrone} from '../../objects/drones';
 
+type ServerLog = { log: string; timestamp: number;};
+
 @Injectable({
   providedIn: 'root'
 })
@@ -16,6 +18,7 @@ export class DronesService {
   crazyflieServerAddress = "http://localhost:5000/crazyflie";
   argosServerAddress = "http://localhost:5000/argos";
   argosDataAddress = "http://localhost:5000/argosData";
+  logsAddress = "http://localhost:5000/logs";
 
   constructor(private http: HttpClient) {
   }
@@ -65,6 +68,11 @@ export class DronesService {
 
   getData() {
     return this.http.get<any>(this.argosDataAddress)
+      .catch(DronesService._handleError);
+  }
+
+  getLogs() {
+    return this.http.get<ServerLog[]>(this.logsAddress)
       .catch(DronesService._handleError);
   }
 }

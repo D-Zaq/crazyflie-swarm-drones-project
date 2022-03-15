@@ -1,3 +1,4 @@
+import logging
 import socket
 from threading import Thread
 import threading
@@ -39,7 +40,8 @@ class ArgosServer(metaclass=Singleton):
             if ArgosServer.accepted is False:
                 print("connecting to ARGoS")
                 ArgosServer.conn, addr = ArgosServer.server.accept()
-                print("==========================================accepted argos")
+                logging.info(
+                    "==========================================accepted argos")
                 ArgosServer.accepted = True
 
             time.sleep(1)

@@ -1,0 +1,17 @@
+<div class="content" > 
+    <div>
+        <div class = "title">
+            <h1>Logs</h1>
+        </div>
+        <div class="common-padding">
+          <p *ngIf="this.logs.length === 0">No logs to display for now</p>
+          
+          <ng-container *ngFor="let log of this.logs">
+            <div>
+              <span>{{log.date}} &nbsp;</span> - {{log.message}}
+            </div>
+          </ng-container>
+      </div>
+    </div>
+  </div>
+  

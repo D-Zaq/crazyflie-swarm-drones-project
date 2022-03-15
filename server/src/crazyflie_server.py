@@ -1,3 +1,5 @@
+from asyncio.log import logger
+import logging
 import threading
 import time
 from threading import Thread
@@ -35,7 +37,7 @@ class CrazyflieServer(metaclass=Singleton):
         if not CrazyflieServer.running:
             return
 
-        print(f"Successfully connected to CrazyradioPA")
+        # print(f"Successfully connected to CrazyradioPA")
         threading.Thread(target=CrazyflieServer.findNewDrones).start()
 
     @staticmethod
@@ -46,7 +48,7 @@ class CrazyflieServer(metaclass=Singleton):
                 interfaces = CrazyflieServer.scanAvailableInterfaces()
                 if len(interfaces) == 0 and \
                         nDrones == 0:
-                    print(
+                    logging.info(
                         f'No drones found nearby. Retrying in 5 seconds.')
                 for interface in interfaces:
                     CrazyflieServer.connectClient(interface)
@@ -71,7 +73,7 @@ class CrazyflieServer(metaclass=Singleton):
                 *available,
                 *cflib.crtp.scan_interfaces(address)
             ]
-        print(f'getting drones.................')
+        logging.info(f'getting drones.................')
         return available
 
     @staticmethod

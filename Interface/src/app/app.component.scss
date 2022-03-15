@@ -3,7 +3,7 @@
   width: 100%;
   display: grid;
   grid-template-columns: 6rem auto;
-  overflow: hidden;
+  overflow: auto;
 }
 
 .side-panel {
@@ -11,6 +11,18 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+.button {
+  padding: 1rem;
+  border-radius: 5rem;
+  margin-top: 1rem;
+  cursor: pointer;
+  background-color: inherit;
+}
+
+mat-icon {
+  color: invert($color: #000000);
 }
 
 .wrapper {

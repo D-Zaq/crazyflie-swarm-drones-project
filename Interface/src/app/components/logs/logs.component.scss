@@ -1,0 +1,22 @@
+.content {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+}
+
+.common-padding {
+  flex-grow: 3;
+  height: 55rem;
+  padding: 2%;
+  border-radius: 10px;
+  background-color: rgba($color: rgb(77, 116, 117), $alpha: 0.25);
+  margin-left: 2%;
+  margin-right: 2%;
+  overflow-y: auto;
+}
+
+.title {
+  margin-left: 2%;
+  margin-top: 1%;
+}
