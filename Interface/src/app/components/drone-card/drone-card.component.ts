@@ -1,6 +1,6 @@
 import { outputAst } from '@angular/compiler';
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { Drone, DRONE_1 } from 'src/app/objects/drones';
+import { CommandStruct, Drone, DRONE_1, Command } from 'src/app/objects/drones';
 import { DronesService } from 'src/app/services/drones/drones.service';
 
 @Component({
@@ -19,19 +19,32 @@ export class DroneCardComponent implements OnInit {
 
   identify(): void {
     console.log(this.droneData.name);
-    this.droneService.identifyDrone(this.droneData.name).subscribe();
+    let identifyCommand = {
+      droneURI: this.droneData.name,
+      command: Command.Identify
+      };
+    this.droneService.identifyDrone(identifyCommand).subscribe();
   }
 
   startMission(): void {
+    // TODO: Disable button if drone is already flying or if drone battery is low (<30%)
     let startMissionLetter: string;
     startMissionLetter = "s";
-    this.droneService.startMission(startMissionLetter).subscribe();
+    let startMissionCommand = {
+      droneURI: this.droneData.name,
+      command: Command.StartMission
+      };
+    this.droneService.startMission(startMissionCommand).subscribe();
   }
 
   land(): void {
-    let land: string;
-    land = "c";
-    this.droneService.landDrone(land).subscribe();
+    let landMissionLetter: string;
+    landMissionLetter = "s";
+    let landMissionCommand = {
+      droneURI: this.droneData.name,
+      command: Command.StartMission
+      };
+    this.droneService.landDrone(landMissionCommand).subscribe();
   }
 
 

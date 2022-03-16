@@ -5,6 +5,7 @@ from threading import Thread
 from typing import Union
 from cflib.crazyflie import Crazyflie
 from message import Message
+from message import CommandStruct
 
 
 class AppChannel:
@@ -32,6 +33,7 @@ class AppChannel:
 
         self._cf.connection_lost.add_callback(self.connectionLost)
 
+        # TODO What to do when we receive a packet
         self._cf.appchannel.packet_received.add_callback(
             self._app_packet_received)
 
@@ -67,11 +69,13 @@ class AppChannel:
 
         print('Connection to %s lost: %s' % (self.uri, msg))
 
-    def sendMessage(self, message: Message) -> None:
-
+    def sendMessage(self, command: str) -> None:
+        #TODO Send all kinds of messages to the drones
         print('in AppChannel send message')
-        command = 'onLed'
-        self._cf.appchannel.send_packet(struct.pack("<B", bool(command)))
+        print(command)
+        print(struct.pack("<c", command.encode('utf-8')))
+        # command = 'onLed'
+        self._cf.appchannel.send_packet(struct.pack("<c", command.encode('utf-8')))
 
     def closeClient(self) -> None:
         self._cf.close_link()

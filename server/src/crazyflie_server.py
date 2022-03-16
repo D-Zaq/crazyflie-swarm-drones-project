@@ -7,6 +7,7 @@ from cflib.crtp.radiodriver import RadioManager
 from appchannel import AppChannel
 from singleton import Singleton
 from message import Message
+import re
 
 
 class CrazyflieServer(metaclass=Singleton):
@@ -26,11 +27,11 @@ class CrazyflieServer(metaclass=Singleton):
     @staticmethod
     def startServer():
         cflib.crtp.init_drivers(enable_debug_driver=False)
-        # while not CrazyflieServer.isCrazyradioConnected() and \
-        #         CrazyflieServer.running:
-        #     print(
-        #         'CrazyradioPA is not connected. Retrying in 5 seconds.')
-        #     time.sleep(5)
+        while not CrazyflieServer.isCrazyradioConnected() and \
+                CrazyflieServer.running:
+            print(
+                'CrazyradioPA is not connected. Retrying in 5 seconds.')
+            time.sleep(5)
 
         if not CrazyflieServer.running:
             return
@@ -88,20 +89,20 @@ class CrazyflieServer(metaclass=Singleton):
         print('connect')
 
     @staticmethod
-    def sendMessage(uri):
-
+    def sendCommand(command):
+        #TODO Send all kinds of messages to the drones
         print('in Crazyflie server send message')
+        commandStr = command.decode("utf-8")
+        commandStr = re.sub('[}"{]', '', commandStr)
+        droneURI = commandStr.split(',')[0][9:35]
+        commandAction = commandStr[-1]
         for drone in CrazyflieServer.drones:
-            uriString = 'b\'' + str(drone.uri) + '\''
+            uriString = str(drone.uri)
             # print('seeeeeeeeeee', uriString, '=========', str(uri))
-            if uriString == str(uri):
+            print(uriString)
+            if uriString == droneURI:
                 targetDrone = drone
                 print(
                     '======================> Sending message to drone : ', targetDrone.uri)
 
-                targetDrone.sendMessage(Message(
-                    type="onLed",
-                    data={
-                        "name": targetDrone.uri
-                    }
-                ))
+                targetDrone.sendMessage(commandAction) #TODO: send message to the drone send only the command and forget the droneURI

@@ -36,3 +36,15 @@ export const DRONE_2: Drone = {
     battery: 100,
     ledOn: false,
 };
+
+export enum Command
+{
+    Identify = "i",
+    StartMission = "s",
+    Land = "c"
+}
+
+export interface CommandStruct {
+    droneURI: string;
+    command: Command;
+}
