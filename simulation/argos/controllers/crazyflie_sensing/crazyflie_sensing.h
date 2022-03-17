@@ -31,6 +31,9 @@
 /* Definitions for random number generation */
 #include <argos3/core/utility/math/rng.h>
 
+#include <stdlib.h> 
+#include <time.h> 
+
 /*
  * All the ARGoS stuff in the 'argos' namespace.
  * With this statement, you save typing argos:: every time.
@@ -59,6 +62,12 @@ public:
    int connectServer();
 
    char readBuffer();
+
+   void CheckState();
+
+   void Explore();
+
+   int Randomize();
 
    /*
     * This function is called once every time step.
@@ -122,6 +131,13 @@ private:
 
    int sock;
    bool flying;
+   bool firstTime;
+   int state;
+   int explore_state;
+   CVector3 lastPositionL;
+   CVector3 lastPositionR;
+   CVector3 lastPositionB;
+   CVector3 lastPositionF;
 };
 
 #endif

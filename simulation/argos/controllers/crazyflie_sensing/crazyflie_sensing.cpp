@@ -114,6 +114,22 @@ char CCrazyflieSensing::readBuffer(){
    return command;
 }
 
+void CCrazyflieSensing::CheckState(){
+   char command = readBuffer();
+
+   switch (command){
+      case 's':
+         this->state = 1;
+         break;
+      case 'c':
+         this->state = 3;
+         break;
+      default:
+         break;
+   }
+}
+
+
 /****************************************
 LOOP
 ****************************************/
@@ -123,85 +139,32 @@ void CCrazyflieSensing::ControlStep() {
    // For now: 
    // 'e' = empty, 's' = start aka takeoff, 'c' = stop aka land
 
-   int nInitSteps = 10;
-   int nTotalSteps = 400;
-   
-   char command = readBuffer();
+   CheckState();
 
-   
-   if(command == 's' && (m_uiCurrentStep < nInitSteps)){
-      TakeOff();
-      m_cInitialPosition = m_pcPos->GetReading().Position;
-      this->flying = true;
-   }
-   else if(command == 'c' && this->flying){
-      Land();
-      this->flying = false;
-   }
-   else if(this->flying){
-      // Square pattern
-      CVector3 trans(0.0f, 0.0f, 0.0f);
-      if ( (m_uiCurrentStep - nInitSteps) < nTotalSteps/4 ) {
-         trans.SetX(1.0f);
-      }
-      else if ( (m_uiCurrentStep - nInitSteps) < 2*nTotalSteps/4 ) {
-         trans.SetY(1.0f);
-      }
-      else if ( (m_uiCurrentStep - nInitSteps) < 3*nTotalSteps/4 ) {
-         trans.SetX(-1.0f);
-      }
-      else {
-         trans.SetY(-1.0f);
-      }
-      CVector3 currentPosition = m_pcPos->GetReading().Position;
-      CVector3 relativePositionCommand = (m_cInitialPosition + trans) - currentPosition; 
-      
-      m_pcPropellers->SetRelativePosition(relativePositionCommand);
-      /*CVector3 trans(0.0f, 0.0f, 0.0f);
-      trans.SetX(1.0f);
-      trans.SetY(1.0f);
-      CVector3 currentPosition = m_pcPos->GetReading().Position;
-      CVector3 relativePositionCommand = (m_cInitialPosition + trans) - currentPosition; 
-      
-      m_pcPropellers->SetRelativePosition(relativePositionCommand);*/
-   }
-   else{
-   }
-   
-   
-   // Dummy behavior: takeoff for 10 steps, 
-   // then moves in a square shape for 200 steps then lands.
+   switch(this->state){
+      case 1:
+         if(!this->flying){
+            TakeOff();
+            this->flying = true;
+            this->firstTime = true;
+            m_cInitialPosition = m_pcPos->GetReading().Position;
+         }
+         if(((m_pcPos->GetReading().Position).GetZ()) > 0.8){
+            this->state = 2;
+         }
+      case 2:
+         if(this->state == 2){
+            Explore();
+         }
+         break;
+      case 3:
+         if(this->flying){
+            Land();
+            this->flying = false;
+         }
+         break;
 
-   /*int nInitSteps = 10;
-   int nTotalSteps = 400;
-   // Takeoff
-   if ( m_uiCurrentStep < nInitSteps ) {
-      TakeOff();
-      m_cInitialPosition = m_pcPos->GetReading().Position;
-   } 
-   else if ((m_uiCurrentStep - nInitSteps) < nTotalSteps) {
-      // Square pattern
-      CVector3 trans(0.0f, 0.0f, 0.0f);
-      if ( (m_uiCurrentStep - nInitSteps) < nTotalSteps/4 ) {
-         trans.SetX(1.0f);
-      }
-      else if ( (m_uiCurrentStep - nInitSteps) < 2*nTotalSteps/4 ) {
-         trans.SetY(1.0f);
-      }
-      else if ( (m_uiCurrentStep - nInitSteps) < 3*nTotalSteps/4 ) {
-         trans.SetX(-1.0f);
-      }
-      else {
-         trans.SetY(-1.0f);
-      }
-      CVector3 currentPosition = m_pcPos->GetReading().Position;
-      CVector3 relativePositionCommand = (m_cInitialPosition + trans) - currentPosition; 
-      
-      m_pcPropellers->SetRelativePosition(relativePositionCommand);
    }
-   else {
-      Land();
-   }*/
 
    // Print current position.
    LOG << "Position (x,y,z) = (" << m_pcPos->GetReading().Position.GetX() << ","
@@ -226,10 +189,124 @@ void CCrazyflieSensing::ControlStep() {
    }
 
    // Increase step counter
-   if(command != 'e'){
-      m_uiCurrentStep++;
-   }
+
+}
+
+/****************************************/
+/****************************************/
+
+void CCrazyflieSensing::Explore(){
+   //CVector3 cPos = m_pcPos->GetReading().Position;
+   CCI_CrazyflieDistanceScannerSensor::TReadingsMap sDistRead = 
+      m_pcDistance->GetReadingsMap();
+   auto iterDistRead = sDistRead.begin();
+   auto front = (iterDistRead++)->second;
+   auto left = (iterDistRead++)->second;
+   auto back = (iterDistRead++)->second;
+   auto right = (iterDistRead)->second;
+
+   front = (front == -2) ? 500 : front;
+   left = (left == -2) ? 500 : left;
+   back = (back == -2) ? 500 : back;
+   right = (right == -2) ? 500 : right;
+
+   CVector3 trans(0.0f, 0.0f, 0.0f);
    
+   // if(this->firstTime){
+   //    trans.SetX(5.0f);
+   //    m_pcPropellers->SetAbsolutePosition(m_cInitialPosition + trans);
+   //    this->firstTime = false;
+   // }
+   
+   if (left < 100){
+      if (left < 100 && left > 90){
+         lastPositionL = m_pcPos->GetReading().Position;;
+      }
+      
+      trans.SetX(-0.3f);
+      trans.SetY(-1.0f);
+      //trans.SetZ(2.0f);
+      float z = ((lastPositionL.GetX()+lastPositionL.GetY()) == 0) ? 2.0 : lastPositionL.GetZ();
+      trans.SetZ(z);
+      CVector3 move = lastPositionL + trans;
+      m_pcPropellers->SetAbsolutePosition(move);
+      LOGERR << "Target Left: " << move << std::endl;
+
+   }
+
+   if(front < 100){
+      if (front < 100 && front > 90){
+         lastPositionF = m_pcPos->GetReading().Position;;
+      }
+      trans.SetY(0.3f);
+      trans.SetX(-1.0f);
+      //trans.SetZ(2.0f);
+      float z = ((lastPositionF.GetX()+lastPositionF.GetY()) == 0) ? 2.0 : lastPositionF.GetZ();
+      trans.SetZ(z);
+      CVector3 move = lastPositionF + trans;
+      m_pcPropellers->SetAbsolutePosition(move);
+      LOGERR << "Target Front: " << move << std::endl;
+   }
+
+   if(right < 100){
+      if (right < 100 && right > 90){
+         lastPositionR = m_pcPos->GetReading().Position;;
+      }
+      trans.SetX(0.3f);
+      trans.SetY(1.0f);
+      //trans.SetZ(2.0f);
+      float z = ((lastPositionR.GetX()+lastPositionR.GetY()) == 0) ? 2.0 : lastPositionR.GetZ();
+      trans.SetZ(z);
+      CVector3 move = lastPositionR + trans;
+      m_pcPropellers->SetAbsolutePosition(move);
+      LOGERR << "Target Right: " << move << std::endl;
+   }
+
+   if(back < 100){
+      if (back < 100 && back > 95){
+         lastPositionB = m_pcPos->GetReading().Position;;
+      }
+      trans.SetX(1.0f);
+      trans.SetY(-1.3f);
+      //trans.SetZ(2.0f);
+      float z = ((lastPositionB.GetX()+lastPositionB.GetY()) == 0) ? 2.0 : lastPositionB.GetZ();
+      trans.SetZ(z);
+      CVector3 move = lastPositionB + trans;
+      m_pcPropellers->SetAbsolutePosition(move);
+      LOGERR << "Target back: " << move << std::endl;
+   }
+
+   if((front > 100) && (left > 100) && (back > 100) && (right > 100)){
+      int transValueX = Randomize();
+      int transValueY = Randomize();
+
+      // LOGERR << "Random value X: " << transValueX << std::endl;
+      // LOGERR << "Random value Y: " << transValueY << std::endl;
+
+      CVector3 cPos = m_pcPos->GetReading().Position;
+      trans.SetX((static_cast<float>(transValueX)/2.0));
+      trans.SetY((static_cast<float>(transValueY)/2.0));
+      //trans.SetX(-1.0f);
+      //trans.SetY(-1.0f);
+      m_pcPropellers->SetAbsolutePosition(cPos + trans);
+      
+   }
+}
+
+/****************************************/
+/****************************************/
+
+int CCrazyflieSensing::Randomize(){
+   int value = 0;
+   srand(time(NULL));
+   int number = rand() % 10 + 1;
+   if((number % 2) == 0){
+      value = 1;
+   }
+   else{
+      value = -1;
+   }
+   return value;
 }
 
 /****************************************/
@@ -237,6 +314,7 @@ void CCrazyflieSensing::ControlStep() {
 
 bool CCrazyflieSensing::TakeOff() {
    CVector3 cPos = m_pcPos->GetReading().Position;
+   LOGERR << "Take off coords: " << cPos << std::endl;
    if(Abs(cPos.GetZ() - 2.0f) < 0.01f) return false;
    cPos.SetZ(2.0f);
    m_pcPropellers->SetAbsolutePosition(cPos);
@@ -251,6 +329,7 @@ bool CCrazyflieSensing::Land() {
    if(Abs(cPos.GetZ()) < 0.01f) return false;
    cPos.SetZ(0.0f);
    m_pcPropellers->SetAbsolutePosition(cPos);
+   LOGERR << "CPOS: " << cPos << std::endl;
    return true;
 }
 
