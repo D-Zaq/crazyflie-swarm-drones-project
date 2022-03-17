@@ -11,6 +11,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  width: 90%;
 }
 
 .button {
@@ -18,11 +19,12 @@
   border-radius: 5rem;
   margin-top: 1rem;
   cursor: pointer;
-  background-color: inherit;
+  background-color: rgba($color: rgb(118, 233, 162), $alpha: 0.25);
 }
 
-mat-icon {
+.icon {
   color: invert($color: #000000);
+  font-size: large;
 }
 
 .wrapper {

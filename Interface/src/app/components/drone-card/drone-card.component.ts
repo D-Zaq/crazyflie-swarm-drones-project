@@ -1,6 +1,6 @@
 import { outputAst } from '@angular/compiler';
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { Drone, DRONE_1 } from 'src/app/objects/drones';
+import {Drone, DRONE_1} from 'src/app/objects/drones';
 import { DronesService } from 'src/app/services/drones/drones.service';
 
 @Component({
@@ -11,7 +11,6 @@ import { DronesService } from 'src/app/services/drones/drones.service';
 export class DroneCardComponent implements OnInit {
 
   @Input() droneData: Drone = DRONE_1;
-
   constructor(public droneService:DronesService) { }
 
   ngOnInit(): void {

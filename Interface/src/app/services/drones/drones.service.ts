@@ -5,7 +5,20 @@ import 'rxjs/add/operator/catch';
 import {API_URL} from '../../env';
 // import {IDrone} from '../../objects/drones';
 
-type ServerLog = { log: string; timestamp: number;};
+type ServerLog = { 
+  log: string; 
+  timestamp: number;
+};
+
+type SimDrone = { 
+  name: string;
+  speed: string;
+  battery: string;
+  xPosition: string;
+  yPosition: string;
+  zPosition: string;
+  angle: string;
+};
 
 @Injectable({
   providedIn: 'root'
@@ -13,6 +26,7 @@ type ServerLog = { log: string; timestamp: number;};
 export class DronesService {
 
   // constructor() { }
+  public isSimulation = false;
 
   serverAddress = "http://localhost:5000";
   crazyflieServerAddress = "http://localhost:5000/crazyflie";
@@ -67,7 +81,7 @@ export class DronesService {
   }
 
   getData() {
-    return this.http.get<any>(this.argosDataAddress)
+    return this.http.get<SimDrone>(this.argosDataAddress)
       .catch(DronesService._handleError);
   }
 

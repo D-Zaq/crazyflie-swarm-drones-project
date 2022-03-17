@@ -27,7 +27,7 @@ CCrazyflieSensing::CCrazyflieSensing() : m_pcDistance(NULL),
                                          m_pcPos(NULL),
                                          m_pcBattery(NULL),
                                          m_uiCurrentStep(0),
-                                         drone_data_("Drone_2") {}
+                                         drone_data_("Sim_Drone_1") {}
 
 int sock_ = 0;
 bool flying = false;
@@ -133,9 +133,9 @@ LOOP
 
 void CCrazyflieSensing::ControlStep()
 {
-   //TODO: Different states
-   // For now:
-   // 'e' = empty, 's' = start aka takeoff, 'c' = stop aka land
+   // TODO: Different states
+   //  For now:
+   //  'e' = empty, 's' = start aka takeoff, 'c' = stop aka land
 
    int nInitSteps = 10;
    int nTotalSteps = 400;
@@ -181,8 +181,8 @@ void CCrazyflieSensing::ControlStep()
       trans.SetX(1.0f);
       trans.SetY(1.0f);
       CVector3 currentPosition = m_pcPos->GetReading().Position;
-      CVector3 relativePositionCommand = (m_cInitialPosition + trans) - currentPosition; 
-      
+      CVector3 relativePositionCommand = (m_cInitialPosition + trans) - currentPosition;
+
       m_pcPropellers->SetRelativePosition(relativePositionCommand);*/
    }
    else
@@ -198,7 +198,7 @@ void CCrazyflieSensing::ControlStep()
    if ( m_uiCurrentStep < nInitSteps ) {
       TakeOff();
       m_cInitialPosition = m_pcPos->GetReading().Position;
-   } 
+   }
    else if ((m_uiCurrentStep - nInitSteps) < nTotalSteps) {
       // Square pattern
       CVector3 trans(0.0f, 0.0f, 0.0f);
@@ -215,8 +215,8 @@ void CCrazyflieSensing::ControlStep()
          trans.SetY(-1.0f);
       }
       CVector3 currentPosition = m_pcPos->GetReading().Position;
-      CVector3 relativePositionCommand = (m_cInitialPosition + trans) - currentPosition; 
-      
+      CVector3 relativePositionCommand = (m_cInitialPosition + trans) - currentPosition;
+
       m_pcPropellers->SetRelativePosition(relativePositionCommand);
    }
    else {
@@ -226,9 +226,13 @@ void CCrazyflieSensing::ControlStep()
    // Print current position.
    Vec4 position_vec4 = Vec4(m_pcPos->GetReading().Position.GetX(), m_pcPos->GetReading().Position.GetY(), m_pcPos->GetReading().Position.GetZ());
 
-   LOG << "Position (x,y,z) = (" << m_pcPos->GetReading().Position.GetX() << ","
+   const auto &orientation = m_pcPos->GetReading().Orientation;
+   argos::CRadians yaw, y_angle, x_angle;
+   orientation.ToEulerAngles(yaw, y_angle, x_angle);
+
+   LOG << "Position (x,y,z) and yaw = (" << m_pcPos->GetReading().Position.GetX() << ","
        << m_pcPos->GetReading().Position.GetY() << ","
-       << m_pcPos->GetReading().Position.GetZ() << ")" << std::endl
+       << m_pcPos->GetReading().Position.GetZ() << ") and " << yaw.GetValue() << std::endl
        << m_uiCurrentStep << std::endl;
 
    // Print current battery level
@@ -238,12 +242,6 @@ void CCrazyflieSensing::ControlStep()
    const CCI_BatterySensor::SReading &sBatRead = m_pcBattery->GetReading();
    LOG << "Battery level: " << sBatRead.AvailableCharge << std::endl;
 
-   drone_data_.update(static_cast<std::float_t>(battery), position_vec4);
-
-   if (command == 'i' && this->flying)
-   {
-      SendCommand(drone_data_.encode());
-   }
    // Look here for documentation on the distance sensor: /root/argos3/src/plugins/robots/crazyflie/control_interface/ci_crazyflie_distance_scanner_sensor.h
    // Read and print distance sensor measurements
    CCI_CrazyflieDistanceScannerSensor::TReadingsMap sDistRead =
@@ -257,6 +255,12 @@ void CCrazyflieSensing::ControlStep()
       LOG << "Right dist: " << (iterDistRead)->second << std::endl;
    }
 
+   drone_data_.update(static_cast<std::float_t>(battery), position_vec4, static_cast<float_t>(yaw.GetValue()));
+
+   if (command == 'i' && this->flying)
+   {
+      SendCommand(drone_data_.encode());
+   }
    // Increase step counter
    if (command != 'e')
    {

@@ -11,6 +11,7 @@ private:
     std::float_t speed_;
     std::float_t battery_;
     Vec4 pos_;
+    float_t yaw_;
 
 public:
     explicit DroneData(std::string name);
@@ -19,7 +20,7 @@ public:
 
     const std::string &get_name() const { return name_; }
 
-    void update(std::float_t battery, const Vec4 &pos);
+    void update(std::float_t battery, const Vec4 &pos, const float_t &yaw);
 
     bool isFlying() const { return flying_; }
 

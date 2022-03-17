@@ -30,7 +30,6 @@ export class LogsComponent implements OnInit {
       .subscribe(()=>this.droneService.getLogs().subscribe(res => {
         this.logs = [];
         for(let i=0; res.length; i++){
-          console.log(new Date((res[i].timestamp-4) * 1000))
           this.logs.unshift({
             date: new Date(res[i].timestamp * 1000).toString(),
             message: res[i].log,
