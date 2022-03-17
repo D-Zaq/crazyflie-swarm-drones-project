@@ -31,7 +31,7 @@
 /* Definitions for random number generation */
 #include <argos3/core/utility/math/rng.h>
 
-#include "drone_data.hpp"
+#include "drone_data.h"
 /*
  * All the ARGoS stuff in the 'argos' namespace.
  * With this statement, you save typing argos:: every time.
@@ -128,5 +128,4 @@ private:
 };
 
 #endif
-
 

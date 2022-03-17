@@ -18,6 +18,10 @@ type SimDrone = {
   yPosition: string;
   zPosition: string;
   angle: string;
+  frontDistance: string;
+  backDistance: string;
+  leftDistance: string;
+  rightDistance: string;
 };
 
 @Injectable({

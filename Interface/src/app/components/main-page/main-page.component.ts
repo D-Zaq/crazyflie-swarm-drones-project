@@ -22,7 +22,7 @@ export class MainPageComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    interval(10000)
+    interval(1000)
       .pipe(
         startWith(0),
         takeUntil(this.unsubscribe$),
@@ -35,6 +35,10 @@ export class MainPageComponent implements OnInit {
           this.simDrones[0].yPosition = res.yPosition;
           this.simDrones[0].zPosition = res.zPosition;
           this.simDrones[0].angle = res.angle;
+          this.simDrones[0].frontDistance = res.frontDistance;
+          this.simDrones[0].backDistance = res.backDistance;
+          this.simDrones[0].leftDistance = res.leftDistance;
+          this.simDrones[0].rightDistance = res.rightDistance;
         }
         else if(res.name == this.simDrones[1].identifier){
           this.simDrones[1].speed = res.speed;
@@ -43,6 +47,10 @@ export class MainPageComponent implements OnInit {
           this.simDrones[1].yPosition = res.yPosition;
           this.simDrones[1].zPosition = res.zPosition;
           this.simDrones[1].angle = res.angle;
+          this.simDrones[1].frontDistance = res.frontDistance;
+          this.simDrones[1].backDistance = res.backDistance;
+          this.simDrones[1].leftDistance = res.leftDistance;
+          this.simDrones[1].rightDistance = res.rightDistance;
         } 
       }));
   }

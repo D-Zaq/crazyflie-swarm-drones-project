@@ -5,6 +5,8 @@
 #include <arpa/inet.h>
 #include <unistd.h>
 #include <string.h>
+#include "sensor_distance.h"
+
 #define PORT 8080
 
 /* Include the controller definition */
@@ -142,7 +144,7 @@ void CCrazyflieSensing::ControlStep()
 
    char command = readBuffer();
 
-   if (command == 's' && (m_uiCurrentStep < nInitSteps))
+   if (command == 's')
    {
       TakeOff();
       m_cInitialPosition = m_pcPos->GetReading().Position;
@@ -247,15 +249,24 @@ void CCrazyflieSensing::ControlStep()
    CCI_CrazyflieDistanceScannerSensor::TReadingsMap sDistRead =
        m_pcDistance->GetReadingsMap();
    auto iterDistRead = sDistRead.begin();
+
+   SensorDistance sensorDistance{};
+
    if (sDistRead.size() == 4)
    {
+      sensorDistance = {
+          static_cast<std::uint16_t>((iterDistRead++)->second),
+          static_cast<std::uint16_t>((iterDistRead++)->second),
+          static_cast<std::uint16_t>((iterDistRead++)->second),
+          static_cast<std::uint16_t>((iterDistRead++)->second)};
+
       LOG << "Front dist: " << (iterDistRead++)->second << std::endl;
       LOG << "Left dist: " << (iterDistRead++)->second << std::endl;
       LOG << "Back dist: " << (iterDistRead++)->second << std::endl;
       LOG << "Right dist: " << (iterDistRead)->second << std::endl;
    }
 
-   drone_data_.update(static_cast<std::float_t>(battery), position_vec4, static_cast<float_t>(yaw.GetValue()));
+   drone_data_.update(static_cast<std::float_t>(battery), position_vec4, static_cast<float_t>(yaw.GetValue()), sensorDistance);
 
    if (command == 'i' && this->flying)
    {

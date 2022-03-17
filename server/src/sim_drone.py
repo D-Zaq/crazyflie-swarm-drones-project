@@ -9,3 +9,7 @@ class SimDrone(TypedDict):
     yPosition: str
     zPosition: str
     angle: str
+    frontDistance: str
+    backDistance: str
+    leftDistance: str
+    rightDistance: str

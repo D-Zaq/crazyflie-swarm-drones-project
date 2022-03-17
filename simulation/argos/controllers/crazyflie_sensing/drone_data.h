@@ -1,7 +1,8 @@
 
 #include "Vec4.hpp"
-#include <cmath>
-#include <string>
+#include "sensor_distance.h"
+// #include <cmath>
+// #include <string>
 
 class DroneData
 {
@@ -12,6 +13,7 @@ private:
     std::float_t battery_;
     Vec4 pos_;
     float_t yaw_;
+    SensorDistance sensorDistance_;
 
 public:
     explicit DroneData(std::string name);
@@ -20,7 +22,7 @@ public:
 
     const std::string &get_name() const { return name_; }
 
-    void update(std::float_t battery, const Vec4 &pos, const float_t &yaw);
+    void update(std::float_t battery, const Vec4 &pos, const float_t &yaw, const SensorDistance &sensorDistance);
 
     bool isFlying() const { return flying_; }
 

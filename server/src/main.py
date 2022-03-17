@@ -72,13 +72,18 @@ def handleArgosDataPolling():
     # string = string[-10:]
     data = string.split()
     simDrone: SimDrone = SimDrone(
-        name=data[-7],
-        speed=data[-6],
-        battery=data[-5],
-        xPosition=data[-4],
-        yPosition=data[-3],
-        zPosition=data[-2],
-        angle=data[-1])
+        name=data[-11],
+        speed=data[-10],
+        battery=data[-9],
+        xPosition=data[-8],
+        yPosition=data[-7],
+        zPosition=data[-6],
+        angle=data[-5],
+        frontDistance=data[-4],
+        backDistance=data[-3],
+        leftDistance=data[-2],
+        rightDistance=data[-1]
+    )
     print("Sim Drone : ===>   ", simDrone)
 
     return jsonify(simDrone)

@@ -20,6 +20,10 @@ export interface Drone {
     yPosition: string;
     zPosition: string;
     angle: string;
+    frontDistance: string;
+    backDistance: string;
+    leftDistance: string;
+    rightDistance: string;
     ledOn: boolean;
     real?: boolean;
 }
@@ -45,6 +49,10 @@ export const DRONE_1: Drone = {
     yPosition: '0',
     zPosition: '0',
     angle: '0',
+    frontDistance: '2',
+    backDistance: '2',
+    leftDistance: '2',
+    rightDistance: '2',
     ledOn: false,
 };
 
@@ -57,6 +65,10 @@ export const DRONE_2: Drone = {
     yPosition: '0',
     zPosition: '0',
     angle: '0',
+    frontDistance: '2',
+    backDistance: '2',
+    leftDistance: '2',
+    rightDistance: '2',
     ledOn: false,
 };
 
@@ -69,6 +81,10 @@ export const SIM_DRONE_1: Drone = {
     yPosition: '0',
     zPosition: '0',
     angle: '0',
+    frontDistance: '2',
+    backDistance: '2',
+    leftDistance: '2',
+    rightDistance: '2',
     ledOn: false,
 };
 
@@ -81,5 +97,9 @@ export const SIM_DRONE_2: Drone = {
     yPosition: '0',
     zPosition: '0',
     angle: '0',
+    frontDistance: '2',
+    backDistance: '2',
+    leftDistance: '2',
+    rightDistance: '2',
     ledOn: false,
 };
