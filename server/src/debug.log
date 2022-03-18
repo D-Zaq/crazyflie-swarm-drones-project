@@ -7112,3 +7112,137 @@ BrokenPipeError: [Errno 32] Broken pipe
 2022-03-18 00:47:33,504 : INFO : 127.0.0.1 - - [18/Mar/2022 00:47:33] "GET /crazyflieData HTTP/1.1" 200 -
 2022-03-18 00:47:34,400 : INFO : 127.0.0.1 - - [18/Mar/2022 00:47:34] "GET /crazyflieData HTTP/1.1" 200 -
 2022-03-18 00:47:35,385 : INFO : 127.0.0.1 - - [18/Mar/2022 00:47:35] "GET /crazyflieData HTTP/1.1" 200 -
+2022-03-18 00:49:29,969 : INFO : Argos server launched
+2022-03-18 00:49:29,971 : INFO : Crazyflie server launched
+2022-03-18 00:49:29,972 : INFO : app launched
+2022-03-18 00:49:29,973 : INFO :  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+2022-03-18 00:49:30,260 : INFO : v0.53 dongle with serial N/A found
+2022-03-18 00:49:31,278 : INFO : Looking for devices....
+2022-03-18 00:49:31,279 : INFO : Initialized PRRT driver.
+2022-03-18 00:49:31,568 : INFO : v0.53 dongle with serial N/A found
+2022-03-18 00:49:32,754 : INFO : Looking for devices....
+2022-03-18 00:49:32,757 : INFO : Initialized PRRT driver.
+2022-03-18 00:49:33,042 : INFO : v0.53 dongle with serial N/A found
+2022-03-18 00:49:34,285 : INFO : Looking for devices....
+2022-03-18 00:49:34,287 : INFO : Initialized PRRT driver.
+2022-03-18 00:49:34,571 : INFO : v0.53 dongle with serial N/A found
+2022-03-18 00:49:35,780 : INFO : Looking for devices....
+2022-03-18 00:49:35,781 : INFO : Initialized PRRT driver.
+2022-03-18 00:49:35,783 : INFO : Callback->Connection initialized[radio://0/80/2M/E7E7E7E731]
+2022-03-18 00:49:36,066 : INFO : We are connected[radio://0/80/2M/E7E7E7E731], request connection setup
+2022-03-18 00:49:36,071 : INFO : Callback->Connection initialized[radio://0/80/2M/E7E7E7E731]
+2022-03-18 00:49:36,073 : INFO : Callback->Connected to [radio://0/80/2M/E7E7E7E731]
+2022-03-18 00:49:36,073 : INFO : We are connected[radio://0/80/2M/E7E7E7E731], request connection setup
+2022-03-18 00:49:36,076 : INFO : Callback->Connected to [radio://0/80/2M/E7E7E7E731]
+2022-03-18 00:49:36,225 : INFO : Protocol  version: 4
+2022-03-18 00:49:36,226 : INFO : Protocol  version: 4
+2022-03-18 00:49:36,257 : INFO : TOC for port [5] found in cache
+2022-03-18 00:49:36,264 : INFO : Log TOC finished updating
+2022-03-18 00:49:36,274 : INFO : TOC for port [5] found in cache
+2022-03-18 00:49:36,276 : INFO : Log TOC finished updating
+2022-03-18 00:49:36,281 : INFO : 6 memories found
+2022-03-18 00:49:36,283 : INFO : 6 memories found
+2022-03-18 00:49:36,537 : INFO : Memories finished updating
+2022-03-18 00:49:36,538 : INFO : Memories finished updating
+2022-03-18 00:49:38,088 : INFO : Have successfully started logging for id=1
+2022-03-18 00:49:38,089 : INFO : Have successfully started logging for id=1
+2022-03-18 00:49:38,090 : INFO : Have successfully started logging for id=2
+2022-03-18 00:49:38,093 : INFO : Have successfully started logging for id=2
+2022-03-18 00:49:38,094 : INFO : Have successfully started logging for id=3
+2022-03-18 00:49:38,095 : INFO : Have successfully started logging for id=3
+2022-03-18 00:49:40,699 : ERROR : Exception on /crazyflieData [GET]
+Traceback (most recent call last):
+  File "/home/sinda/.local/lib/python3.8/site-packages/flask/app.py", line 2073, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/sinda/.local/lib/python3.8/site-packages/flask/app.py", line 1518, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/sinda/.local/lib/python3.8/site-packages/flask_cors/extension.py", line 165, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "/home/sinda/.local/lib/python3.8/site-packages/flask/app.py", line 1516, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/sinda/.local/lib/python3.8/site-packages/flask/app.py", line 1502, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "main.py", line 102, in handleCFLogsPolling
+    drones = create_drones()
+  File "/home/sinda/Documents/INF3995-103/server/src/real_drone.py", line 58, in create_drones
+    drone['frontDistance'] = distanceLines[positionEndLine][1]
+IndexError: list index out of range
+2022-03-18 00:49:40,703 : INFO : 127.0.0.1 - - [18/Mar/2022 00:49:40] "[35m[1mGET /crazyflieData HTTP/1.1[0m" 500 -
+2022-03-18 00:49:42,663 : ERROR : Exception on /crazyflieData [GET]
+Traceback (most recent call last):
+  File "/home/sinda/.local/lib/python3.8/site-packages/flask/app.py", line 2073, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/sinda/.local/lib/python3.8/site-packages/flask/app.py", line 1518, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/sinda/.local/lib/python3.8/site-packages/flask_cors/extension.py", line 165, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "/home/sinda/.local/lib/python3.8/site-packages/flask/app.py", line 1516, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/sinda/.local/lib/python3.8/site-packages/flask/app.py", line 1502, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "main.py", line 102, in handleCFLogsPolling
+    drones = create_drones()
+  File "/home/sinda/Documents/INF3995-103/server/src/real_drone.py", line 58, in create_drones
+    drone['frontDistance'] = distanceLines[positionEndLine][1]
+IndexError: list index out of range
+2022-03-18 00:49:42,664 : INFO : 127.0.0.1 - - [18/Mar/2022 00:49:42] "[35m[1mGET /crazyflieData HTTP/1.1[0m" 500 -
+2022-03-18 00:49:43,976 : ERROR : Exception on /crazyflieData [GET]
+Traceback (most recent call last):
+  File "/home/sinda/.local/lib/python3.8/site-packages/flask/app.py", line 2073, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/sinda/.local/lib/python3.8/site-packages/flask/app.py", line 1518, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/sinda/.local/lib/python3.8/site-packages/flask_cors/extension.py", line 165, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "/home/sinda/.local/lib/python3.8/site-packages/flask/app.py", line 1516, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/sinda/.local/lib/python3.8/site-packages/flask/app.py", line 1502, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "main.py", line 102, in handleCFLogsPolling
+    drones = create_drones()
+  File "/home/sinda/Documents/INF3995-103/server/src/real_drone.py", line 58, in create_drones
+    drone['frontDistance'] = distanceLines[positionEndLine][1]
+IndexError: list index out of range
+2022-03-18 00:49:43,977 : INFO : 127.0.0.1 - - [18/Mar/2022 00:49:43] "[35m[1mGET /crazyflieData HTTP/1.1[0m" 500 -
+2022-03-18 00:51:11,951 : INFO : Argos server launched
+2022-03-18 00:51:11,952 : INFO : Crazyflie server launched
+2022-03-18 00:51:11,952 : INFO : app launched
+2022-03-18 00:51:11,954 : INFO :  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+2022-03-18 00:51:12,236 : INFO : v0.53 dongle with serial N/A found
+2022-03-18 00:51:13,258 : INFO : Looking for devices....
+2022-03-18 00:51:13,259 : INFO : Initialized PRRT driver.
+2022-03-18 00:51:13,548 : INFO : v0.53 dongle with serial N/A found
+2022-03-18 00:51:14,740 : INFO : Looking for devices....
+2022-03-18 00:51:14,742 : INFO : Initialized PRRT driver.
+2022-03-18 00:51:15,022 : INFO : v0.53 dongle with serial N/A found
+2022-03-18 00:51:16,275 : INFO : Looking for devices....
+2022-03-18 00:51:16,278 : INFO : Initialized PRRT driver.
+2022-03-18 00:51:16,564 : INFO : v0.53 dongle with serial N/A found
+2022-03-18 00:51:17,805 : INFO : Looking for devices....
+2022-03-18 00:51:17,807 : INFO : Initialized PRRT driver.
+2022-03-18 00:51:17,810 : INFO : Callback->Connection initialized[radio://0/80/2M/E7E7E7E731]
+2022-03-18 00:51:18,101 : INFO : We are connected[radio://0/80/2M/E7E7E7E731], request connection setup
+2022-03-18 00:51:18,108 : INFO : Callback->Connection initialized[radio://0/80/2M/E7E7E7E731]
+2022-03-18 00:51:18,111 : INFO : We are connected[radio://0/80/2M/E7E7E7E731], request connection setup
+2022-03-18 00:51:18,114 : INFO : Callback->Connected to [radio://0/80/2M/E7E7E7E731]
+2022-03-18 00:51:18,118 : INFO : Callback->Connected to [radio://0/80/2M/E7E7E7E731]
+2022-03-18 00:51:18,143 : INFO : Protocol  version: 4
+2022-03-18 00:51:18,144 : INFO : Protocol  version: 4
+2022-03-18 00:51:18,162 : INFO : TOC for port [5] found in cache
+2022-03-18 00:51:18,162 : INFO : Log TOC finished updating
+2022-03-18 00:51:18,169 : INFO : TOC for port [5] found in cache
+2022-03-18 00:51:18,170 : INFO : Log TOC finished updating
+2022-03-18 00:51:18,174 : INFO : 6 memories found
+2022-03-18 00:51:18,175 : INFO : 6 memories found
+2022-03-18 00:51:18,393 : INFO : Memories finished updating
+2022-03-18 00:51:18,395 : INFO : Memories finished updating
+2022-03-18 00:51:20,115 : WARNING : No LogEntry to assign block to !!!
+2022-03-18 00:51:20,125 : INFO : Have successfully started logging for id=1
+2022-03-18 00:51:20,126 : INFO : Have successfully started logging for id=1
+2022-03-18 00:51:20,127 : INFO : Have successfully started logging for id=2
+2022-03-18 00:51:20,128 : INFO : Have successfully started logging for id=2
+2022-03-18 00:51:20,129 : INFO : Have successfully started logging for id=3
+2022-03-18 00:51:20,130 : INFO : Have successfully started logging for id=3
+2022-03-18 00:51:23,898 : INFO : 127.0.0.1 - - [18/Mar/2022 00:51:23] "GET /crazyflieData HTTP/1.1" 200 -
+2022-03-18 00:51:25,147 : INFO : 127.0.0.1 - - [18/Mar/2022 00:51:25] "GET /crazyflieData HTTP/1.1" 200 -
+2022-03-18 00:51:26,254 : INFO : 127.0.0.1 - - [18/Mar/2022 00:51:26] "GET /crazyflieData HTTP/1.1" 200 -

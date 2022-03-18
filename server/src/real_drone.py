@@ -55,10 +55,10 @@ def create_drones():
                 drone['zPosition'] = positionLines[positionEndLine][3]
                 drone['angle'] = 'None'
                 # if distanceLines[distanceEndLine][0] == uri1:
-                drone['frontDistance'] = distanceLines[positionEndLine][1]
-                drone['backDistance'] = distanceLines[positionEndLine][2]
-                drone['leftDistance'] = distanceLines[positionEndLine][4]
-                drone['rightDistance'] = distanceLines[positionEndLine][5]
+                drone['frontDistance'] = distanceLines[distanceEndLine][1]
+                drone['backDistance'] = distanceLines[distanceEndLine][2]
+                drone['leftDistance'] = distanceLines[distanceEndLine][4]
+                drone['rightDistance'] = distanceLines[distanceEndLine][5]
                 drone['state'] = 'None'
     
     # drones.append(drone)
