@@ -1,3 +1,4 @@
+import logging
 import socket
 from threading import Thread
 import threading
@@ -25,7 +26,7 @@ class ArgosServer(metaclass=Singleton):
 
     @staticmethod
     def startServer():
-        print(f"launching ARGoS")
+        logging.info(f"launching ARGoS")
         s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
         s.bind((ArgosServer.SOCKET_HOST, ArgosServer.SOCKET_PORT))
         s.listen()
@@ -37,14 +38,14 @@ class ArgosServer(metaclass=Singleton):
     def connectServ():
         while ArgosServer.running:
             if ArgosServer.accepted is False:
-                print("connecting to ARGoS")
+                logging.info("connecting to ARGoS")
                 ArgosServer.conn, addr = ArgosServer.server.accept()
-                print("==========================================accepted argos")
+                logging.info("********* ARGoS connected *********")
                 ArgosServer.accepted = True
 
             time.sleep(1)
 
     @staticmethod
     def sendCommand(command):
-        print("Sending command to ARGoS")
+        logging.info("Sending command to ARGoS")
         ArgosServer.conn.sendall(command.encode())

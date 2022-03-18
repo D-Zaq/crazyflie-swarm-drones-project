@@ -28,11 +28,25 @@
                     ></app-drone-card>
                   </div>
                 </ng-container>
-                <p *ngIf="!this.simDrones.length">No robot to display.</p>
               </div>
             </div>
           <!-- </div> -->
         </section> 
+
+        <div class="title">
+          <h1> Missions :</h1>
+        </div>
+
+        <!-- <div class="title">
+          <p> Ther is no drones in mission right now.</p>
+        </div> -->
+        
+        <div class="missions">
+          <svg width="300" height="200" #svg>
+            <rect width="40" height="50" x="50%" y="50%" style="fill:rgb(250, 250, 250);stroke-width:5;stroke:rgb(6, 53, 21);" />
+            <rect width="40" height="50" x="40%" y="50%" style="fill:rgb(240, 240, 247);stroke-width:5;stroke:rgb(6, 53, 21);" />
+          </svg>
+        </div>
 
         <div class="footer-item">
           <h2 class="team-name">Équipe 103</h2>
