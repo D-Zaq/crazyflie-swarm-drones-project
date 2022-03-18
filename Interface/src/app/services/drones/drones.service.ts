@@ -35,6 +35,7 @@ export class DronesService {
 
   serverAddress = "http://localhost:5000";
   crazyflieServerAddress = "http://localhost:5000/crazyflie";
+  cfDataServerAdress = "http://localhost:5000/crazyflieData";
   argosServerAddress = "http://localhost:5000/argos";
   argosDataAddress = "http://localhost:5000/argosData";
   logsAddress = "http://localhost:5000/logs";
@@ -97,6 +98,11 @@ export class DronesService {
 
   getData() {
     return this.http.get<ServerDrone>(this.argosDataAddress)
+      .catch(DronesService._handleError);
+  }
+
+  getCFData() {
+    return this.http.get<ServerDrone>(this.cfDataServerAdress)
       .catch(DronesService._handleError);
   }
 

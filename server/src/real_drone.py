@@ -59,7 +59,7 @@ def create_drones():
                 drone['backDistance'] = distanceLines[distanceEndLine][2]
                 drone['leftDistance'] = distanceLines[distanceEndLine][4]
                 drone['rightDistance'] = distanceLines[distanceEndLine][5]
-                drone['state'] = 'None'
+                drone['state'] = 'Connected'
     
     # drones.append(drone)
     return drone
