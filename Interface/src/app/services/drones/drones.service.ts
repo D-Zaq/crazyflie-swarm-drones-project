@@ -5,16 +5,39 @@ import 'rxjs/add/operator/catch';
 import {API_URL} from '../../env';
 // import {IDrone} from '../../objects/drones';
 
+type ServerLog = { 
+  log: string; 
+  timestamp: number;
+};
+
+type SimDrone = { 
+  name: string;
+  speed: string;
+  battery: string;
+  xPosition: string;
+  yPosition: string;
+  zPosition: string;
+  angle: string;
+  frontDistance: string;
+  backDistance: string;
+  leftDistance: string;
+  rightDistance: string;
+  state:string;
+};
+
 @Injectable({
   providedIn: 'root'
 })
 export class DronesService {
 
   // constructor() { }
+  public isSimulation = false;
 
   serverAddress = "http://localhost:5000";
   crazyflieServerAddress = "http://localhost:5000/crazyflie";
   argosServerAddress = "http://localhost:5000/argos";
+  argosDataAddress = "http://localhost:5000/argosData";
+  logsAddress = "http://localhost:5000/logs";
 
   constructor(private http: HttpClient) {
   }
@@ -60,5 +83,25 @@ export class DronesService {
         letter
         )
       .catch(DronesService._handleError)
+  }
+
+  fly(letter:string){
+    // this calls the communication service method with the needed parameters for request
+    return this.http
+      .post(
+        this.argosServerAddress,
+        letter
+        )
+      .catch(DronesService._handleError)
+  }
+
+  getData() {
+    return this.http.get<SimDrone>(this.argosDataAddress)
+      .catch(DronesService._handleError);
+  }
+
+  getLogs() {
+    return this.http.get<ServerLog[]>(this.logsAddress)
+      .catch(DronesService._handleError);
   }
 }

@@ -1,22 +1,37 @@
 <div class="content">
       <div class="layout">
         <section class="drones-section">
+          <div class="slider-padding">
+            <mat-slide-toggle (click)="this.onSliderClick()" [(ngModel)]="isSimulation" color="primary">Activate simulation mode</mat-slide-toggle>
+          </div>
+
           <div class="title">
             <h1> Drones :</h1>
           </div>
-          <div>
-            <div class="drones">
-              <ng-container *ngIf="this.drones.length">
+
+          <!-- <div class="common-padding"> -->
+            <div>
+              <div class="drones">
+                <ng-container *ngIf="this.realDrones.length && !isSimulation">
                   <div class="drones-cards">
                     <app-drone-card
                     [droneData]="drone"
-                    *ngFor="let drone of this.drones"
+                    *ngFor="let drone of this.realDrones"
                     ></app-drone-card>
                   </div>
-              </ng-container>
-              <p *ngIf="!this.drones.length">No robot to display.</p>
+                </ng-container>
+                <ng-container *ngIf="this.simDrones.length && isSimulation">
+                  <div class="drones-cards">
+                    <app-drone-card
+                    [droneData]="drone"
+                    *ngFor="let drone of this.simDrones"
+                    ></app-drone-card>
+                  </div>
+                </ng-container>
+                <p *ngIf="!this.simDrones.length">No robot to display.</p>
+              </div>
             </div>
-          </div>
+          <!-- </div> -->
         </section> 
 
         <div class="footer-item">

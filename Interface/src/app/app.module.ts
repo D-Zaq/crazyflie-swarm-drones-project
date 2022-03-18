@@ -9,12 +9,14 @@ import { DroneCardComponent } from './components/drone-card/drone-card.component
 import { MaterialModule } from './material.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { DronesService } from './services/drones/drones.service';
+import { LogsComponent } from './components/logs/logs.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     MainPageComponent,
-    DroneCardComponent
+    DroneCardComponent,
+    LogsComponent
   ],
   imports: [
     BrowserModule,
