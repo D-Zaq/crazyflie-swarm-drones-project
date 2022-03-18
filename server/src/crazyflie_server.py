@@ -1,3 +1,4 @@
+import logging
 import threading
 import time
 from threading import Thread
@@ -16,6 +17,7 @@ class CrazyflieServer(metaclass=Singleton):
     SECOND_DRONE_ADDRESS = 0xE7E7E7E732
     ADDRESSES = [FIRST_DRONE_ADDRESS, SECOND_DRONE_ADDRESS]
     MAX_DRONE_NUMBER = 2
+    # state = False
 
     @staticmethod
     def start() -> Thread:
@@ -35,7 +37,7 @@ class CrazyflieServer(metaclass=Singleton):
         if not CrazyflieServer.running:
             return
 
-        print(f"Successfully connected to CrazyradioPA")
+        # print(f"Successfully connected to CrazyradioPA")
         threading.Thread(target=CrazyflieServer.findNewDrones).start()
 
     @staticmethod
@@ -46,7 +48,7 @@ class CrazyflieServer(metaclass=Singleton):
                 interfaces = CrazyflieServer.scanAvailableInterfaces()
                 if len(interfaces) == 0 and \
                         nDrones == 0:
-                    print(
+                    logging.info(
                         f'No drones found nearby. Retrying in 5 seconds.')
                 for interface in interfaces:
                     CrazyflieServer.connectClient(interface)
@@ -71,7 +73,7 @@ class CrazyflieServer(metaclass=Singleton):
                 *available,
                 *cflib.crtp.scan_interfaces(address)
             ]
-        print(f'getting drones.................')
+        logging.info(f'getting drones.................')
         return available
 
     @staticmethod
@@ -85,18 +87,22 @@ class CrazyflieServer(metaclass=Singleton):
         drone = AppChannel()
         CrazyflieServer.drones.add(drone)
         drone.connect(interface[0])
-        print('connect')
+        logging.info('Crazyflie connect to client')
+        # if drone.connexionState:
+        #     CrazyflieServer.state = True
+        # else:
+        #     CrazyflieServer.state = False
 
     @staticmethod
     def sendMessage(uri):
 
-        print('in Crazyflie server send message')
+        logging.info('in Crazyflie server send message')
         for drone in CrazyflieServer.drones:
             uriString = 'b\'' + str(drone.uri) + '\''
             # print('seeeeeeeeeee', uriString, '=========', str(uri))
             if uriString == str(uri):
                 targetDrone = drone
-                print(
+                logging.info(
                     '======================> Sending message to drone : ', targetDrone.uri)
 
                 targetDrone.sendMessage(Message(
@@ -105,3 +111,10 @@ class CrazyflieServer(metaclass=Singleton):
                         "name": targetDrone.uri
                     }
                 ))
+    @staticmethod
+    def createDrone():
+        data = None
+        for drone in CrazyflieServer.drones:
+           data = drone.create_drones()
+        return data
+        

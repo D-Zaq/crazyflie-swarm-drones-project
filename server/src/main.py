@@ -17,7 +17,7 @@ from crazyflie_server import CrazyflieServer
 from argos_server2 import ArgosServer
 # from logs_handler import initializeLogging
 from log import ServerLog
-from real_drone import create_drones
+# from real_drone import create_drones
 from sim_drone import Drone
 
 # creating the Flask applicationError: While importing 'src.main', an ImportError was raised.
@@ -99,7 +99,11 @@ def handleLogsPolling():
 
 @app.route('/crazyflieData', methods=["GET"])
 def handleCFLogsPolling():
-    drones = create_drones()
+    drones = CrazyflieServer.createDrone()
+    # if CrazyflieServer.state:
+    #     drones['state'] = 'Connected'
+    # else:
+    #     drones['state'] = 'Disconnected'
     print('Drone physique : ====================> ', drones)
     return jsonify(drones)
 

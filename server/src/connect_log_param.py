@@ -1,17 +1,6 @@
 import csv
-import logging
-import os
-import time
-
-import cflib.crtp
-from cflib.crazyflie import Crazyflie
-from cflib.crazyflie.syncCrazyflie import SyncCrazyflie
-from cflib.utils import uri_helper
-
 from cflib.crazyflie.log import LogConfig
-from cflib.crazyflie.syncLogger import SyncLogger
 
-from real_drone import RealDrone
 
 
 
@@ -23,6 +12,7 @@ class ConnectLog:
         self.battery_state = None
         self.battery_level = None   
         self.distance = [0, 0, 0, 0, 0, 0] 
+        self.angle = None
 
 
     def log_dist_callback(self, timestamp, data, logconf):
@@ -61,10 +51,11 @@ class ConnectLog:
         self.position_estimate[0] = data['kalman.stateX']
         self.position_estimate[1] = data['kalman.stateY']
         self.position_estimate[2] = data['kalman.stateZ']
+        self.angle = data['stabilizer.yaw']
         print('[%d][%s][%s]: %s' % (timestamp, self.uri, logconf.name, data))
         with open ('position.csv', 'a') as csvfile :
             writer = csv.writer(csvfile , delimiter =',')
-            writer.writerow([self.uri, self.position_estimate[0], self.position_estimate[1] , self.position_estimate[2]])
+            writer.writerow([self.uri, self.position_estimate[0], self.position_estimate[1] , self.position_estimate[2], self.angle])
             csvfile.close ()
 
     def start_position_printing(self, cf) :
@@ -72,6 +63,7 @@ class ConnectLog:
         logconf.add_variable('kalman.stateX', 'float')
         logconf.add_variable('kalman.stateY', 'float')
         logconf.add_variable('kalman.stateZ', 'float')
+        logconf.add_variable('stabilizer.yaw', 'float')
         cf.log.add_config(logconf)
         if logconf.valid:
             logconf.data_received_cb.add_callback(self.log_pos_callback)

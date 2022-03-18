@@ -24,7 +24,7 @@ export interface Drone {
     backDistance: string;
     leftDistance: string;
     rightDistance: string;
-    state?: string;
+    state: string;
     ledOn: boolean;
     real?: boolean;
 }
@@ -54,6 +54,7 @@ export const DRONE_1: Drone = {
     backDistance: '2',
     leftDistance: '2',
     rightDistance: '2',
+    state: 'Disconnected',
     ledOn: false,
 };
 
@@ -70,6 +71,7 @@ export const DRONE_2: Drone = {
     backDistance: '2',
     leftDistance: '2',
     rightDistance: '2',
+    state: 'Disconnected',
     ledOn: false,
 };
 

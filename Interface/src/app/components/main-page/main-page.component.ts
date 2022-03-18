@@ -55,7 +55,7 @@ export class MainPageComponent implements OnInit {
           this.simDrones[1].state = res.state;
         } 
       }));
-      interval(500)
+      interval(800)
       .pipe(
         startWith(0),
         takeUntil(this.unsubscribe$),
