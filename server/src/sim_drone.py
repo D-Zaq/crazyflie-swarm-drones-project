@@ -1,7 +1,7 @@
 from typing import TypedDict
 
 
-class SimDrone(TypedDict):
+class Drone(TypedDict):
     name: str
     speed: str
     battery: str

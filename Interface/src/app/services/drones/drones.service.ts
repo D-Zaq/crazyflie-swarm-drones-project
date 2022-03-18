@@ -10,7 +10,7 @@ type ServerLog = {
   timestamp: number;
 };
 
-type SimDrone = { 
+type ServerDrone = { 
   name: string;
   speed: string;
   battery: string;
@@ -96,7 +96,7 @@ export class DronesService {
   }
 
   getData() {
-    return this.http.get<SimDrone>(this.argosDataAddress)
+    return this.http.get<ServerDrone>(this.argosDataAddress)
       .catch(DronesService._handleError);
   }
 

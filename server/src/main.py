@@ -16,7 +16,7 @@ from crazyflie_server import CrazyflieServer
 from argos_server2 import ArgosServer
 # from logs_handler import initializeLogging
 from log import ServerLog
-from sim_drone import SimDrone
+from sim_drone import Drone
 
 # creating the Flask applicationError: While importing 'src.main', an ImportError was raised.
 
@@ -71,7 +71,7 @@ def handleArgosDataPolling():
     # print("Striiiiinggg 00000 : =====> ", string[0])
     # string = string[-10:]
     data = string.split()
-    simDrone: SimDrone = SimDrone(
+    simDrone: Drone = Drone(
         name=data[-12],
         speed=data[-11],
         battery=data[-10],

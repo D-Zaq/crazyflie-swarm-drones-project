@@ -6181,3 +6181,274 @@ ConnectionResetError: [Errno 104] Connection reset by peer
 2022-03-17 22:41:53,752 : INFO : Initialized PRRT driver.
 2022-03-17 22:41:53,752 : INFO : Looking for devices....
 2022-03-17 22:41:53,753 : INFO : Initialized PRRT driver.
+2022-03-17 22:58:27,357 : INFO : Argos server launched
+2022-03-17 22:58:27,358 : INFO : Crazyflie server launched
+2022-03-17 22:58:27,359 : INFO : app launched
+2022-03-17 22:58:27,361 : INFO :  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+2022-03-17 22:58:27,368 : INFO : Looking for devices....
+2022-03-17 22:58:27,370 : INFO : Initialized PRRT driver.
+2022-03-17 22:58:27,374 : INFO : Looking for devices....
+2022-03-17 22:58:27,375 : INFO : Initialized PRRT driver.
+2022-03-17 22:58:27,378 : INFO : Looking for devices....
+2022-03-17 22:58:27,380 : INFO : Initialized PRRT driver.
+2022-03-17 22:58:27,383 : INFO : Looking for devices....
+2022-03-17 22:58:27,384 : INFO : Initialized PRRT driver.
+2022-03-17 22:58:32,389 : INFO : Looking for devices....
+2022-03-17 22:58:32,391 : INFO : Initialized PRRT driver.
+2022-03-17 22:58:32,392 : INFO : Looking for devices....
+2022-03-17 22:58:32,392 : INFO : Initialized PRRT driver.
+2022-03-17 22:58:32,393 : INFO : Looking for devices....
+2022-03-17 22:58:32,394 : INFO : Initialized PRRT driver.
+2022-03-17 22:58:32,394 : INFO : Looking for devices....
+2022-03-17 22:58:32,395 : INFO : Initialized PRRT driver.
+2022-03-17 22:58:35,703 : INFO : 127.0.0.1 - - [17/Mar/2022 22:58:35] "GET /argosData HTTP/1.1" 200 -
+2022-03-17 22:58:35,797 : INFO : 127.0.0.1 - - [17/Mar/2022 22:58:35] "GET /argosData HTTP/1.1" 200 -
+2022-03-17 22:58:35,893 : INFO : 127.0.0.1 - - [17/Mar/2022 22:58:35] "GET /argosData HTTP/1.1" 200 -
+2022-03-17 22:58:35,989 : INFO : 127.0.0.1 - - [17/Mar/2022 22:58:35] "GET /argosData HTTP/1.1" 200 -
+2022-03-17 22:58:36,566 : INFO : 127.0.0.1 - - [17/Mar/2022 22:58:36] "GET /argosData HTTP/1.1" 200 -
+2022-03-17 22:58:37,400 : INFO : Looking for devices....
+2022-03-17 22:58:37,400 : INFO : Initialized PRRT driver.
+2022-03-17 22:58:37,401 : INFO : Looking for devices....
+2022-03-17 22:58:37,401 : INFO : Initialized PRRT driver.
+2022-03-17 22:58:37,401 : INFO : Looking for devices....
+2022-03-17 22:58:37,401 : INFO : Initialized PRRT driver.
+2022-03-17 22:58:37,402 : INFO : Looking for devices....
+2022-03-17 22:58:37,402 : INFO : Initialized PRRT driver.
+2022-03-17 22:58:37,432 : INFO : 127.0.0.1 - - [17/Mar/2022 22:58:37] "POST /argos HTTP/1.1" 200 -
+2022-03-17 22:58:37,573 : INFO : 127.0.0.1 - - [17/Mar/2022 22:58:37] "GET /argosData HTTP/1.1" 200 -
+2022-03-17 22:58:38,563 : INFO : 127.0.0.1 - - [17/Mar/2022 22:58:38] "GET /argosData HTTP/1.1" 200 -
+2022-03-17 22:58:39,566 : INFO : 127.0.0.1 - - [17/Mar/2022 22:58:39] "GET /argosData HTTP/1.1" 200 -
+2022-03-17 22:58:40,565 : INFO : 127.0.0.1 - - [17/Mar/2022 22:58:40] "GET /argosData HTTP/1.1" 200 -
+2022-03-17 22:58:41,054 : INFO : 127.0.0.1 - - [17/Mar/2022 22:58:41] "POST /argos HTTP/1.1" 200 -
+2022-03-17 22:58:41,564 : INFO : 127.0.0.1 - - [17/Mar/2022 22:58:41] "GET /argosData HTTP/1.1" 200 -
+2022-03-17 22:58:42,405 : INFO : Looking for devices....
+2022-03-17 22:58:42,406 : INFO : Initialized PRRT driver.
+2022-03-17 22:58:42,407 : INFO : Looking for devices....
+2022-03-17 22:58:42,408 : INFO : Initialized PRRT driver.
+2022-03-17 22:58:42,409 : INFO : Looking for devices....
+2022-03-17 22:58:42,410 : INFO : Initialized PRRT driver.
+2022-03-17 22:58:42,411 : INFO : Looking for devices....
+2022-03-17 22:58:42,412 : INFO : Initialized PRRT driver.
+2022-03-17 22:58:42,569 : INFO : 127.0.0.1 - - [17/Mar/2022 22:58:42] "GET /argosData HTTP/1.1" 200 -
+2022-03-17 22:58:43,575 : INFO : 127.0.0.1 - - [17/Mar/2022 22:58:43] "GET /argosData HTTP/1.1" 200 -
+2022-03-17 22:58:44,565 : INFO : 127.0.0.1 - - [17/Mar/2022 22:58:44] "GET /argosData HTTP/1.1" 200 -
+2022-03-17 22:58:45,573 : INFO : 127.0.0.1 - - [17/Mar/2022 22:58:45] "GET /argosData HTTP/1.1" 200 -
+2022-03-17 22:58:46,572 : INFO : 127.0.0.1 - - [17/Mar/2022 22:58:46] "GET /argosData HTTP/1.1" 200 -
+2022-03-17 22:58:47,417 : INFO : Looking for devices....
+2022-03-17 22:58:47,418 : INFO : Initialized PRRT driver.
+2022-03-17 22:58:47,419 : INFO : Looking for devices....
+2022-03-17 22:58:47,420 : INFO : Initialized PRRT driver.
+2022-03-17 22:58:47,421 : INFO : Looking for devices....
+2022-03-17 22:58:47,422 : INFO : Initialized PRRT driver.
+2022-03-17 22:58:47,423 : INFO : Looking for devices....
+2022-03-17 22:58:47,424 : INFO : Initialized PRRT driver.
+2022-03-17 22:58:47,570 : INFO : 127.0.0.1 - - [17/Mar/2022 22:58:47] "GET /argosData HTTP/1.1" 200 -
+2022-03-17 22:58:48,575 : INFO : 127.0.0.1 - - [17/Mar/2022 22:58:48] "GET /argosData HTTP/1.1" 200 -
+2022-03-17 22:58:49,568 : INFO : 127.0.0.1 - - [17/Mar/2022 22:58:49] "GET /argosData HTTP/1.1" 200 -
+2022-03-17 22:58:50,574 : INFO : 127.0.0.1 - - [17/Mar/2022 22:58:50] "GET /argosData HTTP/1.1" 200 -
+2022-03-17 22:58:51,576 : INFO : 127.0.0.1 - - [17/Mar/2022 22:58:51] "GET /argosData HTTP/1.1" 200 -
+2022-03-17 22:58:52,429 : INFO : Looking for devices....
+2022-03-17 22:58:52,429 : INFO : Initialized PRRT driver.
+2022-03-17 22:58:52,433 : INFO : Looking for devices....
+2022-03-17 22:58:52,434 : INFO : Initialized PRRT driver.
+2022-03-17 22:58:52,434 : INFO : Looking for devices....
+2022-03-17 22:58:52,435 : INFO : Initialized PRRT driver.
+2022-03-17 22:58:52,436 : INFO : Looking for devices....
+2022-03-17 22:58:52,436 : INFO : Initialized PRRT driver.
+2022-03-17 22:58:52,571 : INFO : 127.0.0.1 - - [17/Mar/2022 22:58:52] "GET /argosData HTTP/1.1" 200 -
+2022-03-17 22:58:53,567 : INFO : 127.0.0.1 - - [17/Mar/2022 22:58:53] "GET /argosData HTTP/1.1" 200 -
+2022-03-17 22:58:54,576 : INFO : 127.0.0.1 - - [17/Mar/2022 22:58:54] "GET /argosData HTTP/1.1" 200 -
+2022-03-17 22:58:55,568 : INFO : 127.0.0.1 - - [17/Mar/2022 22:58:55] "GET /argosData HTTP/1.1" 200 -
+2022-03-17 22:58:56,566 : INFO : 127.0.0.1 - - [17/Mar/2022 22:58:56] "GET /argosData HTTP/1.1" 200 -
+2022-03-17 22:58:57,441 : INFO : Looking for devices....
+2022-03-17 22:58:57,441 : INFO : Initialized PRRT driver.
+2022-03-17 22:58:57,441 : INFO : Looking for devices....
+2022-03-17 22:58:57,441 : INFO : Initialized PRRT driver.
+2022-03-17 22:58:57,442 : INFO : Looking for devices....
+2022-03-17 22:58:57,442 : INFO : Initialized PRRT driver.
+2022-03-17 22:58:57,442 : INFO : Looking for devices....
+2022-03-17 22:58:57,443 : INFO : Initialized PRRT driver.
+2022-03-17 22:59:02,447 : INFO : Looking for devices....
+2022-03-17 22:59:02,447 : INFO : Initialized PRRT driver.
+2022-03-17 22:59:02,448 : INFO : Looking for devices....
+2022-03-17 22:59:02,448 : INFO : Initialized PRRT driver.
+2022-03-17 22:59:02,449 : INFO : Looking for devices....
+2022-03-17 22:59:02,449 : INFO : Initialized PRRT driver.
+2022-03-17 22:59:02,450 : INFO : Looking for devices....
+2022-03-17 22:59:02,450 : INFO : Initialized PRRT driver.
+2022-03-17 22:59:05,793 : ERROR : Exception on /argosData [GET]
+Traceback (most recent call last):
+  File "/home/zakaria/INF3995-GIT(officiel)/INF3995-103/server/flaskenv/lib/python3.8/site-packages/flask/app.py", line 2073, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/zakaria/INF3995-GIT(officiel)/INF3995-103/server/flaskenv/lib/python3.8/site-packages/flask/app.py", line 1518, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/zakaria/INF3995-GIT(officiel)/INF3995-103/server/flaskenv/lib/python3.8/site-packages/flask_cors/extension.py", line 165, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "/home/zakaria/INF3995-GIT(officiel)/INF3995-103/server/flaskenv/lib/python3.8/site-packages/flask/app.py", line 1516, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/zakaria/INF3995-GIT(officiel)/INF3995-103/server/flaskenv/lib/python3.8/site-packages/flask/app.py", line 1502, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "main.py", line 68, in handleArgosDataPolling
+    buffer = ArgosServer.conn.recv(80000)
+ConnectionResetError: [Errno 104] Connection reset by peer
+2022-03-17 22:59:05,793 : ERROR : Exception on /argosData [GET]
+Traceback (most recent call last):
+  File "/home/zakaria/INF3995-GIT(officiel)/INF3995-103/server/flaskenv/lib/python3.8/site-packages/flask/app.py", line 2073, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/zakaria/INF3995-GIT(officiel)/INF3995-103/server/flaskenv/lib/python3.8/site-packages/flask/app.py", line 1518, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/zakaria/INF3995-GIT(officiel)/INF3995-103/server/flaskenv/lib/python3.8/site-packages/flask_cors/extension.py", line 165, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "/home/zakaria/INF3995-GIT(officiel)/INF3995-103/server/flaskenv/lib/python3.8/site-packages/flask/app.py", line 1516, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/zakaria/INF3995-GIT(officiel)/INF3995-103/server/flaskenv/lib/python3.8/site-packages/flask/app.py", line 1502, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "main.py", line 75, in handleArgosDataPolling
+    name=data[-12],
+IndexError: list index out of range
+2022-03-17 22:59:05,793 : ERROR : Exception on /argosData [GET]
+Traceback (most recent call last):
+  File "/home/zakaria/INF3995-GIT(officiel)/INF3995-103/server/flaskenv/lib/python3.8/site-packages/flask/app.py", line 2073, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/zakaria/INF3995-GIT(officiel)/INF3995-103/server/flaskenv/lib/python3.8/site-packages/flask/app.py", line 1518, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/zakaria/INF3995-GIT(officiel)/INF3995-103/server/flaskenv/lib/python3.8/site-packages/flask_cors/extension.py", line 165, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "/home/zakaria/INF3995-GIT(officiel)/INF3995-103/server/flaskenv/lib/python3.8/site-packages/flask/app.py", line 1516, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/zakaria/INF3995-GIT(officiel)/INF3995-103/server/flaskenv/lib/python3.8/site-packages/flask/app.py", line 1502, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "main.py", line 75, in handleArgosDataPolling
+    name=data[-12],
+IndexError: list index out of range
+2022-03-17 22:59:05,793 : ERROR : Exception on /argosData [GET]
+Traceback (most recent call last):
+  File "/home/zakaria/INF3995-GIT(officiel)/INF3995-103/server/flaskenv/lib/python3.8/site-packages/flask/app.py", line 2073, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/zakaria/INF3995-GIT(officiel)/INF3995-103/server/flaskenv/lib/python3.8/site-packages/flask/app.py", line 1518, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/zakaria/INF3995-GIT(officiel)/INF3995-103/server/flaskenv/lib/python3.8/site-packages/flask_cors/extension.py", line 165, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "/home/zakaria/INF3995-GIT(officiel)/INF3995-103/server/flaskenv/lib/python3.8/site-packages/flask/app.py", line 1516, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/zakaria/INF3995-GIT(officiel)/INF3995-103/server/flaskenv/lib/python3.8/site-packages/flask/app.py", line 1502, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "main.py", line 75, in handleArgosDataPolling
+    name=data[-12],
+IndexError: list index out of range
+2022-03-17 22:59:05,794 : ERROR : Exception on /argosData [GET]
+Traceback (most recent call last):
+  File "/home/zakaria/INF3995-GIT(officiel)/INF3995-103/server/flaskenv/lib/python3.8/site-packages/flask/app.py", line 2073, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/zakaria/INF3995-GIT(officiel)/INF3995-103/server/flaskenv/lib/python3.8/site-packages/flask/app.py", line 1518, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/zakaria/INF3995-GIT(officiel)/INF3995-103/server/flaskenv/lib/python3.8/site-packages/flask_cors/extension.py", line 165, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "/home/zakaria/INF3995-GIT(officiel)/INF3995-103/server/flaskenv/lib/python3.8/site-packages/flask/app.py", line 1516, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/zakaria/INF3995-GIT(officiel)/INF3995-103/server/flaskenv/lib/python3.8/site-packages/flask/app.py", line 1502, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "main.py", line 75, in handleArgosDataPolling
+    name=data[-12],
+IndexError: list index out of range
+2022-03-17 22:59:05,794 : ERROR : Exception on /argosData [GET]
+Traceback (most recent call last):
+  File "/home/zakaria/INF3995-GIT(officiel)/INF3995-103/server/flaskenv/lib/python3.8/site-packages/flask/app.py", line 2073, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/zakaria/INF3995-GIT(officiel)/INF3995-103/server/flaskenv/lib/python3.8/site-packages/flask/app.py", line 1518, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/zakaria/INF3995-GIT(officiel)/INF3995-103/server/flaskenv/lib/python3.8/site-packages/flask_cors/extension.py", line 165, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "/home/zakaria/INF3995-GIT(officiel)/INF3995-103/server/flaskenv/lib/python3.8/site-packages/flask/app.py", line 1516, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/zakaria/INF3995-GIT(officiel)/INF3995-103/server/flaskenv/lib/python3.8/site-packages/flask/app.py", line 1502, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "main.py", line 75, in handleArgosDataPolling
+    name=data[-12],
+IndexError: list index out of range
+2022-03-17 22:59:05,796 : INFO : 127.0.0.1 - - [17/Mar/2022 22:59:05] "[35m[1mGET /argosData HTTP/1.1[0m" 500 -
+2022-03-17 22:59:05,797 : INFO : 127.0.0.1 - - [17/Mar/2022 22:59:05] "[35m[1mGET /argosData HTTP/1.1[0m" 500 -
+2022-03-17 22:59:05,798 : INFO : 127.0.0.1 - - [17/Mar/2022 22:59:05] "[35m[1mGET /argosData HTTP/1.1[0m" 500 -
+2022-03-17 22:59:05,799 : INFO : 127.0.0.1 - - [17/Mar/2022 22:59:05] "[35m[1mGET /argosData HTTP/1.1[0m" 500 -
+2022-03-17 22:59:05,800 : INFO : 127.0.0.1 - - [17/Mar/2022 22:59:05] "[35m[1mGET /argosData HTTP/1.1[0m" 500 -
+2022-03-17 22:59:05,800 : INFO : 127.0.0.1 - - [17/Mar/2022 22:59:05] "[35m[1mGET /argosData HTTP/1.1[0m" 500 -
+2022-03-17 22:59:05,805 : ERROR : Exception on /argosData [GET]
+Traceback (most recent call last):
+  File "/home/zakaria/INF3995-GIT(officiel)/INF3995-103/server/flaskenv/lib/python3.8/site-packages/flask/app.py", line 2073, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/zakaria/INF3995-GIT(officiel)/INF3995-103/server/flaskenv/lib/python3.8/site-packages/flask/app.py", line 1518, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/zakaria/INF3995-GIT(officiel)/INF3995-103/server/flaskenv/lib/python3.8/site-packages/flask_cors/extension.py", line 165, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "/home/zakaria/INF3995-GIT(officiel)/INF3995-103/server/flaskenv/lib/python3.8/site-packages/flask/app.py", line 1516, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/zakaria/INF3995-GIT(officiel)/INF3995-103/server/flaskenv/lib/python3.8/site-packages/flask/app.py", line 1502, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "main.py", line 67, in handleArgosDataPolling
+    ArgosServer.sendCommand('i')
+  File "/home/zakaria/INF3995-GIT(officiel)/INF3995-103/server/src/argos_server2.py", line 50, in sendCommand
+    ArgosServer.conn.sendall(command.encode())
+BrokenPipeError: [Errno 32] Broken pipe
+2022-03-17 22:59:05,807 : ERROR : Exception on /argosData [GET]
+Traceback (most recent call last):
+  File "/home/zakaria/INF3995-GIT(officiel)/INF3995-103/server/flaskenv/lib/python3.8/site-packages/flask/app.py", line 2073, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/zakaria/INF3995-GIT(officiel)/INF3995-103/server/flaskenv/lib/python3.8/site-packages/flask/app.py", line 1518, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/zakaria/INF3995-GIT(officiel)/INF3995-103/server/flaskenv/lib/python3.8/site-packages/flask_cors/extension.py", line 165, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "/home/zakaria/INF3995-GIT(officiel)/INF3995-103/server/flaskenv/lib/python3.8/site-packages/flask/app.py", line 1516, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/zakaria/INF3995-GIT(officiel)/INF3995-103/server/flaskenv/lib/python3.8/site-packages/flask/app.py", line 1502, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "main.py", line 67, in handleArgosDataPolling
+    ArgosServer.sendCommand('i')
+  File "/home/zakaria/INF3995-GIT(officiel)/INF3995-103/server/src/argos_server2.py", line 50, in sendCommand
+    ArgosServer.conn.sendall(command.encode())
+BrokenPipeError: [Errno 32] Broken pipe
+2022-03-17 22:59:05,808 : INFO : 127.0.0.1 - - [17/Mar/2022 22:59:05] "[35m[1mGET /argosData HTTP/1.1[0m" 500 -
+2022-03-17 22:59:05,808 : INFO : 127.0.0.1 - - [17/Mar/2022 22:59:05] "[35m[1mGET /argosData HTTP/1.1[0m" 500 -
+2022-03-17 22:59:05,809 : ERROR : Exception on /argosData [GET]
+Traceback (most recent call last):
+  File "/home/zakaria/INF3995-GIT(officiel)/INF3995-103/server/flaskenv/lib/python3.8/site-packages/flask/app.py", line 2073, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/zakaria/INF3995-GIT(officiel)/INF3995-103/server/flaskenv/lib/python3.8/site-packages/flask/app.py", line 1518, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/zakaria/INF3995-GIT(officiel)/INF3995-103/server/flaskenv/lib/python3.8/site-packages/flask_cors/extension.py", line 165, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "/home/zakaria/INF3995-GIT(officiel)/INF3995-103/server/flaskenv/lib/python3.8/site-packages/flask/app.py", line 1516, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/zakaria/INF3995-GIT(officiel)/INF3995-103/server/flaskenv/lib/python3.8/site-packages/flask/app.py", line 1502, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "main.py", line 67, in handleArgosDataPolling
+    ArgosServer.sendCommand('i')
+  File "/home/zakaria/INF3995-GIT(officiel)/INF3995-103/server/src/argos_server2.py", line 50, in sendCommand
+    ArgosServer.conn.sendall(command.encode())
+BrokenPipeError: [Errno 32] Broken pipe
+2022-03-17 22:59:05,811 : INFO : 127.0.0.1 - - [17/Mar/2022 22:59:05] "[35m[1mGET /argosData HTTP/1.1[0m" 500 -
+2022-03-17 22:59:06,568 : ERROR : Exception on /argosData [GET]
+Traceback (most recent call last):
+  File "/home/zakaria/INF3995-GIT(officiel)/INF3995-103/server/flaskenv/lib/python3.8/site-packages/flask/app.py", line 2073, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/zakaria/INF3995-GIT(officiel)/INF3995-103/server/flaskenv/lib/python3.8/site-packages/flask/app.py", line 1518, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/zakaria/INF3995-GIT(officiel)/INF3995-103/server/flaskenv/lib/python3.8/site-packages/flask_cors/extension.py", line 165, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "/home/zakaria/INF3995-GIT(officiel)/INF3995-103/server/flaskenv/lib/python3.8/site-packages/flask/app.py", line 1516, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/zakaria/INF3995-GIT(officiel)/INF3995-103/server/flaskenv/lib/python3.8/site-packages/flask/app.py", line 1502, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "main.py", line 67, in handleArgosDataPolling
+    ArgosServer.sendCommand('i')
+  File "/home/zakaria/INF3995-GIT(officiel)/INF3995-103/server/src/argos_server2.py", line 50, in sendCommand
+    ArgosServer.conn.sendall(command.encode())
+BrokenPipeError: [Errno 32] Broken pipe
+2022-03-17 22:59:06,568 : INFO : 127.0.0.1 - - [17/Mar/2022 22:59:06] "[35m[1mGET /argosData HTTP/1.1[0m" 500 -
+2022-03-17 22:59:07,453 : INFO : Looking for devices....
+2022-03-17 22:59:07,454 : INFO : Initialized PRRT driver.
+2022-03-17 22:59:07,455 : INFO : Looking for devices....
+2022-03-17 22:59:07,456 : INFO : Initialized PRRT driver.
+2022-03-17 22:59:07,457 : INFO : Looking for devices....
+2022-03-17 22:59:07,457 : INFO : Initialized PRRT driver.
+2022-03-17 22:59:07,458 : INFO : Looking for devices....
+2022-03-17 22:59:07,459 : INFO : Initialized PRRT driver.
