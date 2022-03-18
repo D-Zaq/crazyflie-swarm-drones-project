@@ -1,5 +1,6 @@
 # coding=utf-8
 from crypt import methods
+import os
 import requests
 import threading
 import time
@@ -16,6 +17,7 @@ from crazyflie_server import CrazyflieServer
 from argos_server2 import ArgosServer
 # from logs_handler import initializeLogging
 from log import ServerLog
+from real_drone import create_drones
 from sim_drone import Drone
 
 # creating the Flask applicationError: While importing 'src.main', an ImportError was raised.
@@ -95,6 +97,13 @@ def handleLogsPolling():
     # print("llllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllll GGGGGGGGGGEEEEEEEEEEEEEEEETTTTTTTTTTTTTTTTT")
     return jsonify(logs)
 
+@app.route('/crazyflieData', methods=["GET"])
+def handleCFLogsPolling():
+    drones = create_drones()
+    print('Drone physique : ====================> ', drones)
+    return jsonify(drones)
+
+
 # @app.route('/drones')
 # def get_drones():
 #     # fetching from the database
@@ -164,6 +173,13 @@ class DashboardLogger(logging.Handler):
 
 
 if __name__ == '__main__':
+    
+    try:
+        os.remove('position.csv')
+        os.remove('battery.csv')
+        os.remove('distance.csv')
+    except :
+        print ('Already deleted')      
 
     # To test 'Identify': comment lines: argosServer = server() , argosServer.connectServ()
     # To test ARGoS sim: comment lines: CrazyflieServerThread = CrazyflieServer().start() , CrazyflieServerThread.join()
@@ -181,9 +197,9 @@ if __name__ == '__main__':
         if isinstance(handler, logging.FileHandler):
             handler.setFormatter(formatter)
 
-    argosServerThread = ArgosServer.start()
-    logging.info('Argos server launched')
-    argosServerThread.join()
+    # argosServerThread = ArgosServer.start()
+    # logging.info('Argos server launched')
+    # argosServerThread.join()
 
     CrazyflieServerThread = CrazyflieServer().start()
 

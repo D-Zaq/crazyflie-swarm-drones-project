@@ -6452,3 +6452,663 @@ BrokenPipeError: [Errno 32] Broken pipe
 2022-03-17 22:59:07,457 : INFO : Initialized PRRT driver.
 2022-03-17 22:59:07,458 : INFO : Looking for devices....
 2022-03-17 22:59:07,459 : INFO : Initialized PRRT driver.
+2022-03-18 00:35:34,611 : INFO : Argos server launched
+2022-03-18 00:35:34,612 : INFO : Crazyflie server launched
+2022-03-18 00:35:34,612 : INFO : app launched
+2022-03-18 00:35:34,613 : INFO :  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+2022-03-18 00:35:34,896 : INFO : v0.53 dongle with serial N/A found
+2022-03-18 00:35:36,126 : INFO : Looking for devices....
+2022-03-18 00:35:36,128 : INFO : Initialized PRRT driver.
+2022-03-18 00:35:36,410 : INFO : v0.53 dongle with serial N/A found
+2022-03-18 00:35:37,647 : INFO : Looking for devices....
+2022-03-18 00:35:37,650 : INFO : Initialized PRRT driver.
+2022-03-18 00:35:37,934 : INFO : v0.53 dongle with serial N/A found
+2022-03-18 00:35:39,190 : INFO : Looking for devices....
+2022-03-18 00:35:39,192 : INFO : Initialized PRRT driver.
+2022-03-18 00:35:39,472 : INFO : v0.53 dongle with serial N/A found
+2022-03-18 00:35:40,718 : INFO : Looking for devices....
+2022-03-18 00:35:40,722 : INFO : Initialized PRRT driver.
+2022-03-18 00:35:40,724 : INFO : Callback->Connection initialized[radio://0/80/2M/E7E7E7E731]
+2022-03-18 00:35:41,005 : INFO : We are connected[radio://0/80/2M/E7E7E7E731], request connection setup
+2022-03-18 00:35:41,008 : INFO : Callback->Connection initialized[radio://0/80/2M/E7E7E7E731]
+2022-03-18 00:35:41,009 : INFO : We are connected[radio://0/80/2M/E7E7E7E731], request connection setup
+2022-03-18 00:35:41,009 : INFO : Callback->Connected to [radio://0/80/2M/E7E7E7E731]
+2022-03-18 00:35:41,012 : INFO : Callback->Connected to [radio://0/80/2M/E7E7E7E731]
+2022-03-18 00:35:41,164 : INFO : Protocol  version: 4
+2022-03-18 00:35:41,164 : INFO : Protocol  version: 4
+2022-03-18 00:35:42,007 : WARNING : Unable to find variable [range.front]
+2022-03-18 00:35:42,008 : WARNING : Log: range.front not in TOC, this block cannot be used!
+2022-03-18 00:35:42,012 : WARNING : Unable to find variable [range.front]
+2022-03-18 00:35:42,013 : WARNING : Log: range.front not in TOC, this block cannot be used!
+2022-03-18 00:37:18,983 : INFO : Argos server launched
+2022-03-18 00:37:18,983 : INFO : Crazyflie server launched
+2022-03-18 00:37:18,984 : INFO : app launched
+2022-03-18 00:37:18,985 : INFO :  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+2022-03-18 00:37:19,268 : INFO : v0.53 dongle with serial N/A found
+2022-03-18 00:37:20,450 : INFO : Looking for devices....
+2022-03-18 00:37:20,451 : INFO : Initialized PRRT driver.
+2022-03-18 00:37:20,734 : INFO : v0.53 dongle with serial N/A found
+2022-03-18 00:37:21,984 : INFO : Looking for devices....
+2022-03-18 00:37:21,987 : INFO : Initialized PRRT driver.
+2022-03-18 00:37:22,275 : INFO : v0.53 dongle with serial N/A found
+2022-03-18 00:37:23,536 : INFO : Looking for devices....
+2022-03-18 00:37:23,538 : INFO : Initialized PRRT driver.
+2022-03-18 00:37:23,823 : INFO : v0.53 dongle with serial N/A found
+2022-03-18 00:37:25,064 : INFO : Looking for devices....
+2022-03-18 00:37:25,066 : INFO : Initialized PRRT driver.
+2022-03-18 00:37:25,069 : INFO : Callback->Connection initialized[radio://0/80/2M/E7E7E7E731]
+2022-03-18 00:37:25,354 : INFO : We are connected[radio://0/80/2M/E7E7E7E731], request connection setup
+2022-03-18 00:37:25,360 : INFO : Callback->Connection initialized[radio://0/80/2M/E7E7E7E731]
+2022-03-18 00:37:25,364 : INFO : Callback->Connected to [radio://0/80/2M/E7E7E7E731]
+2022-03-18 00:37:25,365 : INFO : We are connected[radio://0/80/2M/E7E7E7E731], request connection setup
+2022-03-18 00:37:25,369 : INFO : Callback->Connected to [radio://0/80/2M/E7E7E7E731]
+2022-03-18 00:37:25,399 : INFO : Protocol  version: 4
+2022-03-18 00:37:25,400 : INFO : Protocol  version: 4
+2022-03-18 00:37:27,359 : WARNING : Unable to find variable [range.front]
+2022-03-18 00:37:27,360 : WARNING : Log: range.front not in TOC, this block cannot be used!
+2022-03-18 00:37:27,371 : WARNING : Unable to find variable [kalman.stateX]
+2022-03-18 00:37:27,372 : WARNING : Log: kalman.stateX not in TOC, this block cannot be used!
+2022-03-18 00:37:27,385 : WARNING : No LogEntry to assign block to !!!
+2022-03-18 00:37:27,392 : INFO : Have successfully started logging for id=1
+2022-03-18 00:37:27,393 : INFO : Have successfully started logging for id=1
+2022-03-18 00:37:27,442 : WARNING : Error no LogEntry to handle id=1
+2022-03-18 00:37:27,492 : WARNING : Error no LogEntry to handle id=1
+2022-03-18 00:37:27,541 : WARNING : Error no LogEntry to handle id=1
+2022-03-18 00:37:27,590 : WARNING : Error no LogEntry to handle id=1
+2022-03-18 00:37:27,640 : WARNING : Error no LogEntry to handle id=1
+2022-03-18 00:37:27,692 : WARNING : Error no LogEntry to handle id=1
+2022-03-18 00:37:27,740 : WARNING : Error no LogEntry to handle id=1
+2022-03-18 00:37:27,790 : WARNING : Error no LogEntry to handle id=1
+2022-03-18 00:37:27,839 : WARNING : Error no LogEntry to handle id=1
+2022-03-18 00:37:27,890 : WARNING : Error no LogEntry to handle id=1
+2022-03-18 00:37:27,940 : WARNING : Error no LogEntry to handle id=1
+2022-03-18 00:37:27,991 : WARNING : Error no LogEntry to handle id=1
+2022-03-18 00:37:28,041 : WARNING : Error no LogEntry to handle id=1
+2022-03-18 00:37:28,092 : WARNING : Error no LogEntry to handle id=1
+2022-03-18 00:37:28,142 : WARNING : Error no LogEntry to handle id=1
+2022-03-18 00:37:28,191 : WARNING : Error no LogEntry to handle id=1
+2022-03-18 00:37:28,241 : WARNING : Error no LogEntry to handle id=1
+2022-03-18 00:37:28,291 : WARNING : Error no LogEntry to handle id=1
+2022-03-18 00:37:28,342 : WARNING : Error no LogEntry to handle id=1
+2022-03-18 00:37:28,394 : WARNING : Error no LogEntry to handle id=1
+2022-03-18 00:37:28,441 : WARNING : Error no LogEntry to handle id=1
+2022-03-18 00:37:28,492 : WARNING : Error no LogEntry to handle id=1
+2022-03-18 00:37:28,541 : WARNING : Error no LogEntry to handle id=1
+2022-03-18 00:37:28,592 : WARNING : Error no LogEntry to handle id=1
+2022-03-18 00:37:28,640 : WARNING : Error no LogEntry to handle id=1
+2022-03-18 00:37:28,691 : WARNING : Error no LogEntry to handle id=1
+2022-03-18 00:37:28,753 : WARNING : Error no LogEntry to handle id=1
+2022-03-18 00:37:28,791 : WARNING : Error no LogEntry to handle id=1
+2022-03-18 00:37:28,841 : WARNING : Error no LogEntry to handle id=1
+2022-03-18 00:37:28,891 : WARNING : Error no LogEntry to handle id=1
+2022-03-18 00:37:28,942 : WARNING : Error no LogEntry to handle id=1
+2022-03-18 00:37:28,990 : WARNING : Error no LogEntry to handle id=1
+2022-03-18 00:37:29,040 : WARNING : Error no LogEntry to handle id=1
+2022-03-18 00:37:29,090 : WARNING : Error no LogEntry to handle id=1
+2022-03-18 00:37:29,140 : WARNING : Error no LogEntry to handle id=1
+2022-03-18 00:37:29,190 : WARNING : Error no LogEntry to handle id=1
+2022-03-18 00:37:29,241 : WARNING : Error no LogEntry to handle id=1
+2022-03-18 00:37:29,291 : WARNING : Error no LogEntry to handle id=1
+2022-03-18 00:37:29,341 : WARNING : Error no LogEntry to handle id=1
+2022-03-18 00:37:29,390 : WARNING : Error no LogEntry to handle id=1
+2022-03-18 00:37:29,440 : WARNING : Error no LogEntry to handle id=1
+2022-03-18 00:37:29,491 : WARNING : Error no LogEntry to handle id=1
+2022-03-18 00:37:29,541 : WARNING : Error no LogEntry to handle id=1
+2022-03-18 00:37:29,589 : WARNING : Error no LogEntry to handle id=1
+2022-03-18 00:37:29,640 : WARNING : Error no LogEntry to handle id=1
+2022-03-18 00:37:29,688 : WARNING : Error no LogEntry to handle id=1
+2022-03-18 00:37:29,740 : WARNING : Error no LogEntry to handle id=1
+2022-03-18 00:37:29,789 : WARNING : Error no LogEntry to handle id=1
+2022-03-18 00:37:29,839 : WARNING : Error no LogEntry to handle id=1
+2022-03-18 00:37:29,888 : WARNING : Error no LogEntry to handle id=1
+2022-03-18 00:37:29,939 : WARNING : Error no LogEntry to handle id=1
+2022-03-18 00:37:29,988 : WARNING : Error no LogEntry to handle id=1
+2022-03-18 00:37:30,038 : WARNING : Error no LogEntry to handle id=1
+2022-03-18 00:37:30,089 : WARNING : Error no LogEntry to handle id=1
+2022-03-18 00:37:30,139 : WARNING : Error no LogEntry to handle id=1
+2022-03-18 00:37:30,188 : WARNING : Error no LogEntry to handle id=1
+2022-03-18 00:37:30,238 : WARNING : Error no LogEntry to handle id=1
+2022-03-18 00:37:30,289 : WARNING : Error no LogEntry to handle id=1
+2022-03-18 00:37:30,338 : WARNING : Error no LogEntry to handle id=1
+2022-03-18 00:37:30,388 : WARNING : Error no LogEntry to handle id=1
+2022-03-18 00:37:30,438 : WARNING : Error no LogEntry to handle id=1
+2022-03-18 00:37:30,487 : WARNING : Error no LogEntry to handle id=1
+2022-03-18 00:37:30,538 : WARNING : Error no LogEntry to handle id=1
+2022-03-18 00:37:30,587 : WARNING : Error no LogEntry to handle id=1
+2022-03-18 00:37:30,637 : WARNING : Error no LogEntry to handle id=1
+2022-03-18 00:37:30,688 : WARNING : Error no LogEntry to handle id=1
+2022-03-18 00:37:30,739 : WARNING : Error no LogEntry to handle id=1
+2022-03-18 00:37:30,788 : WARNING : Error no LogEntry to handle id=1
+2022-03-18 00:37:30,837 : WARNING : Error no LogEntry to handle id=1
+2022-03-18 00:37:30,887 : WARNING : Error no LogEntry to handle id=1
+2022-03-18 00:37:30,938 : WARNING : Error no LogEntry to handle id=1
+2022-03-18 00:37:30,987 : WARNING : Error no LogEntry to handle id=1
+2022-03-18 00:37:31,037 : WARNING : Error no LogEntry to handle id=1
+2022-03-18 00:37:31,089 : WARNING : Error no LogEntry to handle id=1
+2022-03-18 00:37:31,140 : WARNING : Error no LogEntry to handle id=1
+2022-03-18 00:37:31,189 : WARNING : Error no LogEntry to handle id=1
+2022-03-18 00:37:31,240 : WARNING : Error no LogEntry to handle id=1
+2022-03-18 00:37:31,286 : WARNING : Error no LogEntry to handle id=1
+2022-03-18 00:37:31,338 : WARNING : Error no LogEntry to handle id=1
+2022-03-18 00:37:31,388 : WARNING : Error no LogEntry to handle id=1
+2022-03-18 00:37:31,437 : WARNING : Error no LogEntry to handle id=1
+2022-03-18 00:37:31,487 : WARNING : Error no LogEntry to handle id=1
+2022-03-18 00:37:31,537 : WARNING : Error no LogEntry to handle id=1
+2022-03-18 00:37:31,587 : WARNING : Error no LogEntry to handle id=1
+2022-03-18 00:37:31,636 : WARNING : Error no LogEntry to handle id=1
+2022-03-18 00:37:31,686 : WARNING : Error no LogEntry to handle id=1
+2022-03-18 00:37:31,738 : WARNING : Error no LogEntry to handle id=1
+2022-03-18 00:37:31,786 : WARNING : Error no LogEntry to handle id=1
+2022-03-18 00:37:31,836 : WARNING : Error no LogEntry to handle id=1
+2022-03-18 00:37:31,887 : WARNING : Error no LogEntry to handle id=1
+2022-03-18 00:37:31,936 : WARNING : Error no LogEntry to handle id=1
+2022-03-18 00:37:31,986 : WARNING : Error no LogEntry to handle id=1
+2022-03-18 00:37:32,037 : WARNING : Error no LogEntry to handle id=1
+2022-03-18 00:37:32,087 : WARNING : Error no LogEntry to handle id=1
+2022-03-18 00:37:32,136 : WARNING : Error no LogEntry to handle id=1
+2022-03-18 00:37:32,186 : WARNING : Error no LogEntry to handle id=1
+2022-03-18 00:37:32,238 : WARNING : Error no LogEntry to handle id=1
+2022-03-18 00:37:32,287 : WARNING : Error no LogEntry to handle id=1
+2022-03-18 00:37:32,337 : WARNING : Error no LogEntry to handle id=1
+2022-03-18 00:37:32,385 : WARNING : Error no LogEntry to handle id=1
+2022-03-18 00:37:32,437 : WARNING : Error no LogEntry to handle id=1
+2022-03-18 00:37:32,486 : WARNING : Error no LogEntry to handle id=1
+2022-03-18 00:37:32,536 : WARNING : Error no LogEntry to handle id=1
+2022-03-18 00:37:32,586 : WARNING : Error no LogEntry to handle id=1
+2022-03-18 00:37:32,636 : WARNING : Error no LogEntry to handle id=1
+2022-03-18 00:37:32,686 : WARNING : Error no LogEntry to handle id=1
+2022-03-18 00:37:32,736 : WARNING : Error no LogEntry to handle id=1
+2022-03-18 00:37:32,786 : WARNING : Error no LogEntry to handle id=1
+2022-03-18 00:37:32,836 : WARNING : Error no LogEntry to handle id=1
+2022-03-18 00:37:32,886 : WARNING : Error no LogEntry to handle id=1
+2022-03-18 00:37:32,937 : WARNING : Error no LogEntry to handle id=1
+2022-03-18 00:37:32,987 : WARNING : Error no LogEntry to handle id=1
+2022-03-18 00:37:33,036 : WARNING : Error no LogEntry to handle id=1
+2022-03-18 00:37:33,085 : WARNING : Error no LogEntry to handle id=1
+2022-03-18 00:37:33,135 : WARNING : Error no LogEntry to handle id=1
+2022-03-18 00:37:33,185 : WARNING : Error no LogEntry to handle id=1
+2022-03-18 00:37:33,236 : WARNING : Error no LogEntry to handle id=1
+2022-03-18 00:37:33,285 : WARNING : Error no LogEntry to handle id=1
+2022-03-18 00:37:33,336 : WARNING : Error no LogEntry to handle id=1
+2022-03-18 00:37:33,385 : WARNING : Error no LogEntry to handle id=1
+2022-03-18 00:37:33,437 : WARNING : Error no LogEntry to handle id=1
+2022-03-18 00:37:33,485 : WARNING : Error no LogEntry to handle id=1
+2022-03-18 00:37:33,537 : WARNING : Error no LogEntry to handle id=1
+2022-03-18 00:37:33,588 : WARNING : Error no LogEntry to handle id=1
+2022-03-18 00:37:33,635 : WARNING : Error no LogEntry to handle id=1
+2022-03-18 00:37:33,687 : WARNING : Error no LogEntry to handle id=1
+2022-03-18 00:37:33,735 : WARNING : Error no LogEntry to handle id=1
+2022-03-18 00:37:33,784 : WARNING : Error no LogEntry to handle id=1
+2022-03-18 00:37:33,837 : WARNING : Error no LogEntry to handle id=1
+2022-03-18 00:37:33,884 : WARNING : Error no LogEntry to handle id=1
+2022-03-18 00:37:33,935 : WARNING : Error no LogEntry to handle id=1
+2022-03-18 00:37:33,987 : WARNING : Error no LogEntry to handle id=1
+2022-03-18 00:37:34,035 : WARNING : Error no LogEntry to handle id=1
+2022-03-18 00:37:34,085 : WARNING : Error no LogEntry to handle id=1
+2022-03-18 00:37:34,137 : WARNING : Error no LogEntry to handle id=1
+2022-03-18 00:37:34,186 : WARNING : Error no LogEntry to handle id=1
+2022-03-18 00:37:34,235 : WARNING : Error no LogEntry to handle id=1
+2022-03-18 00:37:34,286 : WARNING : Error no LogEntry to handle id=1
+2022-03-18 00:37:34,336 : WARNING : Error no LogEntry to handle id=1
+2022-03-18 00:37:34,386 : WARNING : Error no LogEntry to handle id=1
+2022-03-18 00:37:34,436 : WARNING : Error no LogEntry to handle id=1
+2022-03-18 00:37:34,486 : WARNING : Error no LogEntry to handle id=1
+2022-03-18 00:37:34,536 : WARNING : Error no LogEntry to handle id=1
+2022-03-18 00:37:34,587 : WARNING : Error no LogEntry to handle id=1
+2022-03-18 00:37:34,635 : WARNING : Error no LogEntry to handle id=1
+2022-03-18 00:37:34,685 : WARNING : Error no LogEntry to handle id=1
+2022-03-18 00:37:34,735 : WARNING : Error no LogEntry to handle id=1
+2022-03-18 00:37:34,785 : WARNING : Error no LogEntry to handle id=1
+2022-03-18 00:37:34,836 : WARNING : Error no LogEntry to handle id=1
+2022-03-18 00:37:34,888 : WARNING : Error no LogEntry to handle id=1
+2022-03-18 00:37:34,936 : WARNING : Error no LogEntry to handle id=1
+2022-03-18 00:37:34,985 : WARNING : Error no LogEntry to handle id=1
+2022-03-18 00:37:35,035 : WARNING : Error no LogEntry to handle id=1
+2022-03-18 00:37:35,086 : WARNING : Error no LogEntry to handle id=1
+2022-03-18 00:37:35,135 : WARNING : Error no LogEntry to handle id=1
+2022-03-18 00:37:35,187 : WARNING : Error no LogEntry to handle id=1
+2022-03-18 00:38:26,095 : INFO : Argos server launched
+2022-03-18 00:38:26,096 : INFO : Crazyflie server launched
+2022-03-18 00:38:26,096 : INFO : app launched
+2022-03-18 00:38:26,097 : INFO :  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+2022-03-18 00:38:26,379 : INFO : v0.53 dongle with serial N/A found
+2022-03-18 00:38:27,598 : INFO : Looking for devices....
+2022-03-18 00:38:27,602 : INFO : Initialized PRRT driver.
+2022-03-18 00:38:27,892 : INFO : v0.53 dongle with serial N/A found
+2022-03-18 00:38:29,128 : INFO : Looking for devices....
+2022-03-18 00:38:29,130 : INFO : Initialized PRRT driver.
+2022-03-18 00:38:29,413 : INFO : v0.53 dongle with serial N/A found
+2022-03-18 00:38:30,562 : INFO : Looking for devices....
+2022-03-18 00:38:30,563 : INFO : Initialized PRRT driver.
+2022-03-18 00:38:30,851 : INFO : v0.53 dongle with serial N/A found
+2022-03-18 00:38:32,090 : INFO : Looking for devices....
+2022-03-18 00:38:32,093 : INFO : Initialized PRRT driver.
+2022-03-18 00:38:32,095 : INFO : Callback->Connection initialized[radio://0/80/2M/E7E7E7E731]
+2022-03-18 00:38:32,383 : INFO : We are connected[radio://0/80/2M/E7E7E7E731], request connection setup
+2022-03-18 00:38:32,389 : INFO : Callback->Connection initialized[radio://0/80/2M/E7E7E7E731]
+2022-03-18 00:38:32,392 : INFO : Callback->Connected to [radio://0/80/2M/E7E7E7E731]
+2022-03-18 00:38:32,393 : INFO : We are connected[radio://0/80/2M/E7E7E7E731], request connection setup
+2022-03-18 00:38:32,397 : INFO : Callback->Connected to [radio://0/80/2M/E7E7E7E731]
+2022-03-18 00:38:32,535 : INFO : Protocol  version: 4
+2022-03-18 00:38:32,537 : INFO : Protocol  version: 4
+2022-03-18 00:38:34,388 : WARNING : Unable to find variable [range.front]
+2022-03-18 00:38:34,389 : WARNING : Log: range.front not in TOC, this block cannot be used!
+2022-03-18 00:38:34,398 : WARNING : Unable to find variable [range.front]
+2022-03-18 00:38:34,398 : WARNING : Log: range.front not in TOC, this block cannot be used!
+2022-03-18 00:39:17,896 : INFO : Crazyflie server launched
+2022-03-18 00:39:17,898 : INFO : app launched
+2022-03-18 00:39:17,899 : INFO :  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+2022-03-18 00:39:18,188 : INFO : v0.53 dongle with serial N/A found
+2022-03-18 00:39:19,406 : INFO : Looking for devices....
+2022-03-18 00:39:19,408 : INFO : Initialized PRRT driver.
+2022-03-18 00:39:19,699 : INFO : v0.53 dongle with serial N/A found
+2022-03-18 00:39:20,939 : INFO : Looking for devices....
+2022-03-18 00:39:20,942 : INFO : Initialized PRRT driver.
+2022-03-18 00:39:21,231 : INFO : v0.53 dongle with serial N/A found
+2022-03-18 00:39:22,496 : INFO : Looking for devices....
+2022-03-18 00:39:22,499 : INFO : Initialized PRRT driver.
+2022-03-18 00:39:22,783 : INFO : v0.53 dongle with serial N/A found
+2022-03-18 00:39:23,993 : INFO : Looking for devices....
+2022-03-18 00:39:23,996 : INFO : Initialized PRRT driver.
+2022-03-18 00:39:23,998 : INFO : Callback->Connection initialized[radio://0/80/2M/E7E7E7E731]
+2022-03-18 00:39:24,289 : INFO : We are connected[radio://0/80/2M/E7E7E7E731], request connection setup
+2022-03-18 00:39:24,295 : INFO : Callback->Connection initialized[radio://0/80/2M/E7E7E7E731]
+2022-03-18 00:39:24,298 : INFO : We are connected[radio://0/80/2M/E7E7E7E731], request connection setup
+2022-03-18 00:39:24,301 : INFO : Callback->Connected to [radio://0/80/2M/E7E7E7E731]
+2022-03-18 00:39:24,308 : INFO : Callback->Connected to [radio://0/80/2M/E7E7E7E731]
+2022-03-18 00:39:24,431 : INFO : Protocol  version: 4
+2022-03-18 00:39:24,431 : INFO : Protocol  version: 4
+2022-03-18 00:39:26,293 : WARNING : Unable to find variable [range.front]
+2022-03-18 00:39:26,294 : WARNING : Log: range.front not in TOC, this block cannot be used!
+2022-03-18 00:39:26,303 : WARNING : Unable to find variable [kalman.stateX]
+2022-03-18 00:39:26,305 : WARNING : Log: kalman.stateX not in TOC, this block cannot be used!
+2022-03-18 00:39:26,317 : WARNING : No LogEntry to assign block to !!!
+2022-03-18 00:39:26,325 : INFO : Have successfully started logging for id=1
+2022-03-18 00:39:26,326 : INFO : Have successfully started logging for id=1
+2022-03-18 00:39:26,374 : WARNING : Error no LogEntry to handle id=1
+2022-03-18 00:39:26,423 : WARNING : Error no LogEntry to handle id=1
+2022-03-18 00:39:26,475 : WARNING : Error no LogEntry to handle id=1
+2022-03-18 00:39:26,525 : WARNING : Error no LogEntry to handle id=1
+2022-03-18 00:39:26,576 : WARNING : Error no LogEntry to handle id=1
+2022-03-18 00:39:26,625 : WARNING : Error no LogEntry to handle id=1
+2022-03-18 00:39:26,674 : WARNING : Error no LogEntry to handle id=1
+2022-03-18 00:39:26,725 : WARNING : Error no LogEntry to handle id=1
+2022-03-18 00:39:26,775 : WARNING : Error no LogEntry to handle id=1
+2022-03-18 00:39:26,825 : WARNING : Error no LogEntry to handle id=1
+2022-03-18 00:39:26,875 : WARNING : Error no LogEntry to handle id=1
+2022-03-18 00:39:26,925 : WARNING : Error no LogEntry to handle id=1
+2022-03-18 00:39:26,976 : WARNING : Error no LogEntry to handle id=1
+2022-03-18 00:39:27,023 : WARNING : Error no LogEntry to handle id=1
+2022-03-18 00:39:27,073 : WARNING : Error no LogEntry to handle id=1
+2022-03-18 00:39:27,124 : WARNING : Error no LogEntry to handle id=1
+2022-03-18 00:39:27,174 : WARNING : Error no LogEntry to handle id=1
+2022-03-18 00:39:27,224 : WARNING : Error no LogEntry to handle id=1
+2022-03-18 00:39:27,274 : WARNING : Error no LogEntry to handle id=1
+2022-03-18 00:39:27,324 : WARNING : Error no LogEntry to handle id=1
+2022-03-18 00:39:27,375 : WARNING : Error no LogEntry to handle id=1
+2022-03-18 00:39:27,424 : WARNING : Error no LogEntry to handle id=1
+2022-03-18 00:39:27,474 : WARNING : Error no LogEntry to handle id=1
+2022-03-18 00:39:27,523 : WARNING : Error no LogEntry to handle id=1
+2022-03-18 00:39:27,573 : WARNING : Error no LogEntry to handle id=1
+2022-03-18 00:39:27,624 : WARNING : Error no LogEntry to handle id=1
+2022-03-18 00:39:27,673 : WARNING : Error no LogEntry to handle id=1
+2022-03-18 00:39:27,723 : WARNING : Error no LogEntry to handle id=1
+2022-03-18 00:39:27,773 : WARNING : Error no LogEntry to handle id=1
+2022-03-18 00:39:27,822 : WARNING : Error no LogEntry to handle id=1
+2022-03-18 00:39:27,872 : WARNING : Error no LogEntry to handle id=1
+2022-03-18 00:39:27,923 : WARNING : Error no LogEntry to handle id=1
+2022-03-18 00:39:27,974 : WARNING : Error no LogEntry to handle id=1
+2022-03-18 00:39:28,022 : WARNING : Error no LogEntry to handle id=1
+2022-03-18 00:39:28,072 : WARNING : Error no LogEntry to handle id=1
+2022-03-18 00:39:28,123 : WARNING : Error no LogEntry to handle id=1
+2022-03-18 00:39:28,172 : WARNING : Error no LogEntry to handle id=1
+2022-03-18 00:39:28,223 : WARNING : Error no LogEntry to handle id=1
+2022-03-18 00:39:28,273 : WARNING : Error no LogEntry to handle id=1
+2022-03-18 00:39:28,322 : WARNING : Error no LogEntry to handle id=1
+2022-03-18 00:39:28,373 : WARNING : Error no LogEntry to handle id=1
+2022-03-18 00:39:28,421 : WARNING : Error no LogEntry to handle id=1
+2022-03-18 00:39:28,472 : WARNING : Error no LogEntry to handle id=1
+2022-03-18 00:39:28,522 : WARNING : Error no LogEntry to handle id=1
+2022-03-18 00:39:28,573 : WARNING : Error no LogEntry to handle id=1
+2022-03-18 00:39:28,622 : WARNING : Error no LogEntry to handle id=1
+2022-03-18 00:39:28,672 : WARNING : Error no LogEntry to handle id=1
+2022-03-18 00:39:28,722 : WARNING : Error no LogEntry to handle id=1
+2022-03-18 00:39:28,773 : WARNING : Error no LogEntry to handle id=1
+2022-03-18 00:39:28,820 : WARNING : Error no LogEntry to handle id=1
+2022-03-18 00:39:28,870 : WARNING : Error no LogEntry to handle id=1
+2022-03-18 00:39:28,920 : WARNING : Error no LogEntry to handle id=1
+2022-03-18 00:39:28,970 : WARNING : Error no LogEntry to handle id=1
+2022-03-18 00:39:29,020 : WARNING : Error no LogEntry to handle id=1
+2022-03-18 00:39:29,070 : WARNING : Error no LogEntry to handle id=1
+2022-03-18 00:39:29,119 : WARNING : Error no LogEntry to handle id=1
+2022-03-18 00:39:29,170 : WARNING : Error no LogEntry to handle id=1
+2022-03-18 00:39:29,220 : WARNING : Error no LogEntry to handle id=1
+2022-03-18 00:39:29,271 : WARNING : Error no LogEntry to handle id=1
+2022-03-18 00:39:29,319 : WARNING : Error no LogEntry to handle id=1
+2022-03-18 00:39:29,370 : WARNING : Error no LogEntry to handle id=1
+2022-03-18 00:39:29,419 : WARNING : Error no LogEntry to handle id=1
+2022-03-18 00:39:29,470 : WARNING : Error no LogEntry to handle id=1
+2022-03-18 00:39:29,519 : WARNING : Error no LogEntry to handle id=1
+2022-03-18 00:39:29,572 : WARNING : Error no LogEntry to handle id=1
+2022-03-18 00:39:29,622 : WARNING : Error no LogEntry to handle id=1
+2022-03-18 00:39:29,669 : WARNING : Error no LogEntry to handle id=1
+2022-03-18 00:39:29,720 : WARNING : Error no LogEntry to handle id=1
+2022-03-18 00:39:29,769 : WARNING : Error no LogEntry to handle id=1
+2022-03-18 00:39:29,820 : WARNING : Error no LogEntry to handle id=1
+2022-03-18 00:39:29,869 : WARNING : Error no LogEntry to handle id=1
+2022-03-18 00:39:29,919 : WARNING : Error no LogEntry to handle id=1
+2022-03-18 00:39:29,970 : WARNING : Error no LogEntry to handle id=1
+2022-03-18 00:39:30,021 : WARNING : Error no LogEntry to handle id=1
+2022-03-18 00:39:30,068 : WARNING : Error no LogEntry to handle id=1
+2022-03-18 00:39:30,120 : WARNING : Error no LogEntry to handle id=1
+2022-03-18 00:39:30,169 : WARNING : Error no LogEntry to handle id=1
+2022-03-18 00:39:30,219 : WARNING : Error no LogEntry to handle id=1
+2022-03-18 00:39:30,269 : WARNING : Error no LogEntry to handle id=1
+2022-03-18 00:39:30,320 : WARNING : Error no LogEntry to handle id=1
+2022-03-18 00:39:30,368 : WARNING : Error no LogEntry to handle id=1
+2022-03-18 00:39:30,419 : WARNING : Error no LogEntry to handle id=1
+2022-03-18 00:39:30,468 : WARNING : Error no LogEntry to handle id=1
+2022-03-18 00:39:30,519 : WARNING : Error no LogEntry to handle id=1
+2022-03-18 00:39:30,569 : WARNING : Error no LogEntry to handle id=1
+2022-03-18 00:39:30,619 : WARNING : Error no LogEntry to handle id=1
+2022-03-18 00:39:30,669 : WARNING : Error no LogEntry to handle id=1
+2022-03-18 00:39:30,719 : WARNING : Error no LogEntry to handle id=1
+2022-03-18 00:39:30,768 : WARNING : Error no LogEntry to handle id=1
+2022-03-18 00:39:30,820 : WARNING : Error no LogEntry to handle id=1
+2022-03-18 00:39:30,871 : WARNING : Error no LogEntry to handle id=1
+2022-03-18 00:39:30,921 : WARNING : Error no LogEntry to handle id=1
+2022-03-18 00:39:30,971 : WARNING : Error no LogEntry to handle id=1
+2022-03-18 00:39:31,020 : WARNING : Error no LogEntry to handle id=1
+2022-03-18 00:39:31,070 : WARNING : Error no LogEntry to handle id=1
+2022-03-18 00:39:31,120 : WARNING : Error no LogEntry to handle id=1
+2022-03-18 00:39:31,170 : WARNING : Error no LogEntry to handle id=1
+2022-03-18 00:39:31,220 : WARNING : Error no LogEntry to handle id=1
+2022-03-18 00:39:31,270 : WARNING : Error no LogEntry to handle id=1
+2022-03-18 00:39:31,319 : WARNING : Error no LogEntry to handle id=1
+2022-03-18 00:39:31,369 : WARNING : Error no LogEntry to handle id=1
+2022-03-18 00:39:31,419 : WARNING : Error no LogEntry to handle id=1
+2022-03-18 00:39:31,471 : WARNING : Error no LogEntry to handle id=1
+2022-03-18 00:39:31,519 : WARNING : Error no LogEntry to handle id=1
+2022-03-18 00:39:31,568 : WARNING : Error no LogEntry to handle id=1
+2022-03-18 00:39:31,621 : WARNING : Error no LogEntry to handle id=1
+2022-03-18 00:39:31,669 : WARNING : Error no LogEntry to handle id=1
+2022-03-18 00:39:31,718 : WARNING : Error no LogEntry to handle id=1
+2022-03-18 00:39:31,770 : WARNING : Error no LogEntry to handle id=1
+2022-03-18 00:40:17,795 : INFO : Crazyflie server launched
+2022-03-18 00:40:17,796 : INFO : app launched
+2022-03-18 00:40:17,797 : INFO :  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+2022-03-18 00:40:18,084 : INFO : v0.53 dongle with serial N/A found
+2022-03-18 00:40:19,292 : INFO : Looking for devices....
+2022-03-18 00:40:19,295 : INFO : Initialized PRRT driver.
+2022-03-18 00:40:19,579 : INFO : v0.53 dongle with serial N/A found
+2022-03-18 00:40:20,756 : INFO : Looking for devices....
+2022-03-18 00:40:20,757 : INFO : Initialized PRRT driver.
+2022-03-18 00:40:21,037 : INFO : v0.53 dongle with serial N/A found
+2022-03-18 00:40:22,273 : INFO : Looking for devices....
+2022-03-18 00:40:22,276 : INFO : Initialized PRRT driver.
+2022-03-18 00:40:22,563 : INFO : v0.53 dongle with serial N/A found
+2022-03-18 00:40:23,816 : INFO : Looking for devices....
+2022-03-18 00:40:23,818 : INFO : Initialized PRRT driver.
+2022-03-18 00:40:23,820 : INFO : Callback->Connection initialized[radio://0/80/2M/E7E7E7E731]
+2022-03-18 00:40:24,105 : INFO : We are connected[radio://0/80/2M/E7E7E7E731], request connection setup
+2022-03-18 00:40:24,111 : INFO : Callback->Connection initialized[radio://0/80/2M/E7E7E7E731]
+2022-03-18 00:40:24,115 : INFO : We are connected[radio://0/80/2M/E7E7E7E731], request connection setup
+2022-03-18 00:40:24,117 : INFO : Callback->Connected to [radio://0/80/2M/E7E7E7E731]
+2022-03-18 00:40:24,120 : INFO : Callback->Connected to [radio://0/80/2M/E7E7E7E731]
+2022-03-18 00:40:24,125 : WARNING : Error no LogEntry to handle id=1
+2022-03-18 00:40:24,127 : WARNING : Error no LogEntry to handle id=1
+2022-03-18 00:40:24,146 : INFO : Protocol  version: 4
+2022-03-18 00:40:24,148 : INFO : Protocol  version: 4
+2022-03-18 00:40:26,110 : WARNING : Unable to find variable [range.front]
+2022-03-18 00:40:26,111 : WARNING : Log: range.front not in TOC, this block cannot be used!
+2022-03-18 00:40:26,121 : WARNING : Unable to find variable [kalman.stateX]
+2022-03-18 00:40:26,122 : WARNING : Log: kalman.stateX not in TOC, this block cannot be used!
+2022-03-18 00:40:26,128 : WARNING : No LogEntry to assign block to !!!
+2022-03-18 00:40:26,135 : INFO : Have successfully started logging for id=1
+2022-03-18 00:40:26,136 : INFO : Have successfully started logging for id=1
+2022-03-18 00:40:26,188 : WARNING : Error no LogEntry to handle id=1
+2022-03-18 00:40:26,236 : WARNING : Error no LogEntry to handle id=1
+2022-03-18 00:40:26,284 : WARNING : Error no LogEntry to handle id=1
+2022-03-18 00:40:26,337 : WARNING : Error no LogEntry to handle id=1
+2022-03-18 00:40:26,389 : WARNING : Error no LogEntry to handle id=1
+2022-03-18 00:40:26,436 : WARNING : Error no LogEntry to handle id=1
+2022-03-18 00:40:26,486 : WARNING : Error no LogEntry to handle id=1
+2022-03-18 00:40:26,535 : WARNING : Error no LogEntry to handle id=1
+2022-03-18 00:40:26,585 : WARNING : Error no LogEntry to handle id=1
+2022-03-18 00:40:26,639 : WARNING : Error no LogEntry to handle id=1
+2022-03-18 00:40:26,688 : WARNING : Error no LogEntry to handle id=1
+2022-03-18 00:40:26,736 : WARNING : Error no LogEntry to handle id=1
+2022-03-18 00:40:26,786 : WARNING : Error no LogEntry to handle id=1
+2022-03-18 00:40:26,836 : WARNING : Error no LogEntry to handle id=1
+2022-03-18 00:40:26,886 : WARNING : Error no LogEntry to handle id=1
+2022-03-18 00:40:26,937 : WARNING : Error no LogEntry to handle id=1
+2022-03-18 00:40:26,987 : WARNING : Error no LogEntry to handle id=1
+2022-03-18 00:40:27,037 : WARNING : Error no LogEntry to handle id=1
+2022-03-18 00:40:27,087 : WARNING : Error no LogEntry to handle id=1
+2022-03-18 00:40:27,136 : WARNING : Error no LogEntry to handle id=1
+2022-03-18 00:40:27,185 : WARNING : Error no LogEntry to handle id=1
+2022-03-18 00:40:27,235 : WARNING : Error no LogEntry to handle id=1
+2022-03-18 00:40:27,283 : WARNING : Error no LogEntry to handle id=1
+2022-03-18 00:40:27,335 : WARNING : Error no LogEntry to handle id=1
+2022-03-18 00:40:27,385 : WARNING : Error no LogEntry to handle id=1
+2022-03-18 00:40:27,436 : WARNING : Error no LogEntry to handle id=1
+2022-03-18 00:40:27,486 : WARNING : Error no LogEntry to handle id=1
+2022-03-18 00:40:27,536 : WARNING : Error no LogEntry to handle id=1
+2022-03-18 00:40:27,585 : WARNING : Error no LogEntry to handle id=1
+2022-03-18 00:40:27,637 : WARNING : Error no LogEntry to handle id=1
+2022-03-18 00:40:27,684 : WARNING : Error no LogEntry to handle id=1
+2022-03-18 00:40:27,734 : WARNING : Error no LogEntry to handle id=1
+2022-03-18 00:40:27,783 : WARNING : Error no LogEntry to handle id=1
+2022-03-18 00:40:27,834 : WARNING : Error no LogEntry to handle id=1
+2022-03-18 00:40:27,884 : WARNING : Error no LogEntry to handle id=1
+2022-03-18 00:40:27,934 : WARNING : Error no LogEntry to handle id=1
+2022-03-18 00:40:27,984 : WARNING : Error no LogEntry to handle id=1
+2022-03-18 00:40:28,033 : WARNING : Error no LogEntry to handle id=1
+2022-03-18 00:40:28,084 : WARNING : Error no LogEntry to handle id=1
+2022-03-18 00:40:28,134 : WARNING : Error no LogEntry to handle id=1
+2022-03-18 00:40:28,183 : WARNING : Error no LogEntry to handle id=1
+2022-03-18 00:40:28,235 : WARNING : Error no LogEntry to handle id=1
+2022-03-18 00:40:28,287 : WARNING : Error no LogEntry to handle id=1
+2022-03-18 00:40:28,332 : WARNING : Error no LogEntry to handle id=1
+2022-03-18 00:40:28,383 : WARNING : Error no LogEntry to handle id=1
+2022-03-18 00:40:28,437 : WARNING : Error no LogEntry to handle id=1
+2022-03-18 00:40:28,483 : WARNING : Error no LogEntry to handle id=1
+2022-03-18 00:40:28,534 : WARNING : Error no LogEntry to handle id=1
+2022-03-18 00:40:28,582 : WARNING : Error no LogEntry to handle id=1
+2022-03-18 00:40:28,632 : WARNING : Error no LogEntry to handle id=1
+2022-03-18 00:40:28,683 : WARNING : Error no LogEntry to handle id=1
+2022-03-18 00:40:28,735 : WARNING : Error no LogEntry to handle id=1
+2022-03-18 00:40:28,783 : WARNING : Error no LogEntry to handle id=1
+2022-03-18 00:40:28,832 : WARNING : Error no LogEntry to handle id=1
+2022-03-18 00:40:28,883 : WARNING : Error no LogEntry to handle id=1
+2022-03-18 00:40:28,933 : WARNING : Error no LogEntry to handle id=1
+2022-03-18 00:40:28,984 : WARNING : Error no LogEntry to handle id=1
+2022-03-18 00:40:29,032 : WARNING : Error no LogEntry to handle id=1
+2022-03-18 00:40:29,082 : WARNING : Error no LogEntry to handle id=1
+2022-03-18 00:40:29,132 : WARNING : Error no LogEntry to handle id=1
+2022-03-18 00:40:29,183 : WARNING : Error no LogEntry to handle id=1
+2022-03-18 00:40:29,231 : WARNING : Error no LogEntry to handle id=1
+2022-03-18 00:40:29,282 : WARNING : Error no LogEntry to handle id=1
+2022-03-18 00:40:29,337 : WARNING : Error no LogEntry to handle id=1
+2022-03-18 00:40:29,382 : WARNING : Error no LogEntry to handle id=1
+2022-03-18 00:40:29,433 : WARNING : Error no LogEntry to handle id=1
+2022-03-18 00:40:29,482 : WARNING : Error no LogEntry to handle id=1
+2022-03-18 00:40:29,533 : WARNING : Error no LogEntry to handle id=1
+2022-03-18 00:40:29,582 : WARNING : Error no LogEntry to handle id=1
+2022-03-18 00:40:29,634 : WARNING : Error no LogEntry to handle id=1
+2022-03-18 00:40:29,681 : WARNING : Error no LogEntry to handle id=1
+2022-03-18 00:41:34,519 : INFO : Crazyflie server launched
+2022-03-18 00:41:34,520 : INFO : app launched
+2022-03-18 00:41:34,522 : INFO :  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+2022-03-18 00:41:34,804 : INFO : v0.53 dongle with serial N/A found
+2022-03-18 00:41:36,003 : INFO : Looking for devices....
+2022-03-18 00:41:36,004 : INFO : Initialized PRRT driver.
+2022-03-18 00:41:36,294 : INFO : v0.53 dongle with serial N/A found
+2022-03-18 00:41:37,541 : INFO : Looking for devices....
+2022-03-18 00:41:37,543 : INFO : Initialized PRRT driver.
+2022-03-18 00:41:37,827 : INFO : v0.53 dongle with serial N/A found
+2022-03-18 00:41:39,085 : INFO : Looking for devices....
+2022-03-18 00:41:39,087 : INFO : Initialized PRRT driver.
+2022-03-18 00:41:39,375 : INFO : v0.53 dongle with serial N/A found
+2022-03-18 00:41:40,632 : INFO : Looking for devices....
+2022-03-18 00:41:40,634 : INFO : Initialized PRRT driver.
+2022-03-18 00:41:40,636 : INFO : Callback->Connection initialized[radio://0/80/2M/E7E7E7E731]
+2022-03-18 00:41:40,921 : INFO : We are connected[radio://0/80/2M/E7E7E7E731], request connection setup
+2022-03-18 00:41:40,928 : INFO : Callback->Connection initialized[radio://0/80/2M/E7E7E7E731]
+2022-03-18 00:41:40,931 : INFO : Callback->Connected to [radio://0/80/2M/E7E7E7E731]
+2022-03-18 00:41:40,933 : INFO : We are connected[radio://0/80/2M/E7E7E7E731], request connection setup
+2022-03-18 00:41:40,937 : INFO : Callback->Connected to [radio://0/80/2M/E7E7E7E731]
+2022-03-18 00:41:41,065 : INFO : Protocol  version: 4
+2022-03-18 00:41:41,066 : INFO : Protocol  version: 4
+2022-03-18 00:41:42,956 : INFO : Have successfully started logging for id=1
+2022-03-18 00:41:42,958 : INFO : Have successfully started logging for id=1
+2022-03-18 00:42:07,052 : INFO : Crazyflie server launched
+2022-03-18 00:42:07,053 : INFO : app launched
+2022-03-18 00:42:07,054 : INFO :  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+2022-03-18 00:42:07,341 : INFO : v0.53 dongle with serial N/A found
+2022-03-18 00:42:08,574 : INFO : Looking for devices....
+2022-03-18 00:42:08,577 : INFO : Initialized PRRT driver.
+2022-03-18 00:42:08,859 : INFO : v0.53 dongle with serial N/A found
+2022-03-18 00:42:10,118 : INFO : Looking for devices....
+2022-03-18 00:42:10,122 : INFO : Initialized PRRT driver.
+2022-03-18 00:42:10,404 : INFO : v0.53 dongle with serial N/A found
+2022-03-18 00:42:11,644 : INFO : Looking for devices....
+2022-03-18 00:42:11,645 : INFO : Initialized PRRT driver.
+2022-03-18 00:42:11,930 : INFO : v0.53 dongle with serial N/A found
+2022-03-18 00:42:13,123 : INFO : Looking for devices....
+2022-03-18 00:42:13,124 : INFO : Initialized PRRT driver.
+2022-03-18 00:42:13,125 : INFO : Callback->Connection initialized[radio://0/80/2M/E7E7E7E731]
+2022-03-18 00:42:13,413 : INFO : We are connected[radio://0/80/2M/E7E7E7E731], request connection setup
+2022-03-18 00:42:13,420 : INFO : Callback->Connected to [radio://0/80/2M/E7E7E7E731]
+2022-03-18 00:42:13,421 : INFO : Callback->Connection initialized[radio://0/80/2M/E7E7E7E731]
+2022-03-18 00:42:13,423 : WARNING : Error no LogEntry to handle id=1
+2022-03-18 00:42:13,427 : INFO : We are connected[radio://0/80/2M/E7E7E7E731], request connection setup
+2022-03-18 00:42:13,431 : INFO : Callback->Connected to [radio://0/80/2M/E7E7E7E731]
+2022-03-18 00:42:13,446 : INFO : Protocol  version: 4
+2022-03-18 00:42:13,447 : INFO : Protocol  version: 4
+2022-03-18 00:42:13,450 : INFO : Protocol  version: 4
+2022-03-18 00:42:13,451 : INFO : Protocol  version: 4
+2022-03-18 00:42:15,417 : WARNING : Unable to find variable [kalman.stateX]
+2022-03-18 00:42:15,419 : WARNING : Log: kalman.stateX not in TOC, this block cannot be used!
+2022-03-18 00:42:15,431 : WARNING : Unable to find variable [kalman.stateX]
+2022-03-18 00:42:15,432 : WARNING : Log: kalman.stateX not in TOC, this block cannot be used!
+2022-03-18 00:42:17,746 : INFO : Saved cache to [./cache/47E1EE26.json]
+2022-03-18 00:42:17,747 : INFO : Log TOC finished updating
+2022-03-18 00:42:17,753 : INFO : 6 memories found
+2022-03-18 00:42:17,754 : INFO : 6 memories found
+2022-03-18 00:42:17,978 : INFO : Memories finished updating
+2022-03-18 00:46:35,458 : INFO : Crazyflie server launched
+2022-03-18 00:46:35,460 : INFO : app launched
+2022-03-18 00:46:35,461 : INFO :  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+2022-03-18 00:46:35,744 : INFO : v0.53 dongle with serial N/A found
+2022-03-18 00:46:36,953 : INFO : Looking for devices....
+2022-03-18 00:46:36,954 : INFO : Initialized PRRT driver.
+2022-03-18 00:46:37,235 : INFO : v0.53 dongle with serial N/A found
+2022-03-18 00:46:38,488 : INFO : Looking for devices....
+2022-03-18 00:46:38,490 : INFO : Initialized PRRT driver.
+2022-03-18 00:46:38,776 : INFO : v0.53 dongle with serial N/A found
+2022-03-18 00:46:40,031 : INFO : Looking for devices....
+2022-03-18 00:46:40,034 : INFO : Initialized PRRT driver.
+2022-03-18 00:46:40,315 : INFO : v0.53 dongle with serial N/A found
+2022-03-18 00:46:41,563 : INFO : Looking for devices....
+2022-03-18 00:46:41,566 : INFO : Initialized PRRT driver.
+2022-03-18 00:46:41,568 : INFO : Callback->Connection initialized[radio://0/80/2M/E7E7E7E731]
+2022-03-18 00:46:41,853 : INFO : We are connected[radio://0/80/2M/E7E7E7E731], request connection setup
+2022-03-18 00:46:41,859 : INFO : Callback->Connection initialized[radio://0/80/2M/E7E7E7E731]
+2022-03-18 00:46:41,862 : INFO : We are connected[radio://0/80/2M/E7E7E7E731], request connection setup
+2022-03-18 00:46:41,864 : INFO : Callback->Connected to [radio://0/80/2M/E7E7E7E731]
+2022-03-18 00:46:41,869 : INFO : Callback->Connected to [radio://0/80/2M/E7E7E7E731]
+2022-03-18 00:46:41,986 : INFO : Protocol  version: 4
+2022-03-18 00:46:41,987 : INFO : Protocol  version: 4
+2022-03-18 00:46:42,004 : INFO : TOC for port [5] found in cache
+2022-03-18 00:46:42,004 : INFO : Log TOC finished updating
+2022-03-18 00:46:42,012 : INFO : TOC for port [5] found in cache
+2022-03-18 00:46:42,013 : INFO : Log TOC finished updating
+2022-03-18 00:46:42,017 : INFO : 6 memories found
+2022-03-18 00:46:42,018 : INFO : 6 memories found
+2022-03-18 00:46:42,200 : INFO : Memories finished updating
+2022-03-18 00:46:43,866 : WARNING : No LogEntry to assign block to !!!
+2022-03-18 00:46:43,873 : INFO : Have successfully started logging for id=1
+2022-03-18 00:46:43,874 : INFO : Have successfully started logging for id=1
+2022-03-18 00:47:02,789 : INFO : Crazyflie server launched
+2022-03-18 00:47:02,789 : INFO : app launched
+2022-03-18 00:47:02,791 : INFO :  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+2022-03-18 00:47:03,076 : INFO : v0.53 dongle with serial N/A found
+2022-03-18 00:47:04,120 : INFO : Looking for devices....
+2022-03-18 00:47:04,121 : INFO : Initialized PRRT driver.
+2022-03-18 00:47:04,400 : INFO : v0.53 dongle with serial N/A found
+2022-03-18 00:47:05,574 : INFO : Looking for devices....
+2022-03-18 00:47:05,576 : INFO : Initialized PRRT driver.
+2022-03-18 00:47:05,863 : INFO : v0.53 dongle with serial N/A found
+2022-03-18 00:47:07,062 : INFO : Looking for devices....
+2022-03-18 00:47:07,065 : INFO : Initialized PRRT driver.
+2022-03-18 00:47:07,345 : INFO : v0.53 dongle with serial N/A found
+2022-03-18 00:47:08,569 : INFO : Looking for devices....
+2022-03-18 00:47:08,571 : INFO : Initialized PRRT driver.
+2022-03-18 00:47:08,574 : INFO : Callback->Connection initialized[radio://0/80/2M/E7E7E7E731]
+2022-03-18 00:47:08,863 : INFO : We are connected[radio://0/80/2M/E7E7E7E731], request connection setup
+2022-03-18 00:47:08,867 : INFO : Callback->Connection initialized[radio://0/80/2M/E7E7E7E731]
+2022-03-18 00:47:08,870 : INFO : We are connected[radio://0/80/2M/E7E7E7E731], request connection setup
+2022-03-18 00:47:08,873 : INFO : Callback->Connected to [radio://0/80/2M/E7E7E7E731]
+2022-03-18 00:47:08,875 : INFO : Callback->Connected to [radio://0/80/2M/E7E7E7E731]
+2022-03-18 00:47:08,877 : WARNING : Error no LogEntry to handle id=1
+2022-03-18 00:47:08,878 : WARNING : Error no LogEntry to handle id=1
+2022-03-18 00:47:08,896 : INFO : Protocol  version: 4
+2022-03-18 00:47:08,897 : INFO : Protocol  version: 4
+2022-03-18 00:47:08,914 : INFO : TOC for port [5] found in cache
+2022-03-18 00:47:08,915 : INFO : Log TOC finished updating
+2022-03-18 00:47:08,925 : INFO : TOC for port [5] found in cache
+2022-03-18 00:47:08,926 : INFO : Log TOC finished updating
+2022-03-18 00:47:08,929 : INFO : 6 memories found
+2022-03-18 00:47:08,930 : INFO : 6 memories found
+2022-03-18 00:47:09,146 : INFO : Memories finished updating
+2022-03-18 00:47:09,148 : INFO : Memories finished updating
+2022-03-18 00:47:10,887 : INFO : Have successfully started logging for id=1
+2022-03-18 00:47:10,889 : INFO : Have successfully started logging for id=1
+2022-03-18 00:47:10,891 : INFO : Have successfully started logging for id=2
+2022-03-18 00:47:10,892 : INFO : Have successfully started logging for id=2
+2022-03-18 00:47:10,894 : INFO : Have successfully started logging for id=3
+2022-03-18 00:47:10,895 : INFO : Have successfully started logging for id=3
+2022-03-18 00:47:24,495 : INFO : Crazyflie server launched
+2022-03-18 00:47:24,495 : INFO : app launched
+2022-03-18 00:47:24,496 : INFO :  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+2022-03-18 00:47:24,779 : INFO : v0.53 dongle with serial N/A found
+2022-03-18 00:47:25,825 : INFO : Looking for devices....
+2022-03-18 00:47:25,826 : INFO : Initialized PRRT driver.
+2022-03-18 00:47:26,108 : INFO : v0.53 dongle with serial N/A found
+2022-03-18 00:47:27,207 : INFO : Looking for devices....
+2022-03-18 00:47:27,209 : INFO : Initialized PRRT driver.
+2022-03-18 00:47:27,492 : INFO : v0.53 dongle with serial N/A found
+2022-03-18 00:47:28,682 : INFO : Looking for devices....
+2022-03-18 00:47:28,685 : INFO : Initialized PRRT driver.
+2022-03-18 00:47:28,970 : INFO : v0.53 dongle with serial N/A found
+2022-03-18 00:47:30,211 : INFO : Looking for devices....
+2022-03-18 00:47:30,214 : INFO : Initialized PRRT driver.
+2022-03-18 00:47:30,216 : INFO : Callback->Connection initialized[radio://0/80/2M/E7E7E7E731]
+2022-03-18 00:47:30,501 : INFO : We are connected[radio://0/80/2M/E7E7E7E731], request connection setup
+2022-03-18 00:47:30,508 : INFO : Callback->Connection initialized[radio://0/80/2M/E7E7E7E731]
+2022-03-18 00:47:30,511 : INFO : We are connected[radio://0/80/2M/E7E7E7E731], request connection setup
+2022-03-18 00:47:30,515 : INFO : Callback->Connected to [radio://0/80/2M/E7E7E7E731]
+2022-03-18 00:47:30,518 : INFO : Callback->Connected to [radio://0/80/2M/E7E7E7E731]
+2022-03-18 00:47:30,523 : WARNING : Error no LogEntry to handle id=2
+2022-03-18 00:47:30,525 : WARNING : Error no LogEntry to handle id=2
+2022-03-18 00:47:30,534 : INFO : Protocol  version: 4
+2022-03-18 00:47:30,535 : INFO : Protocol  version: 4
+2022-03-18 00:47:30,555 : INFO : TOC for port [5] found in cache
+2022-03-18 00:47:30,555 : INFO : Log TOC finished updating
+2022-03-18 00:47:30,566 : INFO : TOC for port [5] found in cache
+2022-03-18 00:47:30,566 : INFO : Log TOC finished updating
+2022-03-18 00:47:30,574 : INFO : 6 memories found
+2022-03-18 00:47:30,575 : INFO : 6 memories found
+2022-03-18 00:47:30,806 : INFO : Memories finished updating
+2022-03-18 00:47:30,807 : INFO : Memories finished updating
+2022-03-18 00:47:32,514 : WARNING : No LogEntry to assign block to !!!
+2022-03-18 00:47:32,527 : INFO : Have successfully started logging for id=1
+2022-03-18 00:47:32,528 : INFO : Have successfully started logging for id=1
+2022-03-18 00:47:32,529 : INFO : Have successfully started logging for id=2
+2022-03-18 00:47:32,531 : INFO : Have successfully started logging for id=2
+2022-03-18 00:47:32,532 : INFO : Have successfully started logging for id=3
+2022-03-18 00:47:32,533 : INFO : Have successfully started logging for id=3
+2022-03-18 00:47:33,504 : INFO : 127.0.0.1 - - [18/Mar/2022 00:47:33] "GET /crazyflieData HTTP/1.1" 200 -
+2022-03-18 00:47:34,400 : INFO : 127.0.0.1 - - [18/Mar/2022 00:47:34] "GET /crazyflieData HTTP/1.1" 200 -
+2022-03-18 00:47:35,385 : INFO : 127.0.0.1 - - [18/Mar/2022 00:47:35] "GET /crazyflieData HTTP/1.1" 200 -

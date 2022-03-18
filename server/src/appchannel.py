@@ -1,17 +1,22 @@
 
+import logging
 import struct
 from threading import Thread
+import time
 
 from typing import Union
 from cflib.crazyflie import Crazyflie
 from message import Message
+from connect_log_param import ConnectLog
 
+logging.basicConfig(level=logging.ERROR)
 
 class AppChannel:
 
     def __init__(self) -> None:
         self.uri = ''
         self._cf: Union[Crazyflie, None] = None
+        self.log: Union[ConnectLog, None] = None
 
     def connect(self, droneUri: str) -> None:
         """Assign the client to the connection. Add callbacks for the
@@ -20,7 +25,8 @@ class AppChannel:
           @param droneUri: the drone's identifier.
         """
         self.uri = droneUri
-        self._cf = Crazyflie()
+        self._cf = Crazyflie(rw_cache='./cache')
+        self.log = ConnectLog()
 
         thread = Thread(target=self.connected)
 
@@ -49,6 +55,9 @@ class AppChannel:
 
         print(
             f'New Crazyradio client connected on uri {self.uri}')
+        time.sleep(2)
+        self.log.start_printing(self._cf, self.uri)
+
 
     def disconnected(self, droneUri) -> None:
         """Callback when the Crazyflie is disconnected (called in all cases)"""
