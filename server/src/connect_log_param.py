@@ -39,7 +39,7 @@ class ConnectLog:
             writer.writerow([self.uri, self.distance[0], self.distance[1], self.distance[2], self.distance[3], self.distance[4], self.distance[5]])
             csvfile.close ()
 
-    def start_dist_printing(self, scf) :
+    def start_dist_printing(self, cf) :
         logconf = LogConfig(name='Distance', period_in_ms=50)
         logconf.add_variable('range.front', 'float')
         logconf.add_variable('range.back', 'float')
@@ -47,7 +47,7 @@ class ConnectLog:
         logconf.add_variable('range.left', 'float')
         logconf.add_variable('range.right', 'float')
         logconf.add_variable('range.zrange', 'float')
-        scf.log.add_config(logconf)
+        cf.log.add_config(logconf)
         if logconf.valid:
             logconf.data_received_cb.add_callback(self.log_dist_callback)
             logconf.error_cb.add_callback(self.logging_error)
@@ -67,12 +67,12 @@ class ConnectLog:
             writer.writerow([self.uri, self.position_estimate[0], self.position_estimate[1] , self.position_estimate[2]])
             csvfile.close ()
 
-    def start_position_printing(self, scf) :
+    def start_position_printing(self, cf) :
         logconf = LogConfig(name='Position', period_in_ms=50)
         logconf.add_variable('kalman.stateX', 'float')
         logconf.add_variable('kalman.stateY', 'float')
         logconf.add_variable('kalman.stateZ', 'float')
-        scf.log.add_config(logconf)
+        cf.log.add_config(logconf)
         if logconf.valid:
             logconf.data_received_cb.add_callback(self.log_pos_callback)
             logconf.error_cb.add_callback(self.logging_error)
@@ -90,11 +90,11 @@ class ConnectLog:
             csvfile.close ()
         
 
-    def start_battery_printing(self, scf) :
+    def start_battery_printing(self, cf) :
         logconf = LogConfig(name='Battery', period_in_ms=500)
         logconf.add_variable('pm.state', 'float')
         logconf.add_variable('pm.batteryLevel', 'float')
-        scf.log.add_config(logconf)
+        cf.log.add_config(logconf)
         if logconf.valid:
             logconf.data_received_cb.add_callback(self.log_battery_callback)
             logconf.error_cb.add_callback(self.logging_error)
