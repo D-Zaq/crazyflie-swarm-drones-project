@@ -30,15 +30,15 @@ export class DroneCardComponent implements OnInit {
       droneURI: this.droneData.name,
       command: Command.StartMission
       };
-    this.droneService.startMission(startMissionCommand).subscribe();
+    this.droneService.sendCommand(startMissionCommand).subscribe();
   }
 
   land(): void {
     let landMissionCommand = {
       droneURI: this.droneData.name,
-      command: Command.StartMission
+      command: Command.Land
       };
-    this.droneService.landDrone(landMissionCommand).subscribe();
+    this.droneService.sendCommand(landMissionCommand).subscribe();
   }
 
   fly(): void {
@@ -46,7 +46,7 @@ export class DroneCardComponent implements OnInit {
       droneURI: this.droneData.name,
       command: Command.Fly
       };
-    this.droneService.startMission(flyCommand).subscribe();
+    this.droneService.sendCommand(flyCommand).subscribe();
   }
 
 

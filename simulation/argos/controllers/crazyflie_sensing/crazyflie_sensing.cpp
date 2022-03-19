@@ -133,10 +133,10 @@ void CCrazyflieSensing::CheckState()
 
    switch (command)
    {
-   case 's':
+   case 'e':
       this->state = 1;
       break;
-   case 'e':
+   case 's':
       this->state = 2;
       break;
    case 'c':
@@ -421,4 +421,3 @@ void CCrazyflieSensing::Reset()
  * See also the XML configuration files for an example of how this is used.
  */
 REGISTER_CONTROLLER(CCrazyflieSensing, "crazyflie_sensing_controller")
-
