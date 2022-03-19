@@ -96,7 +96,7 @@ export class MainPageComponent implements OnInit {
   }
 
   onSliderClick(){
-    this.droneService.isSimulation = this.isSimulation;
+    this.droneService.isSimulation = !this.droneService.isSimulation;
   }
 
 }

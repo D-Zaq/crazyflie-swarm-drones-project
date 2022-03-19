@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import {HttpClient, HttpErrorResponse} from '@angular/common/http';
 import {Observable} from 'rxjs/Observable';
 import 'rxjs/add/operator/catch';
+import {CommandStruct} from '../../objects/drones';
 import {API_URL} from '../../env';
 // import {IDrone} from '../../objects/drones';
 
@@ -31,7 +32,7 @@ type ServerDrone = {
 export class DronesService {
 
   // constructor() { }
-  public isSimulation = false;
+  public isSimulation = true;
 
   serverAddress = "http://localhost:5000";
   crazyflieServerAddress = "http://localhost:5000/crazyflie";
@@ -54,46 +55,38 @@ export class DronesService {
   //     .catch(DronesService._handleError);
   // }
 
-  identifyDrone(uri: string){
-    // this calls the communication service method with the needed parameters for request
-    // const messageStr = JSON.stringify(uri);
-    // console.log(messageStr);
+  identifyDrone(command: CommandStruct){
     return this.http
       .post(
         this.crazyflieServerAddress,
-        uri
+        command
         )
       .catch(DronesService._handleError)
   }
 
-  startMission(letter:string){
+  startMission(command: CommandStruct){
     // this calls the communication service method with the needed parameters for request
-    return this.http
-      .post(
-        this.argosServerAddress,
-        letter
-        )
-      .catch(DronesService._handleError)
+    return this.isSimulation ? this.http.post(this.argosServerAddress,command.command)
+    .catch(DronesService._handleError): 
+    this.http.post(this.crazyflieServerAddress,command)
+    .catch(DronesService._handleError)
   }
 
-  landDrone(letter:string){
+  landDrone(command: CommandStruct){
     // this calls the communication service method with the needed parameters for request
-    return this.http
-      .post(
-        this.argosServerAddress,
-        letter
-        )
-      .catch(DronesService._handleError)
+    return this.isSimulation ? this.http.post(this.argosServerAddress,command.command)
+    .catch(DronesService._handleError): 
+    this.http.post(this.crazyflieServerAddress,command)
+    .catch(DronesService._handleError)
   }
 
-  fly(letter:string){
+
+  fly(command: CommandStruct){
     // this calls the communication service method with the needed parameters for request
-    return this.http
-      .post(
-        this.argosServerAddress,
-        letter
-        )
-      .catch(DronesService._handleError)
+    return this.isSimulation ? this.http.post(this.argosServerAddress,command.command)
+    .catch(DronesService._handleError): 
+    this.http.post(this.crazyflieServerAddress,command)
+    .catch(DronesService._handleError)
   }
 
   getData() {

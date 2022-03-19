@@ -108,3 +108,16 @@ export const SIM_DRONE_2: Drone = {
     state: 'disconnected',
     ledOn: false,
 };
+
+export enum Command
+{
+    Identify = "i",
+    StartMission = "s",
+    Land = "c",
+    Fly = "e"
+}
+
+export interface CommandStruct {
+    droneURI: string;
+    command: Command;
+}

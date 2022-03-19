@@ -46,7 +46,7 @@ def handleCrazyfliePost():
     # jsonify(data)
     # print("post request >>>>>>>>>", data)
     print(f'"post request >>>>>>>>>" {data}')
-    CrazyflieServer.sendMessage(data)
+    CrazyflieServer.sendCommand(data)
     return jsonify("post hello !")
 
 

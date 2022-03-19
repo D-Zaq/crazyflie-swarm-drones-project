@@ -1,6 +1,6 @@
 import { outputAst } from '@angular/compiler';
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import {Drone, DRONE_1} from 'src/app/objects/drones';
+import {Drone, DRONE_1, Command, CommandStruct} from 'src/app/objects/drones';
 import { DronesService } from 'src/app/services/drones/drones.service';
 
 @Component({
@@ -18,25 +18,35 @@ export class DroneCardComponent implements OnInit {
 
   identify(): void {
     console.log(this.droneData.name);
-    this.droneService.identifyDrone(this.droneData.name).subscribe();
-  }
-
-  fly(): void {
-    let fly: string;
-    fly = "s";
-    this.droneService.fly(fly).subscribe();
-  }
-
-  land(): void {
-    let land: string;
-    land = "c";
-    this.droneService.landDrone(land).subscribe();
+    let identifyCommand = {
+      droneURI: this.droneData.name,
+      command: Command.Identify
+      };
+    this.droneService.identifyDrone(identifyCommand).subscribe();
   }
 
   startMission(): void {
-    let startMissionLetter: string;
-    startMissionLetter = "e";
-    this.droneService.startMission(startMissionLetter).subscribe();
+    let startMissionCommand = {
+      droneURI: this.droneData.name,
+      command: Command.StartMission
+      };
+    this.droneService.startMission(startMissionCommand).subscribe();
+  }
+
+  land(): void {
+    let landMissionCommand = {
+      droneURI: this.droneData.name,
+      command: Command.StartMission
+      };
+    this.droneService.landDrone(landMissionCommand).subscribe();
+  }
+
+  fly(): void {
+    let flyCommand = {
+      droneURI: this.droneData.name,
+      command: Command.Fly
+      };
+    this.droneService.startMission(flyCommand).subscribe();
   }
 
 

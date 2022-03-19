@@ -79,11 +79,11 @@ class AppChannel:
 
         print('Connection to %s lost: %s' % (self.uri, msg))
 
-    def sendMessage(self, message: Message) -> None:
-
+    def sendMessage(self, command: str) -> None:
         print('in AppChannel send message')
-        command = 'onLed'
-        self._cf.appchannel.send_packet(struct.pack("<B", bool(command)))
+        print(command)
+        print(struct.pack("<c", command.encode('utf-8')))
+        self._cf.appchannel.send_packet(struct.pack("<c", command.encode('utf-8')))
 
     def closeClient(self) -> None:
         self._cf.close_link()

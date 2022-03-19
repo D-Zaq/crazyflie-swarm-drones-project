@@ -7,6 +7,7 @@ import cflib.crtp
 from cflib.crtp.radiodriver import RadioManager
 from appchannel import AppChannel
 from singleton import Singleton
+import re
 from message import Message
 
 
@@ -94,23 +95,23 @@ class CrazyflieServer(metaclass=Singleton):
         #     CrazyflieServer.state = False
 
     @staticmethod
-    def sendMessage(uri):
-
-        logging.info('in Crazyflie server send message')
+    def sendCommand(command):
+        print('in Crazyflie server send message')
+        commandStr = command.decode("utf-8")
+        commandStr = re.sub('[}"{]', '', commandStr)
+        droneURI = commandStr.split(',')[0][9:35]
+        commandAction = commandStr[-1]
         for drone in CrazyflieServer.drones:
-            uriString = 'b\'' + str(drone.uri) + '\''
+            uriString = str(drone.uri)
             # print('seeeeeeeeeee', uriString, '=========', str(uri))
-            if uriString == str(uri):
+            print(uriString)
+            if uriString == droneURI:
                 targetDrone = drone
-                logging.info(
+                print(
                     '======================> Sending message to drone : ', targetDrone.uri)
 
-                targetDrone.sendMessage(Message(
-                    type="onLed",
-                    data={
-                        "name": targetDrone.uri
-                    }
-                ))
+                targetDrone.sendMessage(commandAction)
+
     @staticmethod
     def createDrone():
         data = None
