@@ -9,7 +9,7 @@ describe('DroneCardComponent', () => {
   let droneServiceSpy: jasmine.SpyObj<DronesService>;
 
   beforeEach(async () => {
-    droneServiceSpy = jasmine.createSpyObj('DronesService', ['identifyDrone', 'fly', 'landDrone', 'startMission']);
+    droneServiceSpy = jasmine.createSpyObj('DronesService', ['identifyDrone', 'sendCommand']);
     await TestBed.configureTestingModule({
       declarations: [ DroneCardComponent ]
     })
@@ -27,19 +27,23 @@ describe('DroneCardComponent', () => {
   });
 
   it('should identify', () => {
+    component.identify();
     expect(droneServiceSpy.identifyDrone).toHaveBeenCalled();
   });
 
-  it('should identify', () => {
-    expect(droneServiceSpy.fly).toHaveBeenCalled();
+  it("should call droneService's sendCommand method", () => {
+    component.fly();
+    expect(droneServiceSpy.sendCommand).toHaveBeenCalled();
   });
 
   
   it('should land', () => {
-    expect(droneServiceSpy.landDrone).toHaveBeenCalled();
+    component.land();
+    expect(droneServiceSpy.sendCommand).toHaveBeenCalled();
   });
-  
+
   it('should start mission', () => {
-    expect(droneServiceSpy.startMission).toHaveBeenCalled();
+    component.startMission();
+    expect(droneServiceSpy.sendCommand).toHaveBeenCalled();
   });
 });

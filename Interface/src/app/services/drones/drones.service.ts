@@ -64,24 +64,7 @@ export class DronesService {
       .catch(DronesService._handleError)
   }
 
-  startMission(command: CommandStruct){
-    // this calls the communication service method with the needed parameters for request
-    return this.isSimulation ? this.http.post(this.argosServerAddress,command.command)
-    .catch(DronesService._handleError): 
-    this.http.post(this.crazyflieServerAddress,command)
-    .catch(DronesService._handleError)
-  }
-
-  landDrone(command: CommandStruct){
-    // this calls the communication service method with the needed parameters for request
-    return this.isSimulation ? this.http.post(this.argosServerAddress,command.command)
-    .catch(DronesService._handleError): 
-    this.http.post(this.crazyflieServerAddress,command)
-    .catch(DronesService._handleError)
-  }
-
-
-  fly(command: CommandStruct){
+  sendCommand(command: CommandStruct){
     // this calls the communication service method with the needed parameters for request
     return this.isSimulation ? this.http.post(this.argosServerAddress,command.command)
     .catch(DronesService._handleError): 
