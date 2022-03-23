@@ -41,6 +41,7 @@
  */
 using namespace argos;
 
+static uint16_t id = 0;
 /*
  * A controller is simply an implementation of the CCI_Controller class.
  */
@@ -142,8 +143,8 @@ private:
    CVector3 lastPositionR;
    CVector3 lastPositionB;
    CVector3 lastPositionF;
+   uint16_t id_;
    DroneData drone_data_;
 };
 
 #endif
-

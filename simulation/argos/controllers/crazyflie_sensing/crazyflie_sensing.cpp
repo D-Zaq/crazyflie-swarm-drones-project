@@ -27,7 +27,8 @@ CCrazyflieSensing::CCrazyflieSensing() : m_pcDistance(NULL),
                                          m_pcPos(NULL),
                                          m_pcBattery(NULL),
                                          m_uiCurrentStep(0),
-                                         drone_data_("Sim_Drone_1") {}
+                                         id_(id++),
+                                         drone_data_("Sim_Drone_" + std::to_string(id_)) {}
 
 int sock_ = 0;
 bool flying = false;
@@ -74,6 +75,7 @@ void CCrazyflieSensing::Init(TConfigurationNode &t_node)
    m_pcRNG = CRandom::CreateRNG("argos");
 
    m_uiCurrentStep = 0;
+   // if (id_ == 2)
    this->sock = connectServer();
    Reset();
 }

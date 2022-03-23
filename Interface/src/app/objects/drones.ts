@@ -76,8 +76,8 @@ export const DRONE_2: Drone = {
 };
 
 export const SIM_DRONE_1: Drone = {
-    identifier: "Sim_Drone_1",
-    name: "SimDrone_1",
+    identifier: "",
+    name: "Sim_Drone_1",
     speed: '0',
     battery: '100',
     xPosition: '0',
@@ -93,8 +93,8 @@ export const SIM_DRONE_1: Drone = {
 };
 
 export const SIM_DRONE_2: Drone = {
-    identifier: "Sim_Drone_2",
-    name: "SimDrone_2",
+    identifier: "",
+    name: "Sim_Drone_2",
     speed: '0',
     battery: '100',
     xPosition: '0',
