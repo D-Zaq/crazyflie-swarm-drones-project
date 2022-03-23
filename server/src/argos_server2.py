@@ -28,8 +28,10 @@ class ArgosServer(metaclass=Singleton):
     def startServer():
         logging.info(f"launching ARGoS")
         s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+        # s.setblocking(False)
+        s.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
         s.bind((ArgosServer.SOCKET_HOST, ArgosServer.SOCKET_PORT))
-        s.listen()
+        s.listen(2)
         ArgosServer.server = None
         ArgosServer.server = s
         threading.Thread(target=ArgosServer.connectServ).start()
@@ -37,11 +39,11 @@ class ArgosServer(metaclass=Singleton):
     @staticmethod
     def connectServ():
         while ArgosServer.running:
-            if ArgosServer.accepted is False:
-                logging.info("connecting to ARGoS")
-                ArgosServer.conn, addr = ArgosServer.server.accept()
-                logging.info("********* ARGoS connected *********")
-                ArgosServer.accepted = True
+            # if ArgosServer.accepted is False:
+            logging.info("connecting to ARGoS")
+            ArgosServer.conn, addr = ArgosServer.server.accept()
+            logging.info("********* ARGoS connected *********")
+            # ArgosServer.accepted = True
 
             time.sleep(1)
 

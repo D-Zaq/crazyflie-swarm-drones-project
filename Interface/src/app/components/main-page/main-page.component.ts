@@ -28,7 +28,8 @@ export class MainPageComponent implements OnInit {
         takeUntil(this.unsubscribe$),
       )
       .subscribe(() => this.droneService.getData().subscribe(res => {
-        if(res.name == this.simDrones[0].identifier){
+        if(res.name == this.simDrones[0].name){
+          this.simDrones[0].identifier = res.name;
           this.simDrones[0].speed = res.speed;
           this.simDrones[0].battery = res.battery;
           this.simDrones[0].xPosition = res.xPosition;
@@ -41,7 +42,8 @@ export class MainPageComponent implements OnInit {
           this.simDrones[0].rightDistance = res.rightDistance;
           this.simDrones[0].state = res.state;
         }
-        else if(res.name == this.simDrones[1].identifier){
+        else if(res.name == this.simDrones[1].name){
+          this.simDrones[1].identifier = res.name;
           this.simDrones[1].speed = res.speed;
           this.simDrones[1].battery = res.battery;
           this.simDrones[1].xPosition = res.xPosition;

@@ -69,7 +69,7 @@ def handleArgosDataPolling():
     ArgosServer.sendCommand('i')
     buffer = ArgosServer.conn.recv(80000)
     string = buffer.decode("utf-8")
-    # print("Striiiiinggg : =====> ", string)
+    print("Striiiiinggg : =====> ", string)
     # print("Striiiiinggg 00000 : =====> ", string[0])
     # string = string[-10:]
     data = string.split()
@@ -87,7 +87,7 @@ def handleArgosDataPolling():
         rightDistance=data[-2],
         state=data[-1]
     )
-    # print("Sim Drone : ===>   ", simDrone)
+    print("Sim Drone : ===>   ", simDrone)
 
     return jsonify(simDrone)
 
@@ -96,6 +96,7 @@ def handleArgosDataPolling():
 def handleLogsPolling():
     # print("llllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllll GGGGGGGGGGEEEEEEEEEEEEEEEETTTTTTTTTTTTTTTTT")
     return jsonify(logs)
+
 
 @app.route('/crazyflieData', methods=["GET"])
 def handleCFLogsPolling():
@@ -166,24 +167,21 @@ def handleCFLogsPolling():
 class DashboardLogger(logging.Handler):
     def emit(self, record: logging.LogRecord) -> None:
         logEntry = self.format(record)
-        # if(flaskLaunched == True):
-        #     requests.get('http://127.0.0.1:5000/argosData')
         global logs
         logs.append(ServerLog(
                     log=logEntry,
                     timestamp=int(record.created)
                     ))
-        # print("looooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooggggggggggggggssssssssssssssssss", logEntry)
 
 
 if __name__ == '__main__':
-    
+
     try:
         os.remove('position.csv')
         os.remove('battery.csv')
         os.remove('distance.csv')
-    except :
-        print ('Already deleted')      
+    except:
+        print('Already deleted')
 
     # To test 'Identify': comment lines: argosServer = server() , argosServer.connectServ()
     # To test ARGoS sim: comment lines: CrazyflieServerThread = CrazyflieServer().start() , CrazyflieServerThread.join()
