@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { interval, Subject } from 'rxjs';
 import { startWith, switchMap, takeUntil } from 'rxjs/operators';
-import {Drone, DRONE_1, DRONE_2, SIM_DRONE_1, SIM_DRONE_2 } from 'src/app/objects/drones';
+import {Drone, DRONE_1, DRONE_2, SIM_DRONE_1, SIM_DRONE_10, SIM_DRONE_2, SIM_DRONE_3, SIM_DRONE_4, SIM_DRONE_5, SIM_DRONE_6, SIM_DRONE_7, SIM_DRONE_8, SIM_DRONE_9 } from 'src/app/objects/drones';
 import { DronesService } from 'src/app/services/drones/drones.service';
 
 @Component({
@@ -13,7 +13,7 @@ import { DronesService } from 'src/app/services/drones/drones.service';
 export class MainPageComponent implements OnInit {
   
   realDrones: Drone[] = [DRONE_1, DRONE_2];
-  simDrones: Drone[] = [SIM_DRONE_1, SIM_DRONE_2];
+  simDrones: Drone[] = [SIM_DRONE_1, SIM_DRONE_2, SIM_DRONE_3, SIM_DRONE_4, SIM_DRONE_5, SIM_DRONE_6, SIM_DRONE_7, SIM_DRONE_8, SIM_DRONE_9, SIM_DRONE_10];
   private unsubscribe$ = (new Subject<void>());
   isSimulation = true;
   
@@ -28,34 +28,22 @@ export class MainPageComponent implements OnInit {
         takeUntil(this.unsubscribe$),
       )
       .subscribe(() => this.droneService.getData().subscribe(res => {
-        if(res.name == this.simDrones[0].name){
-          this.simDrones[0].identifier = res.name;
-          this.simDrones[0].speed = res.speed;
-          this.simDrones[0].battery = res.battery;
-          this.simDrones[0].xPosition = res.xPosition;
-          this.simDrones[0].yPosition = res.yPosition;
-          this.simDrones[0].zPosition = res.zPosition;
-          this.simDrones[0].angle = res.angle;
-          this.simDrones[0].frontDistance = res.frontDistance;
-          this.simDrones[0].backDistance = res.backDistance;
-          this.simDrones[0].leftDistance = res.leftDistance;
-          this.simDrones[0].rightDistance = res.rightDistance;
-          this.simDrones[0].state = res.state;
+        for(let i=0; res.length; i++){
+        if(res[i].name == this.simDrones[i].name){
+          this.simDrones[i].identifier = res[i].name;
+          this.simDrones[i].speed = res[i].speed;
+          this.simDrones[i].battery = res[i].battery;
+          this.simDrones[i].xPosition = res[i].xPosition;
+          this.simDrones[i].yPosition = res[i].yPosition;
+          this.simDrones[i].zPosition = res[i].zPosition;
+          this.simDrones[i].angle = res[i].angle;
+          this.simDrones[i].frontDistance = res[i].frontDistance;
+          this.simDrones[i].backDistance = res[i].backDistance;
+          this.simDrones[i].leftDistance = res[i].leftDistance;
+          this.simDrones[i].rightDistance = res[i].rightDistance;
+          this.simDrones[i].state = res[i].state;
         }
-        else if(res.name == this.simDrones[1].name){
-          this.simDrones[1].identifier = res.name;
-          this.simDrones[1].speed = res.speed;
-          this.simDrones[1].battery = res.battery;
-          this.simDrones[1].xPosition = res.xPosition;
-          this.simDrones[1].yPosition = res.yPosition;
-          this.simDrones[1].zPosition = res.zPosition;
-          this.simDrones[1].angle = res.angle;
-          this.simDrones[1].frontDistance = res.frontDistance;
-          this.simDrones[1].backDistance = res.backDistance;
-          this.simDrones[1].leftDistance = res.leftDistance;
-          this.simDrones[1].rightDistance = res.rightDistance;
-          this.simDrones[1].state = res.state;
-        } 
+      }
       }));
       interval(800)
       .pipe(
