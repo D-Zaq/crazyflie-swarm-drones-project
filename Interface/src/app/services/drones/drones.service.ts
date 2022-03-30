@@ -11,7 +11,23 @@ type ServerLog = {
   timestamp: number;
 };
 
-type ServerDrone = { 
+type ServerSimDrone = { 
+  id: string;
+  name: string;
+  speed: string;
+  battery: string;
+  xPosition: string;
+  yPosition: string;
+  zPosition: string;
+  angle: string;
+  frontDistance: string;
+  backDistance: string;
+  leftDistance: string;
+  rightDistance: string;
+  state:string;
+};
+
+type ServerRealDrone = { 
   name: string;
   speed: string;
   battery: string;
@@ -73,12 +89,12 @@ export class DronesService {
   }
 
   getData() {
-    return this.http.get<ServerDrone>(this.argosDataAddress)
+    return this.http.get<ServerSimDrone[]>(this.argosDataAddress)
       .catch(DronesService._handleError);
   }
 
   getCFData() {
-    return this.http.get<ServerDrone>(this.cfDataServerAdress)
+    return this.http.get<ServerRealDrone>(this.cfDataServerAdress)
       .catch(DronesService._handleError);
   }
 

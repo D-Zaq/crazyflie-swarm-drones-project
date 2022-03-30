@@ -8,6 +8,7 @@ class DroneData
 {
 private:
     bool flying_;
+    std::string id_;
     std::string name_;
     std::float_t speed_;
     std::float_t battery_;
@@ -33,8 +34,11 @@ public:
 
     void setState(std::string state) { state_ = state; };
 
+    void setName(std::string name) { name_ = name; };
+
+    void setId(std::string id) { id_ = id; };
+
     void enable();
 
     void disable();
 };
-

@@ -2,6 +2,7 @@ from typing import TypedDict
 
 
 class Drone(TypedDict):
+    id: str
     name: str
     speed: str
     battery: str

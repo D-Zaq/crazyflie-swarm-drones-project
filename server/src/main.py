@@ -1,6 +1,7 @@
 # coding=utf-8
 from crypt import methods
 import os
+import re
 import requests
 import threading
 import time
@@ -63,33 +64,11 @@ def handleArgosPost():
 
 @app.route('/argosData', methods=["GET"])
 def handleArgosDataPolling():
-    # b = random.randint(0, 99)
-    # string = str(b)
-    # print("llllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllll", string)
     ArgosServer.sendCommand('i')
-    buffer = ArgosServer.conn.recv(80000)
-    string = buffer.decode("utf-8")
-    print("Striiiiinggg : =====> ", string)
-    # print("Striiiiinggg 00000 : =====> ", string[0])
-    # string = string[-10:]
-    data = string.split()
-    simDrone: Drone = Drone(
-        name=data[-12],
-        speed=data[-11],
-        battery=data[-10],
-        xPosition=data[-9],
-        yPosition=data[-8],
-        zPosition=data[-7],
-        angle=data[-6],
-        frontDistance=data[-5],
-        backDistance=data[-4],
-        leftDistance=data[-3],
-        rightDistance=data[-2],
-        state=data[-1]
-    )
-    print("Sim Drone : ===>   ", simDrone)
+    simDrones = []
+    simDrones = ArgosServer.receiveData()
 
-    return jsonify(simDrone)
+    return jsonify(simDrones)
 
 
 @app.route('/logs', methods=["GET"])
