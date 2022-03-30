@@ -99,13 +99,13 @@ def handleLogsPolling():
 
 @app.route('/crazyflieData', methods=["GET"])
 def handleCFLogsPolling():
-    drones = CrazyflieServer.createDrone()
+    drone = CrazyflieServer.createDrone()
     # if CrazyflieServer.state:
     #     drones['state'] = 'Connected'
     # else:
     #     drones['state'] = 'Disconnected'
-    print('Drone physique : ====================> ', drones)
-    return jsonify(drones)
+    print('Drone physique : ====================> ', drone)
+    return jsonify(drone)
 
 
 # @app.route('/drones')
@@ -179,11 +179,15 @@ class DashboardLogger(logging.Handler):
 if __name__ == '__main__':
     
     try:
-        os.remove('position.csv')
-        os.remove('battery.csv')
-        os.remove('distance.csv')
+        os.remove('positionE7E7E7E731.csv')
+        os.remove('batteryE7E7E7E731.csv')
+        os.remove('distanceE7E7E7E731.csv')
+        os.remove('positionE7E7E7E732.csv')
+        os.remove('batteryE7E7E7E732.csv')
+        os.remove('distanceE7E7E7E732.csv')
     except :
         print ('Already deleted')      
+
 
     # To test 'Identify': comment lines: argosServer = server() , argosServer.connectServ()
     # To test ARGoS sim: comment lines: CrazyflieServerThread = CrazyflieServer().start() , CrazyflieServerThread.join()
