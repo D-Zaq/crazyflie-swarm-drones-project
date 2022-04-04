@@ -35,4 +35,46 @@
     <div class="mat-card-subtitle">
         Front: {{ droneData.frontDistance }} <span></span> Back: {{ droneData.backDistance }} <span></span>  left: {{ droneData.leftDistance }} <span></span>  right: {{ droneData.rightDistance }}
     </div>
+        <div class="card-map">
+
+            <svg [attr.viewBox]="'-2.5 -2.5 5 5'" #svg >
+                <g>
+                <circle
+                
+                fill="red"
+                [attr.cx]="1"
+                [attr.cy]="3"
+                r="0.02"
+                />
+            </g>
+            <use
+            xlink:href="/assets/drone.svg#drone"
+            [attr.x]="mapDrone.yPosition"
+            [attr.y]="mapDrone.xPosition"
+            width="0.15"
+            height="0.15"
+            fill="green"
+            />
+            <line
+            x1="0"
+            y1="-400"
+            x2="0"
+            y2="400"
+            stroke="black"
+            stroke-width="0.02"
+            stroke-dasharray="0.05 0.05"
+            stroke-opacity="0.40"
+            />
+            <line
+            x1="-400"
+            y1="0"
+            x2="400"
+            y2="0"
+            stroke="black"
+            stroke-width="0.02"
+            stroke-dasharray="0.05 0.05"
+            stroke-opacity="0.40"
+            />
+            </svg>
+        </div>
 </mat-card>

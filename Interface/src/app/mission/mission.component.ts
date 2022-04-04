@@ -42,7 +42,7 @@ export class MissionComponent implements OnInit {
       .subscribe(() => this.droneService.getMapData().subscribe(res => {
         for(let i=0; res.length; i++){
 
-          const droneIndex = this.mapDrones.findIndex((r) => r.name === res[i].name);
+          const droneIndex = this.droneService.mapDrones.findIndex((r) => r.name === res[i].name);
           if (droneIndex === -1) {
             const drone= {} as mapDrone;
             drone.name = res[i].name;
@@ -53,7 +53,7 @@ export class MissionComponent implements OnInit {
             drone.backDistance = res[i].backDistance;
             drone.rightDistance = res[i].rightDistance;
             drone.leftDistance = res[i].leftDistance;
-            this.mapDrones.push(drone);
+            this.droneService.mapDrones.push(drone);
           } else {
             const drone= {} as mapDrone;
             drone.name = res[i].name;
@@ -64,9 +64,9 @@ export class MissionComponent implements OnInit {
             drone.backDistance = res[i].backDistance;
             drone.rightDistance = res[i].rightDistance;
             drone.leftDistance = res[i].leftDistance;
-            Object.assign(this.mapDrones[droneIndex], drone);
+            Object.assign(this.droneService.mapDrones[droneIndex], drone);
           }
-          this.addPoint(this.mapDrones[i]);  
+          this.addPoint(this.droneService.mapDrones[i]);  
         }
       }));
   }

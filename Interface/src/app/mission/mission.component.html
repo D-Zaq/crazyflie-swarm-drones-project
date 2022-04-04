@@ -10,7 +10,7 @@
         />
       </g>
       <use
-      *ngFor="let mapDrone of mapDrones"
+      *ngFor="let mapDrone of this.droneService.mapDrones"
         xlink:href="/assets/drone.svg#drone"
         [attr.x]="mapDrone.yPosition"
         [attr.y]="mapDrone.xPosition"

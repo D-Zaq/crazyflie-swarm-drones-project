@@ -1,6 +1,6 @@
 import { outputAst } from '@angular/compiler';
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import {Drone, DRONE_1, Command, CommandStruct} from 'src/app/objects/drones';
+import {Drone, DRONE_1, Command, CommandStruct, mapDrone} from 'src/app/objects/drones';
 import { DronesService } from 'src/app/services/drones/drones.service';
 
 @Component({
@@ -11,9 +11,34 @@ import { DronesService } from 'src/app/services/drones/drones.service';
 export class DroneCardComponent implements OnInit {
 
   @Input() droneData: Drone = DRONE_1;
+  mapDrone = {} as mapDrone;
+  id: any;
+
   constructor(public droneService:DronesService) { }
 
   ngOnInit(): void {
+    this.updateMapDroneData();
+    // this.id = setInterval(() => {
+    // this.updateMapDroneData(); 
+    // }, 100);
+  }
+
+  ngOnDestroy() {
+    if (this.id) {
+      clearInterval(this.id);
+    }
+  }
+
+  updateMapDroneData(): void{
+    this.id = setInterval(() => {
+      // this.updateMapDroneData(); 
+      for (let i=0; this.droneService.mapDrones.length; i++){
+        if(this.droneService.mapDrones[i].name == this.droneData.name){
+          this.mapDrone.xPosition = this.droneService.mapDrones[i].xPosition;
+          this.mapDrone.yPosition = this.droneService.mapDrones[i].yPosition;
+        }
+      }
+      }, 100);
   }
 
   identify(): void {

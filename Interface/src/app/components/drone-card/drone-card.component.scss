@@ -50,3 +50,15 @@
   border-radius: 2rem;
   font-family: monospace;
 }
+
+.card-map {
+  display: flex;
+  justify-content: center;
+  margin-right: 0;
+}
+svg {
+  width: 14rem;
+  height: 14rem;
+  // text-align: center;
+  background-color: rgba($color: rgb(232, 238, 235), $alpha: 0.75);
+}

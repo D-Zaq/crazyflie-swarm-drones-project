@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import {HttpClient, HttpErrorResponse} from '@angular/common/http';
 import {Observable} from 'rxjs/Observable';
 import 'rxjs/add/operator/catch';
-import {CommandStruct} from '../../objects/drones';
+import {CommandStruct, mapDrone} from '../../objects/drones';
 import {API_URL} from '../../env';
 // import {IDrone} from '../../objects/drones';
 
@@ -49,6 +49,7 @@ export class DronesService {
 
   // constructor() { }
   public isSimulation = true;
+  mapDrones: mapDrone[] = [];
 
   serverAddress = "http://localhost:5000";
   crazyflieServerAddress = "http://localhost:5000/crazyflie";
