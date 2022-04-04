@@ -1,3 +1,5 @@
+export const MAX_SIM_RANGE = 65530;
+
 export interface IDrone {
 
     name: string;
@@ -12,25 +14,33 @@ export interface IDrone {
 }
 
 export interface Drone {
-    identifier: string,
+    id: string,
     name: string;
     speed: string;
     battery: string;
-    xPosition: string;
-    yPosition: string;
+    xPosition: any;
+    yPosition: any;
     zPosition: string;
     angle: string;
-    frontDistance: string;
-    backDistance: string;
-    leftDistance: string;
-    rightDistance: string;
+    frontDistance: any;
+    backDistance: any;
+    leftDistance: any;
+    rightDistance: any;
     state: string;
-    ledOn: boolean;
-    real?: boolean;
 }
 
+export interface mapDrone {
+    name: string;
+    xPosition: any;
+    yPosition: any;
+    angle: string;
+    frontDistance: any;
+    backDistance: any;
+    leftDistance: any;
+    rightDistance: any;
+}
 // export interface ArgosDrone {
-//     identifier: string,
+//     id: string,
 //     name: string;
 //     speed: string;
 //     battery: string;
@@ -42,7 +52,7 @@ export interface Drone {
 
 
 export const DRONE_1: Drone = {
-    identifier: "Drone 1",
+    id: "Drone 1",
     name: "radio://0/80/2M/E7E7E7E731",
     speed: '0',
     battery: '0',
@@ -55,11 +65,10 @@ export const DRONE_1: Drone = {
     leftDistance: '2',
     rightDistance: '2',
     state: 'Disconnected',
-    ledOn: false,
 };
 
 export const DRONE_2: Drone = {
-    identifier: "Drone 2",
+    id: "Drone 2",
     name: "radio://0/80/2M/E7E7E7E732",
     speed: '0',
     battery: '0',
@@ -72,148 +81,139 @@ export const DRONE_2: Drone = {
     leftDistance: '2',
     rightDistance: '2',
     state: 'Disconnected',
-    ledOn: false,
 };
 
 export const SIM_DRONE_1: Drone = {
-    identifier: "",
+    id: "",
     name: "Sim_Drone_0",
     speed: '0',
     battery: '100',
-    xPosition: '0',
-    yPosition: '0',
+    xPosition: 0,
+    yPosition: 0,
     zPosition: '0',
     angle: '0',
-    frontDistance: '2',
-    backDistance: '2',
-    leftDistance: '2',
-    rightDistance: '2',
+    frontDistance: MAX_SIM_RANGE,
+    backDistance: MAX_SIM_RANGE,
+    leftDistance: MAX_SIM_RANGE,
+    rightDistance: MAX_SIM_RANGE,
     state: 'disconnected',
-    ledOn: false,
 };
 
 export const SIM_DRONE_2: Drone = {
-    identifier: "",
+    id: "",
     name: "Sim_Drone_1",
     speed: '0',
     battery: '100',
-    xPosition: '0',
-    yPosition: '0',
+    xPosition: 0,
+    yPosition: 0,
     zPosition: '0',
     angle: '0',
-    frontDistance: '2',
-    backDistance: '2',
-    leftDistance: '2',
-    rightDistance: '2',
+    frontDistance: MAX_SIM_RANGE,
+    backDistance: MAX_SIM_RANGE,
+    leftDistance: MAX_SIM_RANGE,
+    rightDistance: MAX_SIM_RANGE,
     state: 'disconnected',
-    ledOn: false,
 };
 
 export const SIM_DRONE_3: Drone = {
-    identifier: "",
+    id: "",
     name: "Sim_Drone_2",
     speed: '0',
     battery: '100',
-    xPosition: '0',
-    yPosition: '0',
+    xPosition: 0,
+    yPosition: 0,
     zPosition: '0',
     angle: '0',
-    frontDistance: '2',
-    backDistance: '2',
-    leftDistance: '2',
-    rightDistance: '2',
+    frontDistance: MAX_SIM_RANGE,
+    backDistance: MAX_SIM_RANGE,
+    leftDistance: MAX_SIM_RANGE,
+    rightDistance: MAX_SIM_RANGE,
     state: 'disconnected',
-    ledOn: false,
 };
 
 export const SIM_DRONE_4: Drone = {
-    identifier: "",
+    id: "",
     name: "Sim_Drone_3",
     speed: '0',
     battery: '100',
-    xPosition: '0',
-    yPosition: '0',
+    xPosition: 0,
+    yPosition: 0,
     zPosition: '0',
     angle: '0',
-    frontDistance: '2',
-    backDistance: '2',
-    leftDistance: '2',
-    rightDistance: '2',
+    frontDistance: MAX_SIM_RANGE,
+    backDistance: MAX_SIM_RANGE,
+    leftDistance: MAX_SIM_RANGE,
+    rightDistance: MAX_SIM_RANGE,
     state: 'disconnected',
-    ledOn: false,
 };
 export const SIM_DRONE_5: Drone = {
-    identifier: "",
+    id: "",
     name: "Sim_Drone_4",
     speed: '0',
     battery: '100',
-    xPosition: '0',
-    yPosition: '0',
+    xPosition: 0,
+    yPosition: 0,
     zPosition: '0',
     angle: '0',
-    frontDistance: '2',
-    backDistance: '2',
-    leftDistance: '2',
-    rightDistance: '2',
+    frontDistance: MAX_SIM_RANGE,
+    backDistance: MAX_SIM_RANGE,
+    leftDistance: MAX_SIM_RANGE,
+    rightDistance: MAX_SIM_RANGE,
     state: 'disconnected',
-    ledOn: false,
 };
 export const SIM_DRONE_6: Drone = {
-    identifier: "",
+    id: "",
     name: "Sim_Drone_5",
     speed: '0',
     battery: '100',
-    xPosition: '0',
-    yPosition: '0',
+    xPosition: 0,
+    yPosition: 0,
     zPosition: '0',
     angle: '0',
-    frontDistance: '2',
-    backDistance: '2',
-    leftDistance: '2',
-    rightDistance: '2',
+    frontDistance: MAX_SIM_RANGE,
+    backDistance: MAX_SIM_RANGE,
+    leftDistance: MAX_SIM_RANGE,
+    rightDistance: MAX_SIM_RANGE,
     state: 'disconnected',
-    ledOn: false,
 };
 export const SIM_DRONE_7: Drone = {
-    identifier: "",
+    id: "",
     name: "Sim_Drone_6",
     speed: '0',
     battery: '100',
-    xPosition: '0',
-    yPosition: '0',
+    xPosition: 0,
+    yPosition: 0,
     zPosition: '0',
     angle: '0',
-    frontDistance: '2',
-    backDistance: '2',
-    leftDistance: '2',
-    rightDistance: '2',
+    frontDistance: MAX_SIM_RANGE,
+    backDistance: MAX_SIM_RANGE,
+    leftDistance: MAX_SIM_RANGE,
+    rightDistance: MAX_SIM_RANGE,
     state: 'disconnected',
-    ledOn: false,
 };
 export const SIM_DRONE_8: Drone = {
-    identifier: "",
+    id: "",
     name: "Sim_Drone_7",
     speed: '0',
     battery: '100',
-    xPosition: '0',
-    yPosition: '0',
+    xPosition: 0,
+    yPosition: 0,
     zPosition: '0',
     angle: '0',
-    frontDistance: '2',
-    backDistance: '2',
-    leftDistance: '2',
-    rightDistance: '2',
+    frontDistance: MAX_SIM_RANGE,
+    backDistance: MAX_SIM_RANGE,
+    leftDistance: MAX_SIM_RANGE,
+    rightDistance: MAX_SIM_RANGE,
     state: 'disconnected',
-    ledOn: false,
 };
 
 export const SIM_DRONE_9: Drone = {
-    identifier: "",
+    id: "",
     name: "Sim_Drone_8",
     speed: '0',
     battery: '100',
-    xPosition: '0',
-    yPosition: '0',
+    xPosition: 0,
+    yPosition: 0,
     zPosition: '0',
     angle: '0',
     frontDistance: '2',
@@ -221,16 +221,15 @@ export const SIM_DRONE_9: Drone = {
     leftDistance: '2',
     rightDistance: '2',
     state: 'disconnected',
-    ledOn: false,
 };
 
 export const SIM_DRONE_10: Drone = {
-    identifier: "",
+    id: "",
     name: "Sim_Drone_9",
     speed: '0',
     battery: '100',
-    xPosition: '0',
-    yPosition: '0',
+    xPosition: 0,
+    yPosition: 0,
     zPosition: '0',
     angle: '0',
     frontDistance: '2',
@@ -238,7 +237,6 @@ export const SIM_DRONE_10: Drone = {
     leftDistance: '2',
     rightDistance: '2',
     state: 'disconnected',
-    ledOn: false,
 };
 
 export enum Command

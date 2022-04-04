@@ -68,8 +68,8 @@ class ArgosServer(metaclass=Singleton):
                 name=data.pop(-12),
                 speed=data.pop(-11),
                 battery=data.pop(-10),
-                xPosition=data.pop(-9),
-                yPosition=data.pop(-8),
+                xPosition=float(data.pop(-9)),
+                yPosition=float(data.pop(-8)),
                 zPosition=data.pop(-7),
                 angle=data.pop(-6),
                 frontDistance=data.pop(-5),
@@ -78,53 +78,5 @@ class ArgosServer(metaclass=Singleton):
                 rightDistance=data.pop(-2),
                 state=data.pop(-1)
             ))
-
-        # simDrone: Drone = Drone(
-        #     id=data.pop(-13),
-        #     name=data.pop(-12),
-        #     speed=data.pop(-11),
-        #     battery=data.pop(-10),
-        #     xPosition=data.pop(-9),
-        #     yPosition=data.pop(-8),
-        #     zPosition=data.pop(-7),
-        #     angle=data.pop(-6),
-        #     frontDistance=data.pop(-5),
-        #     backDistance=data.pop(-4),
-        #     leftDistance=data.pop(-3),
-        #     rightDistance=data.pop(-2),
-        #     state=data.pop(-1)
-        # )
-
-        # simDrones.insert(0, Drone(
-        #     id=data.pop(-13),
-        #     name=data.pop(-12),
-        #     speed=data.pop(-11),
-        #     battery=data.pop(-10),
-        #     xPosition=data.pop(-9),
-        #     yPosition=data.pop(-8),
-        #     zPosition=data.pop(-7),
-        #     angle=data.pop(-6),
-        #     frontDistance=data.pop(-5),
-        #     backDistance=data.pop(-4),
-        #     leftDistance=data.pop(-3),
-        #     rightDistance=data.pop(-2),
-        #     state=data.pop(-1)
-        # ))
-
-        # simDrones.insert(0, Drone(
-        #     id=data.pop(-13),
-        #     name=data.pop(-12),
-        #     speed=data.pop(-11),
-        #     battery=data.pop(-10),
-        #     xPosition=data.pop(-9),
-        #     yPosition=data.pop(-8),
-        #     zPosition=data.pop(-7),
-        #     angle=data.pop(-6),
-        #     frontDistance=data.pop(-5),
-        #     backDistance=data.pop(-4),
-        #     leftDistance=data.pop(-3),
-        #     rightDistance=data.pop(-2),
-        #     state=data.pop(-1)
-        # ))
 
         return simDrones

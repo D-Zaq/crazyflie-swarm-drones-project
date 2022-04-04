@@ -10,13 +10,15 @@ import { MaterialModule } from './material.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { DronesService } from './services/drones/drones.service';
 import { LogsComponent } from './components/logs/logs.component';
+import { MissionComponent } from './mission/mission.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     MainPageComponent,
     DroneCardComponent,
-    LogsComponent
+    LogsComponent,
+    MissionComponent
   ],
   imports: [
     BrowserModule,

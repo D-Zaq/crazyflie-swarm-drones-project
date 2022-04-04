@@ -71,6 +71,15 @@ def handleArgosDataPolling():
     return jsonify(simDrones)
 
 
+@app.route('/mapData', methods=["GET"])
+def handleMapDataPolling():
+    ArgosServer.sendCommand('i')
+    simDrones = []
+    simDrones = ArgosServer.receiveData()
+
+    return jsonify(simDrones)
+
+
 @app.route('/logs', methods=["GET"])
 def handleLogsPolling():
     # print("llllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllll GGGGGGGGGGEEEEEEEEEEEEEEEETTTTTTTTTTTTTTTTT")

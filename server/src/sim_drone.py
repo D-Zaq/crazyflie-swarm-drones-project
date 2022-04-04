@@ -6,8 +6,8 @@ class Drone(TypedDict):
     name: str
     speed: str
     battery: str
-    xPosition: str
-    yPosition: str
+    xPosition: float
+    yPosition: float
     zPosition: str
     angle: str
     frontDistance: str

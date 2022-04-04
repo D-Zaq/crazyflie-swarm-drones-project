@@ -1,4 +1,4 @@
-<mat-card *ngIf="droneData.state != 'disconnected'; else noDrones">
+<mat-card >
     <div class="state">
         {{ droneData.state }}
     </div>
@@ -12,7 +12,7 @@
       <button mat-button>show map </button>
     </mat-card-actions>
     <div class="mat-card-header">
-        <mat-card-title>{{droneData.identifier}}</mat-card-title>
+        <mat-card-title>{{droneData.name}}</mat-card-title>
     </div>
     <div class="mat-card-subtitle">
         <span>Speed</span> {{ droneData.speed }} km/h
@@ -36,9 +36,3 @@
         Front: {{ droneData.frontDistance }} <span></span> Back: {{ droneData.backDistance }} <span></span>  left: {{ droneData.leftDistance }} <span></span>  right: {{ droneData.rightDistance }}
     </div>
 </mat-card>
-
-<ng-template class="title" #noDrones>
-    <dir *ngIf="droneData.name === 'Sim_Drone_0'">    
-        <p> There is no connected drones right now.</p>
-    </dir>
-</ng-template>

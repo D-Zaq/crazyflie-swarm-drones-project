@@ -16,8 +16,8 @@ type ServerSimDrone = {
   name: string;
   speed: string;
   battery: string;
-  xPosition: string;
-  yPosition: string;
+  xPosition: number;
+  yPosition: number;
   zPosition: string;
   angle: string;
   frontDistance: string;
@@ -31,8 +31,8 @@ type ServerRealDrone = {
   name: string;
   speed: string;
   battery: string;
-  xPosition: string;
-  yPosition: string;
+  xPosition: number;
+  yPosition: number;
   zPosition: string;
   angle: string;
   frontDistance: string;
@@ -55,6 +55,7 @@ export class DronesService {
   cfDataServerAdress = "http://localhost:5000/crazyflieData";
   argosServerAddress = "http://localhost:5000/argos";
   argosDataAddress = "http://localhost:5000/argosData";
+  mapDataAddress = "http://localhost:5000/mapData";
   logsAddress = "http://localhost:5000/logs";
 
   constructor(private http: HttpClient) {
@@ -100,6 +101,11 @@ export class DronesService {
 
   getLogs() {
     return this.http.get<ServerLog[]>(this.logsAddress)
+      .catch(DronesService._handleError);
+  }
+
+  getMapData() {
+    return this.http.get<ServerSimDrone[]>(this.mapDataAddress)
       .catch(DronesService._handleError);
   }
 }
