@@ -45,7 +45,7 @@ export const DRONE_1: Drone = {
     identifier: "Drone 1",
     name: "radio://0/80/2M/E7E7E7E731",
     speed: '0',
-    battery: '100',
+    battery: '0',
     xPosition: '0',
     yPosition: '0',
     zPosition: '0',
@@ -62,7 +62,7 @@ export const DRONE_2: Drone = {
     identifier: "Drone 2",
     name: "radio://0/80/2M/E7E7E7E732",
     speed: '0',
-    battery: '100',
+    battery: '0',
     xPosition: '0',
     yPosition: '0',
     zPosition: '0',
@@ -114,7 +114,8 @@ export enum Command
     Identify = "i",
     StartMission = "s",
     Land = "c",
-    Fly = "e"
+    Fly = "e",
+    Base = "b"
 }
 
 export interface CommandStruct {

@@ -49,5 +49,13 @@ export class DroneCardComponent implements OnInit {
     this.droneService.sendCommand(flyCommand).subscribe();
   }
 
+  base(): void {
+    let baseCommand = {
+      droneURI: this.droneData.name,
+      command: Command.Base
+      };
+    this.droneService.sendCommand(baseCommand).subscribe();
+  }
+
 
 }
