@@ -1,0 +1,2016 @@
+2022-04-14 10:36:37,010 : INFO : launching ARGoS
+2022-04-14 10:36:37,010 : INFO : Argos server launched
+2022-04-14 10:36:37,011 : INFO : connecting to ARGoS
+2022-04-14 10:36:37,013 : INFO : Crazyflie server launched
+2022-04-14 10:36:37,014 : INFO : app launched
+2022-04-14 10:36:37,019 : INFO :  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+2022-04-14 10:36:37,032 : INFO : Looking for devices....
+2022-04-14 10:36:37,041 : INFO : Initialized PRRT driver.
+2022-04-14 10:36:37,044 : INFO : Looking for devices....
+2022-04-14 10:36:37,047 : INFO : Initialized PRRT driver.
+2022-04-14 10:36:37,049 : INFO : Looking for devices....
+2022-04-14 10:36:37,050 : INFO : Initialized PRRT driver.
+2022-04-14 10:36:37,052 : INFO : Looking for devices....
+2022-04-14 10:36:37,053 : INFO : Initialized PRRT driver.
+2022-04-14 10:36:37,053 : INFO : getting drones.................
+2022-04-14 10:36:37,054 : INFO : No drones found nearby. Retrying in 5 seconds.
+2022-04-14 10:36:37,058 : INFO : Sending command to ARGoS
+2022-04-14 10:36:37,058 : ERROR : Exception on /simMapData [GET]
+Traceback (most recent call last):
+  File "/home/zakaria/INF3995-GIT(officiel)/INF3995-103/server/flaskenv/lib/python3.8/site-packages/flask/app.py", line 2073, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/zakaria/INF3995-GIT(officiel)/INF3995-103/server/flaskenv/lib/python3.8/site-packages/flask/app.py", line 1518, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/zakaria/INF3995-GIT(officiel)/INF3995-103/server/flaskenv/lib/python3.8/site-packages/flask_cors/extension.py", line 165, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "/home/zakaria/INF3995-GIT(officiel)/INF3995-103/server/flaskenv/lib/python3.8/site-packages/flask/app.py", line 1516, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/zakaria/INF3995-GIT(officiel)/INF3995-103/server/flaskenv/lib/python3.8/site-packages/flask/app.py", line 1502, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "main.py", line 76, in handleSimMapDataPolling
+    ArgosServer.sendCommand('i')
+  File "/home/zakaria/INF3995-GIT(officiel)/INF3995-103/server/src/argos_server2.py", line 55, in sendCommand
+    ArgosServer.conn.sendall(command.encode())
+AttributeError: type object 'ArgosServer' has no attribute 'conn'
+2022-04-14 10:36:37,061 : INFO : 127.0.0.1 - - [14/Apr/2022 10:36:37] "[35m[1mGET /simMapData HTTP/1.1[0m" 500 -
+2022-04-14 10:36:37,184 : INFO : Sending command to ARGoS
+2022-04-14 10:36:37,185 : ERROR : Exception on /argosData [GET]
+Traceback (most recent call last):
+  File "/home/zakaria/INF3995-GIT(officiel)/INF3995-103/server/flaskenv/lib/python3.8/site-packages/flask/app.py", line 2073, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/zakaria/INF3995-GIT(officiel)/INF3995-103/server/flaskenv/lib/python3.8/site-packages/flask/app.py", line 1518, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/zakaria/INF3995-GIT(officiel)/INF3995-103/server/flaskenv/lib/python3.8/site-packages/flask_cors/extension.py", line 165, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "/home/zakaria/INF3995-GIT(officiel)/INF3995-103/server/flaskenv/lib/python3.8/site-packages/flask/app.py", line 1516, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/zakaria/INF3995-GIT(officiel)/INF3995-103/server/flaskenv/lib/python3.8/site-packages/flask/app.py", line 1502, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "main.py", line 67, in handleArgosDataPolling
+    ArgosServer.sendCommand('i')
+  File "/home/zakaria/INF3995-GIT(officiel)/INF3995-103/server/src/argos_server2.py", line 55, in sendCommand
+    ArgosServer.conn.sendall(command.encode())
+AttributeError: type object 'ArgosServer' has no attribute 'conn'
+2022-04-14 10:36:37,186 : INFO : 127.0.0.1 - - [14/Apr/2022 10:36:37] "[35m[1mGET /argosData HTTP/1.1[0m" 500 -
+2022-04-14 10:36:37,278 : INFO : Sending command to ARGoS
+2022-04-14 10:36:37,278 : ERROR : Exception on /simMapData [GET]
+Traceback (most recent call last):
+  File "/home/zakaria/INF3995-GIT(officiel)/INF3995-103/server/flaskenv/lib/python3.8/site-packages/flask/app.py", line 2073, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/zakaria/INF3995-GIT(officiel)/INF3995-103/server/flaskenv/lib/python3.8/site-packages/flask/app.py", line 1518, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/zakaria/INF3995-GIT(officiel)/INF3995-103/server/flaskenv/lib/python3.8/site-packages/flask_cors/extension.py", line 165, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "/home/zakaria/INF3995-GIT(officiel)/INF3995-103/server/flaskenv/lib/python3.8/site-packages/flask/app.py", line 1516, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/zakaria/INF3995-GIT(officiel)/INF3995-103/server/flaskenv/lib/python3.8/site-packages/flask/app.py", line 1502, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "main.py", line 76, in handleSimMapDataPolling
+    ArgosServer.sendCommand('i')
+  File "/home/zakaria/INF3995-GIT(officiel)/INF3995-103/server/src/argos_server2.py", line 55, in sendCommand
+    ArgosServer.conn.sendall(command.encode())
+AttributeError: type object 'ArgosServer' has no attribute 'conn'
+2022-04-14 10:36:37,279 : INFO : 127.0.0.1 - - [14/Apr/2022 10:36:37] "[35m[1mGET /simMapData HTTP/1.1[0m" 500 -
+2022-04-14 10:36:37,512 : INFO : Sending command to ARGoS
+2022-04-14 10:36:37,512 : ERROR : Exception on /simMapData [GET]
+Traceback (most recent call last):
+  File "/home/zakaria/INF3995-GIT(officiel)/INF3995-103/server/flaskenv/lib/python3.8/site-packages/flask/app.py", line 2073, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/zakaria/INF3995-GIT(officiel)/INF3995-103/server/flaskenv/lib/python3.8/site-packages/flask/app.py", line 1518, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/zakaria/INF3995-GIT(officiel)/INF3995-103/server/flaskenv/lib/python3.8/site-packages/flask_cors/extension.py", line 165, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "/home/zakaria/INF3995-GIT(officiel)/INF3995-103/server/flaskenv/lib/python3.8/site-packages/flask/app.py", line 1516, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/zakaria/INF3995-GIT(officiel)/INF3995-103/server/flaskenv/lib/python3.8/site-packages/flask/app.py", line 1502, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "main.py", line 76, in handleSimMapDataPolling
+    ArgosServer.sendCommand('i')
+  File "/home/zakaria/INF3995-GIT(officiel)/INF3995-103/server/src/argos_server2.py", line 55, in sendCommand
+    ArgosServer.conn.sendall(command.encode())
+AttributeError: type object 'ArgosServer' has no attribute 'conn'
+2022-04-14 10:36:37,513 : INFO : 127.0.0.1 - - [14/Apr/2022 10:36:37] "[35m[1mGET /simMapData HTTP/1.1[0m" 500 -
+2022-04-14 10:36:37,753 : INFO : Sending command to ARGoS
+2022-04-14 10:36:37,753 : ERROR : Exception on /simMapData [GET]
+Traceback (most recent call last):
+  File "/home/zakaria/INF3995-GIT(officiel)/INF3995-103/server/flaskenv/lib/python3.8/site-packages/flask/app.py", line 2073, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/zakaria/INF3995-GIT(officiel)/INF3995-103/server/flaskenv/lib/python3.8/site-packages/flask/app.py", line 1518, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/zakaria/INF3995-GIT(officiel)/INF3995-103/server/flaskenv/lib/python3.8/site-packages/flask_cors/extension.py", line 165, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "/home/zakaria/INF3995-GIT(officiel)/INF3995-103/server/flaskenv/lib/python3.8/site-packages/flask/app.py", line 1516, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/zakaria/INF3995-GIT(officiel)/INF3995-103/server/flaskenv/lib/python3.8/site-packages/flask/app.py", line 1502, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "main.py", line 76, in handleSimMapDataPolling
+    ArgosServer.sendCommand('i')
+  File "/home/zakaria/INF3995-GIT(officiel)/INF3995-103/server/src/argos_server2.py", line 55, in sendCommand
+    ArgosServer.conn.sendall(command.encode())
+AttributeError: type object 'ArgosServer' has no attribute 'conn'
+2022-04-14 10:36:37,755 : INFO : 127.0.0.1 - - [14/Apr/2022 10:36:37] "[35m[1mGET /simMapData HTTP/1.1[0m" 500 -
+2022-04-14 10:36:37,982 : INFO : Sending command to ARGoS
+2022-04-14 10:36:37,982 : ERROR : Exception on /simMapData [GET]
+Traceback (most recent call last):
+  File "/home/zakaria/INF3995-GIT(officiel)/INF3995-103/server/flaskenv/lib/python3.8/site-packages/flask/app.py", line 2073, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/zakaria/INF3995-GIT(officiel)/INF3995-103/server/flaskenv/lib/python3.8/site-packages/flask/app.py", line 1518, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/zakaria/INF3995-GIT(officiel)/INF3995-103/server/flaskenv/lib/python3.8/site-packages/flask_cors/extension.py", line 165, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "/home/zakaria/INF3995-GIT(officiel)/INF3995-103/server/flaskenv/lib/python3.8/site-packages/flask/app.py", line 1516, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/zakaria/INF3995-GIT(officiel)/INF3995-103/server/flaskenv/lib/python3.8/site-packages/flask/app.py", line 1502, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "main.py", line 76, in handleSimMapDataPolling
+    ArgosServer.sendCommand('i')
+  File "/home/zakaria/INF3995-GIT(officiel)/INF3995-103/server/src/argos_server2.py", line 55, in sendCommand
+    ArgosServer.conn.sendall(command.encode())
+AttributeError: type object 'ArgosServer' has no attribute 'conn'
+2022-04-14 10:36:37,983 : INFO : 127.0.0.1 - - [14/Apr/2022 10:36:37] "[35m[1mGET /simMapData HTTP/1.1[0m" 500 -
+2022-04-14 10:36:38,183 : INFO : Sending command to ARGoS
+2022-04-14 10:36:38,184 : ERROR : Exception on /argosData [GET]
+Traceback (most recent call last):
+  File "/home/zakaria/INF3995-GIT(officiel)/INF3995-103/server/flaskenv/lib/python3.8/site-packages/flask/app.py", line 2073, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/zakaria/INF3995-GIT(officiel)/INF3995-103/server/flaskenv/lib/python3.8/site-packages/flask/app.py", line 1518, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/zakaria/INF3995-GIT(officiel)/INF3995-103/server/flaskenv/lib/python3.8/site-packages/flask_cors/extension.py", line 165, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "/home/zakaria/INF3995-GIT(officiel)/INF3995-103/server/flaskenv/lib/python3.8/site-packages/flask/app.py", line 1516, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/zakaria/INF3995-GIT(officiel)/INF3995-103/server/flaskenv/lib/python3.8/site-packages/flask/app.py", line 1502, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "main.py", line 67, in handleArgosDataPolling
+    ArgosServer.sendCommand('i')
+  File "/home/zakaria/INF3995-GIT(officiel)/INF3995-103/server/src/argos_server2.py", line 55, in sendCommand
+    ArgosServer.conn.sendall(command.encode())
+AttributeError: type object 'ArgosServer' has no attribute 'conn'
+2022-04-14 10:36:38,185 : INFO : 127.0.0.1 - - [14/Apr/2022 10:36:38] "[35m[1mGET /argosData HTTP/1.1[0m" 500 -
+2022-04-14 10:36:38,213 : INFO : Sending command to ARGoS
+2022-04-14 10:36:38,214 : ERROR : Exception on /simMapData [GET]
+Traceback (most recent call last):
+  File "/home/zakaria/INF3995-GIT(officiel)/INF3995-103/server/flaskenv/lib/python3.8/site-packages/flask/app.py", line 2073, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/zakaria/INF3995-GIT(officiel)/INF3995-103/server/flaskenv/lib/python3.8/site-packages/flask/app.py", line 1518, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/zakaria/INF3995-GIT(officiel)/INF3995-103/server/flaskenv/lib/python3.8/site-packages/flask_cors/extension.py", line 165, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "/home/zakaria/INF3995-GIT(officiel)/INF3995-103/server/flaskenv/lib/python3.8/site-packages/flask/app.py", line 1516, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/zakaria/INF3995-GIT(officiel)/INF3995-103/server/flaskenv/lib/python3.8/site-packages/flask/app.py", line 1502, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "main.py", line 76, in handleSimMapDataPolling
+    ArgosServer.sendCommand('i')
+  File "/home/zakaria/INF3995-GIT(officiel)/INF3995-103/server/src/argos_server2.py", line 55, in sendCommand
+    ArgosServer.conn.sendall(command.encode())
+AttributeError: type object 'ArgosServer' has no attribute 'conn'
+2022-04-14 10:36:38,215 : INFO : 127.0.0.1 - - [14/Apr/2022 10:36:38] "[35m[1mGET /simMapData HTTP/1.1[0m" 500 -
+2022-04-14 10:36:38,454 : INFO : Sending command to ARGoS
+2022-04-14 10:36:38,454 : ERROR : Exception on /simMapData [GET]
+Traceback (most recent call last):
+  File "/home/zakaria/INF3995-GIT(officiel)/INF3995-103/server/flaskenv/lib/python3.8/site-packages/flask/app.py", line 2073, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/zakaria/INF3995-GIT(officiel)/INF3995-103/server/flaskenv/lib/python3.8/site-packages/flask/app.py", line 1518, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/zakaria/INF3995-GIT(officiel)/INF3995-103/server/flaskenv/lib/python3.8/site-packages/flask_cors/extension.py", line 165, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "/home/zakaria/INF3995-GIT(officiel)/INF3995-103/server/flaskenv/lib/python3.8/site-packages/flask/app.py", line 1516, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/zakaria/INF3995-GIT(officiel)/INF3995-103/server/flaskenv/lib/python3.8/site-packages/flask/app.py", line 1502, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "main.py", line 76, in handleSimMapDataPolling
+    ArgosServer.sendCommand('i')
+  File "/home/zakaria/INF3995-GIT(officiel)/INF3995-103/server/src/argos_server2.py", line 55, in sendCommand
+    ArgosServer.conn.sendall(command.encode())
+AttributeError: type object 'ArgosServer' has no attribute 'conn'
+2022-04-14 10:36:38,455 : INFO : 127.0.0.1 - - [14/Apr/2022 10:36:38] "[35m[1mGET /simMapData HTTP/1.1[0m" 500 -
+2022-04-14 10:36:38,685 : INFO : Sending command to ARGoS
+2022-04-14 10:36:38,685 : ERROR : Exception on /simMapData [GET]
+Traceback (most recent call last):
+  File "/home/zakaria/INF3995-GIT(officiel)/INF3995-103/server/flaskenv/lib/python3.8/site-packages/flask/app.py", line 2073, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/zakaria/INF3995-GIT(officiel)/INF3995-103/server/flaskenv/lib/python3.8/site-packages/flask/app.py", line 1518, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/zakaria/INF3995-GIT(officiel)/INF3995-103/server/flaskenv/lib/python3.8/site-packages/flask_cors/extension.py", line 165, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "/home/zakaria/INF3995-GIT(officiel)/INF3995-103/server/flaskenv/lib/python3.8/site-packages/flask/app.py", line 1516, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/zakaria/INF3995-GIT(officiel)/INF3995-103/server/flaskenv/lib/python3.8/site-packages/flask/app.py", line 1502, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "main.py", line 76, in handleSimMapDataPolling
+    ArgosServer.sendCommand('i')
+  File "/home/zakaria/INF3995-GIT(officiel)/INF3995-103/server/src/argos_server2.py", line 55, in sendCommand
+    ArgosServer.conn.sendall(command.encode())
+AttributeError: type object 'ArgosServer' has no attribute 'conn'
+2022-04-14 10:36:38,686 : INFO : 127.0.0.1 - - [14/Apr/2022 10:36:38] "[35m[1mGET /simMapData HTTP/1.1[0m" 500 -
+2022-04-14 10:36:38,914 : INFO : Sending command to ARGoS
+2022-04-14 10:36:38,914 : ERROR : Exception on /simMapData [GET]
+Traceback (most recent call last):
+  File "/home/zakaria/INF3995-GIT(officiel)/INF3995-103/server/flaskenv/lib/python3.8/site-packages/flask/app.py", line 2073, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/zakaria/INF3995-GIT(officiel)/INF3995-103/server/flaskenv/lib/python3.8/site-packages/flask/app.py", line 1518, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/zakaria/INF3995-GIT(officiel)/INF3995-103/server/flaskenv/lib/python3.8/site-packages/flask_cors/extension.py", line 165, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "/home/zakaria/INF3995-GIT(officiel)/INF3995-103/server/flaskenv/lib/python3.8/site-packages/flask/app.py", line 1516, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/zakaria/INF3995-GIT(officiel)/INF3995-103/server/flaskenv/lib/python3.8/site-packages/flask/app.py", line 1502, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "main.py", line 76, in handleSimMapDataPolling
+    ArgosServer.sendCommand('i')
+  File "/home/zakaria/INF3995-GIT(officiel)/INF3995-103/server/src/argos_server2.py", line 55, in sendCommand
+    ArgosServer.conn.sendall(command.encode())
+AttributeError: type object 'ArgosServer' has no attribute 'conn'
+2022-04-14 10:36:38,915 : INFO : 127.0.0.1 - - [14/Apr/2022 10:36:38] "[35m[1mGET /simMapData HTTP/1.1[0m" 500 -
+2022-04-14 10:36:39,152 : INFO : Sending command to ARGoS
+2022-04-14 10:36:39,153 : ERROR : Exception on /simMapData [GET]
+Traceback (most recent call last):
+  File "/home/zakaria/INF3995-GIT(officiel)/INF3995-103/server/flaskenv/lib/python3.8/site-packages/flask/app.py", line 2073, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/zakaria/INF3995-GIT(officiel)/INF3995-103/server/flaskenv/lib/python3.8/site-packages/flask/app.py", line 1518, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/zakaria/INF3995-GIT(officiel)/INF3995-103/server/flaskenv/lib/python3.8/site-packages/flask_cors/extension.py", line 165, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "/home/zakaria/INF3995-GIT(officiel)/INF3995-103/server/flaskenv/lib/python3.8/site-packages/flask/app.py", line 1516, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/zakaria/INF3995-GIT(officiel)/INF3995-103/server/flaskenv/lib/python3.8/site-packages/flask/app.py", line 1502, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "main.py", line 76, in handleSimMapDataPolling
+    ArgosServer.sendCommand('i')
+  File "/home/zakaria/INF3995-GIT(officiel)/INF3995-103/server/src/argos_server2.py", line 55, in sendCommand
+    ArgosServer.conn.sendall(command.encode())
+AttributeError: type object 'ArgosServer' has no attribute 'conn'
+2022-04-14 10:36:39,154 : INFO : 127.0.0.1 - - [14/Apr/2022 10:36:39] "[35m[1mGET /simMapData HTTP/1.1[0m" 500 -
+2022-04-14 10:36:39,179 : INFO : Sending command to ARGoS
+2022-04-14 10:36:39,179 : ERROR : Exception on /argosData [GET]
+Traceback (most recent call last):
+  File "/home/zakaria/INF3995-GIT(officiel)/INF3995-103/server/flaskenv/lib/python3.8/site-packages/flask/app.py", line 2073, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/zakaria/INF3995-GIT(officiel)/INF3995-103/server/flaskenv/lib/python3.8/site-packages/flask/app.py", line 1518, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/zakaria/INF3995-GIT(officiel)/INF3995-103/server/flaskenv/lib/python3.8/site-packages/flask_cors/extension.py", line 165, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "/home/zakaria/INF3995-GIT(officiel)/INF3995-103/server/flaskenv/lib/python3.8/site-packages/flask/app.py", line 1516, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/zakaria/INF3995-GIT(officiel)/INF3995-103/server/flaskenv/lib/python3.8/site-packages/flask/app.py", line 1502, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "main.py", line 67, in handleArgosDataPolling
+    ArgosServer.sendCommand('i')
+  File "/home/zakaria/INF3995-GIT(officiel)/INF3995-103/server/src/argos_server2.py", line 55, in sendCommand
+    ArgosServer.conn.sendall(command.encode())
+AttributeError: type object 'ArgosServer' has no attribute 'conn'
+2022-04-14 10:36:39,180 : INFO : 127.0.0.1 - - [14/Apr/2022 10:36:39] "[35m[1mGET /argosData HTTP/1.1[0m" 500 -
+2022-04-14 10:36:39,384 : INFO : Sending command to ARGoS
+2022-04-14 10:36:39,385 : ERROR : Exception on /simMapData [GET]
+Traceback (most recent call last):
+  File "/home/zakaria/INF3995-GIT(officiel)/INF3995-103/server/flaskenv/lib/python3.8/site-packages/flask/app.py", line 2073, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/zakaria/INF3995-GIT(officiel)/INF3995-103/server/flaskenv/lib/python3.8/site-packages/flask/app.py", line 1518, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/zakaria/INF3995-GIT(officiel)/INF3995-103/server/flaskenv/lib/python3.8/site-packages/flask_cors/extension.py", line 165, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "/home/zakaria/INF3995-GIT(officiel)/INF3995-103/server/flaskenv/lib/python3.8/site-packages/flask/app.py", line 1516, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/zakaria/INF3995-GIT(officiel)/INF3995-103/server/flaskenv/lib/python3.8/site-packages/flask/app.py", line 1502, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "main.py", line 76, in handleSimMapDataPolling
+    ArgosServer.sendCommand('i')
+  File "/home/zakaria/INF3995-GIT(officiel)/INF3995-103/server/src/argos_server2.py", line 55, in sendCommand
+    ArgosServer.conn.sendall(command.encode())
+AttributeError: type object 'ArgosServer' has no attribute 'conn'
+2022-04-14 10:36:39,386 : INFO : 127.0.0.1 - - [14/Apr/2022 10:36:39] "[35m[1mGET /simMapData HTTP/1.1[0m" 500 -
+2022-04-14 10:36:39,616 : INFO : Sending command to ARGoS
+2022-04-14 10:36:39,617 : ERROR : Exception on /simMapData [GET]
+Traceback (most recent call last):
+  File "/home/zakaria/INF3995-GIT(officiel)/INF3995-103/server/flaskenv/lib/python3.8/site-packages/flask/app.py", line 2073, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/zakaria/INF3995-GIT(officiel)/INF3995-103/server/flaskenv/lib/python3.8/site-packages/flask/app.py", line 1518, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/zakaria/INF3995-GIT(officiel)/INF3995-103/server/flaskenv/lib/python3.8/site-packages/flask_cors/extension.py", line 165, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "/home/zakaria/INF3995-GIT(officiel)/INF3995-103/server/flaskenv/lib/python3.8/site-packages/flask/app.py", line 1516, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/zakaria/INF3995-GIT(officiel)/INF3995-103/server/flaskenv/lib/python3.8/site-packages/flask/app.py", line 1502, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "main.py", line 76, in handleSimMapDataPolling
+    ArgosServer.sendCommand('i')
+  File "/home/zakaria/INF3995-GIT(officiel)/INF3995-103/server/src/argos_server2.py", line 55, in sendCommand
+    ArgosServer.conn.sendall(command.encode())
+AttributeError: type object 'ArgosServer' has no attribute 'conn'
+2022-04-14 10:36:39,618 : INFO : 127.0.0.1 - - [14/Apr/2022 10:36:39] "[35m[1mGET /simMapData HTTP/1.1[0m" 500 -
+2022-04-14 10:36:39,851 : INFO : Sending command to ARGoS
+2022-04-14 10:36:39,874 : ERROR : Exception on /simMapData [GET]
+Traceback (most recent call last):
+  File "/home/zakaria/INF3995-GIT(officiel)/INF3995-103/server/flaskenv/lib/python3.8/site-packages/flask/app.py", line 2073, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/zakaria/INF3995-GIT(officiel)/INF3995-103/server/flaskenv/lib/python3.8/site-packages/flask/app.py", line 1518, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/zakaria/INF3995-GIT(officiel)/INF3995-103/server/flaskenv/lib/python3.8/site-packages/flask_cors/extension.py", line 165, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "/home/zakaria/INF3995-GIT(officiel)/INF3995-103/server/flaskenv/lib/python3.8/site-packages/flask/app.py", line 1516, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/zakaria/INF3995-GIT(officiel)/INF3995-103/server/flaskenv/lib/python3.8/site-packages/flask/app.py", line 1502, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "main.py", line 76, in handleSimMapDataPolling
+    ArgosServer.sendCommand('i')
+  File "/home/zakaria/INF3995-GIT(officiel)/INF3995-103/server/src/argos_server2.py", line 55, in sendCommand
+    ArgosServer.conn.sendall(command.encode())
+AttributeError: type object 'ArgosServer' has no attribute 'conn'
+2022-04-14 10:36:39,875 : INFO : 127.0.0.1 - - [14/Apr/2022 10:36:39] "[35m[1mGET /simMapData HTTP/1.1[0m" 500 -
+2022-04-14 10:36:40,080 : INFO : Sending command to ARGoS
+2022-04-14 10:36:40,080 : ERROR : Exception on /simMapData [GET]
+Traceback (most recent call last):
+  File "/home/zakaria/INF3995-GIT(officiel)/INF3995-103/server/flaskenv/lib/python3.8/site-packages/flask/app.py", line 2073, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/zakaria/INF3995-GIT(officiel)/INF3995-103/server/flaskenv/lib/python3.8/site-packages/flask/app.py", line 1518, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/zakaria/INF3995-GIT(officiel)/INF3995-103/server/flaskenv/lib/python3.8/site-packages/flask_cors/extension.py", line 165, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "/home/zakaria/INF3995-GIT(officiel)/INF3995-103/server/flaskenv/lib/python3.8/site-packages/flask/app.py", line 1516, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/zakaria/INF3995-GIT(officiel)/INF3995-103/server/flaskenv/lib/python3.8/site-packages/flask/app.py", line 1502, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "main.py", line 76, in handleSimMapDataPolling
+    ArgosServer.sendCommand('i')
+  File "/home/zakaria/INF3995-GIT(officiel)/INF3995-103/server/src/argos_server2.py", line 55, in sendCommand
+    ArgosServer.conn.sendall(command.encode())
+AttributeError: type object 'ArgosServer' has no attribute 'conn'
+2022-04-14 10:36:40,081 : INFO : 127.0.0.1 - - [14/Apr/2022 10:36:40] "[35m[1mGET /simMapData HTTP/1.1[0m" 500 -
+2022-04-14 10:36:40,098 : INFO : ********* ARGoS connected *********
+2022-04-14 10:36:40,182 : INFO : Sending command to ARGoS
+2022-04-14 10:36:40,313 : INFO : Sending command to ARGoS
+2022-04-14 10:36:40,548 : INFO : Sending command to ARGoS
+2022-04-14 10:36:40,780 : INFO : Sending command to ARGoS
+2022-04-14 10:36:41,015 : INFO : Sending command to ARGoS
+2022-04-14 10:36:41,181 : INFO : Sending command to ARGoS
+2022-04-14 10:36:42,056 : INFO : Looking for devices....
+2022-04-14 10:36:42,057 : INFO : Initialized PRRT driver.
+2022-04-14 10:36:42,058 : INFO : Looking for devices....
+2022-04-14 10:36:42,059 : INFO : Initialized PRRT driver.
+2022-04-14 10:36:42,060 : INFO : Looking for devices....
+2022-04-14 10:36:42,061 : INFO : Initialized PRRT driver.
+2022-04-14 10:36:42,062 : INFO : Looking for devices....
+2022-04-14 10:36:42,063 : INFO : Initialized PRRT driver.
+2022-04-14 10:36:42,063 : INFO : getting drones.................
+2022-04-14 10:36:42,063 : INFO : No drones found nearby. Retrying in 5 seconds.
+2022-04-14 10:36:44,707 : INFO : 127.0.0.1 - - [14/Apr/2022 10:36:44] "GET /simMapData HTTP/1.1" 200 -
+2022-04-14 10:36:44,707 : ERROR : Exception on /simMapData [GET]
+Traceback (most recent call last):
+  File "/home/zakaria/INF3995-GIT(officiel)/INF3995-103/server/flaskenv/lib/python3.8/site-packages/flask/app.py", line 2073, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/zakaria/INF3995-GIT(officiel)/INF3995-103/server/flaskenv/lib/python3.8/site-packages/flask/app.py", line 1518, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/zakaria/INF3995-GIT(officiel)/INF3995-103/server/flaskenv/lib/python3.8/site-packages/flask_cors/extension.py", line 165, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "/home/zakaria/INF3995-GIT(officiel)/INF3995-103/server/flaskenv/lib/python3.8/site-packages/flask/app.py", line 1516, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/zakaria/INF3995-GIT(officiel)/INF3995-103/server/flaskenv/lib/python3.8/site-packages/flask/app.py", line 1502, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "main.py", line 78, in handleSimMapDataPolling
+    simDrones = ArgosServer.receiveData()
+  File "/home/zakaria/INF3995-GIT(officiel)/INF3995-103/server/src/argos_server2.py", line 67, in receiveData
+    id=data.pop(-13),
+IndexError: pop from empty list
+2022-04-14 10:36:44,710 : INFO : 127.0.0.1 - - [14/Apr/2022 10:36:44] "[35m[1mGET /simMapData HTTP/1.1[0m" 500 -
+2022-04-14 10:36:44,712 : INFO : Sending command to ARGoS
+2022-04-14 10:36:44,717 : INFO : Sending command to ARGoS
+2022-04-14 10:36:44,844 : INFO : 127.0.0.1 - - [14/Apr/2022 10:36:44] "GET /argosData HTTP/1.1" 200 -
+2022-04-14 10:36:44,845 : ERROR : Exception on /simMapData [GET]
+Traceback (most recent call last):
+  File "/home/zakaria/INF3995-GIT(officiel)/INF3995-103/server/flaskenv/lib/python3.8/site-packages/flask/app.py", line 2073, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/zakaria/INF3995-GIT(officiel)/INF3995-103/server/flaskenv/lib/python3.8/site-packages/flask/app.py", line 1518, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/zakaria/INF3995-GIT(officiel)/INF3995-103/server/flaskenv/lib/python3.8/site-packages/flask_cors/extension.py", line 165, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "/home/zakaria/INF3995-GIT(officiel)/INF3995-103/server/flaskenv/lib/python3.8/site-packages/flask/app.py", line 1516, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/zakaria/INF3995-GIT(officiel)/INF3995-103/server/flaskenv/lib/python3.8/site-packages/flask/app.py", line 1502, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "main.py", line 78, in handleSimMapDataPolling
+    simDrones = ArgosServer.receiveData()
+  File "/home/zakaria/INF3995-GIT(officiel)/INF3995-103/server/src/argos_server2.py", line 67, in receiveData
+    id=data.pop(-13),
+IndexError: pop from empty list
+2022-04-14 10:36:44,846 : INFO : 127.0.0.1 - - [14/Apr/2022 10:36:44] "[35m[1mGET /simMapData HTTP/1.1[0m" 500 -
+2022-04-14 10:36:44,848 : INFO : Sending command to ARGoS
+2022-04-14 10:36:44,850 : INFO : Sending command to ARGoS
+2022-04-14 10:36:44,907 : INFO : 127.0.0.1 - - [14/Apr/2022 10:36:44] "GET /simMapData HTTP/1.1" 200 -
+2022-04-14 10:36:44,907 : ERROR : Exception on /argosData [GET]
+Traceback (most recent call last):
+  File "/home/zakaria/INF3995-GIT(officiel)/INF3995-103/server/flaskenv/lib/python3.8/site-packages/flask/app.py", line 2073, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/zakaria/INF3995-GIT(officiel)/INF3995-103/server/flaskenv/lib/python3.8/site-packages/flask/app.py", line 1518, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/zakaria/INF3995-GIT(officiel)/INF3995-103/server/flaskenv/lib/python3.8/site-packages/flask_cors/extension.py", line 165, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "/home/zakaria/INF3995-GIT(officiel)/INF3995-103/server/flaskenv/lib/python3.8/site-packages/flask/app.py", line 1516, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/zakaria/INF3995-GIT(officiel)/INF3995-103/server/flaskenv/lib/python3.8/site-packages/flask/app.py", line 1502, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "main.py", line 69, in handleArgosDataPolling
+    simDrones = ArgosServer.receiveData()
+  File "/home/zakaria/INF3995-GIT(officiel)/INF3995-103/server/src/argos_server2.py", line 67, in receiveData
+    id=data.pop(-13),
+IndexError: pop from empty list
+2022-04-14 10:36:44,910 : INFO : 127.0.0.1 - - [14/Apr/2022 10:36:44] "[35m[1mGET /argosData HTTP/1.1[0m" 500 -
+2022-04-14 10:36:44,911 : INFO : Sending command to ARGoS
+2022-04-14 10:36:44,914 : INFO : Sending command to ARGoS
+2022-04-14 10:36:45,005 : INFO : 127.0.0.1 - - [14/Apr/2022 10:36:45] "GET /simMapData HTTP/1.1" 200 -
+2022-04-14 10:36:45,009 : INFO : Sending command to ARGoS
+2022-04-14 10:36:45,011 : ERROR : Exception on /simMapData [GET]
+Traceback (most recent call last):
+  File "/home/zakaria/INF3995-GIT(officiel)/INF3995-103/server/flaskenv/lib/python3.8/site-packages/flask/app.py", line 2073, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/zakaria/INF3995-GIT(officiel)/INF3995-103/server/flaskenv/lib/python3.8/site-packages/flask/app.py", line 1518, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/zakaria/INF3995-GIT(officiel)/INF3995-103/server/flaskenv/lib/python3.8/site-packages/flask_cors/extension.py", line 165, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "/home/zakaria/INF3995-GIT(officiel)/INF3995-103/server/flaskenv/lib/python3.8/site-packages/flask/app.py", line 1516, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/zakaria/INF3995-GIT(officiel)/INF3995-103/server/flaskenv/lib/python3.8/site-packages/flask/app.py", line 1502, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "main.py", line 78, in handleSimMapDataPolling
+    simDrones = ArgosServer.receiveData()
+  File "/home/zakaria/INF3995-GIT(officiel)/INF3995-103/server/src/argos_server2.py", line 67, in receiveData
+    id=data.pop(-13),
+IndexError: pop from empty list
+2022-04-14 10:36:45,013 : INFO : 127.0.0.1 - - [14/Apr/2022 10:36:45] "[35m[1mGET /simMapData HTTP/1.1[0m" 500 -
+2022-04-14 10:36:45,018 : INFO : Sending command to ARGoS
+2022-04-14 10:36:45,105 : INFO : 127.0.0.1 - - [14/Apr/2022 10:36:45] "GET /argosData HTTP/1.1" 200 -
+2022-04-14 10:36:45,108 : INFO : Sending command to ARGoS
+2022-04-14 10:36:45,109 : ERROR : Exception on /simMapData [GET]
+Traceback (most recent call last):
+  File "/home/zakaria/INF3995-GIT(officiel)/INF3995-103/server/flaskenv/lib/python3.8/site-packages/flask/app.py", line 2073, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/zakaria/INF3995-GIT(officiel)/INF3995-103/server/flaskenv/lib/python3.8/site-packages/flask/app.py", line 1518, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/zakaria/INF3995-GIT(officiel)/INF3995-103/server/flaskenv/lib/python3.8/site-packages/flask_cors/extension.py", line 165, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "/home/zakaria/INF3995-GIT(officiel)/INF3995-103/server/flaskenv/lib/python3.8/site-packages/flask/app.py", line 1516, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/zakaria/INF3995-GIT(officiel)/INF3995-103/server/flaskenv/lib/python3.8/site-packages/flask/app.py", line 1502, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "main.py", line 78, in handleSimMapDataPolling
+    simDrones = ArgosServer.receiveData()
+  File "/home/zakaria/INF3995-GIT(officiel)/INF3995-103/server/src/argos_server2.py", line 67, in receiveData
+    id=data.pop(-13),
+IndexError: pop from empty list
+2022-04-14 10:36:45,112 : INFO : 127.0.0.1 - - [14/Apr/2022 10:36:45] "[35m[1mGET /simMapData HTTP/1.1[0m" 500 -
+2022-04-14 10:36:45,119 : INFO : Sending command to ARGoS
+2022-04-14 10:36:45,205 : INFO : 127.0.0.1 - - [14/Apr/2022 10:36:45] "GET /simMapData HTTP/1.1" 200 -
+2022-04-14 10:36:45,207 : INFO : Sending command to ARGoS
+2022-04-14 10:36:45,208 : ERROR : Exception on /simMapData [GET]
+Traceback (most recent call last):
+  File "/home/zakaria/INF3995-GIT(officiel)/INF3995-103/server/flaskenv/lib/python3.8/site-packages/flask/app.py", line 2073, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/zakaria/INF3995-GIT(officiel)/INF3995-103/server/flaskenv/lib/python3.8/site-packages/flask/app.py", line 1518, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/zakaria/INF3995-GIT(officiel)/INF3995-103/server/flaskenv/lib/python3.8/site-packages/flask_cors/extension.py", line 165, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "/home/zakaria/INF3995-GIT(officiel)/INF3995-103/server/flaskenv/lib/python3.8/site-packages/flask/app.py", line 1516, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/zakaria/INF3995-GIT(officiel)/INF3995-103/server/flaskenv/lib/python3.8/site-packages/flask/app.py", line 1502, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "main.py", line 78, in handleSimMapDataPolling
+    simDrones = ArgosServer.receiveData()
+  File "/home/zakaria/INF3995-GIT(officiel)/INF3995-103/server/src/argos_server2.py", line 67, in receiveData
+    id=data.pop(-13),
+IndexError: pop from empty list
+2022-04-14 10:36:45,210 : INFO : 127.0.0.1 - - [14/Apr/2022 10:36:45] "[35m[1mGET /simMapData HTTP/1.1[0m" 500 -
+2022-04-14 10:36:45,212 : INFO : Sending command to ARGoS
+2022-04-14 10:36:45,305 : INFO : 127.0.0.1 - - [14/Apr/2022 10:36:45] "GET /simMapData HTTP/1.1" 200 -
+2022-04-14 10:36:45,309 : INFO : Sending command to ARGoS
+2022-04-14 10:36:45,310 : ERROR : Exception on /simMapData [GET]
+Traceback (most recent call last):
+  File "/home/zakaria/INF3995-GIT(officiel)/INF3995-103/server/flaskenv/lib/python3.8/site-packages/flask/app.py", line 2073, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/zakaria/INF3995-GIT(officiel)/INF3995-103/server/flaskenv/lib/python3.8/site-packages/flask/app.py", line 1518, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/zakaria/INF3995-GIT(officiel)/INF3995-103/server/flaskenv/lib/python3.8/site-packages/flask_cors/extension.py", line 165, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "/home/zakaria/INF3995-GIT(officiel)/INF3995-103/server/flaskenv/lib/python3.8/site-packages/flask/app.py", line 1516, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/zakaria/INF3995-GIT(officiel)/INF3995-103/server/flaskenv/lib/python3.8/site-packages/flask/app.py", line 1502, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "main.py", line 78, in handleSimMapDataPolling
+    simDrones = ArgosServer.receiveData()
+  File "/home/zakaria/INF3995-GIT(officiel)/INF3995-103/server/src/argos_server2.py", line 67, in receiveData
+    id=data.pop(-13),
+IndexError: pop from empty list
+2022-04-14 10:36:45,313 : INFO : 127.0.0.1 - - [14/Apr/2022 10:36:45] "[35m[1mGET /simMapData HTTP/1.1[0m" 500 -
+2022-04-14 10:36:45,318 : INFO : Sending command to ARGoS
+2022-04-14 10:36:45,405 : INFO : 127.0.0.1 - - [14/Apr/2022 10:36:45] "GET /simMapData HTTP/1.1" 200 -
+2022-04-14 10:36:45,409 : INFO : Sending command to ARGoS
+2022-04-14 10:36:45,410 : ERROR : Exception on /argosData [GET]
+Traceback (most recent call last):
+  File "/home/zakaria/INF3995-GIT(officiel)/INF3995-103/server/flaskenv/lib/python3.8/site-packages/flask/app.py", line 2073, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/zakaria/INF3995-GIT(officiel)/INF3995-103/server/flaskenv/lib/python3.8/site-packages/flask/app.py", line 1518, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/zakaria/INF3995-GIT(officiel)/INF3995-103/server/flaskenv/lib/python3.8/site-packages/flask_cors/extension.py", line 165, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "/home/zakaria/INF3995-GIT(officiel)/INF3995-103/server/flaskenv/lib/python3.8/site-packages/flask/app.py", line 1516, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/zakaria/INF3995-GIT(officiel)/INF3995-103/server/flaskenv/lib/python3.8/site-packages/flask/app.py", line 1502, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "main.py", line 69, in handleArgosDataPolling
+    simDrones = ArgosServer.receiveData()
+  File "/home/zakaria/INF3995-GIT(officiel)/INF3995-103/server/src/argos_server2.py", line 67, in receiveData
+    id=data.pop(-13),
+IndexError: pop from empty list
+2022-04-14 10:36:45,413 : INFO : 127.0.0.1 - - [14/Apr/2022 10:36:45] "[35m[1mGET /argosData HTTP/1.1[0m" 500 -
+2022-04-14 10:36:45,418 : INFO : Sending command to ARGoS
+2022-04-14 10:36:45,505 : INFO : 127.0.0.1 - - [14/Apr/2022 10:36:45] "GET /argosData HTTP/1.1" 200 -
+2022-04-14 10:36:45,507 : INFO : Sending command to ARGoS
+2022-04-14 10:36:45,509 : ERROR : Exception on /simMapData [GET]
+Traceback (most recent call last):
+  File "/home/zakaria/INF3995-GIT(officiel)/INF3995-103/server/flaskenv/lib/python3.8/site-packages/flask/app.py", line 2073, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/zakaria/INF3995-GIT(officiel)/INF3995-103/server/flaskenv/lib/python3.8/site-packages/flask/app.py", line 1518, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/zakaria/INF3995-GIT(officiel)/INF3995-103/server/flaskenv/lib/python3.8/site-packages/flask_cors/extension.py", line 165, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "/home/zakaria/INF3995-GIT(officiel)/INF3995-103/server/flaskenv/lib/python3.8/site-packages/flask/app.py", line 1516, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/zakaria/INF3995-GIT(officiel)/INF3995-103/server/flaskenv/lib/python3.8/site-packages/flask/app.py", line 1502, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "main.py", line 78, in handleSimMapDataPolling
+    simDrones = ArgosServer.receiveData()
+  File "/home/zakaria/INF3995-GIT(officiel)/INF3995-103/server/src/argos_server2.py", line 67, in receiveData
+    id=data.pop(-13),
+IndexError: pop from empty list
+2022-04-14 10:36:45,511 : INFO : 127.0.0.1 - - [14/Apr/2022 10:36:45] "[35m[1mGET /simMapData HTTP/1.1[0m" 500 -
+2022-04-14 10:36:45,518 : INFO : Sending command to ARGoS
+2022-04-14 10:36:45,604 : INFO : 127.0.0.1 - - [14/Apr/2022 10:36:45] "GET /simMapData HTTP/1.1" 200 -
+2022-04-14 10:36:45,607 : INFO : Sending command to ARGoS
+2022-04-14 10:36:45,608 : ERROR : Exception on /simMapData [GET]
+Traceback (most recent call last):
+  File "/home/zakaria/INF3995-GIT(officiel)/INF3995-103/server/flaskenv/lib/python3.8/site-packages/flask/app.py", line 2073, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/zakaria/INF3995-GIT(officiel)/INF3995-103/server/flaskenv/lib/python3.8/site-packages/flask/app.py", line 1518, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/zakaria/INF3995-GIT(officiel)/INF3995-103/server/flaskenv/lib/python3.8/site-packages/flask_cors/extension.py", line 165, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "/home/zakaria/INF3995-GIT(officiel)/INF3995-103/server/flaskenv/lib/python3.8/site-packages/flask/app.py", line 1516, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/zakaria/INF3995-GIT(officiel)/INF3995-103/server/flaskenv/lib/python3.8/site-packages/flask/app.py", line 1502, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "main.py", line 78, in handleSimMapDataPolling
+    simDrones = ArgosServer.receiveData()
+  File "/home/zakaria/INF3995-GIT(officiel)/INF3995-103/server/src/argos_server2.py", line 67, in receiveData
+    id=data.pop(-13),
+IndexError: pop from empty list
+2022-04-14 10:36:45,609 : INFO : 127.0.0.1 - - [14/Apr/2022 10:36:45] "[35m[1mGET /simMapData HTTP/1.1[0m" 500 -
+2022-04-14 10:36:45,612 : INFO : Sending command to ARGoS
+2022-04-14 10:36:45,705 : INFO : 127.0.0.1 - - [14/Apr/2022 10:36:45] "GET /simMapData HTTP/1.1" 200 -
+2022-04-14 10:36:45,708 : INFO : Sending command to ARGoS
+2022-04-14 10:36:45,709 : ERROR : Exception on /simMapData [GET]
+Traceback (most recent call last):
+  File "/home/zakaria/INF3995-GIT(officiel)/INF3995-103/server/flaskenv/lib/python3.8/site-packages/flask/app.py", line 2073, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/zakaria/INF3995-GIT(officiel)/INF3995-103/server/flaskenv/lib/python3.8/site-packages/flask/app.py", line 1518, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/zakaria/INF3995-GIT(officiel)/INF3995-103/server/flaskenv/lib/python3.8/site-packages/flask_cors/extension.py", line 165, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "/home/zakaria/INF3995-GIT(officiel)/INF3995-103/server/flaskenv/lib/python3.8/site-packages/flask/app.py", line 1516, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/zakaria/INF3995-GIT(officiel)/INF3995-103/server/flaskenv/lib/python3.8/site-packages/flask/app.py", line 1502, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "main.py", line 78, in handleSimMapDataPolling
+    simDrones = ArgosServer.receiveData()
+  File "/home/zakaria/INF3995-GIT(officiel)/INF3995-103/server/src/argos_server2.py", line 67, in receiveData
+    id=data.pop(-13),
+IndexError: pop from empty list
+2022-04-14 10:36:45,710 : INFO : 127.0.0.1 - - [14/Apr/2022 10:36:45] "[35m[1mGET /simMapData HTTP/1.1[0m" 500 -
+2022-04-14 10:36:45,713 : INFO : Sending command to ARGoS
+2022-04-14 10:36:45,805 : INFO : 127.0.0.1 - - [14/Apr/2022 10:36:45] "GET /simMapData HTTP/1.1" 200 -
+2022-04-14 10:36:45,808 : INFO : Sending command to ARGoS
+2022-04-14 10:36:45,810 : ERROR : Exception on /argosData [GET]
+Traceback (most recent call last):
+  File "/home/zakaria/INF3995-GIT(officiel)/INF3995-103/server/flaskenv/lib/python3.8/site-packages/flask/app.py", line 2073, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/zakaria/INF3995-GIT(officiel)/INF3995-103/server/flaskenv/lib/python3.8/site-packages/flask/app.py", line 1518, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/zakaria/INF3995-GIT(officiel)/INF3995-103/server/flaskenv/lib/python3.8/site-packages/flask_cors/extension.py", line 165, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "/home/zakaria/INF3995-GIT(officiel)/INF3995-103/server/flaskenv/lib/python3.8/site-packages/flask/app.py", line 1516, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/zakaria/INF3995-GIT(officiel)/INF3995-103/server/flaskenv/lib/python3.8/site-packages/flask/app.py", line 1502, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "main.py", line 69, in handleArgosDataPolling
+    simDrones = ArgosServer.receiveData()
+  File "/home/zakaria/INF3995-GIT(officiel)/INF3995-103/server/src/argos_server2.py", line 67, in receiveData
+    id=data.pop(-13),
+IndexError: pop from empty list
+2022-04-14 10:36:45,815 : INFO : 127.0.0.1 - - [14/Apr/2022 10:36:45] "[35m[1mGET /argosData HTTP/1.1[0m" 500 -
+2022-04-14 10:36:45,819 : INFO : Sending command to ARGoS
+2022-04-14 10:36:45,905 : INFO : 127.0.0.1 - - [14/Apr/2022 10:36:45] "GET /simMapData HTTP/1.1" 200 -
+2022-04-14 10:36:45,933 : INFO : Sending command to ARGoS
+2022-04-14 10:36:45,934 : ERROR : Exception on /simMapData [GET]
+Traceback (most recent call last):
+  File "/home/zakaria/INF3995-GIT(officiel)/INF3995-103/server/flaskenv/lib/python3.8/site-packages/flask/app.py", line 2073, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/zakaria/INF3995-GIT(officiel)/INF3995-103/server/flaskenv/lib/python3.8/site-packages/flask/app.py", line 1518, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/zakaria/INF3995-GIT(officiel)/INF3995-103/server/flaskenv/lib/python3.8/site-packages/flask_cors/extension.py", line 165, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "/home/zakaria/INF3995-GIT(officiel)/INF3995-103/server/flaskenv/lib/python3.8/site-packages/flask/app.py", line 1516, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/zakaria/INF3995-GIT(officiel)/INF3995-103/server/flaskenv/lib/python3.8/site-packages/flask/app.py", line 1502, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "main.py", line 78, in handleSimMapDataPolling
+    simDrones = ArgosServer.receiveData()
+  File "/home/zakaria/INF3995-GIT(officiel)/INF3995-103/server/src/argos_server2.py", line 67, in receiveData
+    id=data.pop(-13),
+IndexError: pop from empty list
+2022-04-14 10:36:45,936 : INFO : 127.0.0.1 - - [14/Apr/2022 10:36:45] "[35m[1mGET /simMapData HTTP/1.1[0m" 500 -
+2022-04-14 10:36:46,006 : INFO : 127.0.0.1 - - [14/Apr/2022 10:36:46] "GET /simMapData HTTP/1.1" 200 -
+2022-04-14 10:36:46,007 : ERROR : Exception on /simMapData [GET]
+Traceback (most recent call last):
+  File "/home/zakaria/INF3995-GIT(officiel)/INF3995-103/server/flaskenv/lib/python3.8/site-packages/flask/app.py", line 2073, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/zakaria/INF3995-GIT(officiel)/INF3995-103/server/flaskenv/lib/python3.8/site-packages/flask/app.py", line 1518, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/zakaria/INF3995-GIT(officiel)/INF3995-103/server/flaskenv/lib/python3.8/site-packages/flask_cors/extension.py", line 165, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "/home/zakaria/INF3995-GIT(officiel)/INF3995-103/server/flaskenv/lib/python3.8/site-packages/flask/app.py", line 1516, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/zakaria/INF3995-GIT(officiel)/INF3995-103/server/flaskenv/lib/python3.8/site-packages/flask/app.py", line 1502, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "main.py", line 78, in handleSimMapDataPolling
+    simDrones = ArgosServer.receiveData()
+  File "/home/zakaria/INF3995-GIT(officiel)/INF3995-103/server/src/argos_server2.py", line 67, in receiveData
+    id=data.pop(-13),
+IndexError: pop from empty list
+2022-04-14 10:36:46,009 : INFO : 127.0.0.1 - - [14/Apr/2022 10:36:46] "[35m[1mGET /simMapData HTTP/1.1[0m" 500 -
+2022-04-14 10:36:46,105 : INFO : 127.0.0.1 - - [14/Apr/2022 10:36:46] "GET /simMapData HTTP/1.1" 200 -
+2022-04-14 10:36:46,106 : ERROR : Exception on /simMapData [GET]
+Traceback (most recent call last):
+  File "/home/zakaria/INF3995-GIT(officiel)/INF3995-103/server/flaskenv/lib/python3.8/site-packages/flask/app.py", line 2073, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/zakaria/INF3995-GIT(officiel)/INF3995-103/server/flaskenv/lib/python3.8/site-packages/flask/app.py", line 1518, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/zakaria/INF3995-GIT(officiel)/INF3995-103/server/flaskenv/lib/python3.8/site-packages/flask_cors/extension.py", line 165, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "/home/zakaria/INF3995-GIT(officiel)/INF3995-103/server/flaskenv/lib/python3.8/site-packages/flask/app.py", line 1516, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/zakaria/INF3995-GIT(officiel)/INF3995-103/server/flaskenv/lib/python3.8/site-packages/flask/app.py", line 1502, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "main.py", line 78, in handleSimMapDataPolling
+    simDrones = ArgosServer.receiveData()
+  File "/home/zakaria/INF3995-GIT(officiel)/INF3995-103/server/src/argos_server2.py", line 67, in receiveData
+    id=data.pop(-13),
+IndexError: pop from empty list
+2022-04-14 10:36:46,108 : INFO : 127.0.0.1 - - [14/Apr/2022 10:36:46] "[35m[1mGET /simMapData HTTP/1.1[0m" 500 -
+2022-04-14 10:36:46,171 : INFO : Sending command to ARGoS
+2022-04-14 10:36:46,187 : INFO : Sending command to ARGoS
+2022-04-14 10:36:46,207 : INFO : 127.0.0.1 - - [14/Apr/2022 10:36:46] "GET /argosData HTTP/1.1" 200 -
+2022-04-14 10:36:46,208 : ERROR : Exception on /simMapData [GET]
+Traceback (most recent call last):
+  File "/home/zakaria/INF3995-GIT(officiel)/INF3995-103/server/flaskenv/lib/python3.8/site-packages/flask/app.py", line 2073, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/zakaria/INF3995-GIT(officiel)/INF3995-103/server/flaskenv/lib/python3.8/site-packages/flask/app.py", line 1518, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/zakaria/INF3995-GIT(officiel)/INF3995-103/server/flaskenv/lib/python3.8/site-packages/flask_cors/extension.py", line 165, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "/home/zakaria/INF3995-GIT(officiel)/INF3995-103/server/flaskenv/lib/python3.8/site-packages/flask/app.py", line 1516, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/zakaria/INF3995-GIT(officiel)/INF3995-103/server/flaskenv/lib/python3.8/site-packages/flask/app.py", line 1502, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "main.py", line 78, in handleSimMapDataPolling
+    simDrones = ArgosServer.receiveData()
+  File "/home/zakaria/INF3995-GIT(officiel)/INF3995-103/server/src/argos_server2.py", line 67, in receiveData
+    id=data.pop(-13),
+IndexError: pop from empty list
+2022-04-14 10:36:46,211 : INFO : 127.0.0.1 - - [14/Apr/2022 10:36:46] "[35m[1mGET /simMapData HTTP/1.1[0m" 500 -
+2022-04-14 10:36:46,305 : INFO : 127.0.0.1 - - [14/Apr/2022 10:36:46] "GET /simMapData HTTP/1.1" 200 -
+2022-04-14 10:36:46,391 : INFO : Sending command to ARGoS
+2022-04-14 10:36:46,391 : ERROR : Exception on /simMapData [GET]
+Traceback (most recent call last):
+  File "/home/zakaria/INF3995-GIT(officiel)/INF3995-103/server/flaskenv/lib/python3.8/site-packages/flask/app.py", line 2073, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/zakaria/INF3995-GIT(officiel)/INF3995-103/server/flaskenv/lib/python3.8/site-packages/flask/app.py", line 1518, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/zakaria/INF3995-GIT(officiel)/INF3995-103/server/flaskenv/lib/python3.8/site-packages/flask_cors/extension.py", line 165, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "/home/zakaria/INF3995-GIT(officiel)/INF3995-103/server/flaskenv/lib/python3.8/site-packages/flask/app.py", line 1516, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/zakaria/INF3995-GIT(officiel)/INF3995-103/server/flaskenv/lib/python3.8/site-packages/flask/app.py", line 1502, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "main.py", line 78, in handleSimMapDataPolling
+    simDrones = ArgosServer.receiveData()
+  File "/home/zakaria/INF3995-GIT(officiel)/INF3995-103/server/src/argos_server2.py", line 67, in receiveData
+    id=data.pop(-13),
+IndexError: pop from empty list
+2022-04-14 10:36:46,392 : INFO : 127.0.0.1 - - [14/Apr/2022 10:36:46] "[35m[1mGET /simMapData HTTP/1.1[0m" 500 -
+2022-04-14 10:36:46,628 : INFO : Sending command to ARGoS
+2022-04-14 10:36:46,629 : INFO : 127.0.0.1 - - [14/Apr/2022 10:36:46] "GET /simMapData HTTP/1.1" 200 -
+2022-04-14 10:36:46,862 : INFO : Sending command to ARGoS
+2022-04-14 10:36:46,863 : INFO : 127.0.0.1 - - [14/Apr/2022 10:36:46] "GET /simMapData HTTP/1.1" 200 -
+2022-04-14 10:36:47,070 : INFO : Looking for devices....
+2022-04-14 10:36:47,070 : INFO : Initialized PRRT driver.
+2022-04-14 10:36:47,072 : INFO : Looking for devices....
+2022-04-14 10:36:47,073 : INFO : Initialized PRRT driver.
+2022-04-14 10:36:47,074 : INFO : Looking for devices....
+2022-04-14 10:36:47,075 : INFO : Initialized PRRT driver.
+2022-04-14 10:36:47,076 : INFO : Looking for devices....
+2022-04-14 10:36:47,077 : INFO : Initialized PRRT driver.
+2022-04-14 10:36:47,078 : INFO : getting drones.................
+2022-04-14 10:36:47,078 : INFO : No drones found nearby. Retrying in 5 seconds.
+2022-04-14 10:36:47,095 : INFO : Sending command to ARGoS
+2022-04-14 10:36:47,096 : INFO : 127.0.0.1 - - [14/Apr/2022 10:36:47] "GET /simMapData HTTP/1.1" 200 -
+2022-04-14 10:36:47,184 : INFO : Sending command to ARGoS
+2022-04-14 10:36:47,184 : INFO : 127.0.0.1 - - [14/Apr/2022 10:36:47] "GET /argosData HTTP/1.1" 200 -
+2022-04-14 10:36:47,328 : INFO : Sending command to ARGoS
+2022-04-14 10:36:47,329 : INFO : 127.0.0.1 - - [14/Apr/2022 10:36:47] "GET /simMapData HTTP/1.1" 200 -
+2022-04-14 10:36:47,561 : INFO : Sending command to ARGoS
+2022-04-14 10:36:47,563 : INFO : 127.0.0.1 - - [14/Apr/2022 10:36:47] "GET /simMapData HTTP/1.1" 200 -
+2022-04-14 10:36:47,794 : INFO : Sending command to ARGoS
+2022-04-14 10:36:47,795 : INFO : 127.0.0.1 - - [14/Apr/2022 10:36:47] "GET /simMapData HTTP/1.1" 200 -
+2022-04-14 10:36:48,029 : INFO : Sending command to ARGoS
+2022-04-14 10:36:48,030 : INFO : 127.0.0.1 - - [14/Apr/2022 10:36:48] "GET /simMapData HTTP/1.1" 200 -
+2022-04-14 10:36:48,189 : INFO : Sending command to ARGoS
+2022-04-14 10:36:48,191 : INFO : 127.0.0.1 - - [14/Apr/2022 10:36:48] "GET /argosData HTTP/1.1" 200 -
+2022-04-14 10:36:48,265 : INFO : Sending command to ARGoS
+2022-04-14 10:36:48,266 : INFO : 127.0.0.1 - - [14/Apr/2022 10:36:48] "GET /simMapData HTTP/1.1" 200 -
+2022-04-14 10:36:48,494 : INFO : Sending command to ARGoS
+2022-04-14 10:36:48,495 : INFO : 127.0.0.1 - - [14/Apr/2022 10:36:48] "GET /simMapData HTTP/1.1" 200 -
+2022-04-14 10:36:48,723 : INFO : Sending command to ARGoS
+2022-04-14 10:36:48,724 : INFO : 127.0.0.1 - - [14/Apr/2022 10:36:48] "GET /simMapData HTTP/1.1" 200 -
+2022-04-14 10:36:48,963 : INFO : Sending command to ARGoS
+2022-04-14 10:36:48,964 : INFO : 127.0.0.1 - - [14/Apr/2022 10:36:48] "GET /simMapData HTTP/1.1" 200 -
+2022-04-14 10:36:49,194 : INFO : Sending command to ARGoS
+2022-04-14 10:36:49,196 : INFO : 127.0.0.1 - - [14/Apr/2022 10:36:49] "GET /argosData HTTP/1.1" 200 -
+2022-04-14 10:36:49,197 : INFO : Sending command to ARGoS
+2022-04-14 10:36:49,206 : INFO : 127.0.0.1 - - [14/Apr/2022 10:36:49] "GET /simMapData HTTP/1.1" 200 -
+2022-04-14 10:36:49,422 : INFO : Sending command to ARGoS
+2022-04-14 10:36:49,423 : INFO : 127.0.0.1 - - [14/Apr/2022 10:36:49] "GET /simMapData HTTP/1.1" 200 -
+2022-04-14 10:36:49,666 : INFO : Sending command to ARGoS
+2022-04-14 10:36:49,667 : INFO : 127.0.0.1 - - [14/Apr/2022 10:36:49] "GET /simMapData HTTP/1.1" 200 -
+2022-04-14 10:36:49,893 : INFO : Sending command to ARGoS
+2022-04-14 10:36:49,893 : INFO : 127.0.0.1 - - [14/Apr/2022 10:36:49] "GET /simMapData HTTP/1.1" 200 -
+2022-04-14 10:36:50,126 : INFO : Sending command to ARGoS
+2022-04-14 10:36:50,127 : INFO : 127.0.0.1 - - [14/Apr/2022 10:36:50] "GET /simMapData HTTP/1.1" 200 -
+2022-04-14 10:36:50,192 : INFO : Sending command to ARGoS
+2022-04-14 10:36:50,205 : INFO : 127.0.0.1 - - [14/Apr/2022 10:36:50] "GET /argosData HTTP/1.1" 200 -
+2022-04-14 10:36:50,362 : INFO : Sending command to ARGoS
+2022-04-14 10:36:50,363 : INFO : 127.0.0.1 - - [14/Apr/2022 10:36:50] "GET /simMapData HTTP/1.1" 200 -
+2022-04-14 10:36:50,595 : INFO : Sending command to ARGoS
+2022-04-14 10:36:50,595 : INFO : 127.0.0.1 - - [14/Apr/2022 10:36:50] "GET /simMapData HTTP/1.1" 200 -
+2022-04-14 10:36:50,832 : INFO : Sending command to ARGoS
+2022-04-14 10:36:50,833 : INFO : 127.0.0.1 - - [14/Apr/2022 10:36:50] "GET /simMapData HTTP/1.1" 200 -
+2022-04-14 10:36:51,059 : INFO : Sending command to ARGoS
+2022-04-14 10:36:51,060 : INFO : 127.0.0.1 - - [14/Apr/2022 10:36:51] "GET /simMapData HTTP/1.1" 200 -
+2022-04-14 10:36:51,190 : INFO : Sending command to ARGoS
+2022-04-14 10:36:51,191 : INFO : 127.0.0.1 - - [14/Apr/2022 10:36:51] "GET /argosData HTTP/1.1" 200 -
+2022-04-14 10:36:51,299 : INFO : Sending command to ARGoS
+2022-04-14 10:36:51,300 : INFO : 127.0.0.1 - - [14/Apr/2022 10:36:51] "GET /simMapData HTTP/1.1" 200 -
+2022-04-14 10:36:51,541 : INFO : Sending command to ARGoS
+2022-04-14 10:36:51,542 : INFO : 127.0.0.1 - - [14/Apr/2022 10:36:51] "GET /simMapData HTTP/1.1" 200 -
+2022-04-14 10:36:51,766 : INFO : Sending command to ARGoS
+2022-04-14 10:36:51,766 : INFO : 127.0.0.1 - - [14/Apr/2022 10:36:51] "GET /simMapData HTTP/1.1" 200 -
+2022-04-14 10:36:51,989 : INFO : Sending command to ARGoS
+2022-04-14 10:36:51,990 : INFO : 127.0.0.1 - - [14/Apr/2022 10:36:51] "GET /simMapData HTTP/1.1" 200 -
+2022-04-14 10:36:52,080 : INFO : Looking for devices....
+2022-04-14 10:36:52,081 : INFO : Initialized PRRT driver.
+2022-04-14 10:36:52,082 : INFO : Looking for devices....
+2022-04-14 10:36:52,083 : INFO : Initialized PRRT driver.
+2022-04-14 10:36:52,084 : INFO : Looking for devices....
+2022-04-14 10:36:52,085 : INFO : Initialized PRRT driver.
+2022-04-14 10:36:52,086 : INFO : Looking for devices....
+2022-04-14 10:36:52,087 : INFO : Initialized PRRT driver.
+2022-04-14 10:36:52,087 : INFO : getting drones.................
+2022-04-14 10:36:52,087 : INFO : No drones found nearby. Retrying in 5 seconds.
+2022-04-14 10:36:52,188 : INFO : Sending command to ARGoS
+2022-04-14 10:36:52,188 : INFO : 127.0.0.1 - - [14/Apr/2022 10:36:52] "GET /argosData HTTP/1.1" 200 -
+2022-04-14 10:36:52,225 : INFO : Sending command to ARGoS
+2022-04-14 10:36:52,226 : INFO : 127.0.0.1 - - [14/Apr/2022 10:36:52] "GET /simMapData HTTP/1.1" 200 -
+2022-04-14 10:36:52,462 : INFO : Sending command to ARGoS
+2022-04-14 10:36:52,463 : INFO : 127.0.0.1 - - [14/Apr/2022 10:36:52] "GET /simMapData HTTP/1.1" 200 -
+2022-04-14 10:36:52,695 : INFO : Sending command to ARGoS
+2022-04-14 10:36:52,696 : INFO : 127.0.0.1 - - [14/Apr/2022 10:36:52] "GET /simMapData HTTP/1.1" 200 -
+2022-04-14 10:36:52,927 : INFO : Sending command to ARGoS
+2022-04-14 10:36:52,928 : INFO : 127.0.0.1 - - [14/Apr/2022 10:36:52] "GET /simMapData HTTP/1.1" 200 -
+2022-04-14 10:36:53,170 : INFO : Sending command to ARGoS
+2022-04-14 10:36:53,171 : INFO : 127.0.0.1 - - [14/Apr/2022 10:36:53] "GET /simMapData HTTP/1.1" 200 -
+2022-04-14 10:36:53,191 : INFO : Sending command to ARGoS
+2022-04-14 10:36:53,205 : INFO : 127.0.0.1 - - [14/Apr/2022 10:36:53] "GET /argosData HTTP/1.1" 200 -
+2022-04-14 10:36:53,410 : INFO : Sending command to ARGoS
+2022-04-14 10:36:53,411 : INFO : 127.0.0.1 - - [14/Apr/2022 10:36:53] "POST /argos HTTP/1.1" 200 -
+2022-04-14 10:36:53,421 : INFO : Sending command to ARGoS
+2022-04-14 10:36:53,422 : INFO : 127.0.0.1 - - [14/Apr/2022 10:36:53] "GET /simMapData HTTP/1.1" 200 -
+2022-04-14 10:36:53,651 : INFO : Sending command to ARGoS
+2022-04-14 10:36:53,653 : INFO : 127.0.0.1 - - [14/Apr/2022 10:36:53] "GET /simMapData HTTP/1.1" 200 -
+2022-04-14 10:36:53,884 : INFO : Sending command to ARGoS
+2022-04-14 10:36:53,885 : INFO : 127.0.0.1 - - [14/Apr/2022 10:36:53] "GET /simMapData HTTP/1.1" 200 -
+2022-04-14 10:36:54,112 : INFO : Sending command to ARGoS
+2022-04-14 10:36:54,113 : INFO : 127.0.0.1 - - [14/Apr/2022 10:36:54] "GET /simMapData HTTP/1.1" 200 -
+2022-04-14 10:36:54,188 : INFO : Sending command to ARGoS
+2022-04-14 10:36:54,205 : INFO : 127.0.0.1 - - [14/Apr/2022 10:36:54] "GET /argosData HTTP/1.1" 200 -
+2022-04-14 10:36:54,359 : INFO : Sending command to ARGoS
+2022-04-14 10:36:54,360 : INFO : 127.0.0.1 - - [14/Apr/2022 10:36:54] "GET /simMapData HTTP/1.1" 200 -
+2022-04-14 10:36:54,589 : INFO : Sending command to ARGoS
+2022-04-14 10:36:54,591 : INFO : 127.0.0.1 - - [14/Apr/2022 10:36:54] "GET /simMapData HTTP/1.1" 200 -
+2022-04-14 10:36:54,821 : INFO : Sending command to ARGoS
+2022-04-14 10:36:54,822 : INFO : 127.0.0.1 - - [14/Apr/2022 10:36:54] "GET /simMapData HTTP/1.1" 200 -
+2022-04-14 10:36:55,053 : INFO : Sending command to ARGoS
+2022-04-14 10:36:55,054 : INFO : 127.0.0.1 - - [14/Apr/2022 10:36:55] "GET /simMapData HTTP/1.1" 200 -
+2022-04-14 10:36:55,194 : INFO : Sending command to ARGoS
+2022-04-14 10:36:55,195 : INFO : 127.0.0.1 - - [14/Apr/2022 10:36:55] "GET /argosData HTTP/1.1" 200 -
+2022-04-14 10:36:55,286 : INFO : Sending command to ARGoS
+2022-04-14 10:36:55,288 : INFO : 127.0.0.1 - - [14/Apr/2022 10:36:55] "GET /simMapData HTTP/1.1" 200 -
+2022-04-14 10:36:55,520 : INFO : Sending command to ARGoS
+2022-04-14 10:36:55,521 : INFO : 127.0.0.1 - - [14/Apr/2022 10:36:55] "GET /simMapData HTTP/1.1" 200 -
+2022-04-14 10:36:55,751 : INFO : Sending command to ARGoS
+2022-04-14 10:36:55,752 : INFO : 127.0.0.1 - - [14/Apr/2022 10:36:55] "GET /simMapData HTTP/1.1" 200 -
+2022-04-14 10:36:55,980 : INFO : Sending command to ARGoS
+2022-04-14 10:36:55,981 : INFO : 127.0.0.1 - - [14/Apr/2022 10:36:55] "GET /simMapData HTTP/1.1" 200 -
+2022-04-14 10:36:56,192 : INFO : Sending command to ARGoS
+2022-04-14 10:36:56,193 : INFO : 127.0.0.1 - - [14/Apr/2022 10:36:56] "GET /argosData HTTP/1.1" 200 -
+2022-04-14 10:36:56,217 : INFO : Sending command to ARGoS
+2022-04-14 10:36:56,218 : INFO : 127.0.0.1 - - [14/Apr/2022 10:36:56] "GET /simMapData HTTP/1.1" 200 -
+2022-04-14 10:36:56,452 : INFO : Sending command to ARGoS
+2022-04-14 10:36:56,454 : INFO : 127.0.0.1 - - [14/Apr/2022 10:36:56] "GET /simMapData HTTP/1.1" 200 -
+2022-04-14 10:36:56,685 : INFO : Sending command to ARGoS
+2022-04-14 10:36:56,687 : INFO : 127.0.0.1 - - [14/Apr/2022 10:36:56] "POST /argos HTTP/1.1" 200 -
+2022-04-14 10:36:56,689 : INFO : Sending command to ARGoS
+2022-04-14 10:36:56,691 : INFO : 127.0.0.1 - - [14/Apr/2022 10:36:56] "GET /simMapData HTTP/1.1" 200 -
+2022-04-14 10:36:56,923 : INFO : Sending command to ARGoS
+2022-04-14 10:36:56,924 : INFO : 127.0.0.1 - - [14/Apr/2022 10:36:56] "GET /simMapData HTTP/1.1" 200 -
+2022-04-14 10:36:57,092 : INFO : Looking for devices....
+2022-04-14 10:36:57,093 : INFO : Initialized PRRT driver.
+2022-04-14 10:36:57,094 : INFO : Looking for devices....
+2022-04-14 10:36:57,095 : INFO : Initialized PRRT driver.
+2022-04-14 10:36:57,096 : INFO : Looking for devices....
+2022-04-14 10:36:57,097 : INFO : Initialized PRRT driver.
+2022-04-14 10:36:57,098 : INFO : Looking for devices....
+2022-04-14 10:36:57,099 : INFO : Initialized PRRT driver.
+2022-04-14 10:36:57,099 : INFO : getting drones.................
+2022-04-14 10:36:57,100 : INFO : No drones found nearby. Retrying in 5 seconds.
+2022-04-14 10:36:57,156 : INFO : Sending command to ARGoS
+2022-04-14 10:36:57,158 : INFO : 127.0.0.1 - - [14/Apr/2022 10:36:57] "GET /simMapData HTTP/1.1" 200 -
+2022-04-14 10:36:57,188 : INFO : Sending command to ARGoS
+2022-04-14 10:36:57,205 : INFO : 127.0.0.1 - - [14/Apr/2022 10:36:57] "GET /argosData HTTP/1.1" 200 -
+2022-04-14 10:36:57,383 : INFO : Sending command to ARGoS
+2022-04-14 10:36:57,385 : INFO : 127.0.0.1 - - [14/Apr/2022 10:36:57] "GET /simMapData HTTP/1.1" 200 -
+2022-04-14 10:36:57,628 : INFO : Sending command to ARGoS
+2022-04-14 10:36:57,629 : INFO : 127.0.0.1 - - [14/Apr/2022 10:36:57] "GET /simMapData HTTP/1.1" 200 -
+2022-04-14 10:36:57,857 : INFO : Sending command to ARGoS
+2022-04-14 10:36:57,859 : INFO : 127.0.0.1 - - [14/Apr/2022 10:36:57] "GET /simMapData HTTP/1.1" 200 -
+2022-04-14 10:36:58,089 : INFO : Sending command to ARGoS
+2022-04-14 10:36:58,090 : INFO : 127.0.0.1 - - [14/Apr/2022 10:36:58] "GET /simMapData HTTP/1.1" 200 -
+2022-04-14 10:36:58,196 : INFO : Sending command to ARGoS
+2022-04-14 10:36:58,197 : INFO : 127.0.0.1 - - [14/Apr/2022 10:36:58] "GET /argosData HTTP/1.1" 200 -
+2022-04-14 10:36:58,323 : INFO : Sending command to ARGoS
+2022-04-14 10:36:58,324 : INFO : 127.0.0.1 - - [14/Apr/2022 10:36:58] "GET /simMapData HTTP/1.1" 200 -
+2022-04-14 10:36:58,555 : INFO : Sending command to ARGoS
+2022-04-14 10:36:58,557 : INFO : 127.0.0.1 - - [14/Apr/2022 10:36:58] "GET /simMapData HTTP/1.1" 200 -
+2022-04-14 10:36:58,790 : INFO : Sending command to ARGoS
+2022-04-14 10:36:58,792 : INFO : 127.0.0.1 - - [14/Apr/2022 10:36:58] "GET /simMapData HTTP/1.1" 200 -
+2022-04-14 10:36:59,020 : INFO : Sending command to ARGoS
+2022-04-14 10:36:59,021 : INFO : 127.0.0.1 - - [14/Apr/2022 10:36:59] "GET /simMapData HTTP/1.1" 200 -
+2022-04-14 10:36:59,198 : INFO : Sending command to ARGoS
+2022-04-14 10:36:59,200 : INFO : 127.0.0.1 - - [14/Apr/2022 10:36:59] "GET /argosData HTTP/1.1" 200 -
+2022-04-14 10:36:59,254 : INFO : Sending command to ARGoS
+2022-04-14 10:36:59,255 : INFO : 127.0.0.1 - - [14/Apr/2022 10:36:59] "GET /simMapData HTTP/1.1" 200 -
+2022-04-14 10:36:59,493 : INFO : Sending command to ARGoS
+2022-04-14 10:36:59,494 : INFO : 127.0.0.1 - - [14/Apr/2022 10:36:59] "GET /simMapData HTTP/1.1" 200 -
+2022-04-14 10:36:59,724 : INFO : Sending command to ARGoS
+2022-04-14 10:36:59,725 : INFO : 127.0.0.1 - - [14/Apr/2022 10:36:59] "GET /simMapData HTTP/1.1" 200 -
+2022-04-14 10:36:59,962 : INFO : Sending command to ARGoS
+2022-04-14 10:36:59,963 : INFO : 127.0.0.1 - - [14/Apr/2022 10:36:59] "GET /simMapData HTTP/1.1" 200 -
+2022-04-14 10:37:00,204 : INFO : Sending command to ARGoS
+2022-04-14 10:37:00,205 : INFO : 127.0.0.1 - - [14/Apr/2022 10:37:00] "GET /simMapData HTTP/1.1" 200 -
+2022-04-14 10:37:00,207 : INFO : Sending command to ARGoS
+2022-04-14 10:37:00,208 : ERROR : Exception on /argosData [GET]
+Traceback (most recent call last):
+  File "/home/zakaria/INF3995-GIT(officiel)/INF3995-103/server/flaskenv/lib/python3.8/site-packages/flask/app.py", line 2073, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/zakaria/INF3995-GIT(officiel)/INF3995-103/server/flaskenv/lib/python3.8/site-packages/flask/app.py", line 1518, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/zakaria/INF3995-GIT(officiel)/INF3995-103/server/flaskenv/lib/python3.8/site-packages/flask_cors/extension.py", line 165, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "/home/zakaria/INF3995-GIT(officiel)/INF3995-103/server/flaskenv/lib/python3.8/site-packages/flask/app.py", line 1516, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/zakaria/INF3995-GIT(officiel)/INF3995-103/server/flaskenv/lib/python3.8/site-packages/flask/app.py", line 1502, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "main.py", line 69, in handleArgosDataPolling
+    simDrones = ArgosServer.receiveData()
+  File "/home/zakaria/INF3995-GIT(officiel)/INF3995-103/server/src/argos_server2.py", line 67, in receiveData
+    id=data.pop(-13),
+IndexError: pop from empty list
+2022-04-14 10:37:00,210 : INFO : 127.0.0.1 - - [14/Apr/2022 10:37:00] "[35m[1mGET /argosData HTTP/1.1[0m" 500 -
+2022-04-14 10:37:00,433 : INFO : Sending command to ARGoS
+2022-04-14 10:37:00,434 : INFO : 127.0.0.1 - - [14/Apr/2022 10:37:00] "GET /simMapData HTTP/1.1" 200 -
+2022-04-14 10:37:00,664 : INFO : Sending command to ARGoS
+2022-04-14 10:37:00,665 : INFO : 127.0.0.1 - - [14/Apr/2022 10:37:00] "GET /simMapData HTTP/1.1" 200 -
+2022-04-14 10:37:00,897 : INFO : Sending command to ARGoS
+2022-04-14 10:37:00,898 : INFO : 127.0.0.1 - - [14/Apr/2022 10:37:00] "GET /simMapData HTTP/1.1" 200 -
+2022-04-14 10:37:01,127 : INFO : Sending command to ARGoS
+2022-04-14 10:37:01,128 : INFO : 127.0.0.1 - - [14/Apr/2022 10:37:01] "GET /simMapData HTTP/1.1" 200 -
+2022-04-14 10:37:01,206 : INFO : Sending command to ARGoS
+2022-04-14 10:37:01,207 : INFO : 127.0.0.1 - - [14/Apr/2022 10:37:01] "GET /argosData HTTP/1.1" 200 -
+2022-04-14 10:37:01,365 : INFO : Sending command to ARGoS
+2022-04-14 10:37:01,366 : INFO : 127.0.0.1 - - [14/Apr/2022 10:37:01] "GET /simMapData HTTP/1.1" 200 -
+2022-04-14 10:37:01,598 : INFO : Sending command to ARGoS
+2022-04-14 10:37:01,600 : INFO : 127.0.0.1 - - [14/Apr/2022 10:37:01] "GET /simMapData HTTP/1.1" 200 -
+2022-04-14 10:37:01,829 : INFO : Sending command to ARGoS
+2022-04-14 10:37:01,831 : INFO : 127.0.0.1 - - [14/Apr/2022 10:37:01] "GET /simMapData HTTP/1.1" 200 -
+2022-04-14 10:37:02,060 : INFO : Sending command to ARGoS
+2022-04-14 10:37:02,061 : INFO : 127.0.0.1 - - [14/Apr/2022 10:37:02] "GET /simMapData HTTP/1.1" 200 -
+2022-04-14 10:37:02,104 : INFO : Looking for devices....
+2022-04-14 10:37:02,105 : INFO : Initialized PRRT driver.
+2022-04-14 10:37:02,107 : INFO : Looking for devices....
+2022-04-14 10:37:02,108 : INFO : Initialized PRRT driver.
+2022-04-14 10:37:02,109 : INFO : Looking for devices....
+2022-04-14 10:37:02,110 : INFO : Initialized PRRT driver.
+2022-04-14 10:37:02,111 : INFO : Looking for devices....
+2022-04-14 10:37:02,112 : INFO : Initialized PRRT driver.
+2022-04-14 10:37:02,112 : INFO : getting drones.................
+2022-04-14 10:37:02,112 : INFO : No drones found nearby. Retrying in 5 seconds.
+2022-04-14 10:37:02,203 : INFO : Sending command to ARGoS
+2022-04-14 10:37:02,204 : INFO : 127.0.0.1 - - [14/Apr/2022 10:37:02] "GET /argosData HTTP/1.1" 200 -
+2022-04-14 10:37:02,298 : INFO : Sending command to ARGoS
+2022-04-14 10:37:02,299 : INFO : 127.0.0.1 - - [14/Apr/2022 10:37:02] "GET /simMapData HTTP/1.1" 200 -
+2022-04-14 10:37:02,526 : INFO : Sending command to ARGoS
+2022-04-14 10:37:02,527 : INFO : 127.0.0.1 - - [14/Apr/2022 10:37:02] "GET /simMapData HTTP/1.1" 200 -
+2022-04-14 10:37:02,762 : INFO : Sending command to ARGoS
+2022-04-14 10:37:02,764 : INFO : 127.0.0.1 - - [14/Apr/2022 10:37:02] "GET /simMapData HTTP/1.1" 200 -
+2022-04-14 10:37:02,998 : INFO : Sending command to ARGoS
+2022-04-14 10:37:02,999 : INFO : 127.0.0.1 - - [14/Apr/2022 10:37:02] "GET /simMapData HTTP/1.1" 200 -
+2022-04-14 10:37:03,215 : INFO : Sending command to ARGoS
+2022-04-14 10:37:03,216 : INFO : 127.0.0.1 - - [14/Apr/2022 10:37:03] "GET /argosData HTTP/1.1" 200 -
+2022-04-14 10:37:03,229 : INFO : Sending command to ARGoS
+2022-04-14 10:37:03,305 : INFO : 127.0.0.1 - - [14/Apr/2022 10:37:03] "GET /simMapData HTTP/1.1" 200 -
+2022-04-14 10:37:03,465 : INFO : Sending command to ARGoS
+2022-04-14 10:37:03,466 : INFO : 127.0.0.1 - - [14/Apr/2022 10:37:03] "GET /simMapData HTTP/1.1" 200 -
+2022-04-14 10:37:03,701 : INFO : Sending command to ARGoS
+2022-04-14 10:37:03,702 : INFO : 127.0.0.1 - - [14/Apr/2022 10:37:03] "GET /simMapData HTTP/1.1" 200 -
+2022-04-14 10:37:03,931 : INFO : Sending command to ARGoS
+2022-04-14 10:37:03,932 : INFO : 127.0.0.1 - - [14/Apr/2022 10:37:03] "GET /simMapData HTTP/1.1" 200 -
+2022-04-14 10:37:04,168 : INFO : Sending command to ARGoS
+2022-04-14 10:37:04,169 : INFO : 127.0.0.1 - - [14/Apr/2022 10:37:04] "GET /simMapData HTTP/1.1" 200 -
+2022-04-14 10:37:04,210 : INFO : Sending command to ARGoS
+2022-04-14 10:37:04,211 : INFO : 127.0.0.1 - - [14/Apr/2022 10:37:04] "GET /argosData HTTP/1.1" 200 -
+2022-04-14 10:37:04,405 : INFO : Sending command to ARGoS
+2022-04-14 10:37:04,407 : INFO : 127.0.0.1 - - [14/Apr/2022 10:37:04] "GET /simMapData HTTP/1.1" 200 -
+2022-04-14 10:37:04,635 : INFO : Sending command to ARGoS
+2022-04-14 10:37:04,636 : INFO : 127.0.0.1 - - [14/Apr/2022 10:37:04] "GET /simMapData HTTP/1.1" 200 -
+2022-04-14 10:37:04,871 : INFO : Sending command to ARGoS
+2022-04-14 10:37:04,872 : INFO : 127.0.0.1 - - [14/Apr/2022 10:37:04] "GET /simMapData HTTP/1.1" 200 -
+2022-04-14 10:37:05,107 : INFO : Sending command to ARGoS
+2022-04-14 10:37:05,108 : INFO : 127.0.0.1 - - [14/Apr/2022 10:37:05] "GET /simMapData HTTP/1.1" 200 -
+2022-04-14 10:37:05,214 : INFO : Sending command to ARGoS
+2022-04-14 10:37:05,215 : INFO : 127.0.0.1 - - [14/Apr/2022 10:37:05] "GET /argosData HTTP/1.1" 200 -
+2022-04-14 10:37:05,337 : INFO : Sending command to ARGoS
+2022-04-14 10:37:05,338 : INFO : 127.0.0.1 - - [14/Apr/2022 10:37:05] "GET /simMapData HTTP/1.1" 200 -
+2022-04-14 10:37:05,570 : INFO : Sending command to ARGoS
+2022-04-14 10:37:05,571 : INFO : 127.0.0.1 - - [14/Apr/2022 10:37:05] "GET /simMapData HTTP/1.1" 200 -
+2022-04-14 10:37:05,805 : INFO : Sending command to ARGoS
+2022-04-14 10:37:05,806 : INFO : 127.0.0.1 - - [14/Apr/2022 10:37:05] "GET /simMapData HTTP/1.1" 200 -
+2022-04-14 10:37:06,033 : INFO : Sending command to ARGoS
+2022-04-14 10:37:06,033 : INFO : 127.0.0.1 - - [14/Apr/2022 10:37:06] "GET /simMapData HTTP/1.1" 200 -
+2022-04-14 10:37:06,210 : INFO : Sending command to ARGoS
+2022-04-14 10:37:06,214 : INFO : 127.0.0.1 - - [14/Apr/2022 10:37:06] "GET /argosData HTTP/1.1" 200 -
+2022-04-14 10:37:06,270 : INFO : Sending command to ARGoS
+2022-04-14 10:37:06,305 : INFO : 127.0.0.1 - - [14/Apr/2022 10:37:06] "GET /simMapData HTTP/1.1" 200 -
+2022-04-14 10:37:06,501 : INFO : Sending command to ARGoS
+2022-04-14 10:37:06,502 : INFO : 127.0.0.1 - - [14/Apr/2022 10:37:06] "GET /simMapData HTTP/1.1" 200 -
+2022-04-14 10:37:06,736 : INFO : Sending command to ARGoS
+2022-04-14 10:37:06,737 : INFO : 127.0.0.1 - - [14/Apr/2022 10:37:06] "GET /simMapData HTTP/1.1" 200 -
+2022-04-14 10:37:06,969 : INFO : Sending command to ARGoS
+2022-04-14 10:37:06,970 : INFO : 127.0.0.1 - - [14/Apr/2022 10:37:06] "GET /simMapData HTTP/1.1" 200 -
+2022-04-14 10:37:07,086 : INFO : Sending command to ARGoS
+2022-04-14 10:37:07,087 : INFO : 127.0.0.1 - - [14/Apr/2022 10:37:07] "POST /argos HTTP/1.1" 200 -
+2022-04-14 10:37:07,116 : INFO : Looking for devices....
+2022-04-14 10:37:07,117 : INFO : Initialized PRRT driver.
+2022-04-14 10:37:07,117 : INFO : Looking for devices....
+2022-04-14 10:37:07,118 : INFO : Initialized PRRT driver.
+2022-04-14 10:37:07,118 : INFO : Looking for devices....
+2022-04-14 10:37:07,119 : INFO : Initialized PRRT driver.
+2022-04-14 10:37:07,120 : INFO : Looking for devices....
+2022-04-14 10:37:07,120 : INFO : Initialized PRRT driver.
+2022-04-14 10:37:07,121 : INFO : getting drones.................
+2022-04-14 10:37:07,121 : INFO : No drones found nearby. Retrying in 5 seconds.
+2022-04-14 10:37:07,206 : INFO : Sending command to ARGoS
+2022-04-14 10:37:07,207 : INFO : 127.0.0.1 - - [14/Apr/2022 10:37:07] "GET /simMapData HTTP/1.1" 200 -
+2022-04-14 10:37:07,212 : INFO : Sending command to ARGoS
+2022-04-14 10:37:07,306 : INFO : 127.0.0.1 - - [14/Apr/2022 10:37:07] "GET /argosData HTTP/1.1" 200 -
+2022-04-14 10:37:07,439 : INFO : Sending command to ARGoS
+2022-04-14 10:37:07,440 : INFO : 127.0.0.1 - - [14/Apr/2022 10:37:07] "GET /simMapData HTTP/1.1" 200 -
+2022-04-14 10:37:07,668 : INFO : Sending command to ARGoS
+2022-04-14 10:37:07,669 : INFO : 127.0.0.1 - - [14/Apr/2022 10:37:07] "GET /simMapData HTTP/1.1" 200 -
+2022-04-14 10:37:07,910 : INFO : Sending command to ARGoS
+2022-04-14 10:37:07,911 : INFO : 127.0.0.1 - - [14/Apr/2022 10:37:07] "GET /simMapData HTTP/1.1" 200 -
+2022-04-14 10:37:08,140 : INFO : Sending command to ARGoS
+2022-04-14 10:37:08,141 : INFO : 127.0.0.1 - - [14/Apr/2022 10:37:08] "GET /simMapData HTTP/1.1" 200 -
+2022-04-14 10:37:08,216 : INFO : Sending command to ARGoS
+2022-04-14 10:37:08,217 : INFO : 127.0.0.1 - - [14/Apr/2022 10:37:08] "GET /argosData HTTP/1.1" 200 -
+2022-04-14 10:37:08,376 : INFO : Sending command to ARGoS
+2022-04-14 10:37:08,377 : INFO : 127.0.0.1 - - [14/Apr/2022 10:37:08] "GET /simMapData HTTP/1.1" 200 -
+2022-04-14 10:37:08,610 : INFO : Sending command to ARGoS
+2022-04-14 10:37:08,612 : INFO : 127.0.0.1 - - [14/Apr/2022 10:37:08] "GET /simMapData HTTP/1.1" 200 -
+2022-04-14 10:37:08,843 : INFO : Sending command to ARGoS
+2022-04-14 10:37:08,845 : INFO : 127.0.0.1 - - [14/Apr/2022 10:37:08] "GET /simMapData HTTP/1.1" 200 -
+2022-04-14 10:37:09,078 : INFO : Sending command to ARGoS
+2022-04-14 10:37:09,079 : INFO : 127.0.0.1 - - [14/Apr/2022 10:37:09] "GET /simMapData HTTP/1.1" 200 -
+2022-04-14 10:37:09,222 : INFO : Sending command to ARGoS
+2022-04-14 10:37:09,222 : INFO : 127.0.0.1 - - [14/Apr/2022 10:37:09] "GET /argosData HTTP/1.1" 200 -
+2022-04-14 10:37:09,306 : INFO : Sending command to ARGoS
+2022-04-14 10:37:09,307 : INFO : 127.0.0.1 - - [14/Apr/2022 10:37:09] "GET /simMapData HTTP/1.1" 200 -
+2022-04-14 10:37:09,542 : INFO : Sending command to ARGoS
+2022-04-14 10:37:09,543 : INFO : 127.0.0.1 - - [14/Apr/2022 10:37:09] "GET /simMapData HTTP/1.1" 200 -
+2022-04-14 10:37:09,775 : INFO : Sending command to ARGoS
+2022-04-14 10:37:09,776 : INFO : 127.0.0.1 - - [14/Apr/2022 10:37:09] "GET /simMapData HTTP/1.1" 200 -
+2022-04-14 10:37:10,012 : INFO : Sending command to ARGoS
+2022-04-14 10:37:10,014 : INFO : 127.0.0.1 - - [14/Apr/2022 10:37:10] "GET /simMapData HTTP/1.1" 200 -
+2022-04-14 10:37:10,223 : INFO : Sending command to ARGoS
+2022-04-14 10:37:10,224 : INFO : 127.0.0.1 - - [14/Apr/2022 10:37:10] "GET /argosData HTTP/1.1" 200 -
+2022-04-14 10:37:10,249 : INFO : Sending command to ARGoS
+2022-04-14 10:37:10,305 : INFO : 127.0.0.1 - - [14/Apr/2022 10:37:10] "GET /simMapData HTTP/1.1" 200 -
+2022-04-14 10:37:10,487 : INFO : Sending command to ARGoS
+2022-04-14 10:37:10,488 : INFO : 127.0.0.1 - - [14/Apr/2022 10:37:10] "GET /simMapData HTTP/1.1" 200 -
+2022-04-14 10:37:10,721 : INFO : Sending command to ARGoS
+2022-04-14 10:37:10,722 : INFO : 127.0.0.1 - - [14/Apr/2022 10:37:10] "GET /simMapData HTTP/1.1" 200 -
+2022-04-14 10:37:10,954 : INFO : Sending command to ARGoS
+2022-04-14 10:37:10,956 : INFO : 127.0.0.1 - - [14/Apr/2022 10:37:10] "GET /simMapData HTTP/1.1" 200 -
+2022-04-14 10:37:11,189 : INFO : Sending command to ARGoS
+2022-04-14 10:37:11,191 : INFO : 127.0.0.1 - - [14/Apr/2022 10:37:11] "GET /simMapData HTTP/1.1" 200 -
+2022-04-14 10:37:11,223 : INFO : Sending command to ARGoS
+2022-04-14 10:37:11,224 : INFO : 127.0.0.1 - - [14/Apr/2022 10:37:11] "GET /argosData HTTP/1.1" 200 -
+2022-04-14 10:37:11,422 : INFO : Sending command to ARGoS
+2022-04-14 10:37:11,423 : INFO : 127.0.0.1 - - [14/Apr/2022 10:37:11] "GET /simMapData HTTP/1.1" 200 -
+2022-04-14 10:37:11,654 : INFO : Sending command to ARGoS
+2022-04-14 10:37:11,656 : INFO : 127.0.0.1 - - [14/Apr/2022 10:37:11] "GET /simMapData HTTP/1.1" 200 -
+2022-04-14 10:37:11,890 : INFO : Sending command to ARGoS
+2022-04-14 10:37:11,891 : INFO : 127.0.0.1 - - [14/Apr/2022 10:37:11] "GET /simMapData HTTP/1.1" 200 -
+2022-04-14 10:37:12,125 : INFO : Sending command to ARGoS
+2022-04-14 10:37:12,126 : INFO : 127.0.0.1 - - [14/Apr/2022 10:37:12] "GET /simMapData HTTP/1.1" 200 -
+2022-04-14 10:37:12,127 : INFO : Looking for devices....
+2022-04-14 10:37:12,128 : INFO : Initialized PRRT driver.
+2022-04-14 10:37:12,130 : INFO : Looking for devices....
+2022-04-14 10:37:12,131 : INFO : Initialized PRRT driver.
+2022-04-14 10:37:12,132 : INFO : Looking for devices....
+2022-04-14 10:37:12,133 : INFO : Initialized PRRT driver.
+2022-04-14 10:37:12,134 : INFO : Looking for devices....
+2022-04-14 10:37:12,136 : INFO : Initialized PRRT driver.
+2022-04-14 10:37:12,136 : INFO : getting drones.................
+2022-04-14 10:37:12,136 : INFO : No drones found nearby. Retrying in 5 seconds.
+2022-04-14 10:37:12,226 : INFO : Sending command to ARGoS
+2022-04-14 10:37:12,228 : INFO : 127.0.0.1 - - [14/Apr/2022 10:37:12] "GET /argosData HTTP/1.1" 200 -
+2022-04-14 10:37:12,357 : INFO : Sending command to ARGoS
+2022-04-14 10:37:12,358 : INFO : 127.0.0.1 - - [14/Apr/2022 10:37:12] "GET /simMapData HTTP/1.1" 200 -
+2022-04-14 10:37:12,588 : INFO : Sending command to ARGoS
+2022-04-14 10:37:12,589 : INFO : 127.0.0.1 - - [14/Apr/2022 10:37:12] "GET /simMapData HTTP/1.1" 200 -
+2022-04-14 10:37:12,823 : INFO : Sending command to ARGoS
+2022-04-14 10:37:12,824 : INFO : 127.0.0.1 - - [14/Apr/2022 10:37:12] "GET /simMapData HTTP/1.1" 200 -
+2022-04-14 10:37:13,056 : INFO : Sending command to ARGoS
+2022-04-14 10:37:13,057 : INFO : 127.0.0.1 - - [14/Apr/2022 10:37:13] "GET /simMapData HTTP/1.1" 200 -
+2022-04-14 10:37:13,229 : INFO : Sending command to ARGoS
+2022-04-14 10:37:13,230 : INFO : 127.0.0.1 - - [14/Apr/2022 10:37:13] "GET /argosData HTTP/1.1" 200 -
+2022-04-14 10:37:13,285 : INFO : Sending command to ARGoS
+2022-04-14 10:37:13,305 : INFO : 127.0.0.1 - - [14/Apr/2022 10:37:13] "GET /simMapData HTTP/1.1" 200 -
+2022-04-14 10:37:13,523 : INFO : Sending command to ARGoS
+2022-04-14 10:37:13,524 : INFO : 127.0.0.1 - - [14/Apr/2022 10:37:13] "GET /simMapData HTTP/1.1" 200 -
+2022-04-14 10:37:13,753 : INFO : Sending command to ARGoS
+2022-04-14 10:37:13,754 : INFO : 127.0.0.1 - - [14/Apr/2022 10:37:13] "GET /simMapData HTTP/1.1" 200 -
+2022-04-14 10:37:13,994 : INFO : Sending command to ARGoS
+2022-04-14 10:37:13,995 : INFO : 127.0.0.1 - - [14/Apr/2022 10:37:13] "GET /simMapData HTTP/1.1" 200 -
+2022-04-14 10:37:14,229 : INFO : Sending command to ARGoS
+2022-04-14 10:37:14,230 : INFO : 127.0.0.1 - - [14/Apr/2022 10:37:14] "GET /simMapData HTTP/1.1" 200 -
+2022-04-14 10:37:14,242 : INFO : Sending command to ARGoS
+2022-04-14 10:37:14,305 : INFO : 127.0.0.1 - - [14/Apr/2022 10:37:14] "GET /argosData HTTP/1.1" 200 -
+2022-04-14 10:37:14,462 : INFO : Sending command to ARGoS
+2022-04-14 10:37:14,464 : INFO : 127.0.0.1 - - [14/Apr/2022 10:37:14] "GET /simMapData HTTP/1.1" 200 -
+2022-04-14 10:37:14,700 : INFO : Sending command to ARGoS
+2022-04-14 10:37:14,701 : INFO : 127.0.0.1 - - [14/Apr/2022 10:37:14] "GET /simMapData HTTP/1.1" 200 -
+2022-04-14 10:37:14,928 : INFO : Sending command to ARGoS
+2022-04-14 10:37:14,929 : INFO : 127.0.0.1 - - [14/Apr/2022 10:37:14] "GET /simMapData HTTP/1.1" 200 -
+2022-04-14 10:37:15,167 : INFO : Sending command to ARGoS
+2022-04-14 10:37:15,168 : INFO : 127.0.0.1 - - [14/Apr/2022 10:37:15] "GET /simMapData HTTP/1.1" 200 -
+2022-04-14 10:37:15,234 : INFO : Sending command to ARGoS
+2022-04-14 10:37:15,235 : INFO : 127.0.0.1 - - [14/Apr/2022 10:37:15] "GET /argosData HTTP/1.1" 200 -
+2022-04-14 10:37:15,399 : INFO : Sending command to ARGoS
+2022-04-14 10:37:15,400 : INFO : 127.0.0.1 - - [14/Apr/2022 10:37:15] "GET /simMapData HTTP/1.1" 200 -
+2022-04-14 10:37:15,629 : INFO : Sending command to ARGoS
+2022-04-14 10:37:15,630 : INFO : 127.0.0.1 - - [14/Apr/2022 10:37:15] "GET /simMapData HTTP/1.1" 200 -
+2022-04-14 10:37:15,866 : INFO : Sending command to ARGoS
+2022-04-14 10:37:15,867 : INFO : 127.0.0.1 - - [14/Apr/2022 10:37:15] "GET /simMapData HTTP/1.1" 200 -
+2022-04-14 10:37:16,098 : INFO : Sending command to ARGoS
+2022-04-14 10:37:16,099 : INFO : 127.0.0.1 - - [14/Apr/2022 10:37:16] "GET /simMapData HTTP/1.1" 200 -
+2022-04-14 10:37:16,234 : INFO : Sending command to ARGoS
+2022-04-14 10:37:16,235 : INFO : 127.0.0.1 - - [14/Apr/2022 10:37:16] "GET /argosData HTTP/1.1" 200 -
+2022-04-14 10:37:16,328 : INFO : Sending command to ARGoS
+2022-04-14 10:37:16,328 : INFO : 127.0.0.1 - - [14/Apr/2022 10:37:16] "GET /simMapData HTTP/1.1" 200 -
+2022-04-14 10:37:16,561 : INFO : Sending command to ARGoS
+2022-04-14 10:37:16,562 : INFO : 127.0.0.1 - - [14/Apr/2022 10:37:16] "GET /simMapData HTTP/1.1" 200 -
+2022-04-14 10:37:16,799 : INFO : Sending command to ARGoS
+2022-04-14 10:37:16,800 : INFO : 127.0.0.1 - - [14/Apr/2022 10:37:16] "GET /simMapData HTTP/1.1" 200 -
+2022-04-14 10:37:17,033 : INFO : Sending command to ARGoS
+2022-04-14 10:37:17,033 : INFO : 127.0.0.1 - - [14/Apr/2022 10:37:17] "GET /simMapData HTTP/1.1" 200 -
+2022-04-14 10:37:17,140 : INFO : Looking for devices....
+2022-04-14 10:37:17,140 : INFO : Initialized PRRT driver.
+2022-04-14 10:37:17,141 : INFO : Looking for devices....
+2022-04-14 10:37:17,141 : INFO : Initialized PRRT driver.
+2022-04-14 10:37:17,142 : INFO : Looking for devices....
+2022-04-14 10:37:17,142 : INFO : Initialized PRRT driver.
+2022-04-14 10:37:17,143 : INFO : Looking for devices....
+2022-04-14 10:37:17,143 : INFO : Initialized PRRT driver.
+2022-04-14 10:37:17,144 : INFO : getting drones.................
+2022-04-14 10:37:17,144 : INFO : No drones found nearby. Retrying in 5 seconds.
+2022-04-14 10:37:17,236 : INFO : Sending command to ARGoS
+2022-04-14 10:37:17,237 : INFO : 127.0.0.1 - - [14/Apr/2022 10:37:17] "GET /argosData HTTP/1.1" 200 -
+2022-04-14 10:37:17,265 : INFO : Sending command to ARGoS
+2022-04-14 10:37:17,305 : INFO : 127.0.0.1 - - [14/Apr/2022 10:37:17] "GET /simMapData HTTP/1.1" 200 -
+2022-04-14 10:37:17,510 : INFO : Sending command to ARGoS
+2022-04-14 10:37:17,511 : INFO : 127.0.0.1 - - [14/Apr/2022 10:37:17] "GET /simMapData HTTP/1.1" 200 -
+2022-04-14 10:37:17,746 : INFO : Sending command to ARGoS
+2022-04-14 10:37:17,747 : INFO : 127.0.0.1 - - [14/Apr/2022 10:37:17] "GET /simMapData HTTP/1.1" 200 -
+2022-04-14 10:37:17,977 : INFO : Sending command to ARGoS
+2022-04-14 10:37:17,979 : INFO : 127.0.0.1 - - [14/Apr/2022 10:37:17] "GET /simMapData HTTP/1.1" 200 -
+2022-04-14 10:37:18,214 : INFO : Sending command to ARGoS
+2022-04-14 10:37:18,216 : INFO : 127.0.0.1 - - [14/Apr/2022 10:37:18] "GET /simMapData HTTP/1.1" 200 -
+2022-04-14 10:37:18,247 : INFO : Sending command to ARGoS
+2022-04-14 10:37:18,305 : INFO : 127.0.0.1 - - [14/Apr/2022 10:37:18] "GET /argosData HTTP/1.1" 200 -
+2022-04-14 10:37:18,445 : INFO : Sending command to ARGoS
+2022-04-14 10:37:18,445 : INFO : 127.0.0.1 - - [14/Apr/2022 10:37:18] "GET /simMapData HTTP/1.1" 200 -
+2022-04-14 10:37:18,672 : INFO : Sending command to ARGoS
+2022-04-14 10:37:18,672 : INFO : 127.0.0.1 - - [14/Apr/2022 10:37:18] "GET /simMapData HTTP/1.1" 200 -
+2022-04-14 10:37:18,913 : INFO : Sending command to ARGoS
+2022-04-14 10:37:18,914 : INFO : 127.0.0.1 - - [14/Apr/2022 10:37:18] "GET /simMapData HTTP/1.1" 200 -
+2022-04-14 10:37:19,146 : INFO : Sending command to ARGoS
+2022-04-14 10:37:19,147 : INFO : 127.0.0.1 - - [14/Apr/2022 10:37:19] "GET /simMapData HTTP/1.1" 200 -
+2022-04-14 10:37:19,255 : INFO : Sending command to ARGoS
+2022-04-14 10:37:19,256 : INFO : 127.0.0.1 - - [14/Apr/2022 10:37:19] "GET /argosData HTTP/1.1" 200 -
+2022-04-14 10:37:19,379 : INFO : Sending command to ARGoS
+2022-04-14 10:37:19,380 : INFO : 127.0.0.1 - - [14/Apr/2022 10:37:19] "GET /simMapData HTTP/1.1" 200 -
+2022-04-14 10:37:19,615 : INFO : Sending command to ARGoS
+2022-04-14 10:37:19,616 : INFO : 127.0.0.1 - - [14/Apr/2022 10:37:19] "GET /simMapData HTTP/1.1" 200 -
+2022-04-14 10:37:19,844 : INFO : Sending command to ARGoS
+2022-04-14 10:37:19,846 : INFO : 127.0.0.1 - - [14/Apr/2022 10:37:19] "GET /simMapData HTTP/1.1" 200 -
+2022-04-14 10:37:20,077 : INFO : Sending command to ARGoS
+2022-04-14 10:37:20,078 : INFO : 127.0.0.1 - - [14/Apr/2022 10:37:20] "GET /simMapData HTTP/1.1" 200 -
+2022-04-14 10:37:20,256 : INFO : Sending command to ARGoS
+2022-04-14 10:37:20,257 : INFO : 127.0.0.1 - - [14/Apr/2022 10:37:20] "GET /argosData HTTP/1.1" 200 -
+2022-04-14 10:37:20,305 : INFO : Sending command to ARGoS
+2022-04-14 10:37:20,306 : INFO : 127.0.0.1 - - [14/Apr/2022 10:37:20] "GET /simMapData HTTP/1.1" 200 -
+2022-04-14 10:37:20,540 : INFO : Sending command to ARGoS
+2022-04-14 10:37:20,541 : INFO : 127.0.0.1 - - [14/Apr/2022 10:37:20] "GET /simMapData HTTP/1.1" 200 -
+2022-04-14 10:37:20,772 : INFO : Sending command to ARGoS
+2022-04-14 10:37:20,773 : INFO : 127.0.0.1 - - [14/Apr/2022 10:37:20] "GET /simMapData HTTP/1.1" 200 -
+2022-04-14 10:37:21,014 : INFO : Sending command to ARGoS
+2022-04-14 10:37:21,015 : INFO : 127.0.0.1 - - [14/Apr/2022 10:37:21] "GET /simMapData HTTP/1.1" 200 -
+2022-04-14 10:37:21,244 : INFO : Sending command to ARGoS
+2022-04-14 10:37:21,246 : INFO : 127.0.0.1 - - [14/Apr/2022 10:37:21] "GET /simMapData HTTP/1.1" 200 -
+2022-04-14 10:37:21,260 : INFO : Sending command to ARGoS
+2022-04-14 10:37:21,305 : INFO : 127.0.0.1 - - [14/Apr/2022 10:37:21] "GET /argosData HTTP/1.1" 200 -
+2022-04-14 10:37:21,479 : INFO : Sending command to ARGoS
+2022-04-14 10:37:21,481 : INFO : 127.0.0.1 - - [14/Apr/2022 10:37:21] "GET /simMapData HTTP/1.1" 200 -
+2022-04-14 10:37:21,713 : INFO : Sending command to ARGoS
+2022-04-14 10:37:21,715 : INFO : 127.0.0.1 - - [14/Apr/2022 10:37:21] "GET /simMapData HTTP/1.1" 200 -
+2022-04-14 10:37:21,938 : INFO : Sending command to ARGoS
+2022-04-14 10:37:21,939 : INFO : 127.0.0.1 - - [14/Apr/2022 10:37:21] "GET /simMapData HTTP/1.1" 200 -
+2022-04-14 10:37:22,148 : INFO : Looking for devices....
+2022-04-14 10:37:22,149 : INFO : Initialized PRRT driver.
+2022-04-14 10:37:22,150 : INFO : Looking for devices....
+2022-04-14 10:37:22,151 : INFO : Initialized PRRT driver.
+2022-04-14 10:37:22,152 : INFO : Looking for devices....
+2022-04-14 10:37:22,153 : INFO : Initialized PRRT driver.
+2022-04-14 10:37:22,154 : INFO : Looking for devices....
+2022-04-14 10:37:22,155 : INFO : Initialized PRRT driver.
+2022-04-14 10:37:22,156 : INFO : getting drones.................
+2022-04-14 10:37:22,156 : INFO : No drones found nearby. Retrying in 5 seconds.
+2022-04-14 10:37:22,173 : INFO : Sending command to ARGoS
+2022-04-14 10:37:22,174 : INFO : 127.0.0.1 - - [14/Apr/2022 10:37:22] "GET /simMapData HTTP/1.1" 200 -
+2022-04-14 10:37:22,257 : INFO : Sending command to ARGoS
+2022-04-14 10:37:22,259 : INFO : 127.0.0.1 - - [14/Apr/2022 10:37:22] "GET /argosData HTTP/1.1" 200 -
+2022-04-14 10:37:22,413 : INFO : Sending command to ARGoS
+2022-04-14 10:37:22,414 : INFO : 127.0.0.1 - - [14/Apr/2022 10:37:22] "GET /simMapData HTTP/1.1" 200 -
+2022-04-14 10:37:22,646 : INFO : Sending command to ARGoS
+2022-04-14 10:37:22,647 : INFO : 127.0.0.1 - - [14/Apr/2022 10:37:22] "GET /simMapData HTTP/1.1" 200 -
+2022-04-14 10:37:22,878 : INFO : Sending command to ARGoS
+2022-04-14 10:37:22,879 : INFO : 127.0.0.1 - - [14/Apr/2022 10:37:22] "GET /simMapData HTTP/1.1" 200 -
+2022-04-14 10:37:23,114 : INFO : Sending command to ARGoS
+2022-04-14 10:37:23,115 : INFO : 127.0.0.1 - - [14/Apr/2022 10:37:23] "GET /simMapData HTTP/1.1" 200 -
+2022-04-14 10:37:23,260 : INFO : Sending command to ARGoS
+2022-04-14 10:37:23,262 : INFO : 127.0.0.1 - - [14/Apr/2022 10:37:23] "GET /argosData HTTP/1.1" 200 -
+2022-04-14 10:37:23,340 : INFO : Sending command to ARGoS
+2022-04-14 10:37:23,341 : INFO : 127.0.0.1 - - [14/Apr/2022 10:37:23] "GET /simMapData HTTP/1.1" 200 -
+2022-04-14 10:37:23,572 : INFO : Sending command to ARGoS
+2022-04-14 10:37:23,573 : INFO : 127.0.0.1 - - [14/Apr/2022 10:37:23] "GET /simMapData HTTP/1.1" 200 -
+2022-04-14 10:37:23,814 : INFO : Sending command to ARGoS
+2022-04-14 10:37:23,816 : INFO : 127.0.0.1 - - [14/Apr/2022 10:37:23] "GET /simMapData HTTP/1.1" 200 -
+2022-04-14 10:37:24,051 : INFO : Sending command to ARGoS
+2022-04-14 10:37:24,052 : INFO : 127.0.0.1 - - [14/Apr/2022 10:37:24] "GET /simMapData HTTP/1.1" 200 -
+2022-04-14 10:37:24,260 : INFO : Sending command to ARGoS
+2022-04-14 10:37:24,261 : INFO : 127.0.0.1 - - [14/Apr/2022 10:37:24] "GET /argosData HTTP/1.1" 200 -
+2022-04-14 10:37:24,279 : INFO : Sending command to ARGoS
+2022-04-14 10:37:24,304 : INFO : 127.0.0.1 - - [14/Apr/2022 10:37:24] "GET /simMapData HTTP/1.1" 200 -
+2022-04-14 10:37:24,517 : INFO : Sending command to ARGoS
+2022-04-14 10:37:24,519 : INFO : 127.0.0.1 - - [14/Apr/2022 10:37:24] "GET /simMapData HTTP/1.1" 200 -
+2022-04-14 10:37:24,746 : INFO : Sending command to ARGoS
+2022-04-14 10:37:24,747 : INFO : 127.0.0.1 - - [14/Apr/2022 10:37:24] "GET /simMapData HTTP/1.1" 200 -
+2022-04-14 10:37:24,983 : INFO : Sending command to ARGoS
+2022-04-14 10:37:24,984 : INFO : 127.0.0.1 - - [14/Apr/2022 10:37:24] "GET /simMapData HTTP/1.1" 200 -
+2022-04-14 10:37:25,219 : INFO : Sending command to ARGoS
+2022-04-14 10:37:25,221 : INFO : 127.0.0.1 - - [14/Apr/2022 10:37:25] "GET /simMapData HTTP/1.1" 200 -
+2022-04-14 10:37:25,254 : INFO : Sending command to ARGoS
+2022-04-14 10:37:25,306 : INFO : 127.0.0.1 - - [14/Apr/2022 10:37:25] "GET /argosData HTTP/1.1" 200 -
+2022-04-14 10:37:25,449 : INFO : Sending command to ARGoS
+2022-04-14 10:37:25,450 : INFO : 127.0.0.1 - - [14/Apr/2022 10:37:25] "GET /simMapData HTTP/1.1" 200 -
+2022-04-14 10:37:25,686 : INFO : Sending command to ARGoS
+2022-04-14 10:37:25,687 : INFO : 127.0.0.1 - - [14/Apr/2022 10:37:25] "GET /simMapData HTTP/1.1" 200 -
+2022-04-14 10:37:25,922 : INFO : Sending command to ARGoS
+2022-04-14 10:37:25,923 : INFO : 127.0.0.1 - - [14/Apr/2022 10:37:25] "GET /simMapData HTTP/1.1" 200 -
+2022-04-14 10:37:26,152 : INFO : Sending command to ARGoS
+2022-04-14 10:37:26,154 : INFO : 127.0.0.1 - - [14/Apr/2022 10:37:26] "GET /simMapData HTTP/1.1" 200 -
+2022-04-14 10:37:26,257 : INFO : Sending command to ARGoS
+2022-04-14 10:37:26,258 : INFO : 127.0.0.1 - - [14/Apr/2022 10:37:26] "GET /argosData HTTP/1.1" 200 -
+2022-04-14 10:37:26,387 : INFO : Sending command to ARGoS
+2022-04-14 10:37:26,388 : INFO : 127.0.0.1 - - [14/Apr/2022 10:37:26] "GET /simMapData HTTP/1.1" 200 -
+2022-04-14 10:37:26,618 : INFO : Sending command to ARGoS
+2022-04-14 10:37:26,619 : INFO : 127.0.0.1 - - [14/Apr/2022 10:37:26] "GET /simMapData HTTP/1.1" 200 -
+2022-04-14 10:37:26,856 : INFO : Sending command to ARGoS
+2022-04-14 10:37:26,857 : INFO : 127.0.0.1 - - [14/Apr/2022 10:37:26] "GET /simMapData HTTP/1.1" 200 -
+2022-04-14 10:37:27,088 : INFO : Sending command to ARGoS
+2022-04-14 10:37:27,089 : INFO : 127.0.0.1 - - [14/Apr/2022 10:37:27] "GET /simMapData HTTP/1.1" 200 -
+2022-04-14 10:37:27,160 : INFO : Looking for devices....
+2022-04-14 10:37:27,161 : INFO : Initialized PRRT driver.
+2022-04-14 10:37:27,162 : INFO : Looking for devices....
+2022-04-14 10:37:27,163 : INFO : Initialized PRRT driver.
+2022-04-14 10:37:27,164 : INFO : Looking for devices....
+2022-04-14 10:37:27,165 : INFO : Initialized PRRT driver.
+2022-04-14 10:37:27,166 : INFO : Looking for devices....
+2022-04-14 10:37:27,167 : INFO : Initialized PRRT driver.
+2022-04-14 10:37:27,167 : INFO : getting drones.................
+2022-04-14 10:37:27,167 : INFO : No drones found nearby. Retrying in 5 seconds.
+2022-04-14 10:37:27,256 : INFO : Sending command to ARGoS
+2022-04-14 10:37:27,257 : INFO : 127.0.0.1 - - [14/Apr/2022 10:37:27] "GET /argosData HTTP/1.1" 200 -
+2022-04-14 10:37:27,324 : INFO : Sending command to ARGoS
+2022-04-14 10:37:27,325 : INFO : 127.0.0.1 - - [14/Apr/2022 10:37:27] "GET /simMapData HTTP/1.1" 200 -
+2022-04-14 10:37:27,561 : INFO : Sending command to ARGoS
+2022-04-14 10:37:27,562 : INFO : 127.0.0.1 - - [14/Apr/2022 10:37:27] "GET /simMapData HTTP/1.1" 200 -
+2022-04-14 10:37:27,796 : INFO : Sending command to ARGoS
+2022-04-14 10:37:27,797 : INFO : 127.0.0.1 - - [14/Apr/2022 10:37:27] "GET /simMapData HTTP/1.1" 200 -
+2022-04-14 10:37:28,026 : INFO : Sending command to ARGoS
+2022-04-14 10:37:28,027 : INFO : 127.0.0.1 - - [14/Apr/2022 10:37:28] "GET /simMapData HTTP/1.1" 200 -
+2022-04-14 10:37:28,260 : INFO : Sending command to ARGoS
+2022-04-14 10:37:28,261 : INFO : 127.0.0.1 - - [14/Apr/2022 10:37:28] "GET /argosData HTTP/1.1" 200 -
+2022-04-14 10:37:28,279 : INFO : Sending command to ARGoS
+2022-04-14 10:37:28,305 : INFO : 127.0.0.1 - - [14/Apr/2022 10:37:28] "GET /simMapData HTTP/1.1" 200 -
+2022-04-14 10:37:28,515 : INFO : Sending command to ARGoS
+2022-04-14 10:37:28,516 : INFO : 127.0.0.1 - - [14/Apr/2022 10:37:28] "GET /simMapData HTTP/1.1" 200 -
+2022-04-14 10:37:28,746 : INFO : Sending command to ARGoS
+2022-04-14 10:37:28,747 : INFO : 127.0.0.1 - - [14/Apr/2022 10:37:28] "GET /simMapData HTTP/1.1" 200 -
+2022-04-14 10:37:28,981 : INFO : Sending command to ARGoS
+2022-04-14 10:37:28,982 : INFO : 127.0.0.1 - - [14/Apr/2022 10:37:28] "GET /simMapData HTTP/1.1" 200 -
+2022-04-14 10:37:29,214 : INFO : Sending command to ARGoS
+2022-04-14 10:37:29,215 : INFO : 127.0.0.1 - - [14/Apr/2022 10:37:29] "GET /simMapData HTTP/1.1" 200 -
+2022-04-14 10:37:29,254 : INFO : Sending command to ARGoS
+2022-04-14 10:37:29,306 : INFO : 127.0.0.1 - - [14/Apr/2022 10:37:29] "GET /argosData HTTP/1.1" 200 -
+2022-04-14 10:37:29,449 : INFO : Sending command to ARGoS
+2022-04-14 10:37:29,450 : INFO : 127.0.0.1 - - [14/Apr/2022 10:37:29] "GET /simMapData HTTP/1.1" 200 -
+2022-04-14 10:37:29,682 : INFO : Sending command to ARGoS
+2022-04-14 10:37:29,683 : INFO : 127.0.0.1 - - [14/Apr/2022 10:37:29] "GET /simMapData HTTP/1.1" 200 -
+2022-04-14 10:37:29,914 : INFO : Sending command to ARGoS
+2022-04-14 10:37:29,915 : INFO : 127.0.0.1 - - [14/Apr/2022 10:37:29] "GET /simMapData HTTP/1.1" 200 -
+2022-04-14 10:37:30,145 : INFO : Sending command to ARGoS
+2022-04-14 10:37:30,146 : INFO : 127.0.0.1 - - [14/Apr/2022 10:37:30] "GET /simMapData HTTP/1.1" 200 -
+2022-04-14 10:37:30,259 : INFO : Sending command to ARGoS
+2022-04-14 10:37:30,260 : INFO : 127.0.0.1 - - [14/Apr/2022 10:37:30] "GET /argosData HTTP/1.1" 200 -
+2022-04-14 10:37:30,382 : INFO : Sending command to ARGoS
+2022-04-14 10:37:30,383 : INFO : 127.0.0.1 - - [14/Apr/2022 10:37:30] "GET /simMapData HTTP/1.1" 200 -
+2022-04-14 10:37:30,620 : INFO : Sending command to ARGoS
+2022-04-14 10:37:30,620 : INFO : 127.0.0.1 - - [14/Apr/2022 10:37:30] "GET /simMapData HTTP/1.1" 200 -
+2022-04-14 10:37:30,851 : INFO : Sending command to ARGoS
+2022-04-14 10:37:30,852 : INFO : 127.0.0.1 - - [14/Apr/2022 10:37:30] "GET /simMapData HTTP/1.1" 200 -
+2022-04-14 10:37:31,087 : INFO : Sending command to ARGoS
+2022-04-14 10:37:31,088 : INFO : 127.0.0.1 - - [14/Apr/2022 10:37:31] "GET /simMapData HTTP/1.1" 200 -
+2022-04-14 10:37:31,255 : INFO : Sending command to ARGoS
+2022-04-14 10:37:31,256 : INFO : 127.0.0.1 - - [14/Apr/2022 10:37:31] "GET /argosData HTTP/1.1" 200 -
+2022-04-14 10:37:31,319 : INFO : Sending command to ARGoS
+2022-04-14 10:37:31,319 : INFO : 127.0.0.1 - - [14/Apr/2022 10:37:31] "GET /simMapData HTTP/1.1" 200 -
+2022-04-14 10:37:31,547 : INFO : Sending command to ARGoS
+2022-04-14 10:37:31,548 : INFO : 127.0.0.1 - - [14/Apr/2022 10:37:31] "GET /simMapData HTTP/1.1" 200 -
+2022-04-14 10:37:31,786 : INFO : Sending command to ARGoS
+2022-04-14 10:37:31,788 : INFO : 127.0.0.1 - - [14/Apr/2022 10:37:31] "GET /simMapData HTTP/1.1" 200 -
+2022-04-14 10:37:32,021 : INFO : Sending command to ARGoS
+2022-04-14 10:37:32,022 : INFO : 127.0.0.1 - - [14/Apr/2022 10:37:32] "GET /simMapData HTTP/1.1" 200 -
+2022-04-14 10:37:32,172 : INFO : Looking for devices....
+2022-04-14 10:37:32,173 : INFO : Initialized PRRT driver.
+2022-04-14 10:37:32,174 : INFO : Looking for devices....
+2022-04-14 10:37:32,175 : INFO : Initialized PRRT driver.
+2022-04-14 10:37:32,176 : INFO : Looking for devices....
+2022-04-14 10:37:32,177 : INFO : Initialized PRRT driver.
+2022-04-14 10:37:32,179 : INFO : Looking for devices....
+2022-04-14 10:37:32,180 : INFO : Initialized PRRT driver.
+2022-04-14 10:37:32,181 : INFO : getting drones.................
+2022-04-14 10:37:32,181 : INFO : No drones found nearby. Retrying in 5 seconds.
+2022-04-14 10:37:32,258 : INFO : Sending command to ARGoS
+2022-04-14 10:37:32,260 : INFO : 127.0.0.1 - - [14/Apr/2022 10:37:32] "GET /simMapData HTTP/1.1" 200 -
+2022-04-14 10:37:32,267 : INFO : Sending command to ARGoS
+2022-04-14 10:37:32,305 : INFO : 127.0.0.1 - - [14/Apr/2022 10:37:32] "GET /argosData HTTP/1.1" 200 -
+2022-04-14 10:37:32,489 : INFO : Sending command to ARGoS
+2022-04-14 10:37:32,490 : INFO : 127.0.0.1 - - [14/Apr/2022 10:37:32] "GET /simMapData HTTP/1.1" 200 -
+2022-04-14 10:37:32,719 : INFO : Sending command to ARGoS
+2022-04-14 10:37:32,720 : INFO : 127.0.0.1 - - [14/Apr/2022 10:37:32] "GET /simMapData HTTP/1.1" 200 -
+2022-04-14 10:37:32,954 : INFO : Sending command to ARGoS
+2022-04-14 10:37:32,955 : INFO : 127.0.0.1 - - [14/Apr/2022 10:37:32] "GET /simMapData HTTP/1.1" 200 -
+2022-04-14 10:37:33,187 : INFO : Sending command to ARGoS
+2022-04-14 10:37:33,192 : INFO : 127.0.0.1 - - [14/Apr/2022 10:37:33] "GET /simMapData HTTP/1.1" 200 -
+2022-04-14 10:37:33,264 : INFO : Sending command to ARGoS
+2022-04-14 10:37:33,264 : INFO : 127.0.0.1 - - [14/Apr/2022 10:37:33] "GET /argosData HTTP/1.1" 200 -
+2022-04-14 10:37:33,424 : INFO : Sending command to ARGoS
+2022-04-14 10:37:33,425 : INFO : 127.0.0.1 - - [14/Apr/2022 10:37:33] "GET /simMapData HTTP/1.1" 200 -
+2022-04-14 10:37:33,718 : INFO : Sending command to ARGoS
+2022-04-14 10:37:33,719 : INFO : 127.0.0.1 - - [14/Apr/2022 10:37:33] "GET /simMapData HTTP/1.1" 200 -
+2022-04-14 10:37:33,904 : INFO : Sending command to ARGoS
+2022-04-14 10:37:33,904 : INFO : 127.0.0.1 - - [14/Apr/2022 10:37:33] "POST /argos HTTP/1.1" 200 -
+2022-04-14 10:37:33,945 : INFO : Sending command to ARGoS
+2022-04-14 10:37:33,945 : INFO : 127.0.0.1 - - [14/Apr/2022 10:37:33] "GET /simMapData HTTP/1.1" 200 -
+2022-04-14 10:37:34,179 : INFO : Sending command to ARGoS
+2022-04-14 10:37:34,180 : INFO : 127.0.0.1 - - [14/Apr/2022 10:37:34] "GET /simMapData HTTP/1.1" 200 -
+2022-04-14 10:37:34,266 : INFO : Sending command to ARGoS
+2022-04-14 10:37:34,268 : INFO : 127.0.0.1 - - [14/Apr/2022 10:37:34] "GET /argosData HTTP/1.1" 200 -
+2022-04-14 10:37:34,415 : INFO : Sending command to ARGoS
+2022-04-14 10:37:34,416 : INFO : 127.0.0.1 - - [14/Apr/2022 10:37:34] "GET /simMapData HTTP/1.1" 200 -
+2022-04-14 10:37:34,643 : INFO : Sending command to ARGoS
+2022-04-14 10:37:34,645 : INFO : 127.0.0.1 - - [14/Apr/2022 10:37:34] "GET /simMapData HTTP/1.1" 200 -
+2022-04-14 10:37:34,882 : INFO : Sending command to ARGoS
+2022-04-14 10:37:34,883 : INFO : 127.0.0.1 - - [14/Apr/2022 10:37:34] "GET /simMapData HTTP/1.1" 200 -
+2022-04-14 10:37:35,117 : INFO : Sending command to ARGoS
+2022-04-14 10:37:35,118 : INFO : 127.0.0.1 - - [14/Apr/2022 10:37:35] "GET /simMapData HTTP/1.1" 200 -
+2022-04-14 10:37:35,266 : INFO : Sending command to ARGoS
+2022-04-14 10:37:35,267 : INFO : 127.0.0.1 - - [14/Apr/2022 10:37:35] "GET /argosData HTTP/1.1" 200 -
+2022-04-14 10:37:35,341 : INFO : Sending command to ARGoS
+2022-04-14 10:37:35,342 : INFO : 127.0.0.1 - - [14/Apr/2022 10:37:35] "GET /simMapData HTTP/1.1" 200 -
+2022-04-14 10:37:35,576 : INFO : Sending command to ARGoS
+2022-04-14 10:37:35,577 : INFO : 127.0.0.1 - - [14/Apr/2022 10:37:35] "GET /simMapData HTTP/1.1" 200 -
+2022-04-14 10:37:35,818 : INFO : Sending command to ARGoS
+2022-04-14 10:37:35,819 : INFO : 127.0.0.1 - - [14/Apr/2022 10:37:35] "GET /simMapData HTTP/1.1" 200 -
+2022-04-14 10:37:36,052 : INFO : Sending command to ARGoS
+2022-04-14 10:37:36,052 : INFO : 127.0.0.1 - - [14/Apr/2022 10:37:36] "GET /simMapData HTTP/1.1" 200 -
+2022-04-14 10:37:36,281 : INFO : Sending command to ARGoS
+2022-04-14 10:37:36,282 : INFO : 127.0.0.1 - - [14/Apr/2022 10:37:36] "GET /argosData HTTP/1.1" 200 -
+2022-04-14 10:37:36,283 : INFO : Sending command to ARGoS
+2022-04-14 10:37:36,305 : INFO : 127.0.0.1 - - [14/Apr/2022 10:37:36] "GET /simMapData HTTP/1.1" 200 -
+2022-04-14 10:37:36,531 : INFO : Sending command to ARGoS
+2022-04-14 10:37:36,532 : INFO : 127.0.0.1 - - [14/Apr/2022 10:37:36] "GET /simMapData HTTP/1.1" 200 -
+2022-04-14 10:37:36,767 : INFO : Sending command to ARGoS
+2022-04-14 10:37:36,768 : INFO : 127.0.0.1 - - [14/Apr/2022 10:37:36] "GET /simMapData HTTP/1.1" 200 -
+2022-04-14 10:37:37,005 : INFO : Sending command to ARGoS
+2022-04-14 10:37:37,007 : INFO : 127.0.0.1 - - [14/Apr/2022 10:37:37] "GET /simMapData HTTP/1.1" 200 -
+2022-04-14 10:37:37,184 : INFO : Looking for devices....
+2022-04-14 10:37:37,185 : INFO : Initialized PRRT driver.
+2022-04-14 10:37:37,186 : INFO : Looking for devices....
+2022-04-14 10:37:37,187 : INFO : Initialized PRRT driver.
+2022-04-14 10:37:37,188 : INFO : Looking for devices....
+2022-04-14 10:37:37,188 : INFO : Initialized PRRT driver.
+2022-04-14 10:37:37,190 : INFO : Looking for devices....
+2022-04-14 10:37:37,191 : INFO : Initialized PRRT driver.
+2022-04-14 10:37:37,191 : INFO : getting drones.................
+2022-04-14 10:37:37,192 : INFO : No drones found nearby. Retrying in 5 seconds.
+2022-04-14 10:37:37,243 : INFO : Sending command to ARGoS
+2022-04-14 10:37:37,244 : INFO : 127.0.0.1 - - [14/Apr/2022 10:37:37] "GET /simMapData HTTP/1.1" 200 -
+2022-04-14 10:37:37,298 : INFO : Sending command to ARGoS
+2022-04-14 10:37:37,304 : INFO : 127.0.0.1 - - [14/Apr/2022 10:37:37] "GET /argosData HTTP/1.1" 200 -
+2022-04-14 10:37:37,479 : INFO : Sending command to ARGoS
+2022-04-14 10:37:37,480 : INFO : 127.0.0.1 - - [14/Apr/2022 10:37:37] "GET /simMapData HTTP/1.1" 200 -
+2022-04-14 10:37:37,713 : INFO : Sending command to ARGoS
+2022-04-14 10:37:37,714 : INFO : 127.0.0.1 - - [14/Apr/2022 10:37:37] "GET /simMapData HTTP/1.1" 200 -
+2022-04-14 10:37:37,946 : INFO : Sending command to ARGoS
+2022-04-14 10:37:37,946 : INFO : 127.0.0.1 - - [14/Apr/2022 10:37:37] "GET /simMapData HTTP/1.1" 200 -
+2022-04-14 10:37:38,181 : INFO : Sending command to ARGoS
+2022-04-14 10:37:38,183 : INFO : 127.0.0.1 - - [14/Apr/2022 10:37:38] "GET /simMapData HTTP/1.1" 200 -
+2022-04-14 10:37:38,303 : INFO : Sending command to ARGoS
+2022-04-14 10:37:38,304 : INFO : 127.0.0.1 - - [14/Apr/2022 10:37:38] "GET /argosData HTTP/1.1" 200 -
+2022-04-14 10:37:38,416 : INFO : Sending command to ARGoS
+2022-04-14 10:37:38,418 : INFO : 127.0.0.1 - - [14/Apr/2022 10:37:38] "GET /simMapData HTTP/1.1" 200 -
+2022-04-14 10:37:38,649 : INFO : Sending command to ARGoS
+2022-04-14 10:37:38,650 : INFO : 127.0.0.1 - - [14/Apr/2022 10:37:38] "GET /simMapData HTTP/1.1" 200 -
+2022-04-14 10:37:38,883 : INFO : Sending command to ARGoS
+2022-04-14 10:37:38,884 : INFO : 127.0.0.1 - - [14/Apr/2022 10:37:38] "GET /simMapData HTTP/1.1" 200 -
+2022-04-14 10:37:39,116 : INFO : Sending command to ARGoS
+2022-04-14 10:37:39,117 : INFO : 127.0.0.1 - - [14/Apr/2022 10:37:39] "GET /simMapData HTTP/1.1" 200 -
+2022-04-14 10:37:39,313 : INFO : Sending command to ARGoS
+2022-04-14 10:37:39,314 : INFO : 127.0.0.1 - - [14/Apr/2022 10:37:39] "GET /argosData HTTP/1.1" 200 -
+2022-04-14 10:37:39,351 : INFO : Sending command to ARGoS
+2022-04-14 10:37:39,406 : INFO : 127.0.0.1 - - [14/Apr/2022 10:37:39] "GET /simMapData HTTP/1.1" 200 -
+2022-04-14 10:37:39,594 : INFO : Sending command to ARGoS
+2022-04-14 10:37:39,595 : INFO : 127.0.0.1 - - [14/Apr/2022 10:37:39] "GET /simMapData HTTP/1.1" 200 -
+2022-04-14 10:37:39,830 : INFO : Sending command to ARGoS
+2022-04-14 10:37:39,831 : INFO : 127.0.0.1 - - [14/Apr/2022 10:37:39] "GET /simMapData HTTP/1.1" 200 -
+2022-04-14 10:37:40,077 : INFO : Sending command to ARGoS
+2022-04-14 10:37:40,078 : INFO : 127.0.0.1 - - [14/Apr/2022 10:37:40] "GET /simMapData HTTP/1.1" 200 -
+2022-04-14 10:37:40,317 : INFO : Sending command to ARGoS
+2022-04-14 10:37:40,318 : INFO : 127.0.0.1 - - [14/Apr/2022 10:37:40] "GET /simMapData HTTP/1.1" 200 -
+2022-04-14 10:37:40,333 : INFO : Sending command to ARGoS
+2022-04-14 10:37:40,405 : INFO : 127.0.0.1 - - [14/Apr/2022 10:37:40] "GET /argosData HTTP/1.1" 200 -
+2022-04-14 10:37:40,544 : INFO : Sending command to ARGoS
+2022-04-14 10:37:40,545 : INFO : 127.0.0.1 - - [14/Apr/2022 10:37:40] "GET /simMapData HTTP/1.1" 200 -
+2022-04-14 10:37:40,778 : INFO : Sending command to ARGoS
+2022-04-14 10:37:40,779 : INFO : 127.0.0.1 - - [14/Apr/2022 10:37:40] "GET /simMapData HTTP/1.1" 200 -
+2022-04-14 10:37:41,013 : INFO : Sending command to ARGoS
+2022-04-14 10:37:41,014 : INFO : 127.0.0.1 - - [14/Apr/2022 10:37:41] "GET /simMapData HTTP/1.1" 200 -
+2022-04-14 10:37:41,245 : INFO : Sending command to ARGoS
+2022-04-14 10:37:41,246 : INFO : 127.0.0.1 - - [14/Apr/2022 10:37:41] "GET /simMapData HTTP/1.1" 200 -
+2022-04-14 10:37:41,326 : INFO : Sending command to ARGoS
+2022-04-14 10:37:41,327 : INFO : 127.0.0.1 - - [14/Apr/2022 10:37:41] "GET /argosData HTTP/1.1" 200 -
+2022-04-14 10:37:41,484 : INFO : Sending command to ARGoS
+2022-04-14 10:37:41,485 : INFO : 127.0.0.1 - - [14/Apr/2022 10:37:41] "GET /simMapData HTTP/1.1" 200 -
+2022-04-14 10:37:41,723 : INFO : Sending command to ARGoS
+2022-04-14 10:37:41,724 : INFO : 127.0.0.1 - - [14/Apr/2022 10:37:41] "GET /simMapData HTTP/1.1" 200 -
+2022-04-14 10:37:41,953 : INFO : Sending command to ARGoS
+2022-04-14 10:37:41,954 : INFO : 127.0.0.1 - - [14/Apr/2022 10:37:41] "GET /simMapData HTTP/1.1" 200 -
+2022-04-14 10:37:42,186 : INFO : Sending command to ARGoS
+2022-04-14 10:37:42,187 : INFO : 127.0.0.1 - - [14/Apr/2022 10:37:42] "GET /simMapData HTTP/1.1" 200 -
+2022-04-14 10:37:42,196 : INFO : Looking for devices....
+2022-04-14 10:37:42,197 : INFO : Initialized PRRT driver.
+2022-04-14 10:37:42,198 : INFO : Looking for devices....
+2022-04-14 10:37:42,199 : INFO : Initialized PRRT driver.
+2022-04-14 10:37:42,199 : INFO : Looking for devices....
+2022-04-14 10:37:42,200 : INFO : Initialized PRRT driver.
+2022-04-14 10:37:42,201 : INFO : Looking for devices....
+2022-04-14 10:37:42,201 : INFO : Initialized PRRT driver.
+2022-04-14 10:37:42,201 : INFO : getting drones.................
+2022-04-14 10:37:42,201 : INFO : No drones found nearby. Retrying in 5 seconds.
+2022-04-14 10:37:42,335 : INFO : Sending command to ARGoS
+2022-04-14 10:37:42,336 : INFO : 127.0.0.1 - - [14/Apr/2022 10:37:42] "GET /argosData HTTP/1.1" 200 -
+2022-04-14 10:37:42,420 : INFO : Sending command to ARGoS
+2022-04-14 10:37:42,421 : INFO : 127.0.0.1 - - [14/Apr/2022 10:37:42] "GET /simMapData HTTP/1.1" 200 -
+2022-04-14 10:37:47,204 : INFO : Looking for devices....
+2022-04-14 10:37:47,204 : INFO : Initialized PRRT driver.
+2022-04-14 10:37:47,205 : INFO : Looking for devices....
+2022-04-14 10:37:47,206 : INFO : Initialized PRRT driver.
+2022-04-14 10:37:47,207 : INFO : Looking for devices....
+2022-04-14 10:37:47,209 : INFO : Initialized PRRT driver.
+2022-04-14 10:37:47,209 : INFO : Looking for devices....
+2022-04-14 10:37:47,210 : INFO : Initialized PRRT driver.
+2022-04-14 10:37:47,211 : INFO : getting drones.................
+2022-04-14 10:37:47,211 : INFO : No drones found nearby. Retrying in 5 seconds.
+2022-04-14 10:37:48,072 : INFO : Sending command to ARGoS
+2022-04-14 10:37:48,073 : INFO : 127.0.0.1 - - [14/Apr/2022 10:37:48] "GET /argosData HTTP/1.1" 200 -
+2022-04-14 10:37:48,074 : INFO : Sending command to ARGoS
+2022-04-14 10:37:48,105 : INFO : 127.0.0.1 - - [14/Apr/2022 10:37:48] "GET /simMapData HTTP/1.1" 200 -
+2022-04-14 10:37:48,340 : INFO : Sending command to ARGoS
+2022-04-14 10:37:48,341 : INFO : 127.0.0.1 - - [14/Apr/2022 10:37:48] "GET /simMapData HTTP/1.1" 200 -
+2022-04-14 10:37:48,577 : INFO : Sending command to ARGoS
+2022-04-14 10:37:48,579 : INFO : 127.0.0.1 - - [14/Apr/2022 10:37:48] "GET /simMapData HTTP/1.1" 200 -
+2022-04-14 10:37:48,810 : INFO : Sending command to ARGoS
+2022-04-14 10:37:48,811 : INFO : 127.0.0.1 - - [14/Apr/2022 10:37:48] "GET /simMapData HTTP/1.1" 200 -
+2022-04-14 10:37:49,039 : INFO : Sending command to ARGoS
+2022-04-14 10:37:49,040 : INFO : 127.0.0.1 - - [14/Apr/2022 10:37:49] "GET /simMapData HTTP/1.1" 200 -
+2022-04-14 10:37:49,054 : INFO : Sending command to ARGoS
+2022-04-14 10:37:49,105 : INFO : 127.0.0.1 - - [14/Apr/2022 10:37:49] "GET /argosData HTTP/1.1" 200 -
+2022-04-14 10:37:49,272 : INFO : Sending command to ARGoS
+2022-04-14 10:37:49,273 : INFO : 127.0.0.1 - - [14/Apr/2022 10:37:49] "GET /simMapData HTTP/1.1" 200 -
+2022-04-14 10:37:49,519 : INFO : Sending command to ARGoS
+2022-04-14 10:37:49,520 : INFO : 127.0.0.1 - - [14/Apr/2022 10:37:49] "GET /simMapData HTTP/1.1" 200 -
+2022-04-14 10:37:49,757 : INFO : Sending command to ARGoS
+2022-04-14 10:37:49,758 : INFO : 127.0.0.1 - - [14/Apr/2022 10:37:49] "GET /simMapData HTTP/1.1" 200 -
+2022-04-14 10:37:49,992 : INFO : Sending command to ARGoS
+2022-04-14 10:37:49,993 : INFO : 127.0.0.1 - - [14/Apr/2022 10:37:49] "GET /simMapData HTTP/1.1" 200 -
+2022-04-14 10:37:50,060 : INFO : Sending command to ARGoS
+2022-04-14 10:37:50,061 : INFO : 127.0.0.1 - - [14/Apr/2022 10:37:50] "GET /argosData HTTP/1.1" 200 -
+2022-04-14 10:37:50,230 : INFO : Sending command to ARGoS
+2022-04-14 10:37:50,231 : INFO : 127.0.0.1 - - [14/Apr/2022 10:37:50] "GET /simMapData HTTP/1.1" 200 -
+2022-04-14 10:37:50,468 : INFO : Sending command to ARGoS
+2022-04-14 10:37:50,469 : INFO : 127.0.0.1 - - [14/Apr/2022 10:37:50] "GET /simMapData HTTP/1.1" 200 -
+2022-04-14 10:37:50,704 : INFO : Sending command to ARGoS
+2022-04-14 10:37:50,705 : INFO : 127.0.0.1 - - [14/Apr/2022 10:37:50] "GET /simMapData HTTP/1.1" 200 -
+2022-04-14 10:37:50,934 : INFO : Sending command to ARGoS
+2022-04-14 10:37:50,935 : INFO : 127.0.0.1 - - [14/Apr/2022 10:37:50] "GET /simMapData HTTP/1.1" 200 -
+2022-04-14 10:37:51,059 : INFO : Sending command to ARGoS
+2022-04-14 10:37:51,060 : INFO : 127.0.0.1 - - [14/Apr/2022 10:37:51] "GET /argosData HTTP/1.1" 200 -
+2022-04-14 10:37:51,172 : INFO : Sending command to ARGoS
+2022-04-14 10:37:51,172 : INFO : 127.0.0.1 - - [14/Apr/2022 10:37:51] "GET /simMapData HTTP/1.1" 200 -
+2022-04-14 10:37:51,402 : INFO : Sending command to ARGoS
+2022-04-14 10:37:51,403 : INFO : 127.0.0.1 - - [14/Apr/2022 10:37:51] "GET /simMapData HTTP/1.1" 200 -
+2022-04-14 10:37:51,639 : INFO : Sending command to ARGoS
+2022-04-14 10:37:51,640 : INFO : 127.0.0.1 - - [14/Apr/2022 10:37:51] "GET /simMapData HTTP/1.1" 200 -
+2022-04-14 10:37:51,872 : INFO : Sending command to ARGoS
+2022-04-14 10:37:51,872 : INFO : 127.0.0.1 - - [14/Apr/2022 10:37:51] "GET /simMapData HTTP/1.1" 200 -
+2022-04-14 10:37:52,059 : INFO : Sending command to ARGoS
+2022-04-14 10:37:52,060 : INFO : 127.0.0.1 - - [14/Apr/2022 10:37:52] "GET /argosData HTTP/1.1" 200 -
+2022-04-14 10:37:52,105 : INFO : Sending command to ARGoS
+2022-04-14 10:37:52,107 : INFO : 127.0.0.1 - - [14/Apr/2022 10:37:52] "GET /simMapData HTTP/1.1" 200 -
+2022-04-14 10:37:52,216 : INFO : Looking for devices....
+2022-04-14 10:37:52,217 : INFO : Initialized PRRT driver.
+2022-04-14 10:37:52,218 : INFO : Looking for devices....
+2022-04-14 10:37:52,219 : INFO : Initialized PRRT driver.
+2022-04-14 10:37:52,221 : INFO : Looking for devices....
+2022-04-14 10:37:52,222 : INFO : Initialized PRRT driver.
+2022-04-14 10:37:52,223 : INFO : Looking for devices....
+2022-04-14 10:37:52,224 : INFO : Initialized PRRT driver.
+2022-04-14 10:37:52,224 : INFO : getting drones.................
+2022-04-14 10:37:52,225 : INFO : No drones found nearby. Retrying in 5 seconds.
+2022-04-14 10:37:52,341 : INFO : Sending command to ARGoS
+2022-04-14 10:37:52,342 : INFO : 127.0.0.1 - - [14/Apr/2022 10:37:52] "GET /simMapData HTTP/1.1" 200 -
+2022-04-14 10:37:52,571 : INFO : Sending command to ARGoS
+2022-04-14 10:37:52,572 : INFO : 127.0.0.1 - - [14/Apr/2022 10:37:52] "GET /simMapData HTTP/1.1" 200 -
+2022-04-14 10:37:52,806 : INFO : Sending command to ARGoS
+2022-04-14 10:37:52,806 : ERROR : Exception on /simMapData [GET]
+Traceback (most recent call last):
+  File "/home/zakaria/INF3995-GIT(officiel)/INF3995-103/server/flaskenv/lib/python3.8/site-packages/flask/app.py", line 2073, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/zakaria/INF3995-GIT(officiel)/INF3995-103/server/flaskenv/lib/python3.8/site-packages/flask/app.py", line 1518, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/zakaria/INF3995-GIT(officiel)/INF3995-103/server/flaskenv/lib/python3.8/site-packages/flask_cors/extension.py", line 165, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "/home/zakaria/INF3995-GIT(officiel)/INF3995-103/server/flaskenv/lib/python3.8/site-packages/flask/app.py", line 1516, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/zakaria/INF3995-GIT(officiel)/INF3995-103/server/flaskenv/lib/python3.8/site-packages/flask/app.py", line 1502, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "main.py", line 76, in handleSimMapDataPolling
+    ArgosServer.sendCommand('i')
+  File "/home/zakaria/INF3995-GIT(officiel)/INF3995-103/server/src/argos_server2.py", line 55, in sendCommand
+    ArgosServer.conn.sendall(command.encode())
+ConnectionResetError: [Errno 104] Connection reset by peer
+2022-04-14 10:37:52,808 : INFO : 127.0.0.1 - - [14/Apr/2022 10:37:52] "[35m[1mGET /simMapData HTTP/1.1[0m" 500 -
+2022-04-14 10:37:53,039 : INFO : Sending command to ARGoS
+2022-04-14 10:37:53,040 : ERROR : Exception on /simMapData [GET]
+Traceback (most recent call last):
+  File "/home/zakaria/INF3995-GIT(officiel)/INF3995-103/server/flaskenv/lib/python3.8/site-packages/flask/app.py", line 2073, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/zakaria/INF3995-GIT(officiel)/INF3995-103/server/flaskenv/lib/python3.8/site-packages/flask/app.py", line 1518, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/zakaria/INF3995-GIT(officiel)/INF3995-103/server/flaskenv/lib/python3.8/site-packages/flask_cors/extension.py", line 165, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "/home/zakaria/INF3995-GIT(officiel)/INF3995-103/server/flaskenv/lib/python3.8/site-packages/flask/app.py", line 1516, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/zakaria/INF3995-GIT(officiel)/INF3995-103/server/flaskenv/lib/python3.8/site-packages/flask/app.py", line 1502, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "main.py", line 76, in handleSimMapDataPolling
+    ArgosServer.sendCommand('i')
+  File "/home/zakaria/INF3995-GIT(officiel)/INF3995-103/server/src/argos_server2.py", line 55, in sendCommand
+    ArgosServer.conn.sendall(command.encode())
+BrokenPipeError: [Errno 32] Broken pipe
+2022-04-14 10:37:53,041 : INFO : 127.0.0.1 - - [14/Apr/2022 10:37:53] "[35m[1mGET /simMapData HTTP/1.1[0m" 500 -
+2022-04-14 10:37:53,077 : INFO : Sending command to ARGoS
+2022-04-14 10:37:53,077 : ERROR : Exception on /argosData [GET]
+Traceback (most recent call last):
+  File "/home/zakaria/INF3995-GIT(officiel)/INF3995-103/server/flaskenv/lib/python3.8/site-packages/flask/app.py", line 2073, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/zakaria/INF3995-GIT(officiel)/INF3995-103/server/flaskenv/lib/python3.8/site-packages/flask/app.py", line 1518, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/zakaria/INF3995-GIT(officiel)/INF3995-103/server/flaskenv/lib/python3.8/site-packages/flask_cors/extension.py", line 165, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "/home/zakaria/INF3995-GIT(officiel)/INF3995-103/server/flaskenv/lib/python3.8/site-packages/flask/app.py", line 1516, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/zakaria/INF3995-GIT(officiel)/INF3995-103/server/flaskenv/lib/python3.8/site-packages/flask/app.py", line 1502, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "main.py", line 67, in handleArgosDataPolling
+    ArgosServer.sendCommand('i')
+  File "/home/zakaria/INF3995-GIT(officiel)/INF3995-103/server/src/argos_server2.py", line 55, in sendCommand
+    ArgosServer.conn.sendall(command.encode())
+BrokenPipeError: [Errno 32] Broken pipe
+2022-04-14 10:37:53,078 : INFO : 127.0.0.1 - - [14/Apr/2022 10:37:53] "[35m[1mGET /argosData HTTP/1.1[0m" 500 -
+2022-04-14 10:37:53,279 : INFO : Sending command to ARGoS
+2022-04-14 10:37:53,279 : ERROR : Exception on /simMapData [GET]
+Traceback (most recent call last):
+  File "/home/zakaria/INF3995-GIT(officiel)/INF3995-103/server/flaskenv/lib/python3.8/site-packages/flask/app.py", line 2073, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/zakaria/INF3995-GIT(officiel)/INF3995-103/server/flaskenv/lib/python3.8/site-packages/flask/app.py", line 1518, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/zakaria/INF3995-GIT(officiel)/INF3995-103/server/flaskenv/lib/python3.8/site-packages/flask_cors/extension.py", line 165, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "/home/zakaria/INF3995-GIT(officiel)/INF3995-103/server/flaskenv/lib/python3.8/site-packages/flask/app.py", line 1516, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/zakaria/INF3995-GIT(officiel)/INF3995-103/server/flaskenv/lib/python3.8/site-packages/flask/app.py", line 1502, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "main.py", line 76, in handleSimMapDataPolling
+    ArgosServer.sendCommand('i')
+  File "/home/zakaria/INF3995-GIT(officiel)/INF3995-103/server/src/argos_server2.py", line 55, in sendCommand
+    ArgosServer.conn.sendall(command.encode())
+BrokenPipeError: [Errno 32] Broken pipe
+2022-04-14 10:37:53,280 : INFO : 127.0.0.1 - - [14/Apr/2022 10:37:53] "[35m[1mGET /simMapData HTTP/1.1[0m" 500 -
+2022-04-14 10:37:53,524 : INFO : Sending command to ARGoS
+2022-04-14 10:37:53,524 : ERROR : Exception on /simMapData [GET]
+Traceback (most recent call last):
+  File "/home/zakaria/INF3995-GIT(officiel)/INF3995-103/server/flaskenv/lib/python3.8/site-packages/flask/app.py", line 2073, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/zakaria/INF3995-GIT(officiel)/INF3995-103/server/flaskenv/lib/python3.8/site-packages/flask/app.py", line 1518, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/zakaria/INF3995-GIT(officiel)/INF3995-103/server/flaskenv/lib/python3.8/site-packages/flask_cors/extension.py", line 165, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "/home/zakaria/INF3995-GIT(officiel)/INF3995-103/server/flaskenv/lib/python3.8/site-packages/flask/app.py", line 1516, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/zakaria/INF3995-GIT(officiel)/INF3995-103/server/flaskenv/lib/python3.8/site-packages/flask/app.py", line 1502, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "main.py", line 76, in handleSimMapDataPolling
+    ArgosServer.sendCommand('i')
+  File "/home/zakaria/INF3995-GIT(officiel)/INF3995-103/server/src/argos_server2.py", line 55, in sendCommand
+    ArgosServer.conn.sendall(command.encode())
+BrokenPipeError: [Errno 32] Broken pipe
+2022-04-14 10:37:53,525 : INFO : 127.0.0.1 - - [14/Apr/2022 10:37:53] "[35m[1mGET /simMapData HTTP/1.1[0m" 500 -
+2022-04-14 10:37:53,762 : INFO : Sending command to ARGoS
+2022-04-14 10:37:53,763 : ERROR : Exception on /simMapData [GET]
+Traceback (most recent call last):
+  File "/home/zakaria/INF3995-GIT(officiel)/INF3995-103/server/flaskenv/lib/python3.8/site-packages/flask/app.py", line 2073, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/zakaria/INF3995-GIT(officiel)/INF3995-103/server/flaskenv/lib/python3.8/site-packages/flask/app.py", line 1518, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/zakaria/INF3995-GIT(officiel)/INF3995-103/server/flaskenv/lib/python3.8/site-packages/flask_cors/extension.py", line 165, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "/home/zakaria/INF3995-GIT(officiel)/INF3995-103/server/flaskenv/lib/python3.8/site-packages/flask/app.py", line 1516, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/zakaria/INF3995-GIT(officiel)/INF3995-103/server/flaskenv/lib/python3.8/site-packages/flask/app.py", line 1502, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "main.py", line 76, in handleSimMapDataPolling
+    ArgosServer.sendCommand('i')
+  File "/home/zakaria/INF3995-GIT(officiel)/INF3995-103/server/src/argos_server2.py", line 55, in sendCommand
+    ArgosServer.conn.sendall(command.encode())
+BrokenPipeError: [Errno 32] Broken pipe
+2022-04-14 10:37:53,764 : INFO : 127.0.0.1 - - [14/Apr/2022 10:37:53] "[35m[1mGET /simMapData HTTP/1.1[0m" 500 -
+2022-04-14 10:37:53,998 : INFO : Sending command to ARGoS
+2022-04-14 10:37:53,998 : ERROR : Exception on /simMapData [GET]
+Traceback (most recent call last):
+  File "/home/zakaria/INF3995-GIT(officiel)/INF3995-103/server/flaskenv/lib/python3.8/site-packages/flask/app.py", line 2073, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/zakaria/INF3995-GIT(officiel)/INF3995-103/server/flaskenv/lib/python3.8/site-packages/flask/app.py", line 1518, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/zakaria/INF3995-GIT(officiel)/INF3995-103/server/flaskenv/lib/python3.8/site-packages/flask_cors/extension.py", line 165, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "/home/zakaria/INF3995-GIT(officiel)/INF3995-103/server/flaskenv/lib/python3.8/site-packages/flask/app.py", line 1516, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/zakaria/INF3995-GIT(officiel)/INF3995-103/server/flaskenv/lib/python3.8/site-packages/flask/app.py", line 1502, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "main.py", line 76, in handleSimMapDataPolling
+    ArgosServer.sendCommand('i')
+  File "/home/zakaria/INF3995-GIT(officiel)/INF3995-103/server/src/argos_server2.py", line 55, in sendCommand
+    ArgosServer.conn.sendall(command.encode())
+BrokenPipeError: [Errno 32] Broken pipe
+2022-04-14 10:37:54,000 : INFO : 127.0.0.1 - - [14/Apr/2022 10:37:54] "[35m[1mGET /simMapData HTTP/1.1[0m" 500 -
+2022-04-14 10:37:54,082 : INFO : Sending command to ARGoS
+2022-04-14 10:37:54,083 : ERROR : Exception on /argosData [GET]
+Traceback (most recent call last):
+  File "/home/zakaria/INF3995-GIT(officiel)/INF3995-103/server/flaskenv/lib/python3.8/site-packages/flask/app.py", line 2073, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/zakaria/INF3995-GIT(officiel)/INF3995-103/server/flaskenv/lib/python3.8/site-packages/flask/app.py", line 1518, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/zakaria/INF3995-GIT(officiel)/INF3995-103/server/flaskenv/lib/python3.8/site-packages/flask_cors/extension.py", line 165, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "/home/zakaria/INF3995-GIT(officiel)/INF3995-103/server/flaskenv/lib/python3.8/site-packages/flask/app.py", line 1516, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/zakaria/INF3995-GIT(officiel)/INF3995-103/server/flaskenv/lib/python3.8/site-packages/flask/app.py", line 1502, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "main.py", line 67, in handleArgosDataPolling
+    ArgosServer.sendCommand('i')
+  File "/home/zakaria/INF3995-GIT(officiel)/INF3995-103/server/src/argos_server2.py", line 55, in sendCommand
+    ArgosServer.conn.sendall(command.encode())
+BrokenPipeError: [Errno 32] Broken pipe
+2022-04-14 10:37:54,084 : INFO : 127.0.0.1 - - [14/Apr/2022 10:37:54] "[35m[1mGET /argosData HTTP/1.1[0m" 500 -
+2022-04-14 10:37:54,232 : INFO : Sending command to ARGoS
+2022-04-14 10:37:54,233 : ERROR : Exception on /simMapData [GET]
+Traceback (most recent call last):
+  File "/home/zakaria/INF3995-GIT(officiel)/INF3995-103/server/flaskenv/lib/python3.8/site-packages/flask/app.py", line 2073, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/zakaria/INF3995-GIT(officiel)/INF3995-103/server/flaskenv/lib/python3.8/site-packages/flask/app.py", line 1518, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/zakaria/INF3995-GIT(officiel)/INF3995-103/server/flaskenv/lib/python3.8/site-packages/flask_cors/extension.py", line 165, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "/home/zakaria/INF3995-GIT(officiel)/INF3995-103/server/flaskenv/lib/python3.8/site-packages/flask/app.py", line 1516, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/zakaria/INF3995-GIT(officiel)/INF3995-103/server/flaskenv/lib/python3.8/site-packages/flask/app.py", line 1502, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "main.py", line 76, in handleSimMapDataPolling
+    ArgosServer.sendCommand('i')
+  File "/home/zakaria/INF3995-GIT(officiel)/INF3995-103/server/src/argos_server2.py", line 55, in sendCommand
+    ArgosServer.conn.sendall(command.encode())
+BrokenPipeError: [Errno 32] Broken pipe
+2022-04-14 10:37:54,234 : INFO : 127.0.0.1 - - [14/Apr/2022 10:37:54] "[35m[1mGET /simMapData HTTP/1.1[0m" 500 -
+2022-04-14 10:37:54,467 : INFO : Sending command to ARGoS
+2022-04-14 10:37:54,468 : ERROR : Exception on /simMapData [GET]
+Traceback (most recent call last):
+  File "/home/zakaria/INF3995-GIT(officiel)/INF3995-103/server/flaskenv/lib/python3.8/site-packages/flask/app.py", line 2073, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/zakaria/INF3995-GIT(officiel)/INF3995-103/server/flaskenv/lib/python3.8/site-packages/flask/app.py", line 1518, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/zakaria/INF3995-GIT(officiel)/INF3995-103/server/flaskenv/lib/python3.8/site-packages/flask_cors/extension.py", line 165, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "/home/zakaria/INF3995-GIT(officiel)/INF3995-103/server/flaskenv/lib/python3.8/site-packages/flask/app.py", line 1516, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/zakaria/INF3995-GIT(officiel)/INF3995-103/server/flaskenv/lib/python3.8/site-packages/flask/app.py", line 1502, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "main.py", line 76, in handleSimMapDataPolling
+    ArgosServer.sendCommand('i')
+  File "/home/zakaria/INF3995-GIT(officiel)/INF3995-103/server/src/argos_server2.py", line 55, in sendCommand
+    ArgosServer.conn.sendall(command.encode())
+BrokenPipeError: [Errno 32] Broken pipe
+2022-04-14 10:37:54,468 : INFO : 127.0.0.1 - - [14/Apr/2022 10:37:54] "[35m[1mGET /simMapData HTTP/1.1[0m" 500 -
+2022-04-14 10:37:54,703 : INFO : Sending command to ARGoS
+2022-04-14 10:37:54,703 : ERROR : Exception on /simMapData [GET]
+Traceback (most recent call last):
+  File "/home/zakaria/INF3995-GIT(officiel)/INF3995-103/server/flaskenv/lib/python3.8/site-packages/flask/app.py", line 2073, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/zakaria/INF3995-GIT(officiel)/INF3995-103/server/flaskenv/lib/python3.8/site-packages/flask/app.py", line 1518, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/zakaria/INF3995-GIT(officiel)/INF3995-103/server/flaskenv/lib/python3.8/site-packages/flask_cors/extension.py", line 165, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "/home/zakaria/INF3995-GIT(officiel)/INF3995-103/server/flaskenv/lib/python3.8/site-packages/flask/app.py", line 1516, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/zakaria/INF3995-GIT(officiel)/INF3995-103/server/flaskenv/lib/python3.8/site-packages/flask/app.py", line 1502, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "main.py", line 76, in handleSimMapDataPolling
+    ArgosServer.sendCommand('i')
+  File "/home/zakaria/INF3995-GIT(officiel)/INF3995-103/server/src/argos_server2.py", line 55, in sendCommand
+    ArgosServer.conn.sendall(command.encode())
+BrokenPipeError: [Errno 32] Broken pipe
+2022-04-14 10:37:54,704 : INFO : 127.0.0.1 - - [14/Apr/2022 10:37:54] "[35m[1mGET /simMapData HTTP/1.1[0m" 500 -
+2022-04-14 10:37:54,938 : INFO : Sending command to ARGoS
+2022-04-14 10:37:54,938 : ERROR : Exception on /simMapData [GET]
+Traceback (most recent call last):
+  File "/home/zakaria/INF3995-GIT(officiel)/INF3995-103/server/flaskenv/lib/python3.8/site-packages/flask/app.py", line 2073, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/zakaria/INF3995-GIT(officiel)/INF3995-103/server/flaskenv/lib/python3.8/site-packages/flask/app.py", line 1518, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/zakaria/INF3995-GIT(officiel)/INF3995-103/server/flaskenv/lib/python3.8/site-packages/flask_cors/extension.py", line 165, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "/home/zakaria/INF3995-GIT(officiel)/INF3995-103/server/flaskenv/lib/python3.8/site-packages/flask/app.py", line 1516, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/zakaria/INF3995-GIT(officiel)/INF3995-103/server/flaskenv/lib/python3.8/site-packages/flask/app.py", line 1502, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "main.py", line 76, in handleSimMapDataPolling
+    ArgosServer.sendCommand('i')
+  File "/home/zakaria/INF3995-GIT(officiel)/INF3995-103/server/src/argos_server2.py", line 55, in sendCommand
+    ArgosServer.conn.sendall(command.encode())
+BrokenPipeError: [Errno 32] Broken pipe
+2022-04-14 10:37:54,940 : INFO : 127.0.0.1 - - [14/Apr/2022 10:37:54] "[35m[1mGET /simMapData HTTP/1.1[0m" 500 -
+2022-04-14 10:37:55,094 : INFO : Sending command to ARGoS
+2022-04-14 10:37:55,094 : ERROR : Exception on /argosData [GET]
+Traceback (most recent call last):
+  File "/home/zakaria/INF3995-GIT(officiel)/INF3995-103/server/flaskenv/lib/python3.8/site-packages/flask/app.py", line 2073, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/zakaria/INF3995-GIT(officiel)/INF3995-103/server/flaskenv/lib/python3.8/site-packages/flask/app.py", line 1518, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/zakaria/INF3995-GIT(officiel)/INF3995-103/server/flaskenv/lib/python3.8/site-packages/flask_cors/extension.py", line 165, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "/home/zakaria/INF3995-GIT(officiel)/INF3995-103/server/flaskenv/lib/python3.8/site-packages/flask/app.py", line 1516, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/zakaria/INF3995-GIT(officiel)/INF3995-103/server/flaskenv/lib/python3.8/site-packages/flask/app.py", line 1502, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "main.py", line 67, in handleArgosDataPolling
+    ArgosServer.sendCommand('i')
+  File "/home/zakaria/INF3995-GIT(officiel)/INF3995-103/server/src/argos_server2.py", line 55, in sendCommand
+    ArgosServer.conn.sendall(command.encode())
+BrokenPipeError: [Errno 32] Broken pipe
+2022-04-14 10:37:55,099 : INFO : 127.0.0.1 - - [14/Apr/2022 10:37:55] "[35m[1mGET /argosData HTTP/1.1[0m" 500 -
+2022-04-14 10:37:55,169 : INFO : Sending command to ARGoS
+2022-04-14 10:37:55,170 : ERROR : Exception on /simMapData [GET]
+Traceback (most recent call last):
+  File "/home/zakaria/INF3995-GIT(officiel)/INF3995-103/server/flaskenv/lib/python3.8/site-packages/flask/app.py", line 2073, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/zakaria/INF3995-GIT(officiel)/INF3995-103/server/flaskenv/lib/python3.8/site-packages/flask/app.py", line 1518, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/zakaria/INF3995-GIT(officiel)/INF3995-103/server/flaskenv/lib/python3.8/site-packages/flask_cors/extension.py", line 165, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "/home/zakaria/INF3995-GIT(officiel)/INF3995-103/server/flaskenv/lib/python3.8/site-packages/flask/app.py", line 1516, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/zakaria/INF3995-GIT(officiel)/INF3995-103/server/flaskenv/lib/python3.8/site-packages/flask/app.py", line 1502, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "main.py", line 76, in handleSimMapDataPolling
+    ArgosServer.sendCommand('i')
+  File "/home/zakaria/INF3995-GIT(officiel)/INF3995-103/server/src/argos_server2.py", line 55, in sendCommand
+    ArgosServer.conn.sendall(command.encode())
+BrokenPipeError: [Errno 32] Broken pipe
+2022-04-14 10:37:55,170 : INFO : 127.0.0.1 - - [14/Apr/2022 10:37:55] "[35m[1mGET /simMapData HTTP/1.1[0m" 500 -
+2022-04-14 10:37:55,406 : INFO : Sending command to ARGoS
+2022-04-14 10:37:55,407 : ERROR : Exception on /simMapData [GET]
+Traceback (most recent call last):
+  File "/home/zakaria/INF3995-GIT(officiel)/INF3995-103/server/flaskenv/lib/python3.8/site-packages/flask/app.py", line 2073, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/zakaria/INF3995-GIT(officiel)/INF3995-103/server/flaskenv/lib/python3.8/site-packages/flask/app.py", line 1518, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/zakaria/INF3995-GIT(officiel)/INF3995-103/server/flaskenv/lib/python3.8/site-packages/flask_cors/extension.py", line 165, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "/home/zakaria/INF3995-GIT(officiel)/INF3995-103/server/flaskenv/lib/python3.8/site-packages/flask/app.py", line 1516, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/zakaria/INF3995-GIT(officiel)/INF3995-103/server/flaskenv/lib/python3.8/site-packages/flask/app.py", line 1502, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "main.py", line 76, in handleSimMapDataPolling
+    ArgosServer.sendCommand('i')
+  File "/home/zakaria/INF3995-GIT(officiel)/INF3995-103/server/src/argos_server2.py", line 55, in sendCommand
+    ArgosServer.conn.sendall(command.encode())
+BrokenPipeError: [Errno 32] Broken pipe
+2022-04-14 10:37:55,408 : INFO : 127.0.0.1 - - [14/Apr/2022 10:37:55] "[35m[1mGET /simMapData HTTP/1.1[0m" 500 -
+2022-04-14 10:37:55,636 : INFO : Sending command to ARGoS
+2022-04-14 10:37:55,636 : ERROR : Exception on /simMapData [GET]
+Traceback (most recent call last):
+  File "/home/zakaria/INF3995-GIT(officiel)/INF3995-103/server/flaskenv/lib/python3.8/site-packages/flask/app.py", line 2073, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/zakaria/INF3995-GIT(officiel)/INF3995-103/server/flaskenv/lib/python3.8/site-packages/flask/app.py", line 1518, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/zakaria/INF3995-GIT(officiel)/INF3995-103/server/flaskenv/lib/python3.8/site-packages/flask_cors/extension.py", line 165, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "/home/zakaria/INF3995-GIT(officiel)/INF3995-103/server/flaskenv/lib/python3.8/site-packages/flask/app.py", line 1516, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/zakaria/INF3995-GIT(officiel)/INF3995-103/server/flaskenv/lib/python3.8/site-packages/flask/app.py", line 1502, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "main.py", line 76, in handleSimMapDataPolling
+    ArgosServer.sendCommand('i')
+  File "/home/zakaria/INF3995-GIT(officiel)/INF3995-103/server/src/argos_server2.py", line 55, in sendCommand
+    ArgosServer.conn.sendall(command.encode())
+BrokenPipeError: [Errno 32] Broken pipe
+2022-04-14 10:37:55,637 : INFO : 127.0.0.1 - - [14/Apr/2022 10:37:55] "[35m[1mGET /simMapData HTTP/1.1[0m" 500 -
+2022-04-14 10:37:55,872 : INFO : Sending command to ARGoS
+2022-04-14 10:37:55,872 : ERROR : Exception on /simMapData [GET]
+Traceback (most recent call last):
+  File "/home/zakaria/INF3995-GIT(officiel)/INF3995-103/server/flaskenv/lib/python3.8/site-packages/flask/app.py", line 2073, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/zakaria/INF3995-GIT(officiel)/INF3995-103/server/flaskenv/lib/python3.8/site-packages/flask/app.py", line 1518, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/zakaria/INF3995-GIT(officiel)/INF3995-103/server/flaskenv/lib/python3.8/site-packages/flask_cors/extension.py", line 165, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "/home/zakaria/INF3995-GIT(officiel)/INF3995-103/server/flaskenv/lib/python3.8/site-packages/flask/app.py", line 1516, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/zakaria/INF3995-GIT(officiel)/INF3995-103/server/flaskenv/lib/python3.8/site-packages/flask/app.py", line 1502, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "main.py", line 76, in handleSimMapDataPolling
+    ArgosServer.sendCommand('i')
+  File "/home/zakaria/INF3995-GIT(officiel)/INF3995-103/server/src/argos_server2.py", line 55, in sendCommand
+    ArgosServer.conn.sendall(command.encode())
+BrokenPipeError: [Errno 32] Broken pipe
+2022-04-14 10:37:55,873 : INFO : 127.0.0.1 - - [14/Apr/2022 10:37:55] "[35m[1mGET /simMapData HTTP/1.1[0m" 500 -
+2022-04-14 10:37:56,098 : INFO : Sending command to ARGoS
+2022-04-14 10:37:56,098 : ERROR : Exception on /argosData [GET]
+Traceback (most recent call last):
+  File "/home/zakaria/INF3995-GIT(officiel)/INF3995-103/server/flaskenv/lib/python3.8/site-packages/flask/app.py", line 2073, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/zakaria/INF3995-GIT(officiel)/INF3995-103/server/flaskenv/lib/python3.8/site-packages/flask/app.py", line 1518, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/zakaria/INF3995-GIT(officiel)/INF3995-103/server/flaskenv/lib/python3.8/site-packages/flask_cors/extension.py", line 165, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "/home/zakaria/INF3995-GIT(officiel)/INF3995-103/server/flaskenv/lib/python3.8/site-packages/flask/app.py", line 1516, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/zakaria/INF3995-GIT(officiel)/INF3995-103/server/flaskenv/lib/python3.8/site-packages/flask/app.py", line 1502, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "main.py", line 67, in handleArgosDataPolling
+    ArgosServer.sendCommand('i')
+  File "/home/zakaria/INF3995-GIT(officiel)/INF3995-103/server/src/argos_server2.py", line 55, in sendCommand
+    ArgosServer.conn.sendall(command.encode())
+BrokenPipeError: [Errno 32] Broken pipe
+2022-04-14 10:37:56,099 : INFO : 127.0.0.1 - - [14/Apr/2022 10:37:56] "[35m[1mGET /argosData HTTP/1.1[0m" 500 -
+2022-04-14 10:37:56,140 : INFO : Sending command to ARGoS
+2022-04-14 10:37:56,140 : ERROR : Exception on /simMapData [GET]
+Traceback (most recent call last):
+  File "/home/zakaria/INF3995-GIT(officiel)/INF3995-103/server/flaskenv/lib/python3.8/site-packages/flask/app.py", line 2073, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/zakaria/INF3995-GIT(officiel)/INF3995-103/server/flaskenv/lib/python3.8/site-packages/flask/app.py", line 1518, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/zakaria/INF3995-GIT(officiel)/INF3995-103/server/flaskenv/lib/python3.8/site-packages/flask_cors/extension.py", line 165, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "/home/zakaria/INF3995-GIT(officiel)/INF3995-103/server/flaskenv/lib/python3.8/site-packages/flask/app.py", line 1516, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/zakaria/INF3995-GIT(officiel)/INF3995-103/server/flaskenv/lib/python3.8/site-packages/flask/app.py", line 1502, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "main.py", line 76, in handleSimMapDataPolling
+    ArgosServer.sendCommand('i')
+  File "/home/zakaria/INF3995-GIT(officiel)/INF3995-103/server/src/argos_server2.py", line 55, in sendCommand
+    ArgosServer.conn.sendall(command.encode())
+BrokenPipeError: [Errno 32] Broken pipe
+2022-04-14 10:37:56,141 : INFO : 127.0.0.1 - - [14/Apr/2022 10:37:56] "[35m[1mGET /simMapData HTTP/1.1[0m" 500 -
+2022-04-14 10:37:56,381 : INFO : Sending command to ARGoS
+2022-04-14 10:37:56,381 : ERROR : Exception on /simMapData [GET]
+Traceback (most recent call last):
+  File "/home/zakaria/INF3995-GIT(officiel)/INF3995-103/server/flaskenv/lib/python3.8/site-packages/flask/app.py", line 2073, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/zakaria/INF3995-GIT(officiel)/INF3995-103/server/flaskenv/lib/python3.8/site-packages/flask/app.py", line 1518, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/zakaria/INF3995-GIT(officiel)/INF3995-103/server/flaskenv/lib/python3.8/site-packages/flask_cors/extension.py", line 165, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "/home/zakaria/INF3995-GIT(officiel)/INF3995-103/server/flaskenv/lib/python3.8/site-packages/flask/app.py", line 1516, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/zakaria/INF3995-GIT(officiel)/INF3995-103/server/flaskenv/lib/python3.8/site-packages/flask/app.py", line 1502, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "main.py", line 76, in handleSimMapDataPolling
+    ArgosServer.sendCommand('i')
+  File "/home/zakaria/INF3995-GIT(officiel)/INF3995-103/server/src/argos_server2.py", line 55, in sendCommand
+    ArgosServer.conn.sendall(command.encode())
+BrokenPipeError: [Errno 32] Broken pipe
+2022-04-14 10:37:56,383 : INFO : 127.0.0.1 - - [14/Apr/2022 10:37:56] "[35m[1mGET /simMapData HTTP/1.1[0m" 500 -
+2022-04-14 10:37:56,623 : INFO : Sending command to ARGoS
+2022-04-14 10:37:56,624 : ERROR : Exception on /simMapData [GET]
+Traceback (most recent call last):
+  File "/home/zakaria/INF3995-GIT(officiel)/INF3995-103/server/flaskenv/lib/python3.8/site-packages/flask/app.py", line 2073, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/zakaria/INF3995-GIT(officiel)/INF3995-103/server/flaskenv/lib/python3.8/site-packages/flask/app.py", line 1518, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/zakaria/INF3995-GIT(officiel)/INF3995-103/server/flaskenv/lib/python3.8/site-packages/flask_cors/extension.py", line 165, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "/home/zakaria/INF3995-GIT(officiel)/INF3995-103/server/flaskenv/lib/python3.8/site-packages/flask/app.py", line 1516, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/zakaria/INF3995-GIT(officiel)/INF3995-103/server/flaskenv/lib/python3.8/site-packages/flask/app.py", line 1502, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "main.py", line 76, in handleSimMapDataPolling
+    ArgosServer.sendCommand('i')
+  File "/home/zakaria/INF3995-GIT(officiel)/INF3995-103/server/src/argos_server2.py", line 55, in sendCommand
+    ArgosServer.conn.sendall(command.encode())
+BrokenPipeError: [Errno 32] Broken pipe
+2022-04-14 10:37:56,625 : INFO : 127.0.0.1 - - [14/Apr/2022 10:37:56] "[35m[1mGET /simMapData HTTP/1.1[0m" 500 -
+2022-04-14 10:37:56,856 : INFO : Sending command to ARGoS
+2022-04-14 10:37:56,856 : ERROR : Exception on /simMapData [GET]
+Traceback (most recent call last):
+  File "/home/zakaria/INF3995-GIT(officiel)/INF3995-103/server/flaskenv/lib/python3.8/site-packages/flask/app.py", line 2073, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/zakaria/INF3995-GIT(officiel)/INF3995-103/server/flaskenv/lib/python3.8/site-packages/flask/app.py", line 1518, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/zakaria/INF3995-GIT(officiel)/INF3995-103/server/flaskenv/lib/python3.8/site-packages/flask_cors/extension.py", line 165, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "/home/zakaria/INF3995-GIT(officiel)/INF3995-103/server/flaskenv/lib/python3.8/site-packages/flask/app.py", line 1516, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/zakaria/INF3995-GIT(officiel)/INF3995-103/server/flaskenv/lib/python3.8/site-packages/flask/app.py", line 1502, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "main.py", line 76, in handleSimMapDataPolling
+    ArgosServer.sendCommand('i')
+  File "/home/zakaria/INF3995-GIT(officiel)/INF3995-103/server/src/argos_server2.py", line 55, in sendCommand
+    ArgosServer.conn.sendall(command.encode())
+BrokenPipeError: [Errno 32] Broken pipe
+2022-04-14 10:37:56,857 : INFO : 127.0.0.1 - - [14/Apr/2022 10:37:56] "[35m[1mGET /simMapData HTTP/1.1[0m" 500 -
+2022-04-14 10:37:57,090 : INFO : Sending command to ARGoS
+2022-04-14 10:37:57,090 : ERROR : Exception on /simMapData [GET]
+Traceback (most recent call last):
+  File "/home/zakaria/INF3995-GIT(officiel)/INF3995-103/server/flaskenv/lib/python3.8/site-packages/flask/app.py", line 2073, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/zakaria/INF3995-GIT(officiel)/INF3995-103/server/flaskenv/lib/python3.8/site-packages/flask/app.py", line 1518, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/zakaria/INF3995-GIT(officiel)/INF3995-103/server/flaskenv/lib/python3.8/site-packages/flask_cors/extension.py", line 165, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "/home/zakaria/INF3995-GIT(officiel)/INF3995-103/server/flaskenv/lib/python3.8/site-packages/flask/app.py", line 1516, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/zakaria/INF3995-GIT(officiel)/INF3995-103/server/flaskenv/lib/python3.8/site-packages/flask/app.py", line 1502, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "main.py", line 76, in handleSimMapDataPolling
+    ArgosServer.sendCommand('i')
+  File "/home/zakaria/INF3995-GIT(officiel)/INF3995-103/server/src/argos_server2.py", line 55, in sendCommand
+    ArgosServer.conn.sendall(command.encode())
+BrokenPipeError: [Errno 32] Broken pipe
+2022-04-14 10:37:57,093 : INFO : 127.0.0.1 - - [14/Apr/2022 10:37:57] "[35m[1mGET /simMapData HTTP/1.1[0m" 500 -
+2022-04-14 10:37:57,103 : INFO : Sending command to ARGoS
+2022-04-14 10:37:57,104 : ERROR : Exception on /argosData [GET]
+Traceback (most recent call last):
+  File "/home/zakaria/INF3995-GIT(officiel)/INF3995-103/server/flaskenv/lib/python3.8/site-packages/flask/app.py", line 2073, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/zakaria/INF3995-GIT(officiel)/INF3995-103/server/flaskenv/lib/python3.8/site-packages/flask/app.py", line 1518, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/zakaria/INF3995-GIT(officiel)/INF3995-103/server/flaskenv/lib/python3.8/site-packages/flask_cors/extension.py", line 165, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "/home/zakaria/INF3995-GIT(officiel)/INF3995-103/server/flaskenv/lib/python3.8/site-packages/flask/app.py", line 1516, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/zakaria/INF3995-GIT(officiel)/INF3995-103/server/flaskenv/lib/python3.8/site-packages/flask/app.py", line 1502, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "main.py", line 67, in handleArgosDataPolling
+    ArgosServer.sendCommand('i')
+  File "/home/zakaria/INF3995-GIT(officiel)/INF3995-103/server/src/argos_server2.py", line 55, in sendCommand
+    ArgosServer.conn.sendall(command.encode())
+BrokenPipeError: [Errno 32] Broken pipe
+2022-04-14 10:37:57,105 : INFO : 127.0.0.1 - - [14/Apr/2022 10:37:57] "[35m[1mGET /argosData HTTP/1.1[0m" 500 -
+2022-04-14 10:37:57,228 : INFO : Looking for devices....
+2022-04-14 10:37:57,229 : INFO : Initialized PRRT driver.
+2022-04-14 10:37:57,230 : INFO : Looking for devices....
+2022-04-14 10:37:57,231 : INFO : Initialized PRRT driver.
+2022-04-14 10:37:57,232 : INFO : Looking for devices....
+2022-04-14 10:37:57,233 : INFO : Initialized PRRT driver.
+2022-04-14 10:37:57,234 : INFO : Looking for devices....
+2022-04-14 10:37:57,235 : INFO : Initialized PRRT driver.
+2022-04-14 10:37:57,235 : INFO : getting drones.................
+2022-04-14 10:37:57,235 : INFO : No drones found nearby. Retrying in 5 seconds.
+2022-04-14 10:37:57,324 : INFO : Sending command to ARGoS
+2022-04-14 10:37:57,324 : ERROR : Exception on /simMapData [GET]
+Traceback (most recent call last):
+  File "/home/zakaria/INF3995-GIT(officiel)/INF3995-103/server/flaskenv/lib/python3.8/site-packages/flask/app.py", line 2073, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/zakaria/INF3995-GIT(officiel)/INF3995-103/server/flaskenv/lib/python3.8/site-packages/flask/app.py", line 1518, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/zakaria/INF3995-GIT(officiel)/INF3995-103/server/flaskenv/lib/python3.8/site-packages/flask_cors/extension.py", line 165, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "/home/zakaria/INF3995-GIT(officiel)/INF3995-103/server/flaskenv/lib/python3.8/site-packages/flask/app.py", line 1516, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/zakaria/INF3995-GIT(officiel)/INF3995-103/server/flaskenv/lib/python3.8/site-packages/flask/app.py", line 1502, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "main.py", line 76, in handleSimMapDataPolling
+    ArgosServer.sendCommand('i')
+  File "/home/zakaria/INF3995-GIT(officiel)/INF3995-103/server/src/argos_server2.py", line 55, in sendCommand
+    ArgosServer.conn.sendall(command.encode())
+BrokenPipeError: [Errno 32] Broken pipe
+2022-04-14 10:37:57,326 : INFO : 127.0.0.1 - - [14/Apr/2022 10:37:57] "[35m[1mGET /simMapData HTTP/1.1[0m" 500 -
+2022-04-14 10:37:57,558 : INFO : Sending command to ARGoS
+2022-04-14 10:37:57,559 : ERROR : Exception on /simMapData [GET]
+Traceback (most recent call last):
+  File "/home/zakaria/INF3995-GIT(officiel)/INF3995-103/server/flaskenv/lib/python3.8/site-packages/flask/app.py", line 2073, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/zakaria/INF3995-GIT(officiel)/INF3995-103/server/flaskenv/lib/python3.8/site-packages/flask/app.py", line 1518, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/zakaria/INF3995-GIT(officiel)/INF3995-103/server/flaskenv/lib/python3.8/site-packages/flask_cors/extension.py", line 165, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "/home/zakaria/INF3995-GIT(officiel)/INF3995-103/server/flaskenv/lib/python3.8/site-packages/flask/app.py", line 1516, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/zakaria/INF3995-GIT(officiel)/INF3995-103/server/flaskenv/lib/python3.8/site-packages/flask/app.py", line 1502, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "main.py", line 76, in handleSimMapDataPolling
+    ArgosServer.sendCommand('i')
+  File "/home/zakaria/INF3995-GIT(officiel)/INF3995-103/server/src/argos_server2.py", line 55, in sendCommand
+    ArgosServer.conn.sendall(command.encode())
+BrokenPipeError: [Errno 32] Broken pipe
+2022-04-14 10:37:57,560 : INFO : 127.0.0.1 - - [14/Apr/2022 10:37:57] "[35m[1mGET /simMapData HTTP/1.1[0m" 500 -
