@@ -1,14 +1,14 @@
 <div class="content">
-      <div class="layout">
-        <section class="drones-section">
-          
-          <div class="slider-padding">
-            <mat-slide-toggle (click)="this.onSliderClick()" [(ngModel)]="isSimulation" color="primary">Activate simulation mode</mat-slide-toggle>
-          </div>
-          <div class="title">
-            <h1> Drones : </h1>
-          </div>
-
+  <div class="layout">
+    <section class="drones-section">
+      <div class="slider-padding">
+        <mat-slide-toggle (click)="this.onSliderClick()" [(ngModel)]="isSimulation" color="primary">Activate simulation mode</mat-slide-toggle>
+      </div>
+      
+      <div class="title">
+        <h1> Drones : </h1>
+      </div>
+      
           <!-- <div class="common-padding"> -->
             <div>
               <div class="drones">
@@ -36,18 +36,23 @@
                 </div>
               </div>
             </div>
-          <!-- </div> -->
-        </section> 
+            <!-- </div> -->
+          </section> 
+          
+          <div class="title">
+            <h1> Missions :</h1>
+          </div>
+          
+          <div class="mission-buttons">
+            <button mat-button (click) = "this.droneService.saveMission()">Save Mission</button>
+          </div>
 
-        <div class="title">
-          <h1> Missions :</h1>
-        </div>
-
-        <app-mission></app-mission>
-
-        <div class="footer-item">
-          <h2 class="team-name">Équipe 103</h2>
+          <app-mission></app-mission>
+          
+          <div class="footer-item">
+            <h2 class="team-name">Équipe 103</h2>
           <p>Zakaria Diabi, Sanmar Simon, Marc-Olivier Lemieux, Sinda Drira, Aram Zand</p>
+        </div>
       </div>
-      </div>
-  </div>
+    </div>
+    

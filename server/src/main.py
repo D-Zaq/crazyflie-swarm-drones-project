@@ -71,8 +71,8 @@ def handleArgosDataPolling():
     return jsonify(simDrones)
 
 
-@app.route('/mapData', methods=["GET"])
-def handleMapDataPolling():
+@app.route('/simMapData', methods=["GET"])
+def handleSimMapDataPolling():
     ArgosServer.sendCommand('i')
     simDrones = []
     simDrones = ArgosServer.receiveData()
@@ -88,6 +88,17 @@ def handleLogsPolling():
 
 @app.route('/crazyflieData', methods=["GET"])
 def handleCFLogsPolling():
+    drones = CrazyflieServer.createDrone()
+    # if CrazyflieServer.state:
+    #     drones['state'] = 'Connected'
+    # else:
+    #     drones['state'] = 'Disconnected'
+    print('Drone physique : ====================> ', drones)
+    return jsonify(drones)
+
+
+@app.route('/realMapData', methods=["GET"])
+def handleRealMapDataPolling():
     drones = CrazyflieServer.createDrone()
     # if CrazyflieServer.state:
     #     drones['state'] = 'Connected'

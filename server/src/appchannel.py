@@ -13,6 +13,7 @@ from real_drone import RealDrone
 
 logging.basicConfig(level=logging.ERROR)
 
+
 class AppChannel:
 
     def __init__(self) -> None:
@@ -61,7 +62,6 @@ class AppChannel:
         time.sleep(2)
         self.log.start_printing(self._cf, self.uri)
 
-
     def disconnected(self, droneUri) -> None:
         """Callback when the Crazyflie is disconnected (called in all cases)"""
         self.connexionState = False
@@ -83,13 +83,14 @@ class AppChannel:
         print('in AppChannel send message')
         print(command)
         print(struct.pack("<c", command.encode('utf-8')))
-        self._cf.appchannel.send_packet(struct.pack("<c", command.encode('utf-8')))
+        self._cf.appchannel.send_packet(
+            struct.pack("<c", command.encode('utf-8')))
 
     def closeClient(self) -> None:
         self._cf.close_link()
         self.connexionState = False
-        
-    def create_drones(self): 
+
+    def create_drones(self) -> RealDrone:
         drone = RealDrone()
         # drones = []
         # uri1 = 'radio://0/80/2M/E7E7E7E731'
@@ -107,8 +108,8 @@ class AppChannel:
                 # print('======================= here distance end line ==========================')
                 # print(distanceEndLine)
                 with open('battery.csv', 'r') as batteryFile:
-                    batteryReader = csv.reader(batteryFile)                
-                    batteryLines = list(batteryReader)                
+                    batteryReader = csv.reader(batteryFile)
+                    batteryLines = list(batteryReader)
                     batteryEndLine = len(batteryLines)-1
                     # print('======================= here battery end line ==========================')
                     # print(batteryEndLine)
@@ -119,9 +120,12 @@ class AppChannel:
                         drone['speed'] = 'None'
                         # if batteryLines[batteryEndLine][0] == uri1:
                         drone['battery'] = batteryLines[batteryEndLine][2]
-                        drone['xPosition'] = positionLines[positionEndLine][1]
-                        drone['yPosition'] = positionLines[positionEndLine][2]
-                        drone['zPosition'] = positionLines[positionEndLine][3]
+                        drone['xPosition'] = float(
+                            positionLines[positionEndLine][1])
+                        drone['yPosition'] = float(
+                            positionLines[positionEndLine][2])
+                        drone['zPosition'] = float(
+                            positionLines[positionEndLine][3])
                         drone['angle'] = positionLines[positionEndLine][4]
                         # if distanceLines[distanceEndLine][0] == uri1:
                         drone['frontDistance'] = distanceLines[distanceEndLine][1]
@@ -132,7 +136,6 @@ class AppChannel:
                             drone['state'] = 'Connected'
                         else:
                             drone['state'] = 'Disconnected'
-
 
         # drones.append(drone)
         return drone

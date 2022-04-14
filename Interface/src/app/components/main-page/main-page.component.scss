@@ -96,3 +96,18 @@ svg {
   text-align: center;
   background-color: azure;
 }
+
+.mat-button {
+  background-color: rgba($color: rgb(200, 218, 207), $alpha: 0.25);
+  // width: 100%;
+  font-size: 90%;
+}
+
+.mission-buttons {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}

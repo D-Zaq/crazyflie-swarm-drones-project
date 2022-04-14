@@ -1,7 +1,9 @@
 import { outputAst } from '@angular/compiler';
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import {Drone, DRONE_1, Command, CommandStruct, mapDrone} from 'src/app/objects/drones';
+import { MAX_REAL_RANGE, MAX_SIM_RANGE } from 'src/app/constants/constants';
+import {Drone, DRONE_1, Command, CommandStruct, MapDrone} from 'src/app/objects/drones';
 import { DronesService } from 'src/app/services/drones/drones.service';
+import { Vec2 } from '../main-page/main-page.component';
 
 @Component({
   selector: 'app-drone-card',
@@ -11,7 +13,10 @@ import { DronesService } from 'src/app/services/drones/drones.service';
 export class DroneCardComponent implements OnInit {
 
   @Input() droneData: Drone = DRONE_1;
-  mapDrone = {} as mapDrone;
+  simMapDrone = {} as MapDrone;
+  realMapDrone = {} as MapDrone;
+  // simPoints: Vec2[]= [];
+  // realPoints: Vec2[]= [];
   id: any;
 
   constructor(public droneService:DronesService) { }
@@ -32,15 +37,94 @@ export class DroneCardComponent implements OnInit {
   updateMapDroneData(): void{
     this.id = setInterval(() => {
       // this.updateMapDroneData(); 
-      for (let i=0; this.droneService.mapDrones.length; i++){
-        if(this.droneService.mapDrones[i].name == this.droneData.name){
-          this.mapDrone.xPosition = this.droneService.mapDrones[i].xPosition;
-          this.mapDrone.yPosition = this.droneService.mapDrones[i].yPosition;
+      for (let i=0; this.droneService.mapSimDrones.length; i++){
+        if(this.droneService.mapSimDrones[i].name == this.droneData.name){
+          this.simMapDrone.xPosition = this.droneService.mapSimDrones[i].xPosition;
+          this.simMapDrone.yPosition = this.droneService.mapSimDrones[i].yPosition;
+          // this.points = this.droneService.simDronesPoints[i].splice(0);
+          this.addSimPoint(this.droneService.mapSimDrones[i], i); 
         }
       }
-      }, 100);
+
+      for (let i=0; this.droneService.mapRealDrones.length; i++){
+        if(this.droneService.mapRealDrones[i].name == this.droneData.name){
+          this.realMapDrone.xPosition = this.droneService.mapRealDrones[i].xPosition;
+          this.realMapDrone.yPosition = this.droneService.mapRealDrones[i].yPosition / 2;
+          // this.points = this.droneService.simDronesPoints[i].splice(0);
+          this.addRealPoint(this.droneService.mapRealDrones[i], i); 
+        }
+      }
+      }, 250);
   }
 
+  addSimPoint(mapDrone:MapDrone, i:number): void{
+    if(mapDrone.frontDistance < MAX_SIM_RANGE) {
+      const p = {} as Vec2;
+      p.x = mapDrone.frontDistance * -0.01 + mapDrone.yPosition;
+      p.y = mapDrone.xPosition;
+      // this.simPoints.push(p);
+      this.droneService.simDronesPoints[i].push(p);
+    }
+
+    if(mapDrone.backDistance < MAX_SIM_RANGE) {
+      const p = {} as Vec2;
+      p.x = mapDrone.backDistance * 0.01 + mapDrone.yPosition;
+      p.y = mapDrone.xPosition;
+      // this.simPoints.push(p);
+      this.droneService.simDronesPoints[i].push(p);
+    }
+
+    if(mapDrone.leftDistance < MAX_SIM_RANGE) {
+      const p = {} as Vec2;
+      p.x = mapDrone.yPosition;
+      p.y = mapDrone.leftDistance * 0.01 + mapDrone.xPosition;
+      // this.simPoints.push(p);
+      this.droneService.simDronesPoints[i].push(p);
+    }
+
+    if(mapDrone.rightDistance < MAX_SIM_RANGE) {
+      const p = {} as Vec2;
+      p.x = mapDrone.yPosition;
+      p.y = mapDrone.rightDistance * -0.01 + mapDrone.xPosition;
+      // this.simPoints.push(p);
+      this.droneService.simDronesPoints[i].push(p);
+    }
+  }
+
+  addRealPoint(mapDrone:MapDrone, i: number): void{
+    if(mapDrone.frontDistance < MAX_REAL_RANGE) {
+      const p = {} as Vec2;
+      p.x = mapDrone.frontDistance * 0.001 + mapDrone.yPosition;
+      p.y = mapDrone.xPosition;
+      // this.realPoints.push(p);
+      this.droneService.realDronesPoints[i].push(p);
+    }
+
+    if(mapDrone.backDistance < MAX_REAL_RANGE) {
+      const p = {} as Vec2;
+      p.x = mapDrone.backDistance * -0.001 + mapDrone.yPosition;
+      p.y = mapDrone.xPosition;
+      // this.realPoints.push(p);
+      this.droneService.realDronesPoints[i].push(p);
+    }
+
+    if(mapDrone.leftDistance < MAX_REAL_RANGE) {
+      const p = {} as Vec2;
+      p.x = mapDrone.yPosition;
+      p.y = mapDrone.leftDistance * -0.001 + mapDrone.xPosition;
+      // this.realPoints.push(p);
+      this.droneService.realDronesPoints[i].push(p);
+    }
+
+    if(mapDrone.rightDistance < MAX_REAL_RANGE) {
+      const p = {} as Vec2;
+      p.x = mapDrone.yPosition;
+      p.y = mapDrone.rightDistance * 0.001 + mapDrone.xPosition;
+      // this.realPoints.push(p);
+      this.droneService.realDronesPoints[i].push(p);
+    }
+  }
+  
   identify(): void {
     console.log(this.droneData.name);
     let identifyCommand = {

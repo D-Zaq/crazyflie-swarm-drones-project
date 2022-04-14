@@ -1,4 +1,4 @@
-export const MAX_SIM_RANGE = 65530;
+import { MAX_REAL_RANGE, MAX_SIM_RANGE } from "../constants/constants";
 
 export interface IDrone {
 
@@ -14,13 +14,13 @@ export interface IDrone {
 }
 
 export interface Drone {
-    id: string,
+    id: any,
     name: string;
     speed: string;
     battery: string;
     xPosition: any;
     yPosition: any;
-    zPosition: string;
+    zPosition: any;
     angle: string;
     frontDistance: any;
     backDistance: any;
@@ -29,7 +29,7 @@ export interface Drone {
     state: string;
 }
 
-export interface mapDrone {
+export interface MapDrone {
     name: string;
     xPosition: any;
     yPosition: any;
@@ -38,6 +38,8 @@ export interface mapDrone {
     backDistance: any;
     leftDistance: any;
     rightDistance: any;
+    state?: any;
+    id?: any;
 }
 // export interface ArgosDrone {
 //     id: string,
@@ -52,35 +54,59 @@ export interface mapDrone {
 
 
 export const DRONE_1: Drone = {
-    id: "Drone 1",
+    id: 0,
     name: "radio://0/80/2M/E7E7E7E731",
     speed: '0',
     battery: '0',
-    xPosition: '0',
-    yPosition: '0',
-    zPosition: '0',
+    xPosition: 0,
+    yPosition: 0,
+    zPosition: 0,
     angle: '0',
-    frontDistance: '2',
-    backDistance: '2',
-    leftDistance: '2',
-    rightDistance: '2',
+    frontDistance: MAX_REAL_RANGE,
+    backDistance: MAX_REAL_RANGE,
+    leftDistance: MAX_REAL_RANGE,
+    rightDistance: MAX_REAL_RANGE,
     state: 'Disconnected',
 };
 
 export const DRONE_2: Drone = {
-    id: "Drone 2",
+    id: 1,
     name: "radio://0/80/2M/E7E7E7E732",
     speed: '0',
     battery: '0',
-    xPosition: '0',
-    yPosition: '0',
-    zPosition: '0',
+    xPosition: 0,
+    yPosition: 0,
+    zPosition: 0,
     angle: '0',
-    frontDistance: '2',
-    backDistance: '2',
-    leftDistance: '2',
-    rightDistance: '2',
+    frontDistance: MAX_REAL_RANGE,
+    backDistance: MAX_REAL_RANGE,
+    leftDistance: MAX_REAL_RANGE,
+    rightDistance: MAX_REAL_RANGE,
     state: 'Disconnected',
+};
+
+export const MAP_DRONE_1: MapDrone = {
+    name: "radio://0/80/2M/E7E7E7E731",
+    xPosition: "0",
+    yPosition: "0",
+    angle: '0',
+    frontDistance: MAX_REAL_RANGE,
+    backDistance: MAX_REAL_RANGE,
+    leftDistance: MAX_REAL_RANGE,
+    rightDistance: MAX_REAL_RANGE,
+    id: 0,
+};
+
+export const MAP_DRONE_2: MapDrone = {
+    name: "radio://0/80/2M/E7E7E7E732",
+    xPosition: "0",
+    yPosition: "0",
+    angle: '0',
+    frontDistance: MAX_REAL_RANGE,
+    backDistance: MAX_REAL_RANGE,
+    leftDistance: MAX_REAL_RANGE,
+    rightDistance: MAX_REAL_RANGE,
+    id: 1,
 };
 
 export const SIM_DRONE_1: Drone = {

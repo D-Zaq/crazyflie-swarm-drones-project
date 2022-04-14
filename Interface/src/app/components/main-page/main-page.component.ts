@@ -20,16 +20,13 @@ export interface Point {
   styleUrls: ['./main-page.component.scss']
 })
 export class MainPageComponent implements OnInit {
-  // @ViewChild('svg', {
-  //   static: false,
-  // })
-  // svgRef: ElementRef<SVGSVGElement>;
 
   realDrones: Drone[] = [DRONE_1, DRONE_2];
   simDrones: Drone[] = [];
   private unsubscribe$ = (new Subject<void>());
   isSimulation = true;
   points: Vec2[]= [];
+  missionEnded: boolean = true;
   
   constructor(public droneService:DronesService) {
     
@@ -41,50 +38,58 @@ export class MainPageComponent implements OnInit {
         startWith(0),
         takeUntil(this.unsubscribe$),
       )
-      .subscribe(() => this.droneService.getData().subscribe(res => {
-        for(let i=0; res.length; i++){
-          const droneIndex = this.simDrones.findIndex((r) => r.name === res[i].name);
-          if (droneIndex === -1) {
-            this.simDrones.push(res[i] as Drone);
-          } else {
-            Object.assign(this.simDrones[droneIndex], res[i]);
-          }
-          // this.addPoint(this.simDrones[i]);  
+      .subscribe(() => {
+        if(this.isSimulation){
+          this.droneService.getData().subscribe(res => {
+            for(let i=0; res.length; i++){
+              const droneIndex = this.simDrones.findIndex((r) => r.name === res[i].name);
+              if (droneIndex === -1) {
+                this.simDrones.push(res[i] as Drone);
+              } else {
+                Object.assign(this.simDrones[droneIndex], res[i]);
+              }
+            }
+          })
+          this.missionEnded = this.checkMissionEnd();
         }
-      }));
-      interval(800)
+      });
+      interval(900)
       .pipe(
         startWith(0),
         takeUntil(this.unsubscribe$),
       )
-      .subscribe(() => this.droneService.getCFData().subscribe(res => {
-        if(res.name == this.realDrones[0].name){
-          this.realDrones[0].speed = res.speed;
-          this.realDrones[0].battery = res.battery;
-          this.realDrones[0].xPosition = res.xPosition;
-          this.realDrones[0].yPosition = res.yPosition;
-          this.realDrones[0].zPosition = res.zPosition;
-          this.realDrones[0].angle = res.angle;
-          this.realDrones[0].frontDistance = res.frontDistance;
-          this.realDrones[0].backDistance = res.backDistance;
-          this.realDrones[0].leftDistance = res.leftDistance;
-          this.realDrones[0].rightDistance = res.rightDistance;
-          this.realDrones[0].state = res.state;
-        }
-        else if(res.name == this.realDrones[1].name){
-          this.realDrones[1].speed = res.speed;
-          this.realDrones[1].battery = res.battery;
-          this.realDrones[1].xPosition = res.xPosition;
-          this.realDrones[1].yPosition = res.yPosition;
-          this.realDrones[1].zPosition = res.zPosition;
-          this.realDrones[1].angle = res.angle;
-          this.realDrones[1].frontDistance = res.frontDistance;
-          this.realDrones[1].backDistance = res.backDistance;
-          this.realDrones[1].leftDistance = res.leftDistance;
-          this.realDrones[1].rightDistance = res.rightDistance;
-          this.realDrones[1].state = res.state;
-        }
-      }));
+      .subscribe(() => {
+        if(!this.isSimulation){
+          this.droneService.getCFData().subscribe(res => {
+          if(res.name == this.realDrones[0].name){
+            this.realDrones[0].speed = res.speed;
+            this.realDrones[0].battery = res.battery;
+            this.realDrones[0].xPosition = res.xPosition;
+            this.realDrones[0].yPosition = res.yPosition;
+            this.realDrones[0].zPosition = res.zPosition;
+            this.realDrones[0].angle = res.angle;
+            this.realDrones[0].frontDistance = res.frontDistance;
+            this.realDrones[0].backDistance = res.backDistance;
+            this.realDrones[0].leftDistance = res.leftDistance;
+            this.realDrones[0].rightDistance = res.rightDistance;
+            this.realDrones[0].state = res.state;
+          }
+          else if(res.name == this.realDrones[1].name){
+            this.realDrones[1].speed = res.speed;
+            this.realDrones[1].battery = res.battery;
+            this.realDrones[1].xPosition = res.xPosition;
+            this.realDrones[1].yPosition = res.yPosition;
+            this.realDrones[1].zPosition = res.zPosition;
+            this.realDrones[1].angle = res.angle;
+            this.realDrones[1].frontDistance = res.frontDistance;
+            this.realDrones[1].backDistance = res.backDistance;
+            this.realDrones[1].leftDistance = res.leftDistance;
+            this.realDrones[1].rightDistance = res.rightDistance;
+            this.realDrones[1].state = res.state;
+          }
+        })
+      }
+    });
   }
 
   ngOnDestroy(){
@@ -96,33 +101,17 @@ export class MainPageComponent implements OnInit {
     this.droneService.isSimulation = !this.droneService.isSimulation;
   }
 
-  // addPoint(simDrone:Drone): void{
-  //   if(simDrone.frontDistance < 65510) {
-  //     const p = {} as Vec2;
-  //     p.x = simDrone.frontDistance * -0.01 + simDrone.yPosition;
-  //     p.y = simDrone.xPosition;
-  //     this.points.push(p);
-  //   }
+  checkMissionEnd(): boolean{
+    // if(this.droneService.mapSimDrones.length === 0) {
+    //   return false;
+    // }
 
-  //   if(simDrone.backDistance < 65510) {
-  //     const p = {} as Vec2;
-  //     p.x = simDrone.backDistance * 0.01 + simDrone.yPosition;
-  //     p.y = simDrone.xPosition;
-  //     this.points.push(p);
-  //   }
-
-  //   if(simDrone.leftDistance < 65510) {
-  //     const p = {} as Vec2;
-  //     p.x = simDrone.yPosition;
-  //     p.y = simDrone.leftDistance * 0.01 + simDrone.xPosition;
-  //     this.points.push(p);
-  //   }
-
-  //   if(simDrone.rightDistance < 65510) {
-  //     const p = {} as Vec2;
-  //     p.x = simDrone.yPosition;
-  //     p.y = simDrone.rightDistance * -0.01 + simDrone.xPosition;
-  //     this.points.push(p);
-  //   }
-  // }
+    // for(let i=0; this.droneService.mapSimDrones.length; i++){
+    //   if(this.droneService.mapSimDrones[i].state != 'on_the_ground'){
+    //     return false;
+    //   }
+    // }
+    // this.droneService.saveMission();
+    return true;
+  }
 }

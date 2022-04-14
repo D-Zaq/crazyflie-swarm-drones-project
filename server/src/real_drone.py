@@ -9,9 +9,9 @@ class RealDrone(TypedDict):
     name: str
     speed: str
     battery: str
-    xPosition: str
-    yPosition: str
-    zPosition: str
+    xPosition: float
+    yPosition: float
+    zPosition: float
     angle: str
     frontDistance: str
     backDistance: str
@@ -20,8 +20,7 @@ class RealDrone(TypedDict):
     state: str
 
 
-
-# def create_drones(): 
+# def create_drones():
 
 #     drone = RealDrone()
 #     # drones = []
@@ -41,8 +40,8 @@ class RealDrone(TypedDict):
 #             # print('======================= here distance end line ==========================')
 #             # print(distanceEndLine)
 #             with open('battery.csv', 'r') as batteryFile:
-#                 batteryReader = csv.reader(batteryFile)                
-#                 batteryLines = list(batteryReader)                
+#                 batteryReader = csv.reader(batteryFile)
+#                 batteryLines = list(batteryReader)
 #                 batteryEndLine = len(batteryLines)-1
 #                 # print('======================= here battery end line ==========================')
 #                 # print(batteryEndLine)
