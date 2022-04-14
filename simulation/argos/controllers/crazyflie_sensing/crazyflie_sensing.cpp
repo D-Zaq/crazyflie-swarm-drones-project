@@ -19,6 +19,8 @@
 /****************************************/
 /****************************************/
 
+static uint16_t id = 1;
+
 CCrazyflieSensing::CCrazyflieSensing() : m_pcDistance(NULL),
                                          m_pcPropellers(NULL),
                                          m_pcRNG(NULL),
@@ -27,7 +29,8 @@ CCrazyflieSensing::CCrazyflieSensing() : m_pcDistance(NULL),
                                          m_pcPos(NULL),
                                          m_pcBattery(NULL),
                                          m_uiCurrentStep(0),
-                                         drone_data_("Sim_Drone_1") {}
+                                         id_(id++),
+                                         drone_data_("Sim_Drone_") {}
 
 int sock_ = 0;
 bool flying = false;
@@ -73,8 +76,12 @@ void CCrazyflieSensing::Init(TConfigurationNode &t_node)
       that creation, reset, seeding and cleanup are managed by ARGoS. */
    m_pcRNG = CRandom::CreateRNG("argos");
 
+   drone_data_.setName("Sim_Drone_" + GetId());
+   drone_data_.setId(GetId());
+
    m_uiCurrentStep = 0;
-   this->sock = connectServer();
+   if (id_ == 2)
+      socke = connectServer();
    Reset();
 }
 
@@ -115,7 +122,7 @@ char CCrazyflieSensing::readBuffer()
    int currentCommand = 0;
    char command;
 
-   valread = recv(this->sock, buffer, 1024, MSG_PEEK);
+   valread = recv(socke, buffer, 1024, MSG_PEEK);
 
    for (int i = 0; i < valread; i++)
    {
@@ -400,7 +407,7 @@ bool CCrazyflieSensing::Land()
 /****************************************/
 int CCrazyflieSensing::SendCommand(std::string message)
 {
-   return send(this->sock, message.c_str(), message.size(), 0);
+   return send(socke, message.c_str(), message.size(), 0);
 }
 
 void CCrazyflieSensing::Reset()
