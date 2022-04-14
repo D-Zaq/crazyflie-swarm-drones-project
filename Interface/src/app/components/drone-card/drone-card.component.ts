@@ -15,17 +15,12 @@ export class DroneCardComponent implements OnInit {
   @Input() droneData: Drone = DRONE_1;
   simMapDrone = {} as MapDrone;
   realMapDrone = {} as MapDrone;
-  // simPoints: Vec2[]= [];
-  // realPoints: Vec2[]= [];
   id: any;
 
   constructor(public droneService:DronesService) { }
 
   ngOnInit(): void {
     this.updateMapDroneData();
-    // this.id = setInterval(() => {
-    // this.updateMapDroneData(); 
-    // }, 100);
   }
 
   ngOnDestroy() {
@@ -36,12 +31,10 @@ export class DroneCardComponent implements OnInit {
 
   updateMapDroneData(): void{
     this.id = setInterval(() => {
-      // this.updateMapDroneData(); 
       for (let i=0; this.droneService.mapSimDrones.length; i++){
         if(this.droneService.mapSimDrones[i].name == this.droneData.name){
           this.simMapDrone.xPosition = this.droneService.mapSimDrones[i].xPosition;
           this.simMapDrone.yPosition = this.droneService.mapSimDrones[i].yPosition;
-          // this.points = this.droneService.simDronesPoints[i].splice(0);
           this.addSimPoint(this.droneService.mapSimDrones[i], i); 
         }
       }
@@ -50,7 +43,6 @@ export class DroneCardComponent implements OnInit {
         if(this.droneService.mapRealDrones[i].name == this.droneData.name){
           this.realMapDrone.xPosition = this.droneService.mapRealDrones[i].xPosition;
           this.realMapDrone.yPosition = this.droneService.mapRealDrones[i].yPosition / 2;
-          // this.points = this.droneService.simDronesPoints[i].splice(0);
           this.addRealPoint(this.droneService.mapRealDrones[i], i); 
         }
       }
@@ -62,7 +54,6 @@ export class DroneCardComponent implements OnInit {
       const p = {} as Vec2;
       p.x = mapDrone.frontDistance * -0.01 + mapDrone.yPosition;
       p.y = mapDrone.xPosition;
-      // this.simPoints.push(p);
       this.droneService.simDronesPoints[i].push(p);
     }
 
@@ -70,7 +61,6 @@ export class DroneCardComponent implements OnInit {
       const p = {} as Vec2;
       p.x = mapDrone.backDistance * 0.01 + mapDrone.yPosition;
       p.y = mapDrone.xPosition;
-      // this.simPoints.push(p);
       this.droneService.simDronesPoints[i].push(p);
     }
 
@@ -78,7 +68,6 @@ export class DroneCardComponent implements OnInit {
       const p = {} as Vec2;
       p.x = mapDrone.yPosition;
       p.y = mapDrone.leftDistance * 0.01 + mapDrone.xPosition;
-      // this.simPoints.push(p);
       this.droneService.simDronesPoints[i].push(p);
     }
 
@@ -86,7 +75,6 @@ export class DroneCardComponent implements OnInit {
       const p = {} as Vec2;
       p.x = mapDrone.yPosition;
       p.y = mapDrone.rightDistance * -0.01 + mapDrone.xPosition;
-      // this.simPoints.push(p);
       this.droneService.simDronesPoints[i].push(p);
     }
   }
@@ -96,7 +84,6 @@ export class DroneCardComponent implements OnInit {
       const p = {} as Vec2;
       p.x = mapDrone.frontDistance * 0.001 + mapDrone.yPosition;
       p.y = mapDrone.xPosition;
-      // this.realPoints.push(p);
       this.droneService.realDronesPoints[i].push(p);
     }
 
@@ -104,7 +91,6 @@ export class DroneCardComponent implements OnInit {
       const p = {} as Vec2;
       p.x = mapDrone.backDistance * -0.001 + mapDrone.yPosition;
       p.y = mapDrone.xPosition;
-      // this.realPoints.push(p);
       this.droneService.realDronesPoints[i].push(p);
     }
 
@@ -112,7 +98,6 @@ export class DroneCardComponent implements OnInit {
       const p = {} as Vec2;
       p.x = mapDrone.yPosition;
       p.y = mapDrone.leftDistance * -0.001 + mapDrone.xPosition;
-      // this.realPoints.push(p);
       this.droneService.realDronesPoints[i].push(p);
     }
 
@@ -120,7 +105,6 @@ export class DroneCardComponent implements OnInit {
       const p = {} as Vec2;
       p.x = mapDrone.yPosition;
       p.y = mapDrone.rightDistance * 0.001 + mapDrone.xPosition;
-      // this.realPoints.push(p);
       this.droneService.realDronesPoints[i].push(p);
     }
   }
