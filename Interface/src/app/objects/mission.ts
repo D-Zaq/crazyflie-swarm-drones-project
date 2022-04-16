@@ -5,7 +5,7 @@ export interface Mission {
     id: number;
     drones: MapDrone[];
     allPoints: Vec2[];
-    // dronesPoints: Vec2[][];
+    dronesPoints?: any;
     type: string;
     date: string;
   }

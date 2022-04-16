@@ -1,0 +1,9 @@
+{
+    "files.associations": {
+        "commandhandler.h": "c",
+        "missioncommands.h": "c",
+        "sensorcommands.h": "c",
+        "info.h": "c",
+        "informationhandler.h": "c"
+    }
+}

@@ -36,7 +36,7 @@
                 </ng-container>
               </div>
               <div class="maps">
-                <!-- <ng-container *ngFor="let drone of this.mission.drones"> 
+                <ng-container *ngFor="let drone of this.mission.drones"> 
                   <svg [attr.viewBox]="this.mission.type === 'simulation' ? '-2.5 -2.5 5 5' : '-2 -2 4 4'" #svg>
                     <g>
                       <circle
@@ -76,7 +76,7 @@
                     stroke-opacity="0.40"
                     />
                   </svg>
-                </ng-container> -->
+                </ng-container>
                 <svg [attr.viewBox]="this.mission.type === 'simulation' ? '-2.5 -2.5 5 5' : '-2 -2 4 4'" #svg>
                   <g>
                     <circle

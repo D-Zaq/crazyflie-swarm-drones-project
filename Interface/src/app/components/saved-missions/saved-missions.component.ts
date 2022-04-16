@@ -14,6 +14,7 @@ export class SavedMissionsComponent implements OnInit {
   constructor(public droneService:DronesService) { }
 
   ngOnInit(): void {
+    this.mission.dronesPoints = JSON.parse(this.mission.dronesPoints);
   }
 
   onExpand(){

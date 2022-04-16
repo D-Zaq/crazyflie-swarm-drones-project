@@ -103,7 +103,7 @@ export class MainPageComponent implements OnInit {
     });
   }
 
-  ngOnDestroy(){
+  ngOnDestroy(): void{
     this.unsubscribe$.next();
     this.unsubscribe$.complete();
   }
@@ -134,7 +134,7 @@ export class MainPageComponent implements OnInit {
         id: Math.round(Math.random() + dateNow.valueOf()),
         drones: this.droneService.mapSimDrones,
         allPoints: this.droneService.simPoints,
-        // dronesPoints: this.simDronesPoints,
+        dronesPoints: JSON.stringify(this.droneService.simDronesPoints),
         type: "simulation",
         date: dateNow.toUTCString()
       };
@@ -144,7 +144,7 @@ export class MainPageComponent implements OnInit {
         id: Math.round(Math.random() + dateNow.valueOf()),
         drones: this.droneService.mapRealDrones,
         allPoints: this.droneService.realPoints,
-        // dronesPoints: this.realDronesPoints,
+        dronesPoints: JSON.stringify(this.droneService.realDronesPoints),
         type: "real",
         date: dateNow.toUTCString()
       };
