@@ -5,14 +5,17 @@ import 'rxjs/add/operator/catch';
 import {CommandStruct, Drone, MapDrone, MAP_DRONE_1, MAP_DRONE_2} from '../../objects/drones';
 import {API_URL} from '../../env';
 import { Vec2 } from 'src/app/objects/vec2';
+import { Mission} from 'src/app/objects/mission';
+import { catchError } from 'rxjs/operators';
+import { of } from 'rxjs';
 // import {IDrone} from '../../objects/drones';
 
-type ServerLog = { 
+export type ServerLog = { 
   log: string; 
   timestamp: number;
 };
 
-type ServerSimDrone = { 
+export type ServerSimDrone = { 
   id: string;
   name: string;
   speed: string;
@@ -28,7 +31,7 @@ type ServerSimDrone = {
   state:string;
 };
 
-type ServerRealDrone = { 
+export type ServerRealDrone = { 
   name: string;
   speed: string;
   battery: string;
@@ -42,15 +45,6 @@ type ServerRealDrone = {
   rightDistance: string;
   state:string;
 };
-
-interface Mission {
-  id: number;
-  drones: MapDrone[];
-  allPoints: Vec2[];
-  dronesPoints: Vec2[][];
-  type: string;
-  date: string;
-}
 
 @Injectable({
   providedIn: 'root'
@@ -103,56 +97,38 @@ export class DronesService {
   sendCommand(command: CommandStruct){
     // this calls the communication service method with the needed parameters for request
     return this.isSimulation ? this.http.post(this.argosServerAddress,command.command)
-    .catch(DronesService._handleError): 
+    .pipe(
+      catchError((error: HttpErrorResponse) => {
+          return of(error.status);
+      }),
+  ): 
     this.http.post(this.crazyflieServerAddress,command)
-    .catch(DronesService._handleError)
+    .pipe(
+      catchError((error: HttpErrorResponse) => {
+          return of(error.status);
+      }),
+  );
   }
 
-  getData() {
-    return this.http.get<ServerSimDrone[]>(this.argosDataAddress)
-      .catch(DronesService._handleError);
+  getData(): Observable<ServerSimDrone[]> {
+    return this.http.get<ServerSimDrone[]>(this.argosDataAddress);
   }
 
-  getCFData() {
-    return this.http.get<ServerRealDrone>(this.cfDataServerAdress)
-      .catch(DronesService._handleError);
+  getCFData(): Observable<ServerRealDrone> {
+    return this.http.get<ServerRealDrone>(this.cfDataServerAdress);
   }
 
-  getLogs() {
-    return this.http.get<ServerLog[]>(this.logsAddress)
-      .catch(DronesService._handleError);
+  getLogs(): Observable<ServerLog[]> {
+    return this.http.get<ServerLog[]>(this.logsAddress);
   }
 
-  getSimMapData() {
-    return this.http.get<ServerSimDrone[]>(this.simMapDataAddress)
-      .catch(DronesService._handleError);
+  getSimMapData(): Observable<ServerSimDrone[]> {
+    return this.http.get<ServerSimDrone[]>(this.simMapDataAddress);
   }
 
-  getRealMapData() {
-    return this.http.get<ServerRealDrone>(this.realMapDataAddress)
-      .catch(DronesService._handleError);
+  getRealMapData(): Observable<ServerRealDrone> {
+    return this.http.get<ServerRealDrone>(this.realMapDataAddress);
   }
 
-  saveMission(): void {
-    const dateNow: Date = new Date();
-    if(this.isSimulation === true)
-      this.mission = {
-        id: Math.random(),
-        drones: this.mapSimDrones,
-        allPoints: this.simPoints,
-        dronesPoints: this.simDronesPoints,
-        type: "simulation",
-        date: dateNow.toUTCString()
-      };
-    else{
-      this.mission = {
-        id: Math.random(),
-        drones: this.mapRealDrones,
-        allPoints: this.realPoints,
-        dronesPoints: this.realDronesPoints,
-        type: "real",
-        date: dateNow.toUTCString()
-      };
-    }
-  }
+  
 }

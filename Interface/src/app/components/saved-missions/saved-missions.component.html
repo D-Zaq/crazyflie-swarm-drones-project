@@ -1,5 +1,5 @@
-<p>saved-missions works!</p>
-<ng-container >
+
+<ng-container class="saved-mission">
     <table>
       <tr>
         <th>Id</th>
@@ -10,9 +10,9 @@
       </tr>
       <ng-container >
         <tr #tableRow>
-          <td>{{this.droneService.mission.id}}</td>
-          <td>{{this.droneService.mission.date}}</td>
-          <td>{{this.droneService.mission.type}}</td>
+          <td>{{this.mission.id}}</td>
+          <td>{{this.mission.date}}</td>
+          <td>{{this.mission.type}}</td>
           <td>
             <mat-icon class = "icon">history</mat-icon>
           </td>
@@ -31,16 +31,16 @@
             <div class="center flex-column">
               <div class="drone-list">
                 <p>Drones :</p>
-                <ng-container *ngFor="let drone of this.droneService.mission.drones">
+                <ng-container *ngFor="let drone of this.mission.drones">
                   <p>{{drone.name}}</p>
                 </ng-container>
               </div>
               <div class="maps">
-                <ng-container *ngFor="let drone of this.droneService.mission.drones"> 
-                  <svg [attr.viewBox]="this.droneService.mission.type === 'simulation' ? '-2.5 -2.5 5 5' : '-2 -2 4 4'" #svg>
+                <!-- <ng-container *ngFor="let drone of this.mission.drones"> 
+                  <svg [attr.viewBox]="this.mission.type === 'simulation' ? '-2.5 -2.5 5 5' : '-2 -2 4 4'" #svg>
                     <g>
                       <circle
-                      *ngFor="let point of this.droneService.mission.dronesPoints[drone.id]"
+                      *ngFor="let point of this.mission.dronesPoints[drone.id]"
                       fill="red"
                       [attr.cx]="point.x"
                       [attr.cy]="point.y"
@@ -49,8 +49,8 @@
                     </g>
                     <use
                     xlink:href="/assets/drone.svg#drone"
-                    [attr.x]="this.droneService.mission.type === 'simulation' ? this.droneService.mission.drones[drone.id].yPosition : this.droneService.mission.drones[drone.id].xPosition"
-                    [attr.y]="this.droneService.mission.type === 'simulation' ? this.droneService.mission.drones[drone.id].xPosition : this.droneService.mission.drones[drone.id].yPosition"
+                    [attr.x]="this.mission.type === 'simulation' ? this.mission.drones[drone.id].yPosition : this.mission.drones[drone.id].xPosition"
+                    [attr.y]="this.mission.type === 'simulation' ? this.mission.drones[drone.id].xPosition : this.mission.drones[drone.id].yPosition"
                     width="0.15"
                     height="0.15"
                     fill="green"
@@ -76,11 +76,11 @@
                     stroke-opacity="0.40"
                     />
                   </svg>
-                </ng-container>
-                <svg [attr.viewBox]="this.droneService.mission.type === 'simulation' ? '-2.5 -2.5 5 5' : '-2 -2 4 4'" #svg>
+                </ng-container> -->
+                <svg [attr.viewBox]="this.mission.type === 'simulation' ? '-2.5 -2.5 5 5' : '-2 -2 4 4'" #svg>
                   <g>
                     <circle
-                    *ngFor="let point of this.droneService.mission.allPoints"
+                    *ngFor="let point of this.mission.allPoints"
                     fill="red"
                     [attr.cx]="point.x"
                     [attr.cy]="point.y"
@@ -88,10 +88,10 @@
                     />
                   </g>
                   <use
-                  *ngFor="let mapDrone of this.droneService.mission.drones"
+                  *ngFor="let mapDrone of this.mission.drones"
                   xlink:href="/assets/drone.svg#drone"
-                  [attr.x]="this.droneService.mission.type === 'simulation' ? mapDrone.yPosition : mapDrone.xPosition"
-                  [attr.y]="this.droneService.mission.type === 'simulation' ? mapDrone.xPosition : mapDrone.yPosition"
+                  [attr.x]="this.mission.type === 'simulation' ? mapDrone.yPosition : mapDrone.xPosition"
+                  [attr.y]="this.mission.type === 'simulation' ? mapDrone.xPosition : mapDrone.yPosition"
                   width="0.15"
                   height="0.15"
                   fill="green"

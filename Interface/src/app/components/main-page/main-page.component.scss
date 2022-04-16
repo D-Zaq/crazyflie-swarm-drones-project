@@ -111,3 +111,13 @@ svg {
   gap: 1rem;
   margin-bottom: 1rem;
 }
+
+::ng-deep .green-snackbar {
+  color: white;
+  background-color: rgba($color: rgb(21, 95, 49), $alpha: 0.65);
+}
+
+::ng-deep .red-snackbar {
+  color: white;
+  background-color: rgba($color: rgb(148, 44, 17), $alpha: 0.65);
+}

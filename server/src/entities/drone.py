@@ -15,7 +15,6 @@ class Drone(Entity, Base):
     ledOn = Column(Boolean)
     real = Column(Boolean)
 
-
     def __init__(self, name, speed, battery, ledOn, real, created_by):
         Entity.__init__(self, created_by)
         self.name = name

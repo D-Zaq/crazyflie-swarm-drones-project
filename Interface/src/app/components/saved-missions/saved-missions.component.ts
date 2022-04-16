@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { Mission } from 'src/app/objects/mission';
 import { DronesService } from 'src/app/services/drones/drones.service';
 
 @Component({
@@ -9,6 +10,7 @@ import { DronesService } from 'src/app/services/drones/drones.service';
 export class SavedMissionsComponent implements OnInit {
 
   isExpanded:boolean = false;
+  @Input() mission = {} as Mission;
   constructor(public droneService:DronesService) { }
 
   ngOnInit(): void {
@@ -17,5 +19,4 @@ export class SavedMissionsComponent implements OnInit {
   onExpand(){
     this.isExpanded = !this.isExpanded;
   }
-
 }

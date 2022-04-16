@@ -1,9 +1,13 @@
+import { INT_TYPE } from '@angular/compiler/src/output/output_ast';
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { interval, Subject } from 'rxjs';
 import { startWith, switchMap, takeUntil } from 'rxjs/operators';
 import {Drone, DRONE_1, DRONE_2, SIM_DRONE_1, SIM_DRONE_10, SIM_DRONE_2, SIM_DRONE_3, SIM_DRONE_4, SIM_DRONE_5, SIM_DRONE_6, SIM_DRONE_7, SIM_DRONE_8, SIM_DRONE_9 } from 'src/app/objects/drones';
-import { DronesService } from 'src/app/services/drones/drones.service';
+import { Mission } from 'src/app/objects/mission';
+import { DronesService, ServerSimDrone } from 'src/app/services/drones/drones.service';
 
 export interface Vec2 {
   x: number;
@@ -28,7 +32,7 @@ export class MainPageComponent implements OnInit {
   points: Vec2[]= [];
   missionEnded: boolean = true;
   
-  constructor(public droneService:DronesService) {
+  constructor(public droneService:DronesService, public angularFirestore: AngularFirestore, private snackBar: MatSnackBar) {
     
   }
 
@@ -40,7 +44,7 @@ export class MainPageComponent implements OnInit {
       )
       .subscribe(() => {
         if(this.isSimulation){
-          this.droneService.getData().subscribe(res => {
+          this.droneService.getData().subscribe((res: ServerSimDrone[]) => {
             for(let i=0; res.length; i++){
               const droneIndex = this.simDrones.findIndex((r) => r.name === res[i].name);
               if (droneIndex === -1) {
@@ -49,7 +53,11 @@ export class MainPageComponent implements OnInit {
                 Object.assign(this.simDrones[droneIndex], res[i]);
               }
             }
-          })
+          },
+          (error: number)=>{
+            
+          },
+          )
           this.missionEnded = this.checkMissionEnd();
         }
       });
@@ -87,6 +95,9 @@ export class MainPageComponent implements OnInit {
             this.realDrones[1].rightDistance = res.rightDistance;
             this.realDrones[1].state = res.state;
           }
+        },
+        (error)=>{
+
         })
       }
     });
@@ -114,4 +125,42 @@ export class MainPageComponent implements OnInit {
     // this.droneService.saveMission();
     return true;
   }
+
+  saveMission(): void {
+    const dateNow: Date = new Date();
+    let mission = {} as Mission;
+    if(this.isSimulation === true){
+      mission = {
+        id: Math.round(Math.random() + dateNow.valueOf()),
+        drones: this.droneService.mapSimDrones,
+        allPoints: this.droneService.simPoints,
+        // dronesPoints: this.simDronesPoints,
+        type: "simulation",
+        date: dateNow.toUTCString()
+      };
+
+    }else{
+      mission = {
+        id: Math.round(Math.random() + dateNow.valueOf()),
+        drones: this.droneService.mapRealDrones,
+        allPoints: this.droneService.realPoints,
+        // dronesPoints: this.realDronesPoints,
+        type: "real",
+        date: dateNow.toUTCString()
+      };
+    }
+    this.angularFirestore.collection('crazyflieApp').add(mission).then((response)=>{
+      this.openSnackBar('La mission a été sauvegardé avec succès', 'Fermer', 'green-snackbar');
+    }).catch((error)=>{
+      this.openSnackBar('la base de données est actuellement indisponible', 'Fermer', 'red-snackbar');
+    });
+  }
+
+  openSnackBar(message: string, action: string, type: string): void {
+    this.snackBar.open(message, action, {
+        duration: 4000,
+        verticalPosition: 'bottom',
+        panelClass: [type],
+    });
+}
 }

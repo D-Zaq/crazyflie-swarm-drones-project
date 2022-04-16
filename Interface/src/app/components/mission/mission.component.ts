@@ -60,7 +60,8 @@ export class MissionComponent implements OnInit {
 
             this.addSimPoint(this.droneService.mapSimDrones[i]);  
           }
-          })
+          },
+          (error)=>{})
         }  
       });
 
@@ -74,7 +75,7 @@ export class MissionComponent implements OnInit {
             this.droneService.getRealMapData().subscribe(res => {
               const drone= {} as MapDrone;
               drone.xPosition = res.xPosition;
-              drone.yPosition = res.yPosition / 2;
+              drone.yPosition = -res.yPosition / 2;
               drone.angle = res.angle;
               drone.frontDistance = res.frontDistance;
               drone.backDistance = res.backDistance;
@@ -90,6 +91,9 @@ export class MissionComponent implements OnInit {
                 this.addRealPoint(this.droneService.mapRealDrones[1]); 
               }
               // this.droneService.simDronessimPoints.length = 0;
+            },
+            (error)=>{
+              
             })
         }
       });

@@ -1,6 +1,6 @@
 import { outputAst } from '@angular/compiler';
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { MAX_REAL_RANGE, MAX_SIM_RANGE } from 'src/app/constants/constants';
+import { MAX_REAL_RANGE, MAX_SIM_RANGE, REAL_DISTANCE_SCALE, SIM_DISTANCE_SCALE } from 'src/app/constants/constants';
 import {Drone, DRONE_1, Command, CommandStruct, MapDrone} from 'src/app/objects/drones';
 import { DronesService } from 'src/app/services/drones/drones.service';
 import { Vec2 } from '../main-page/main-page.component';
@@ -42,7 +42,7 @@ export class DroneCardComponent implements OnInit {
       for (let i=0; this.droneService.mapRealDrones.length; i++){
         if(this.droneService.mapRealDrones[i].name == this.droneData.name){
           this.realMapDrone.xPosition = this.droneService.mapRealDrones[i].xPosition;
-          this.realMapDrone.yPosition = this.droneService.mapRealDrones[i].yPosition / 2;
+          this.realMapDrone.yPosition = this.droneService.mapRealDrones[i].yPosition;
           this.addRealPoint(this.droneService.mapRealDrones[i], i); 
         }
       }
@@ -52,14 +52,14 @@ export class DroneCardComponent implements OnInit {
   addSimPoint(mapDrone:MapDrone, i:number): void{
     if(mapDrone.frontDistance < MAX_SIM_RANGE) {
       const p = {} as Vec2;
-      p.x = mapDrone.frontDistance * -0.01 + mapDrone.yPosition;
+      p.x = mapDrone.frontDistance * -SIM_DISTANCE_SCALE + mapDrone.yPosition;
       p.y = mapDrone.xPosition;
       this.droneService.simDronesPoints[i].push(p);
     }
 
     if(mapDrone.backDistance < MAX_SIM_RANGE) {
       const p = {} as Vec2;
-      p.x = mapDrone.backDistance * 0.01 + mapDrone.yPosition;
+      p.x = mapDrone.backDistance * SIM_DISTANCE_SCALE + mapDrone.yPosition;
       p.y = mapDrone.xPosition;
       this.droneService.simDronesPoints[i].push(p);
     }
@@ -67,14 +67,14 @@ export class DroneCardComponent implements OnInit {
     if(mapDrone.leftDistance < MAX_SIM_RANGE) {
       const p = {} as Vec2;
       p.x = mapDrone.yPosition;
-      p.y = mapDrone.leftDistance * 0.01 + mapDrone.xPosition;
+      p.y = mapDrone.leftDistance * SIM_DISTANCE_SCALE + mapDrone.xPosition;
       this.droneService.simDronesPoints[i].push(p);
     }
 
     if(mapDrone.rightDistance < MAX_SIM_RANGE) {
       const p = {} as Vec2;
       p.x = mapDrone.yPosition;
-      p.y = mapDrone.rightDistance * -0.01 + mapDrone.xPosition;
+      p.y = mapDrone.rightDistance * -SIM_DISTANCE_SCALE + mapDrone.xPosition;
       this.droneService.simDronesPoints[i].push(p);
     }
   }
@@ -82,14 +82,14 @@ export class DroneCardComponent implements OnInit {
   addRealPoint(mapDrone:MapDrone, i: number): void{
     if(mapDrone.frontDistance < MAX_REAL_RANGE) {
       const p = {} as Vec2;
-      p.x = mapDrone.frontDistance * 0.001 + mapDrone.yPosition;
+      p.x = mapDrone.frontDistance * REAL_DISTANCE_SCALE + mapDrone.yPosition;
       p.y = mapDrone.xPosition;
       this.droneService.realDronesPoints[i].push(p);
     }
 
     if(mapDrone.backDistance < MAX_REAL_RANGE) {
       const p = {} as Vec2;
-      p.x = mapDrone.backDistance * -0.001 + mapDrone.yPosition;
+      p.x = mapDrone.backDistance * -REAL_DISTANCE_SCALE + mapDrone.yPosition;
       p.y = mapDrone.xPosition;
       this.droneService.realDronesPoints[i].push(p);
     }
@@ -97,14 +97,14 @@ export class DroneCardComponent implements OnInit {
     if(mapDrone.leftDistance < MAX_REAL_RANGE) {
       const p = {} as Vec2;
       p.x = mapDrone.yPosition;
-      p.y = mapDrone.leftDistance * -0.001 + mapDrone.xPosition;
+      p.y = mapDrone.leftDistance * REAL_DISTANCE_SCALE + mapDrone.xPosition;
       this.droneService.realDronesPoints[i].push(p);
     }
 
     if(mapDrone.rightDistance < MAX_REAL_RANGE) {
       const p = {} as Vec2;
       p.x = mapDrone.yPosition;
-      p.y = mapDrone.rightDistance * 0.001 + mapDrone.xPosition;
+      p.y = mapDrone.rightDistance * -REAL_DISTANCE_SCALE + mapDrone.xPosition;
       this.droneService.realDronesPoints[i].push(p);
     }
   }
