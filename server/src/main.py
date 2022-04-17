@@ -205,9 +205,9 @@ if __name__ == '__main__':
         if isinstance(handler, logging.FileHandler):
             handler.setFormatter(formatter)
 
-    argosServerThread = ArgosServer.start()
-    logging.info('Argos server launched')
-    argosServerThread.join()
+    # argosServerThread = ArgosServer.start()
+    # logging.info('Argos server launched')
+    # argosServerThread.join()
 
     CrazyflieServerThread = CrazyflieServer().start()
 

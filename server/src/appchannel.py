@@ -1,6 +1,7 @@
 
 import csv
 import logging
+import string
 import struct
 from threading import Thread
 import time
@@ -20,6 +21,7 @@ class AppChannel:
         self._cf: Union[Crazyflie, None] = None
         self.log: Union[ConnectLog, None] = None
         self.connexionState: bool = False
+        self.state: string = "Disconnected"
 
     def connect(self, droneUri: str) -> None:
         """Assign the client to the connection. Add callbacks for the
@@ -44,13 +46,39 @@ class AppChannel:
         self._cf.appchannel.packet_received.add_callback(
             self._app_packet_received)
 
+        # self._cf.appchannel.packet_received.add_callback(
+        #     self._app_packetST_received)
+
         self._cf.open_link(droneUri)
 
         thread.start()
 
     def _app_packet_received(self, data):
-        (ledIsOn, ) = struct.unpack("<B", data)
-        print(f"Received ledIsOn state: {bool(ledIsOn)}")
+        (ledIsOn, state, ) = struct.unpack("<Bi", data)
+        print(f"Received drone data: {bool(ledIsOn), int(state)}")  
+        if(state == 0):
+            self.state = 'LED'
+        elif(state == 1):
+            self.state = 'In Mission'
+        elif(state == 2):
+            self.state = 'Landing'
+
+        print('State recived :')
+        print(state)
+        print('State set')
+        print(self.state)
+        # (ledIsOn, state) = struct.unpack("?s", data)
+        # print('Hereeeee')
+        # print(data)
+        # var = struct.unpack('<Bs', data[:2])
+        # print(var)
+        # self.state = state
+        # print(f"Received ledIsOn state: {bool(ledIsOn), string(state)}")
+
+    # def _app_packet_received(self, data):
+    #     (ledIsOn, ) = struct.unpack("<B", data)
+    #     print(f"Received ledIsOn state: {bool(ledIsOn)}")
+   
 
     def connected(self) -> None:
         """ This callback is called form the Crazyflie API when a Crazyflie
@@ -135,6 +163,8 @@ class AppChannel:
                             drone['state'] = 'Connected'
                         else:
                             drone['state'] = 'Disconnected'
+                        if self.state != 'Disconnected':
+                            drone['state'] = self.state
 
 
         # drones.append(drone)
