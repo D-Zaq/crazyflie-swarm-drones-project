@@ -5,7 +5,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { interval, Subject } from 'rxjs';
 import { startWith, switchMap, takeUntil } from 'rxjs/operators';
-import {Drone, DRONE_1, DRONE_2, SIM_DRONE_1, SIM_DRONE_10, SIM_DRONE_2, SIM_DRONE_3, SIM_DRONE_4, SIM_DRONE_5, SIM_DRONE_6, SIM_DRONE_7, SIM_DRONE_8, SIM_DRONE_9 } from 'src/app/objects/drones';
+import {Command, CommandStruct, Drone, DRONE_1, DRONE_2, SIM_DRONE_1, SIM_DRONE_10, SIM_DRONE_2, SIM_DRONE_3, SIM_DRONE_4, SIM_DRONE_5, SIM_DRONE_6, SIM_DRONE_7, SIM_DRONE_8, SIM_DRONE_9 } from 'src/app/objects/drones';
 import { Mission } from 'src/app/objects/mission';
 import { DronesService, ServerSimDrone } from 'src/app/services/drones/drones.service';
 
@@ -31,7 +31,7 @@ export class MainPageComponent implements OnInit {
   isSimulation = true;
   points: Vec2[]= [];
   missionEnded: boolean = true;
-  
+  travelTime: number | any= 0;
   constructor(public droneService:DronesService, public angularFirestore: AngularFirestore, private snackBar: MatSnackBar) {
     
   }
@@ -126,8 +126,44 @@ export class MainPageComponent implements OnInit {
     return true;
   }
 
+  startMission(): void {
+    let startMissionCommand = {} as CommandStruct;
+    if(this.isSimulation) {
+      startMissionCommand = {
+        droneURI: "this.droneData.name",
+        command: Command.StartMission
+      };
+    }
+    this.droneService.sendCommand(startMissionCommand).subscribe();
+    this.droneService.startMissionTime = new Date();
+  }
+
+  cancelMission(): void {
+    let landMissionCommand  = {} as CommandStruct;
+    if(this.isSimulation) {
+      landMissionCommand = {
+        droneURI: "this.droneData.name",
+        command: Command.Land
+        };
+    }
+    this.droneService.sendCommand(landMissionCommand).subscribe();
+  }
+
+  returnToBase(): void{
+    let baseCommand = {} as CommandStruct;
+    if(this.isSimulation) {
+      baseCommand= {
+        droneURI: "this.droneData.name",
+        command: Command.Base
+      };
+    }
+    this.droneService.sendCommand(baseCommand).subscribe();
+  }
+  
   saveMission(): void {
     const dateNow: Date = new Date();
+    var Duration = require("duration");
+    // this.travelTime = new Duration(this.droneService.startMissionTime, dateNow);
     let mission = {} as Mission;
     if(this.isSimulation === true){
       mission = {
@@ -136,7 +172,9 @@ export class MainPageComponent implements OnInit {
         allPoints: this.droneService.simPoints,
         dronesPoints: JSON.stringify(this.droneService.simDronesPoints),
         type: "simulation",
-        date: dateNow.toUTCString()
+        date: dateNow.toUTCString(),
+        nDrones: this.droneService.mapSimDrones.length,
+        // travelTime: this.travelTime
       };
 
     }else{
@@ -146,7 +184,9 @@ export class MainPageComponent implements OnInit {
         allPoints: this.droneService.realPoints,
         dronesPoints: JSON.stringify(this.droneService.realDronesPoints),
         type: "real",
-        date: dateNow.toUTCString()
+        date: dateNow.toUTCString(),
+        nDrones: this.droneService.mapRealDrones.length,
+        // travelTime: this.travelTime
       };
     }
     this.angularFirestore.collection('crazyflieApp').add(mission).then((response)=>{

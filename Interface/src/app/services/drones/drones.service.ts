@@ -61,6 +61,7 @@ export class DronesService {
   simPoints: Vec2[]= [];
   realPoints: Vec2[] = [];
   mission = {} as Mission;
+  startMissionTime: any; 
 
   serverAddress = "http://localhost:5000";
   crazyflieServerAddress = "http://localhost:5000/crazyflie";

@@ -6,16 +6,17 @@ table {
 
   td,
   th {
-    border: 1px solid rgba($color: #118f50, $alpha: 0.4);
+    border: 3px solid rgba($color: #118f50, $alpha: 0.4);
     padding: 8px;
     flex-wrap: wrap;
+    overflow-y: hidden;
   }
 
   th {
     padding-top: 12px;
     padding-bottom: 12px;
     text-align: left;
-    background-color: #4a4b52;
+    background-color: rgba($color: #118f50, $alpha: 0.2);
     color: white;
     flex-wrap: wrap;
   }
@@ -56,10 +57,10 @@ p {
 }
 
 svg {
-  width: 40%;
-  height: 40%;
-  //   min-width: 17rem;
-  //   min-height: 17rem;
+  width: 20%;
+  height: 20%;
+  min-width: 12rem;
+  min-height: 12rem;
   text-align: center;
   background-color: azure;
 }
@@ -68,6 +69,6 @@ svg {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
-  gap: 5rem;
+  gap: 2rem;
   // margin-left: ;
 }

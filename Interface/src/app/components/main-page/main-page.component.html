@@ -43,11 +43,16 @@
             <h1> Missions :</h1>
           </div>
           
-          <div class="mission-buttons">
-            <button mat-button (click)="this.saveMission()">Save Mission</button>
+          <div class="missions">
+            <div class="mission-buttons">
+              <button mat-button (click)="this.startMission()">Start Mission</button>
+              <button mat-button (click)="this.cancelMission()">Cancel Mission </button>
+              <button mat-button (click)="this.returnToBase()">Return to base</button>
+              <button mat-button (click)="this.saveMission()">Save Mission</button>
+            </div>
+            
+            <app-mission></app-mission>
           </div>
-
-          <app-mission></app-mission>
           
           <div class="footer-item">
             <h2 class="team-name">Équipe 103</h2>

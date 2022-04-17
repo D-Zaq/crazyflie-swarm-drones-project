@@ -8,6 +8,8 @@ export interface Mission {
     dronesPoints?: any;
     type: string;
     date: string;
+    nDrones?: number;
+    travelTime?: any;
   }
 
 //   export interface MissionTest {
