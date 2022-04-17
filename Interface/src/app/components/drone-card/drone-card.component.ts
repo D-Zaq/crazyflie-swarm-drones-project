@@ -42,7 +42,7 @@ export class DroneCardComponent implements OnInit {
       for (let i=0; this.droneService.mapRealDrones.length; i++){
         if(this.droneService.mapRealDrones[i].name == this.droneData.name){
           this.realMapDrone.xPosition = this.droneService.mapRealDrones[i].xPosition;
-          this.realMapDrone.yPosition = this.droneService.mapRealDrones[i].yPosition / 2;
+          this.realMapDrone.yPosition = this.droneService.mapRealDrones[i].yPosition;
           this.addRealPoint(this.droneService.mapRealDrones[i], i); 
         }
       }

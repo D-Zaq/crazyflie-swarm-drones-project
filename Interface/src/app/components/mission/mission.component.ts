@@ -74,7 +74,7 @@ export class MissionComponent implements OnInit {
             this.droneService.getRealMapData().subscribe(res => {
               const drone= {} as MapDrone;
               drone.xPosition = res.xPosition;
-              drone.yPosition = res.yPosition / 2;
+              drone.yPosition = - res.yPosition / 2;
               drone.angle = res.angle;
               drone.frontDistance = res.frontDistance;
               drone.backDistance = res.backDistance;

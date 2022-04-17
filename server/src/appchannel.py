@@ -11,7 +11,7 @@ from message import Message
 from connect_log_param import ConnectLog
 from real_drone import RealDrone
 
-logging.basicConfig(level=logging.ERROR)
+# logging.basicConfig(level=logging.ERROR)
 
 
 class AppChannel:
