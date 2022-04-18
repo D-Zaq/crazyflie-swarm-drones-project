@@ -92,21 +92,24 @@ class AppChannel:
     def create_drones(self): 
         drone = RealDrone()
         # drones = []
-        # uri1 = 'radio://0/80/2M/E7E7E7E731'
-        # uri2 = 'radio://0/80/2M/E7E7E7E732'
-        with open('position.csv', 'r') as positionFile:
+
+        addr = self.uri.split('/')
+        posFile = 'position' + addr[5] + '.csv'
+        distFile = 'distance' + addr[5] + '.csv'
+        battFile = 'battery' + addr[5] + '.csv'
+        with open(posFile, 'r') as positionFile:
             positionReader = csv.reader(positionFile)
             positionLines = list(positionReader)
             positionEndLine = len(positionLines)-1
             # print('======================= here position end line ==========================')
             # print(positionEndLine)
-            with open('distance.csv', 'r') as distanceFile:
+            with open(distFile, 'r') as distanceFile:
                 distanceReader = csv.reader(distanceFile)
                 distanceLines = list(distanceReader)
                 distanceEndLine = len(distanceLines)-1
                 # print('======================= here distance end line ==========================')
                 # print(distanceEndLine)
-                with open('battery.csv', 'r') as batteryFile:
+                with open(battFile, 'r') as batteryFile:
                     batteryReader = csv.reader(batteryFile)                
                     batteryLines = list(batteryReader)                
                     batteryEndLine = len(batteryLines)-1
@@ -132,7 +135,10 @@ class AppChannel:
                             drone['state'] = 'Connected'
                         else:
                             drone['state'] = 'Disconnected'
+                        if self.state != 'Disconnected':
+                            drone['state'] = self.state
 
 
         # drones.append(drone)
         return drone
+
