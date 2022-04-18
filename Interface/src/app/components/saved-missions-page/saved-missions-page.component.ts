@@ -29,6 +29,17 @@ export class SavedMissionsPageComponent implements OnInit {
     );
   }
 
+  deleteAllMissions(): void{
+    this.angularFirestore.collection("crazyflieApp").get().subscribe((response)=>{
+      response.forEach((data) => {
+        data.ref.delete();
+      })
+    }, 
+    (error) => {
+    }
+    );
+  }
+
   onOrder(value: string): void{
     if(value != this.orderOption){
 
@@ -64,6 +75,10 @@ export class SavedMissionsPageComponent implements OnInit {
         this.order("nDrones", "asc");
       }else if(value=== 'Number of drones (descendant)'){
         this.order("nDrones", "desc");
+      }else if(value=== 'Travel time (ascendant)'){
+        this.order("travelTime", "asc");
+      }else if(value=== 'Travel time (descendant)'){
+        this.order("travelTime", "desc");
       }
     }
   }

@@ -1,3 +1,4 @@
+
 <div class="missions">
   <ng-container *ngIf="this.droneService.isSimulation; else realDronesMap">
     <svg [attr.viewBox]="'-2.5 -2.5 5 5'" #svg>
@@ -46,7 +47,7 @@
     <svg [attr.viewBox]="'-2 -2 4 4'" #svg>
       <g>
         <circle
-        *ngFor="let point of realPoints"
+        *ngFor="let point of this.droneService.realPoints"
         fill="red"
         [attr.cx]="point.x"
         [attr.cy]="point.y"

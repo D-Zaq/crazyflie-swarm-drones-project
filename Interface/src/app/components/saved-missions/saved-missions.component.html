@@ -14,7 +14,7 @@
           <td>{{this.mission.date}}</td>
           <td>{{this.mission.type}}</td>
           <td>
-            {{this.timeInMinutes}}
+            {{this.mission.travelTime}} seconds
           </td>
           <td
             class="unfold-more"
@@ -29,11 +29,14 @@
         <tr *ngIf="this.isExpanded">
           <td colspan="4">
             <div class="center flex-column">
-              <div class="drone-list">
-                <p>Drones :</p>
-                <ng-container *ngFor="let drone of this.mission.drones">
-                  <p>{{drone.name}}</p>
-                </ng-container>
+              <div class="span-items">
+                <button mat-button (click)="this.droneService.savedMissionLogs = this.mission.logs" routerLink="/logs" matTooltip="mission logs">Inspect logs</button>
+                <div class="drone-list">
+                  <p>Drones :</p>
+                  <ng-container *ngFor="let drone of this.mission.drones">
+                    <p>{{drone.name}}</p>
+                  </ng-container>
+                </div>
               </div>
               <div class="maps">
                 <ng-container *ngFor="let drone of this.mission.drones"> 

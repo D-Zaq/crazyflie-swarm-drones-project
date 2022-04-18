@@ -41,6 +41,13 @@
           
           <div class="title">
             <h1> Missions :</h1>
+            <p>{{this.droneService.mapSimDrones.length}}</p>
+            <ng-container *ngIf="this.droneService.mapSimDrones.length">
+
+              <p>{{this.droneService.mapSimDrones[0].state}}</p>
+              <p>{{this.droneService.mapSimDrones[1].state}}</p>
+              <p>{{this.missionEndedString }}</p>
+            </ng-container>
           </div>
           
           <div class="missions">
@@ -48,7 +55,7 @@
               <button mat-button (click)="this.startMission()">Start Mission</button>
               <button mat-button (click)="this.cancelMission()">Cancel Mission </button>
               <button mat-button (click)="this.returnToBase()">Return to base</button>
-              <button mat-button (click)="this.saveMission()">Save Mission</button>
+              <button mat-button (click)="this.saveMission()"> Save Mission</button>
             </div>
             
             <app-mission></app-mission>

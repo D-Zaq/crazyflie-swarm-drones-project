@@ -9,6 +9,15 @@
 
 .title {
   margin-bottom: 3rem;
+  display: flex;
+  flex-direction: row;
+  gap: 2%;
+}
+
+.mat-button {
+  background-color: rgba($color: rgb(200, 218, 207), $alpha: 0.25);
+  // width: 100%;
+  font-size: 90%;
 }
 
 .text {

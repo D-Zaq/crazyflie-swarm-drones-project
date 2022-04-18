@@ -46,6 +46,12 @@ export type ServerRealDrone = {
   state:string;
 };
 
+
+export type InterfaceLog = {
+  date: string;
+  message: string;
+};
+
 @Injectable({
   providedIn: 'root'
 })
@@ -62,6 +68,9 @@ export class DronesService {
   realPoints: Vec2[] = [];
   mission = {} as Mission;
   startMissionTime: any; 
+  logs: InterfaceLog[] = [];
+  savedMissionLogs: any = [];
+  missionSaved: boolean = false;
 
   serverAddress = "http://localhost:5000";
   crazyflieServerAddress = "http://localhost:5000/crazyflie";
@@ -86,7 +95,7 @@ export class DronesService {
   //     .catch(DronesService._handleError);
   // }
 
-  identifyDrone(command: CommandStruct){
+  identifyDrone(command: CommandStruct): Observable<Object>{
     return this.http
       .post(
         this.crazyflieServerAddress,
@@ -95,7 +104,7 @@ export class DronesService {
       .catch(DronesService._handleError)
   }
 
-  sendCommand(command: CommandStruct){
+  sendCommand(command: CommandStruct): Observable<number | Object>{
     // this calls the communication service method with the needed parameters for request
     return this.isSimulation ? this.http.post(this.argosServerAddress,command.command)
     .pipe(

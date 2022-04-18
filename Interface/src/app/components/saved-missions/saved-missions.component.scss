@@ -35,6 +35,11 @@ table {
     flex-direction: column;
   }
 
+  .span-items {
+    display: flex;
+    flex-direction: column;
+  }
+
   .drone-list {
     display: flex;
     justify-content: center;
@@ -71,4 +76,10 @@ svg {
   flex-wrap: wrap;
   gap: 2rem;
   // margin-left: ;
+}
+
+.mat-button {
+  background-color: rgba($color: rgb(200, 218, 207), $alpha: 0.25);
+  // width: 100%;
+  font-size: 90%;
 }

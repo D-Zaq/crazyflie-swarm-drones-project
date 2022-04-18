@@ -1,3 +1,4 @@
+import { InterfaceLog } from "../services/drones/drones.service";
 import { MapDrone } from "./drones";
 import { Vec2 } from "./vec2";
 
@@ -9,7 +10,8 @@ export interface Mission {
     type: string;
     date: string;
     nDrones?: number;
-    travelTime?: any;
+    travelTime?: number;
+    logs?: InterfaceLog[];
   }
 
 //   export interface MissionTest {

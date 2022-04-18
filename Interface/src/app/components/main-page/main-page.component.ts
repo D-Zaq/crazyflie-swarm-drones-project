@@ -30,13 +30,15 @@ export class MainPageComponent implements OnInit {
   private unsubscribe$ = (new Subject<void>());
   isSimulation = true;
   points: Vec2[]= [];
-  missionEnded: boolean = true;
-  travelTime: number | any= 0;
+  missionEnded: boolean = false;
+  missionEndedString: string = "false";
+  travelTime: number = 0;
   constructor(public droneService:DronesService, public angularFirestore: AngularFirestore, private snackBar: MatSnackBar) {
     
   }
 
   ngOnInit(): void {
+    this.droneService.isSimulation = true;
     interval(1000)
       .pipe(
         startWith(0),
@@ -58,7 +60,16 @@ export class MainPageComponent implements OnInit {
             
           },
           )
-          this.missionEnded = this.checkMissionEnd();
+          this.checkMissionEnd(this.simDrones);
+          // if(this.simDrones.length != 0) {
+          //   this.missionEnded = true;
+          //   for(let i=0; this.simDrones.length; i++){
+          //     if(this.simDrones[i].state != 'on_the_ground'){
+          //       this.missionEnded = false;
+          //     }
+          //   }
+          // if(this.missionEnded) this.saveMission();
+          // }
         }
       });
       interval(900)
@@ -109,32 +120,48 @@ export class MainPageComponent implements OnInit {
   }
 
   onSliderClick(): void{
-    this.droneService.isSimulation = !this.droneService.isSimulation;
+    this.droneService.isSimulation = !this.isSimulation;
   }
 
-  checkMissionEnd(): boolean{
-    // if(this.droneService.mapSimDrones.length === 0) {
-    //   return false;
-    // }
+  checkMissionEnd(simDrones: Drone[]): boolean{
+    if(this.simDrones.length === 0) {
+      return false;
+    }
 
-    // for(let i=0; this.droneService.mapSimDrones.length; i++){
-    //   if(this.droneService.mapSimDrones[i].state != 'on_the_ground'){
-    //     return false;
-    //   }
-    // }
-    // this.droneService.saveMission();
+    for(let i=0; i< simDrones.length; i++){
+      if(simDrones[i].state != 'on_the_ground'){
+        // this.missionEndedString = simDrones[i].state;
+        return false;
+      }
+      this.missionEndedString = simDrones[1].state;
+    }
+    this.saveMission();
     return true;
   }
 
   startMission(): void {
+    this.droneService.missionSaved = false;
     let startMissionCommand = {} as CommandStruct;
     if(this.isSimulation) {
       startMissionCommand = {
         droneURI: "this.droneData.name",
         command: Command.StartMission
       };
+      this.droneService.sendCommand(startMissionCommand).subscribe();
+    }else{
+      let startMissionCommand1 = {} as CommandStruct;
+      let startMissionCommand2 = {} as CommandStruct;
+      startMissionCommand1 = {
+        droneURI: this.droneService.mapRealDrones[0].name,
+        command: Command.StartMission
+      };
+      startMissionCommand2 = {
+        droneURI: this.droneService.mapRealDrones[1].name,
+        command: Command.StartMission
+      };
+      this.droneService.sendCommand(startMissionCommand1).subscribe();
+      this.droneService.sendCommand(startMissionCommand2).subscribe();
     }
-    this.droneService.sendCommand(startMissionCommand).subscribe();
     this.droneService.startMissionTime = new Date();
   }
 
@@ -145,55 +172,99 @@ export class MainPageComponent implements OnInit {
         droneURI: "this.droneData.name",
         command: Command.Land
         };
+        this.droneService.sendCommand(landMissionCommand).subscribe();
+    }else{
+      let landMissionCommand1  = {} as CommandStruct;
+      let landMissionCommand2 = {} as CommandStruct;
+      landMissionCommand1 = {
+        droneURI: this.droneService.mapRealDrones[0].name,
+        command: Command.Land
+        };
+
+        landMissionCommand2 = {
+          droneURI: this.droneService.mapRealDrones[1].name,
+          command: Command.Land
+          };
+          this.droneService.sendCommand(landMissionCommand1).subscribe();
+          this.droneService.sendCommand(landMissionCommand2).subscribe();
     }
-    this.droneService.sendCommand(landMissionCommand).subscribe();
   }
 
   returnToBase(): void{
-    let baseCommand = {} as CommandStruct;
     if(this.isSimulation) {
+      let baseCommand = {} as CommandStruct;
       baseCommand= {
         droneURI: "this.droneData.name",
         command: Command.Base
       };
+      this.droneService.sendCommand(baseCommand).subscribe();
+    }else {
+      let baseCommand1 = {} as CommandStruct;
+      let baseCommand2 = {} as CommandStruct;
+      baseCommand1= {
+        droneURI: this.droneService.mapRealDrones[0].name,
+        command: Command.Base
+      };
+      baseCommand2= {
+        droneURI: this.droneService.mapRealDrones[1].name,
+        command: Command.Base
+      };
+      this.droneService.sendCommand(baseCommand1).subscribe();
+      this.droneService.sendCommand(baseCommand2).subscribe();
     }
-    this.droneService.sendCommand(baseCommand).subscribe();
   }
   
   saveMission(): void {
-    const dateNow: Date = new Date();
-    var Duration = require("duration");
-    // this.travelTime = new Duration(this.droneService.startMissionTime, dateNow);
-    let mission = {} as Mission;
-    if(this.isSimulation === true){
-      mission = {
-        id: Math.round(Math.random() + dateNow.valueOf()),
-        drones: this.droneService.mapSimDrones,
-        allPoints: this.droneService.simPoints,
-        dronesPoints: JSON.stringify(this.droneService.simDronesPoints),
-        type: "simulation",
-        date: dateNow.toUTCString(),
-        nDrones: this.droneService.mapSimDrones.length,
-        // travelTime: this.travelTime
-      };
+    if(this.droneService.missionSaved === false){
+      this.missionEndedString = "in save mission";
+      this.droneService.missionSaved = true;
+      const dateNow: Date = new Date();
+      let Duration = require("duration");
+      this.travelTime = new Duration(this.droneService.startMissionTime, dateNow).seconds;
+      let mission = {} as Mission;
 
-    }else{
-      mission = {
-        id: Math.round(Math.random() + dateNow.valueOf()),
-        drones: this.droneService.mapRealDrones,
-        allPoints: this.droneService.realPoints,
-        dronesPoints: JSON.stringify(this.droneService.realDronesPoints),
-        type: "real",
-        date: dateNow.toUTCString(),
-        nDrones: this.droneService.mapRealDrones.length,
-        // travelTime: this.travelTime
-      };
+      this.droneService.getLogs().subscribe(res => {
+        this.droneService.logs = [];
+        for(let i=0; res.length; i++){
+          this.droneService.logs.unshift({
+            date: new Date(res[i].timestamp * 1000).toString(),
+            message: res[i].log,
+          });
+        }
+      })
+      
+      if(this.isSimulation === true){
+        mission = {
+          id: Math.round(Math.random() + dateNow.valueOf()),
+          drones: this.droneService.mapSimDrones,
+          allPoints: this.droneService.simPoints,
+          dronesPoints: JSON.stringify(this.droneService.simDronesPoints),
+          type: "simulation",
+          date: dateNow.toUTCString(),
+          nDrones: this.droneService.mapSimDrones.length,
+          travelTime: this.travelTime,
+          logs: this.droneService.logs
+        };
+
+      }else{
+        mission = {
+          id: Math.round(Math.random() + dateNow.valueOf()),
+          drones: this.droneService.mapRealDrones,
+          allPoints: this.droneService.realPoints,
+          dronesPoints: JSON.stringify(this.droneService.realDronesPoints),
+          type: "real",
+          date: dateNow.toUTCString(),
+          nDrones: this.droneService.mapRealDrones.length,
+          travelTime: this.travelTime,
+          logs: this.droneService.logs
+        };
+      }
+      this.angularFirestore.collection('crazyflieApp').add(mission).then((response)=>{
+        this.openSnackBar('La mission a été sauvegardé avec succès', 'Fermer', 'green-snackbar');
+      }).catch((error)=>{
+        this.openSnackBar('la base de données est actuellement indisponible', 'Fermer', 'red-snackbar');
+      });
     }
-    this.angularFirestore.collection('crazyflieApp').add(mission).then((response)=>{
-      this.openSnackBar('La mission a été sauvegardé avec succès', 'Fermer', 'green-snackbar');
-    }).catch((error)=>{
-      this.openSnackBar('la base de données est actuellement indisponible', 'Fermer', 'red-snackbar');
-    });
   }
 
   openSnackBar(message: string, action: string, type: string): void {

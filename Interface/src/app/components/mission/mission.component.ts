@@ -65,13 +65,13 @@ export class MissionComponent implements OnInit {
         }  
       });
 
-      interval(53)
+      interval(243)
       .pipe(
         startWith(0),
         takeUntil(this.unsubscribe$),
       )
       .subscribe(() => {
-        if(!this.droneService.isSimulation){
+        // if(!this.droneService.isSimulation){
             this.droneService.getRealMapData().subscribe(res => {
               const drone= {} as MapDrone;
               drone.xPosition = res.xPosition;
@@ -86,7 +86,7 @@ export class MissionComponent implements OnInit {
               if (res.name == this.droneService.mapRealDrones[0].name) {
                 Object.assign(this.droneService.mapRealDrones[0], drone);
                 this.addRealPoint(this.droneService.mapRealDrones[0]);  
-              } else {
+              } else if(res.name == this.droneService.mapRealDrones[1].name){
                 Object.assign(this.droneService.mapRealDrones[1], drone);
                 this.addRealPoint(this.droneService.mapRealDrones[1]); 
               }
@@ -94,7 +94,7 @@ export class MissionComponent implements OnInit {
             (error)=>{
 
             })
-        }
+        // }
       });
   }
 
@@ -136,30 +136,30 @@ export class MissionComponent implements OnInit {
   addRealPoint(MapDrone:MapDrone): void{
     if(MapDrone.frontDistance < MAX_REAL_RANGE) {
       const p = {} as Vec2;
-      p.x = MapDrone.frontDistance * REAL_DISTANCE_SCALE + MapDrone.yPosition;
-      p.y = MapDrone.xPosition;
-      this.realPoints.push(p);
+      p.x = MapDrone.frontDistance * REAL_DISTANCE_SCALE + MapDrone.xPosition;
+      p.y = MapDrone.yPosition;
+      this.droneService.realPoints.push(p);
     }
 
     if(MapDrone.backDistance < MAX_REAL_RANGE) {
       const p = {} as Vec2;
-      p.x = MapDrone.backDistance * -REAL_DISTANCE_SCALE + MapDrone.yPosition;
-      p.y = MapDrone.xPosition;
-      this.realPoints.push(p);
+      p.x = MapDrone.backDistance * -REAL_DISTANCE_SCALE + MapDrone.xPosition;
+      p.y = MapDrone.yPosition;
+      this.droneService.realPoints.push(p);
     }
 
     if(MapDrone.leftDistance < MAX_REAL_RANGE) {
       const p = {} as Vec2;
-      p.x = MapDrone.yPosition;
-      p.y = MapDrone.leftDistance * -REAL_DISTANCE_SCALE + MapDrone.xPosition;
-      this.realPoints.push(p);
+      p.x = MapDrone.xPosition;
+      p.y = MapDrone.leftDistance * -REAL_DISTANCE_SCALE + MapDrone.yPosition;
+      this.droneService.realPoints.push(p);
     }
 
     if(MapDrone.rightDistance < MAX_REAL_RANGE) {
       const p = {} as Vec2;
-      p.x = MapDrone.yPosition;
-      p.y = MapDrone.rightDistance * REAL_DISTANCE_SCALE + MapDrone.xPosition;
-      this.realPoints.push(p);
+      p.x = MapDrone.xPosition;
+      p.y = MapDrone.rightDistance * REAL_DISTANCE_SCALE + MapDrone.yPosition;
+      this.droneService.realPoints.push(p);
     }
   }
 }
