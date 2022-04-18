@@ -44,7 +44,7 @@
                     <g>
                       <circle
                       *ngFor="let point of this.mission.dronesPoints[drone.id]"
-                      fill="red"
+                      fill="indianred"
                       [attr.cx]="point.x"
                       [attr.cy]="point.y"
                       r="0.02"
@@ -56,7 +56,7 @@
                     [attr.y]="this.mission.type === 'simulation' ? this.mission.drones[drone.id].xPosition : this.mission.drones[drone.id].yPosition"
                     width="0.15"
                     height="0.15"
-                    fill="green"
+                    fill="lightseagreen"
                     />
                     <line
                     x1="0"
@@ -84,7 +84,7 @@
                   <g>
                     <circle
                     *ngFor="let point of this.mission.allPoints"
-                    fill="red"
+                    fill="indianred"
                     [attr.cx]="point.x"
                     [attr.cy]="point.y"
                     r="0.02"
@@ -97,7 +97,7 @@
                   [attr.y]="this.mission.type === 'simulation' ? mapDrone.xPosition : mapDrone.yPosition"
                   width="0.15"
                   height="0.15"
-                  fill="green"
+                  fill="lightseagreen"
                   />
                   <line
                   x1="0"

@@ -41,7 +41,7 @@
                     <g>
                         <circle
                         *ngFor="let point of this.droneService.simDronesPoints[droneData.id]"
-                        fill="rgba($color: rgb(148, 44, 17), $alpha: 0.65)"
+                        fill="blue"
                         [attr.cx]="point.x"
                         [attr.cy]="point.y"
                         r="0.02"
@@ -53,7 +53,7 @@
                     [attr.y]="simMapDrone.xPosition"
                     width="0.15"
                     height="0.15"
-                    fill="green"
+                    fill="blue"
                     />
                     <line
                     x1="0"
