@@ -31,7 +31,6 @@ export class MainPageComponent implements OnInit {
   isSimulation = true;
   points: Vec2[]= [];
   missionEnded: boolean = false;
-  missionEndedString: string = "false";
   travelTime: number = 0;
   constructor(public droneService:DronesService, public angularFirestore: AngularFirestore, private snackBar: MatSnackBar) {
     
@@ -60,7 +59,7 @@ export class MainPageComponent implements OnInit {
             
           },
           )
-          this.checkMissionEnd(this.simDrones);
+          this.missionEnded = this.checkMissionEnd(this.simDrones);
           // if(this.simDrones.length != 0) {
           //   this.missionEnded = true;
           //   for(let i=0; this.simDrones.length; i++){
@@ -71,6 +70,16 @@ export class MainPageComponent implements OnInit {
           // if(this.missionEnded) this.saveMission();
           // }
         }
+
+        this.droneService.getLogs().subscribe(res => {
+          this.droneService.logs = [];
+          for(let i=0; res.length; i++){
+            this.droneService.logs.unshift({
+              date: new Date(res[i].timestamp * 1000).toString(),
+              message: res[i].log,
+            });
+          }
+        })  
       });
       interval(900)
       .pipe(
@@ -129,18 +138,19 @@ export class MainPageComponent implements OnInit {
     }
 
     for(let i=0; i< simDrones.length; i++){
-      if(simDrones[i].state != 'on_the_ground'){
-        // this.missionEndedString = simDrones[i].state;
+      if(simDrones[i].state != 'landed'){
         return false;
       }
-      this.missionEndedString = simDrones[1].state;
     }
     this.saveMission();
     return true;
   }
 
   startMission(): void {
+    this.simDrones[0].state = "not_landed"
     this.droneService.missionSaved = false;
+    this.droneService.missionCanceled =false;
+    this.missionEnded = false;
     let startMissionCommand = {} as CommandStruct;
     if(this.isSimulation) {
       startMissionCommand = {
@@ -166,6 +176,7 @@ export class MainPageComponent implements OnInit {
   }
 
   cancelMission(): void {
+    this.droneService.missionCanceled = true;
     let landMissionCommand  = {} as CommandStruct;
     if(this.isSimulation) {
       landMissionCommand = {
@@ -215,23 +226,12 @@ export class MainPageComponent implements OnInit {
   }
   
   saveMission(): void {
-    if(this.droneService.missionSaved === false){
-      this.missionEndedString = "in save mission";
+    if(this.droneService.missionSaved === false && this.missionEnded && !this.droneService.missionCanceled){
       this.droneService.missionSaved = true;
       const dateNow: Date = new Date();
       let Duration = require("duration");
       this.travelTime = new Duration(this.droneService.startMissionTime, dateNow).seconds;
       let mission = {} as Mission;
-
-      this.droneService.getLogs().subscribe(res => {
-        this.droneService.logs = [];
-        for(let i=0; res.length; i++){
-          this.droneService.logs.unshift({
-            date: new Date(res[i].timestamp * 1000).toString(),
-            message: res[i].log,
-          });
-        }
-      })
       
       if(this.isSimulation === true){
         mission = {

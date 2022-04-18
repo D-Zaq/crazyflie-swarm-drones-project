@@ -33,6 +33,8 @@
 
 #include <stdlib.h>
 #include <time.h>
+#include <cstdint>
+#include <cmath>
 
 #include "drone_data.h"
 /*
@@ -41,7 +43,7 @@
  */
 using namespace argos;
 
-// static uint16_t id = 0;
+static uint16_t id = 0;
 static int socke;
 
 /*
@@ -71,7 +73,11 @@ public:
 
    void Explore();
 
-   int Randomize();
+   void ReturnToBase();
+
+   bool checkIfNear(CVector3 cPos, CVector3 initPos);
+
+   int Randomize(int seed);
 
    /*
     * This function is called once every time step.
@@ -139,6 +145,7 @@ private:
 
    // int sock;
    bool flying;
+   bool batteryLevelLow;
    int state;
    int explore_state;
    CVector3 lastPositionL;
@@ -146,6 +153,7 @@ private:
    CVector3 lastPositionB;
    CVector3 lastPositionF;
    uint16_t id_;
+   CVector3 path[2500];
    DroneData drone_data_;
 };
 

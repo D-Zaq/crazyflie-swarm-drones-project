@@ -71,6 +71,7 @@ export class DronesService {
   logs: InterfaceLog[] = [];
   savedMissionLogs: any = [];
   missionSaved: boolean = false;
+  missionCanceled: boolean = false;
 
   serverAddress = "http://localhost:5000";
   crazyflieServerAddress = "http://localhost:5000/crazyflie";

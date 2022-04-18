@@ -276,5 +276,5 @@ export enum Command
 
 export interface CommandStruct {
     droneURI: string;
-    command: Command;
+    command: Command | string;
 }

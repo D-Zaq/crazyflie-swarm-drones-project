@@ -52,6 +52,11 @@ class ArgosServer(metaclass=Singleton):
     @staticmethod
     def sendCommand(command):
         logging.info("Sending command to ARGoS")
+        if(command == "s"):
+            flyCommand = "e"
+            ArgosServer.conn.sendall(flyCommand.encode())
+            time.sleep(1)
+
         ArgosServer.conn.sendall(command.encode())
 
     @staticmethod
