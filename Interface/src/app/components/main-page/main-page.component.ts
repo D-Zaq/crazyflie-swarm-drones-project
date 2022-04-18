@@ -61,32 +61,40 @@ export class MainPageComponent implements OnInit {
       .subscribe(() => {
         if(!this.isSimulation){
           this.droneService.getCFData().subscribe(res => {
-          if(res.name == this.realDrones[0].name){
-            this.realDrones[0].speed = res.speed;
-            this.realDrones[0].battery = res.battery;
-            this.realDrones[0].xPosition = res.xPosition;
-            this.realDrones[0].yPosition = res.yPosition;
-            this.realDrones[0].zPosition = res.zPosition;
-            this.realDrones[0].angle = res.angle;
-            this.realDrones[0].frontDistance = res.frontDistance;
-            this.realDrones[0].backDistance = res.backDistance;
-            this.realDrones[0].leftDistance = res.leftDistance;
-            this.realDrones[0].rightDistance = res.rightDistance;
-            this.realDrones[0].state = res.state;
-          }
-          else if(res.name == this.realDrones[1].name){
-            this.realDrones[1].speed = res.speed;
-            this.realDrones[1].battery = res.battery;
-            this.realDrones[1].xPosition = res.xPosition;
-            this.realDrones[1].yPosition = res.yPosition;
-            this.realDrones[1].zPosition = res.zPosition;
-            this.realDrones[1].angle = res.angle;
-            this.realDrones[1].frontDistance = res.frontDistance;
-            this.realDrones[1].backDistance = res.backDistance;
-            this.realDrones[1].leftDistance = res.leftDistance;
-            this.realDrones[1].rightDistance = res.rightDistance;
-            this.realDrones[1].state = res.state;
-          }
+            for(let i=0; res.length; i++){
+              const droneIndex = this.realDrones.findIndex((r) => r.name === res[i].name);
+              if (droneIndex === -1) {
+                this.realDrones.push(res[i] as Drone);
+              } else {
+              Object.assign(this.realDrones[droneIndex], res[i]);
+            }
+            }
+          // if(res[0].name == this.realDrones[0].name){
+          //   this.realDrones[0].speed = res[0].speed;
+          //   this.realDrones[0].battery = res[0].battery;
+          //   this.realDrones[0].xPosition = res[0].xPosition;
+          //   this.realDrones[0].yPosition = res[0].yPosition;
+          //   this.realDrones[0].zPosition = res[0].zPosition;
+          //   this.realDrones[0].angle = res[0].angle;
+          //   this.realDrones[0].frontDistance = res[0].frontDistance;
+          //   this.realDrones[0].backDistance = res[0].backDistance;
+          //   this.realDrones[0].leftDistance = res[0].leftDistance;
+          //   this.realDrones[0].rightDistance = res[0].rightDistance;
+          //   this.realDrones[0].state = res[0].state;
+          // }
+          // else if(res[1].name == this.realDrones[1].name){
+          //   this.realDrones[1].speed = res[1].speed;
+          //   this.realDrones[1].battery = res[1].battery;
+          //   this.realDrones[1].xPosition = res[1].xPosition;
+          //   this.realDrones[1].yPosition = res[1].yPosition;
+          //   this.realDrones[1].zPosition = res[1].zPosition;
+          //   this.realDrones[1].angle = res[1].angle;
+          //   this.realDrones[1].frontDistance = res[1].frontDistance;
+          //   this.realDrones[1].backDistance = res[1].backDistance;
+          //   this.realDrones[1].leftDistance = res[1].leftDistance;
+          //   this.realDrones[1].rightDistance = res[1].rightDistance;
+          //   this.realDrones[1].state = res[1].state;
+          // }
         })
       }
     });

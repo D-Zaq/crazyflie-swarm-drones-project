@@ -88,23 +88,19 @@ def handleLogsPolling():
 
 @app.route('/crazyflieData', methods=["GET"])
 def handleCFLogsPolling():
-    drones = CrazyflieServer.createDrone()
-    # if CrazyflieServer.state:
-    #     drones['state'] = 'Connected'
-    # else:
-    #     drones['state'] = 'Disconnected'
-    print('Drone physique : ====================> ', drones)
+    drones = CrazyflieServer.createDrones()
+    # print('start')
+    for drone in drones:
+        print('Drone physique : ====================> ', drone)
+    # print('end')
     return jsonify(drones)
 
 
 @app.route('/realMapData', methods=["GET"])
 def handleRealMapDataPolling():
-    drones = CrazyflieServer.createDrone()
-    # if CrazyflieServer.state:
-    #     drones['state'] = 'Connected'
-    # else:
-    #     drones['state'] = 'Disconnected'
-    print('Drone physique : ====================> ', drones)
+    drones = CrazyflieServer.createDrones()
+    # for drone in drones:
+    #     print('Drone physique : ====================> ', drone)
     return jsonify(drones)
 
 
@@ -176,12 +172,19 @@ class DashboardLogger(logging.Handler):
 if __name__ == '__main__':
 
     try:
-        os.remove('position.csv')
-        os.remove('battery.csv')
-        os.remove('distance.csv')
-    except:
-        print('Already deleted')
+        os.remove('positionE7E7E7E731.csv')
+        os.remove('batteryE7E7E7E731.csv')
+        os.remove('distanceE7E7E7E731.csv')
+    except :
+        print ('Already deleted') 
 
+    try:
+        os.remove('positionE7E7E7E732.csv')
+        os.remove('batteryE7E7E7E732.csv')
+        os.remove('distanceE7E7E7E732.csv')
+    except :
+        print ('Already deleted')
+        
     # To test 'Identify': comment lines: argosServer = server() , argosServer.connectServ()
     # To test ARGoS sim: comment lines: CrazyflieServerThread = CrazyflieServer().start() , CrazyflieServerThread.join()
     cflib.crtp.init_drivers(enable_debug_driver=False)

@@ -114,7 +114,7 @@ export class DronesService {
   }
 
   getCFData() {
-    return this.http.get<ServerRealDrone>(this.cfDataServerAdress)
+    return this.http.get<ServerRealDrone[]>(this.cfDataServerAdress)
       .catch(DronesService._handleError);
   }
 
