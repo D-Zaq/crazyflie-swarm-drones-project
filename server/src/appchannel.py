@@ -143,28 +143,29 @@ class AppChannel:
                     batteryEndLine = len(batteryLines)-1
                     # print('======================= here battery end line ==========================')
                     # print(batteryEndLine)
-                    if positionLines[positionEndLine][0] == self.uri and batteryLines[batteryEndLine][0] == self.uri and distanceLines[distanceEndLine][0] == self.uri:
-                        drone['name'] = self.uri
+                    # if positionLines[positionEndLine][0] == self.uri and batteryLines[batteryEndLine][0] == self.uri and distanceLines[distanceEndLine][0] == self.uri:
+                    #     drone['name'] = self.uri
                         # elif positionLines[positionEndLine][0] == uri2 and batteryLines[batteryEndLine][0] == uri2 and distanceLines[distanceEndLine][0] == uri2:
                         #     drone['name'] = uri2
-                        drone['speed'] = 'None'
-                        # if batteryLines[batteryEndLine][0] == uri1:
-                        drone['battery'] = batteryLines[batteryEndLine][2]
-                        drone['xPosition'] = positionLines[positionEndLine][1]
-                        drone['yPosition'] = positionLines[positionEndLine][2]
-                        drone['zPosition'] = positionLines[positionEndLine][3]
-                        drone['angle'] = positionLines[positionEndLine][4]
-                        # if distanceLines[distanceEndLine][0] == uri1:
-                        drone['frontDistance'] = distanceLines[distanceEndLine][1]
-                        drone['backDistance'] = distanceLines[distanceEndLine][2]
-                        drone['leftDistance'] = distanceLines[distanceEndLine][4]
-                        drone['rightDistance'] = distanceLines[distanceEndLine][5]
-                        if self.connexionState:
-                            drone['state'] = 'Connected'
-                        else:
-                            drone['state'] = 'Disconnected'
-                        if self.state != 'Disconnected':
-                            drone['state'] = self.state
+                    drone['name'] = self.uri
+                    drone['speed'] = 'None'
+                    # if batteryLines[batteryEndLine][0] == uri1:
+                    drone['battery'] = batteryLines[batteryEndLine][2]
+                    drone['xPosition'] = positionLines[positionEndLine][1]
+                    drone['yPosition'] = positionLines[positionEndLine][2]
+                    drone['zPosition'] = positionLines[positionEndLine][3]
+                    drone['angle'] = positionLines[positionEndLine][4]
+                    # if distanceLines[distanceEndLine][0] == uri1:
+                    drone['frontDistance'] = distanceLines[distanceEndLine][1]
+                    drone['backDistance'] = distanceLines[distanceEndLine][2]
+                    drone['leftDistance'] = distanceLines[distanceEndLine][4]
+                    drone['rightDistance'] = distanceLines[distanceEndLine][5]
+                    if self.connexionState:
+                        drone['state'] = 'Connected'
+                    else:
+                        drone['state'] = 'Disconnected'
+                    if self.state != 'Disconnected':
+                        drone['state'] = self.state
 
 
         # drones.append(drone)

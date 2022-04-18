@@ -99,13 +99,15 @@ def handleLogsPolling():
 
 @app.route('/crazyflieData', methods=["GET"])
 def handleCFLogsPolling():
-    drone = CrazyflieServer.createDrone()
+    drones = CrazyflieServer.createDrone()
+    for drone in drones:
+        print('Drone physique : ====================> ', drone)
     # if CrazyflieServer.state:
     #     drones['state'] = 'Connected'
     # else:
     #     drones['state'] = 'Disconnected'
-    print('Drone physique : ====================> ', drone)
-    return jsonify(drone)
+    # print('Drone physique : ====================> ', drone)
+    return jsonify(drones)
 
 
 # @app.route('/drones')
@@ -180,10 +182,10 @@ if __name__ == '__main__':
     
     try:
         os.remove('positionE7E7E7E731.csv')
-        os.remove('batteryE7E7E7E731.csv')
-        os.remove('distanceE7E7E7E731.csv')
         os.remove('positionE7E7E7E732.csv')
+        os.remove('batteryE7E7E7E731.csv')
         os.remove('batteryE7E7E7E732.csv')
+        os.remove('distanceE7E7E7E731.csv')
         os.remove('distanceE7E7E7E732.csv')
     except :
         print ('Already deleted')      

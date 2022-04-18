@@ -114,8 +114,10 @@ class CrazyflieServer(metaclass=Singleton):
 
     @staticmethod
     def createDrone():
-        data = None
+        # data = None
+        drones = []
         for drone in CrazyflieServer.drones:
-           data = drone.create_drones()
-        return data
+        #    data = drone.create_drones()
+           drones.append(drone.create_drones())
+        return drones
         
