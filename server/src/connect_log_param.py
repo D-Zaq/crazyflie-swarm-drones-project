@@ -23,8 +23,10 @@ class ConnectLog:
         self.distance[3] = data['range.left']
         self.distance[4] = data['range.right']
         self.distance[5] = data['range.zrange']
-        print('[%d][%s][%s]: %s' % (timestamp, self.uri, logconf.name, data))
-        with open ('distance.csv', 'a') as csvfile :
+        # print('[%d][%s][%s]: %s' % (timestamp, self.uri, logconf.name, data))
+        addr = self.uri.split('/')
+        file = 'distance' + addr[5] + '.csv'
+        with open (file, 'a') as csvfile :
             writer = csv.writer(csvfile , delimiter =',')
             writer.writerow([self.uri, self.distance[0], self.distance[1], self.distance[2], self.distance[3], self.distance[4], self.distance[5]])
             csvfile.close ()
@@ -52,8 +54,10 @@ class ConnectLog:
         self.position_estimate[1] = data['kalman.stateY']
         self.position_estimate[2] = data['kalman.stateZ']
         self.angle = data['stabilizer.yaw']
-        print('[%d][%s][%s]: %s' % (timestamp, self.uri, logconf.name, data))
-        with open ('position.csv', 'a') as csvfile :
+        # print('[%d][%s][%s]: %s' % (timestamp, self.uri, logconf.name, data))
+        addr = self.uri.split('/')
+        file = 'position' + addr[5] + '.csv'
+        with open (file, 'a') as csvfile :
             writer = csv.writer(csvfile , delimiter =',')
             writer.writerow([self.uri, self.position_estimate[0], self.position_estimate[1] , self.position_estimate[2], self.angle])
             csvfile.close ()
@@ -75,8 +79,10 @@ class ConnectLog:
     def log_battery_callback(self, timestamp, data, logconf):
         self.battery_state = data['pm.state']
         self.battery_level = data['pm.batteryLevel']
-        print('[%d][%s][%s]: %s' % (timestamp, self.uri, logconf.name, data))
-        with open ('battery.csv', 'a') as csvfile :
+        # print('[%d][%s][%s]: %s' % (timestamp, self.uri, logconf.name, data))
+        addr = self.uri.split('/')
+        file = 'battery' + addr[5] + '.csv'
+        with open (file, 'a') as csvfile :
             writer = csv.writer(csvfile , delimiter =',')
             writer.writerow([self.uri, self.battery_state, self.battery_level])
             csvfile.close ()
@@ -102,4 +108,3 @@ class ConnectLog:
         self.start_position_printing(cf)
         self.start_dist_printing(cf)
         self.start_battery_printing(cf)
-
