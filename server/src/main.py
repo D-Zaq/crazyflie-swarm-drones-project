@@ -1,6 +1,7 @@
 # coding=utf-8
 from crypt import methods
 import os
+import re
 import requests
 import threading
 import time
@@ -63,33 +64,20 @@ def handleArgosPost():
 
 @app.route('/argosData', methods=["GET"])
 def handleArgosDataPolling():
-    # b = random.randint(0, 99)
-    # string = str(b)
-    # print("llllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllll", string)
     ArgosServer.sendCommand('i')
-    buffer = ArgosServer.conn.recv(80000)
-    string = buffer.decode("utf-8")
-    # print("Striiiiinggg : =====> ", string)
-    # print("Striiiiinggg 00000 : =====> ", string[0])
-    # string = string[-10:]
-    data = string.split()
-    simDrone: Drone = Drone(
-        name=data[-12],
-        speed=data[-11],
-        battery=data[-10],
-        xPosition=data[-9],
-        yPosition=data[-8],
-        zPosition=data[-7],
-        angle=data[-6],
-        frontDistance=data[-5],
-        backDistance=data[-4],
-        leftDistance=data[-3],
-        rightDistance=data[-2],
-        state=data[-1]
-    )
-    # print("Sim Drone : ===>   ", simDrone)
+    simDrones = []
+    simDrones = ArgosServer.receiveData()
 
-    return jsonify(simDrone)
+    return jsonify(simDrones)
+
+
+@app.route('/simMapData', methods=["GET"])
+def handleSimMapDataPolling():
+    ArgosServer.sendCommand('i')
+    simDrones = []
+    simDrones = ArgosServer.receiveData()
+
+    return jsonify(simDrones)
 
 
 @app.route('/logs', methods=["GET"])
@@ -97,14 +85,22 @@ def handleLogsPolling():
     # print("llllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllll GGGGGGGGGGEEEEEEEEEEEEEEEETTTTTTTTTTTTTTTTT")
     return jsonify(logs)
 
+
 @app.route('/crazyflieData', methods=["GET"])
 def handleCFLogsPolling():
-    drones = CrazyflieServer.createDrone()
-    # if CrazyflieServer.state:
-    #     drones['state'] = 'Connected'
-    # else:
-    #     drones['state'] = 'Disconnected'
-    print('Drone physique : ====================> ', drones)
+    drones = CrazyflieServer.createDrones()
+    # print('start')
+    # for drone in drones:
+    #     print('Drone physique : ====================> ', drone)
+    # print('end')
+    return jsonify(drones)
+
+
+@app.route('/realMapData', methods=["GET"])
+def handleRealMapDataPolling():
+    drones = CrazyflieServer.createDrones()
+    # for drone in drones:
+    #     print('Drone physique : ====================> ', drone)
     return jsonify(drones)
 
 
@@ -166,29 +162,29 @@ def handleCFLogsPolling():
 class DashboardLogger(logging.Handler):
     def emit(self, record: logging.LogRecord) -> None:
         logEntry = self.format(record)
-        # if(flaskLaunched == True):
-        #     requests.get('http://127.0.0.1:5000/argosData')
         global logs
         logs.append(ServerLog(
                     log=logEntry,
                     timestamp=int(record.created)
                     ))
-        # print("looooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooggggggggggggggssssssssssssssssss", logEntry)
 
 
 if __name__ == '__main__':
-    
+
     try:
         os.remove('positionE7E7E7E731.csv')
         os.remove('batteryE7E7E7E731.csv')
         os.remove('distanceE7E7E7E731.csv')
+    except :
+        print ('Already deleted') 
+
+    try:
         os.remove('positionE7E7E7E732.csv')
         os.remove('batteryE7E7E7E732.csv')
         os.remove('distanceE7E7E7E732.csv')
     except :
-        print ('Already deleted')   
-   
-
+        print ('Already deleted')
+        
     # To test 'Identify': comment lines: argosServer = server() , argosServer.connectServ()
     # To test ARGoS sim: comment lines: CrazyflieServerThread = CrazyflieServer().start() , CrazyflieServerThread.join()
     cflib.crtp.init_drivers(enable_debug_driver=False)

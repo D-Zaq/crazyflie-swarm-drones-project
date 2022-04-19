@@ -92,7 +92,7 @@ class AppChannel:
         self._cf.close_link()
         self.connexionState = False
         
-    def create_drones(self): 
+    def create_drone(self) -> RealDrone: 
         drone = RealDrone()
 
         addr = self.uri.split('/')
@@ -104,32 +104,23 @@ class AppChannel:
             positionLines = list(positionReader)
             positionEndLine = len(positionLines)-1
             # print('======================= here position end line ==========================')
-            # print(positionEndLine)
             with open(distFile, 'r') as distanceFile:
                 distanceReader = csv.reader(distanceFile)
                 distanceLines = list(distanceReader)
                 distanceEndLine = len(distanceLines)-1
                 # print('======================= here distance end line ==========================')
-                # print(distanceEndLine)
                 with open(battFile, 'r') as batteryFile:
                     batteryReader = csv.reader(batteryFile)                
                     batteryLines = list(batteryReader)                
                     batteryEndLine = len(batteryLines)-1
                     # print('======================= here battery end line ==========================')
-                    # print(batteryEndLine)
-                    # if positionLines[positionEndLine][0] == self.uri and batteryLines[batteryEndLine][0] == self.uri and distanceLines[distanceEndLine][0] == self.uri:
-                    #     drone['name'] = self.uri
-                        # elif positionLines[positionEndLine][0] == uri2 and batteryLines[batteryEndLine][0] == uri2 and distanceLines[distanceEndLine][0] == uri2:
-                        #     drone['name'] = uri2
                     drone['name'] = self.uri
                     drone['speed'] = 'None'
-                    # if batteryLines[batteryEndLine][0] == uri1:
                     drone['battery'] = batteryLines[batteryEndLine][2]
-                    drone['xPosition'] = positionLines[positionEndLine][1]
-                    drone['yPosition'] = positionLines[positionEndLine][2]
-                    drone['zPosition'] = positionLines[positionEndLine][3]
+                    drone['xPosition'] = float(positionLines[positionEndLine][1])
+                    drone['yPosition'] = float(positionLines[positionEndLine][2])
+                    drone['zPosition'] = float(positionLines[positionEndLine][3])
                     drone['angle'] = positionLines[positionEndLine][4]
-                    # if distanceLines[distanceEndLine][0] == uri1:
                     drone['frontDistance'] = distanceLines[distanceEndLine][1]
                     drone['backDistance'] = distanceLines[distanceEndLine][2]
                     drone['leftDistance'] = distanceLines[distanceEndLine][4]
@@ -139,7 +130,8 @@ class AppChannel:
                     else:
                         drone['state'] = 'Disconnected'
                     if self.state != 'Disconnected':
-                        drone['state'] = self.state                   
+                        drone['state'] = self.state
 
         return drone
+
 

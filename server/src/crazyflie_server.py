@@ -9,6 +9,7 @@ from appchannel import AppChannel
 from singleton import Singleton
 import re
 from message import Message
+from real_drone import *
 
 
 class CrazyflieServer(metaclass=Singleton):
@@ -113,9 +114,15 @@ class CrazyflieServer(metaclass=Singleton):
                 targetDrone.sendMessage(commandAction)
 
     @staticmethod
-    def createDrone():
-        data = None
+    def createDrones():
+        drone1 = RealDrone(name='radio://0/80/2M/E7E7E7E731')
+        drone2 = RealDrone(name='radio://0/80/2M/E7E7E7E732')
+        drones = [drone1, drone2]
         for drone in CrazyflieServer.drones:
-           data = drone.create_drones()
-        return data
-        
+            tmpDrone = drone.create_drone()
+            if drone.uri == "radio://0/80/2M/E7E7E7E731":
+                drones[0] = tmpDrone
+            elif drone.uri == "radio://0/80/2M/E7E7E7E732":
+                drones[1] = tmpDrone
+        return drones
+
