@@ -125,8 +125,8 @@ export class DronesService {
     return this.http.get<ServerSimDrone[]>(this.argosDataAddress);
   }
 
-  getCFData(): Observable<ServerRealDrone> {
-    return this.http.get<ServerRealDrone>(this.cfDataServerAdress);
+  getCFData(): Observable<ServerRealDrone[]> {
+    return this.http.get<ServerRealDrone[]>(this.cfDataServerAdress);
   }
 
   getLogs(): Observable<ServerLog[]> {
@@ -137,8 +137,8 @@ export class DronesService {
     return this.http.get<ServerSimDrone[]>(this.simMapDataAddress);
   }
 
-  getRealMapData(): Observable<ServerRealDrone> {
-    return this.http.get<ServerRealDrone>(this.realMapDataAddress);
+  getRealMapData(): Observable<ServerRealDrone[]> {
+    return this.http.get<ServerRealDrone[]>(this.realMapDataAddress);
   }
 
   

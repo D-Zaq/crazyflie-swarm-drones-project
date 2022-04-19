@@ -89,32 +89,14 @@ export class MainPageComponent implements OnInit {
       .subscribe(() => {
         if(!this.isSimulation){
           this.droneService.getCFData().subscribe(res => {
-          if(res.name == this.realDrones[0].name){
-            this.realDrones[0].speed = res.speed;
-            this.realDrones[0].battery = res.battery;
-            this.realDrones[0].xPosition = res.xPosition;
-            this.realDrones[0].yPosition = res.yPosition;
-            this.realDrones[0].zPosition = res.zPosition;
-            this.realDrones[0].angle = res.angle;
-            this.realDrones[0].frontDistance = res.frontDistance;
-            this.realDrones[0].backDistance = res.backDistance;
-            this.realDrones[0].leftDistance = res.leftDistance;
-            this.realDrones[0].rightDistance = res.rightDistance;
-            this.realDrones[0].state = res.state;
-          }
-          else if(res.name == this.realDrones[1].name){
-            this.realDrones[1].speed = res.speed;
-            this.realDrones[1].battery = res.battery;
-            this.realDrones[1].xPosition = res.xPosition;
-            this.realDrones[1].yPosition = res.yPosition;
-            this.realDrones[1].zPosition = res.zPosition;
-            this.realDrones[1].angle = res.angle;
-            this.realDrones[1].frontDistance = res.frontDistance;
-            this.realDrones[1].backDistance = res.backDistance;
-            this.realDrones[1].leftDistance = res.leftDistance;
-            this.realDrones[1].rightDistance = res.rightDistance;
-            this.realDrones[1].state = res.state;
-          }
+            for(let i=0; res.length; i++){
+              const droneIndex = this.realDrones.findIndex((r) => r.name === res[i].name);
+              if (droneIndex === -1) {
+                this.realDrones.push(res[i] as Drone);
+              } else {
+              Object.assign(this.realDrones[droneIndex], res[i]);
+            }
+            }
         },
         (error)=>{
 
