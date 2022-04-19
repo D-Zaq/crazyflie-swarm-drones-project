@@ -27,7 +27,7 @@ RC1 (physique) : https://youtu.be/ZCaThBH-fKE
 Pour faire fonctionner chacune des composantes, il faut suivre ces commandes :
 
 
-Interface
+**Interface**
 
 Se rendre au dossier Interface et exécuter les commandes suivantes :
 
@@ -37,7 +37,7 @@ ng serve –open
 
 
 
-Serveur Web 
+**Serveur Web **
 
 Se rendre au dossier server et exécuter les commandes suivantes :
 
@@ -55,7 +55,7 @@ Ensuite se rendre au dossier server/src et lancer le serveur avec :
 
 python3 “main.py”
 
-Base de données : 
+**Base de données : **
 
 Il faut noter que la base de données est configurée, mais pas obligatoire pour faire fonctionner le système à ce niveau du projet.
 
@@ -67,12 +67,9 @@ PostgresSQL :
 sudo su - postgres
 psql
 
-Simulation : 
+**Simulation**
 
-sudo x11docker --hostdisplay --hostnet --user=RETAIN -- --privileged -v -- argos-example
+Note: Avant de d'effectuer les commandes suivantes, il est important de s'assurer que le serveur **et** l'interface soient lancés
 
-sudo docker exec -it $(sudo docker container ls -q) /bin/bash
-
-argos3 -c experiments/crazyflie_sensing.argos
-
-Note (PDR): Comme le Dockerfile n’est pas encore configuré, il est nécessaire de remplacer les fichiers controller.cpp et .h dans le conteneur par le code provenant du répertoire Gitlab dans le dossier sim.
+Lancer le script sim_launch.sh situé à la racine du dossier simulation.
+Appuyer sur le bouton "play"
