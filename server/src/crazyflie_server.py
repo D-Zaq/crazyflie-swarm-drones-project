@@ -90,10 +90,6 @@ class CrazyflieServer(metaclass=Singleton):
         CrazyflieServer.drones.add(drone)
         drone.connect(interface[0])
         logging.info('Crazyflie connect to client')
-        # if drone.connexionState:
-        #     CrazyflieServer.state = True
-        # else:
-        #     CrazyflieServer.state = False
 
     @staticmethod
     def sendCommand(command):

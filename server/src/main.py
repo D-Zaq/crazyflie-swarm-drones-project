@@ -26,11 +26,6 @@ from sim_drone import Drone
 app = Flask(__name__)
 CORS(app)
 
-# generate database schema
-# Base.metadata.create_all(engine)
-
-# logging.basicConfig(level=logging.ERROR)
-
 logs = []
 
 
@@ -42,10 +37,6 @@ def home():
 @app.route('/crazyflie', methods=["POST"])
 def handleCrazyfliePost():
     data = request.data
-    # data = request.data.decode('utf-8')
-    # data = json.loads(StringIO(data))
-    # jsonify(data)
-    # print("post request >>>>>>>>>", data)
     print(f'"post request >>>>>>>>>" {data}')
     CrazyflieServer.sendCommand(data)
     return jsonify("post hello !")
@@ -55,9 +46,6 @@ def handleCrazyfliePost():
 def handleArgosPost():
     data = request.data.decode('utf-8')
     print(f'"post request >>>>>>>>>" {data}')
-    # calls argos server message sending method
-    # ArgosServer.connectServer(data)
-    # ArgosServer.sendCommand(data)
     ArgosServer.sendCommand(data)
     return jsonify("post hello !")
 
@@ -99,64 +87,7 @@ def handleCFLogsPolling():
 @app.route('/realMapData', methods=["GET"])
 def handleRealMapDataPolling():
     drones = CrazyflieServer.createDrones()
-    # for drone in drones:
-    #     print('Drone physique : ====================> ', drone)
     return jsonify(drones)
-
-
-# @app.route('/drones')
-# def get_drones():
-#     # fetching from the database
-#     session = Session()
-#     drone_objects = session.query(Drone).all()
-
-#     # transforming into JSON-serializable objects
-#     schema = DroneSchema(many=True)
-#     drones = schema.dump(drone_objects)
-
-#     # serializing as JSON
-#     session.close()
-#     return jsonify(drones)
-
-
-# @app.route('/drones', methods=['POST'])
-# def add_drone():
-#     # mount drone object
-#     posted_drone = DroneSchema(only=('name', 'speed', 'battery', 'ledOn', 'real'))\
-#         .load(request.get_json())
-
-#     drone = Drone(**posted_drone, created_by="HTTP post request")
-
-#     # persist drone
-#     session = Session()
-#     session.add(drone)
-#     session.commit()
-
-#     # return created drone
-#     new_drone = DroneSchema().dump(drone)
-#     session.close()
-#     return jsonify(new_drone), 201
-
-# def start_runner():
-#     def start_loop():
-#         not_started = True
-#         while not_started:
-#             print('In start loop')
-#             try:
-#                 r = requests.get('http://127.0.0.1:5000/')
-#                 if r.status_code == 200:
-#                     print('Server started, quiting start_loop')
-#                     global flaskLaunched
-#                     flaskLaunched = True
-#                     not_started = False
-#                 print(r.status_code)
-#             except:
-#                 print('Server not yet started')
-#             time.sleep(2)
-
-#     print('Started runner')
-#     thread = threading.Thread(target=start_loop)
-#     thread.start()
 
 
 class DashboardLogger(logging.Handler):
@@ -214,35 +145,3 @@ if __name__ == '__main__':
     # start_runner()
     app.run()
 
-
-# def exitHandler(sig, frame):
-#     print('Closing server application')
-#     CrazyflieServer.stopServer()
-
-
-# def exitHandler(sig, frame):
-#     print('Closing server application')
-#     CrazyflieServer.stopServer()
-
-
-# # start session
-# session = Session()
-
-
-# # check for existing data
-# drones = session.query(Drone).all()
-
-# if len(drones) == 0:
-#     # create and persist mock drone
-#     firstDrone = Drone("firstDrone", 10, 100, 0, 0)
-#     session.add(firstDrone)
-#     session.commit()
-#     session.close()
-
-#     # reload drones
-#     drones = session.query(Drone).all()
-
-# # show existing drones
-# print('### Drones:')
-# for drone in drones:
-#     print(f'({drone.id}) {drone.name} - {drone.speed} {drone.battery} {drone.ledOn} {drone.real}')
