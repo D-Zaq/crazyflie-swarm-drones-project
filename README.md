@@ -37,7 +37,7 @@ ng serve –open
 
 
 
-**Serveur Web **
+**Serveur Web**
 
 Se rendre au dossier server et exécuter les commandes suivantes :
 
