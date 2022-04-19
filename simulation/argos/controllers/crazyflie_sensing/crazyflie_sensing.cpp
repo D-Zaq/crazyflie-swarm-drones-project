@@ -27,10 +27,12 @@ CCrazyflieSensing::CCrazyflieSensing() : m_pcDistance(NULL),
                                          m_pcPos(NULL),
                                          m_pcBattery(NULL),
                                          m_uiCurrentStep(0),
-                                         drone_data_("Sim_Drone_1") {}
+                                         id_(id++),
+                                         drone_data_("Sim_Drone_") {}
 
 int sock_ = 0;
 bool flying = false;
+bool batteryLevelLow = false;
 
 /****************************************/
 /****************************************/
@@ -73,8 +75,13 @@ void CCrazyflieSensing::Init(TConfigurationNode &t_node)
       that creation, reset, seeding and cleanup are managed by ARGoS. */
    m_pcRNG = CRandom::CreateRNG("argos");
 
+   drone_data_.setName("Sim_Drone_" + GetId());
+   drone_data_.setId(GetId());
+
    m_uiCurrentStep = 0;
-   this->sock = connectServer();
+   path[2500];
+   if (id_ == 0)
+      socke = connectServer();
    Reset();
 }
 
@@ -115,7 +122,7 @@ char CCrazyflieSensing::readBuffer()
    int currentCommand = 0;
    char command;
 
-   valread = recv(this->sock, buffer, 1024, MSG_PEEK);
+   valread = recv(socke, buffer, 1024, MSG_PEEK);
 
    for (int i = 0; i < valread; i++)
    {
@@ -139,8 +146,11 @@ void CCrazyflieSensing::CheckState()
    case 's':
       this->state = 2;
       break;
-   case 'c':
+   case 'b':
       this->state = 3;
+      break;
+   case 'c':
+      this->state = 4;
       break;
    case 'i':
       SendCommand(drone_data_.encode());
@@ -162,16 +172,33 @@ void CCrazyflieSensing::ControlStep()
 
    CheckState();
 
+   const auto battery =
+       static_cast<double>(m_pcBattery->GetReading().AvailableCharge);
+
+   if (battery < 0.30)
+   {
+      if (this->flying)
+      {
+         this->state = 3;
+         // LOGERR << "Mission ended - battery level low" << std::endl;
+      }
+      else
+      {
+         this->batteryLevelLow = true;
+         // LOGERR << "Can't start mission - battery level low" << std::endl;
+      }
+   }
+
    switch (this->state)
    {
    case 1:
-      if (!this->flying)
+      if (!this->flying && !this->batteryLevelLow)
       {
          drone_data_.setState("flying");
          TakeOff();
          this->flying = true;
-         // this->firstTime = true;
          m_cInitialPosition = m_pcPos->GetReading().Position;
+         m_cInitialPosition.SetZ(2.0f);
       }
       break;
    case 2:
@@ -184,8 +211,16 @@ void CCrazyflieSensing::ControlStep()
    case 3:
       if (this->flying)
       {
+         drone_data_.setState("returning_to_base");
+         ReturnToBase();
+      }
+      break;
+
+   case 4:
+      if (this->flying)
+      {
+         // drone_data_.setState("on_the_ground");
          Land();
-         drone_data_.setState("on_the_ground");
          this->flying = false;
       }
       break;
@@ -204,8 +239,6 @@ void CCrazyflieSensing::ControlStep()
        << m_uiCurrentStep << std::endl;
 
    // Print current battery level
-   const auto battery =
-       static_cast<double>(m_pcBattery->GetReading().AvailableCharge);
 
    const CCI_BatterySensor::SReading &sBatRead = m_pcBattery->GetReading();
    LOG << "Battery level: " << sBatRead.AvailableCharge << std::endl;
@@ -241,7 +274,7 @@ void CCrazyflieSensing::ControlStep()
 
 void CCrazyflieSensing::Explore()
 {
-   // CVector3 cPos = m_pcPos->GetReading().Position;
+
    CCI_CrazyflieDistanceScannerSensor::TReadingsMap sDistRead =
        m_pcDistance->GetReadingsMap();
    auto iterDistRead = sDistRead.begin();
@@ -257,28 +290,19 @@ void CCrazyflieSensing::Explore()
 
    CVector3 trans(0.0f, 0.0f, 0.0f);
 
-   // if(this->firstTime){
-   //    trans.SetX(5.0f);
-   //    m_pcPropellers->SetAbsolutePosition(m_cInitialPosition + trans);
-   //    this->firstTime = false;
-   // }
-
    if (left < 100)
    {
       if (left < 100 && left > 90)
       {
          lastPositionL = m_pcPos->GetReading().Position;
-         ;
       }
 
       trans.SetX(-0.3f);
       trans.SetY(-1.0f);
-      // trans.SetZ(2.0f);
-      float z = ((lastPositionL.GetX() + lastPositionL.GetY()) == 0) ? 2.0 : lastPositionL.GetZ();
+      float z = ((lastPositionL.GetX() + lastPositionL.GetY()) == 0) ? 2.0f : lastPositionL.GetZ();
       trans.SetZ(z);
       CVector3 move = lastPositionL + trans;
       m_pcPropellers->SetAbsolutePosition(move);
-      LOGERR << "Target Left: " << move << std::endl;
    }
 
    if (front < 100)
@@ -286,16 +310,13 @@ void CCrazyflieSensing::Explore()
       if (front < 100 && front > 90)
       {
          lastPositionF = m_pcPos->GetReading().Position;
-         ;
       }
       trans.SetY(0.3f);
       trans.SetX(-1.0f);
-      // trans.SetZ(2.0f);
-      float z = ((lastPositionF.GetX() + lastPositionF.GetY()) == 0) ? 2.0 : lastPositionF.GetZ();
+      float z = ((lastPositionF.GetX() + lastPositionF.GetY()) == 0) ? 2.0f : lastPositionF.GetZ();
       trans.SetZ(z);
       CVector3 move = lastPositionF + trans;
       m_pcPropellers->SetAbsolutePosition(move);
-      LOGERR << "Target Front: " << move << std::endl;
    }
 
    if (right < 100)
@@ -303,16 +324,13 @@ void CCrazyflieSensing::Explore()
       if (right < 100 && right > 90)
       {
          lastPositionR = m_pcPos->GetReading().Position;
-         ;
       }
       trans.SetX(0.3f);
       trans.SetY(1.0f);
-      // trans.SetZ(2.0f);
-      float z = ((lastPositionR.GetX() + lastPositionR.GetY()) == 0) ? 2.0 : lastPositionR.GetZ();
+      float z = ((lastPositionR.GetX() + lastPositionR.GetY()) == 0) ? 2.0f : lastPositionR.GetZ();
       trans.SetZ(z);
       CVector3 move = lastPositionR + trans;
       m_pcPropellers->SetAbsolutePosition(move);
-      LOGERR << "Target Right: " << move << std::endl;
    }
 
    if (back < 100)
@@ -320,42 +338,47 @@ void CCrazyflieSensing::Explore()
       if (back < 100 && back > 95)
       {
          lastPositionB = m_pcPos->GetReading().Position;
-         ;
       }
       trans.SetX(1.0f);
       trans.SetY(-1.3f);
-      // trans.SetZ(2.0f);
-      float z = ((lastPositionB.GetX() + lastPositionB.GetY()) == 0) ? 2.0 : lastPositionB.GetZ();
+      float z = ((lastPositionB.GetX() + lastPositionB.GetY()) == 0) ? 2.0f : lastPositionB.GetZ();
       trans.SetZ(z);
       CVector3 move = lastPositionB + trans;
       m_pcPropellers->SetAbsolutePosition(move);
-      LOGERR << "Target back: " << move << std::endl;
    }
 
    if ((front > 100) && (left > 100) && (back > 100) && (right > 100))
    {
-      int transValueX = Randomize();
-      int transValueY = Randomize();
-
-      // LOGERR << "Random value X: " << transValueX << std::endl;
-      // LOGERR << "Random value Y: " << transValueY << std::endl;
+      int transValueX = Randomize(0);
+      int transValueY = Randomize(1);
 
       CVector3 cPos = m_pcPos->GetReading().Position;
-      trans.SetX((static_cast<float>(transValueX) / 2.0));
-      trans.SetY((static_cast<float>(transValueY) / 2.0));
-      // trans.SetX(-1.0f);
-      // trans.SetY(-1.0f);
+      trans.SetX((static_cast<float>(transValueX) / 4.0));
+      trans.SetY((static_cast<float>(transValueY) / 4.0));
+
       m_pcPropellers->SetAbsolutePosition(cPos + trans);
    }
+
+   CVector3 cPos = m_pcPos->GetReading().Position;
+   path[m_uiCurrentStep] = cPos;
+   m_uiCurrentStep++;
 }
 
 /****************************************/
 /****************************************/
 
-int CCrazyflieSensing::Randomize()
+int CCrazyflieSensing::Randomize(int seed)
 {
+   auto randomNB = reinterpret_cast<std::uintptr_t>(m_pcRNG);
    int value = 0;
-   srand(time(NULL));
+   if (seed == 0)
+   {
+      srand(time(NULL));
+   }
+   else
+   {
+      srand(randomNB * time(NULL));
+   }
    int number = rand() % 10 + 1;
    if ((number % 2) == 0)
    {
@@ -374,7 +397,6 @@ int CCrazyflieSensing::Randomize()
 bool CCrazyflieSensing::TakeOff()
 {
    CVector3 cPos = m_pcPos->GetReading().Position;
-   LOGERR << "Take off coords: " << cPos << std::endl;
    if (Abs(cPos.GetZ() - 2.0f) < 0.01f)
       return false;
    cPos.SetZ(2.0f);
@@ -385,14 +407,52 @@ bool CCrazyflieSensing::TakeOff()
 /****************************************/
 /****************************************/
 
-bool CCrazyflieSensing::Land()
+void CCrazyflieSensing::ReturnToBase()
 {
    CVector3 cPos = m_pcPos->GetReading().Position;
-   if (Abs(cPos.GetZ()) < 0.01f)
+
+   if (m_uiCurrentStep > 0)
+   {
+      CVector3 lastPos = path[m_uiCurrentStep];
+      m_pcPropellers->SetAbsolutePosition(lastPos);
+      m_uiCurrentStep--;
+   }
+
+   if (checkIfNear(cPos, m_cInitialPosition))
+   {
+      if (this->flying)
+      {
+         Land();
+         this->flying = false;
+      }
+   }
+}
+
+/****************************************/
+/****************************************/
+
+bool CCrazyflieSensing::checkIfNear(CVector3 cPos, CVector3 initPos)
+{
+
+   if (pow((cPos.GetX() - initPos.GetX()), 2) + pow((cPos.GetY() - initPos.GetY()), 2) <= pow(0.5, 2))
+   {
+      return true;
+   }
+   else
+   {
       return false;
+   }
+}
+
+/****************************************/
+/****************************************/
+
+bool CCrazyflieSensing::Land()
+{
+   drone_data_.setState("landed");
+   CVector3 cPos = m_pcPos->GetReading().Position;
    cPos.SetZ(0.0f);
    m_pcPropellers->SetAbsolutePosition(cPos);
-   LOGERR << "CPOS: " << cPos << std::endl;
    return true;
 }
 
@@ -400,7 +460,7 @@ bool CCrazyflieSensing::Land()
 /****************************************/
 int CCrazyflieSensing::SendCommand(std::string message)
 {
-   return send(this->sock, message.c_str(), message.size(), 0);
+   return send(socke, message.c_str(), message.size(), 0);
 }
 
 void CCrazyflieSensing::Reset()

@@ -1,17 +1,37 @@
 <div class="content" > 
     <div>
         <div class = "title">
-            <h1>Logs</h1>
+            <h1>Logs :</h1>
         </div>
-        <div class="common-padding">
-          <p *ngIf="this.logs.length === 0">No logs to display for now</p>
-          
-          <ng-container *ngFor="let log of this.logs">
-            <div>
-              <span>{{log.date}} &nbsp;</span> - {{log.message}}
-            </div>
-          </ng-container>
+        <div *ngIf="this.droneService.savedMissionLogs.length != 0" >
+          <div class = "title">
+            <h1>Saved Mission Logs :</h1>
+        </div>
+          <div class="common-padding">
+
+            <ng-container *ngFor="let log of this.droneService.savedMissionLogs">
+              <div>
+                <span>{{log.date}} &nbsp;</span> - {{log.message}}
+              </div>
+            </ng-container>
+          </div>
+        </div>
+        
+        <div>
+          <div class = "title">
+            <h1>Real time Logs :</h1>
+          </div>
+          <div class="common-padding">
+            <p *ngIf="this.droneService.logs.length === 0">No logs to display for now</p>
+            
+            <ng-container *ngFor="let log of this.droneService.logs">
+              <div>
+                <span>{{log.date}} &nbsp;</span> - {{log.message}}
+              </div>
+            </ng-container>
+          </div>
         </div>
     </div>
   </div>
+
   

@@ -1,8 +1,10 @@
 import logging
 import socket
+import stat
 from threading import Thread
 import threading
 import time
+from sim_drone import Drone
 
 from singleton import Singleton
 
@@ -28,6 +30,8 @@ class ArgosServer(metaclass=Singleton):
     def startServer():
         logging.info(f"launching ARGoS")
         s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+        # s.setblocking(False)
+        # s.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
         s.bind((ArgosServer.SOCKET_HOST, ArgosServer.SOCKET_PORT))
         s.listen()
         ArgosServer.server = None
@@ -48,4 +52,36 @@ class ArgosServer(metaclass=Singleton):
     @staticmethod
     def sendCommand(command):
         logging.info("Sending command to ARGoS")
+        if(command == "s"):
+            flyCommand = "e"
+            ArgosServer.conn.sendall(flyCommand.encode())
+            time.sleep(1)
+
         ArgosServer.conn.sendall(command.encode())
+
+    @staticmethod
+    def receiveData() -> Drone:
+        buffer = ArgosServer.conn.recv(80000)
+        string = buffer.decode("utf-8")
+        print("Striiiiinggg : =====> ", string)
+        data = string.split()
+        nDrones = int(data[-13]) + 1
+        simDrones = []
+        for i in range(nDrones):
+            simDrones.insert(0, Drone(
+                id=data.pop(-13),
+                name=data.pop(-12),
+                speed=data.pop(-11),
+                battery=data.pop(-10),
+                xPosition=float(data.pop(-9)),
+                yPosition=float(data.pop(-8)),
+                zPosition=float(data.pop(-7)),
+                angle=data.pop(-6),
+                frontDistance=data.pop(-5),
+                backDistance=data.pop(-4),
+                leftDistance=data.pop(-3),
+                rightDistance=data.pop(-2),
+                state=data.pop(-1)
+            ))
+
+        return simDrones

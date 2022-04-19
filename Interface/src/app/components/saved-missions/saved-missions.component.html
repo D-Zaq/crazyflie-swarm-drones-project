@@ -1,0 +1,129 @@
+
+<ng-container class="saved-mission">
+    <table>
+      <tr>
+        <th>Id</th>
+        <th>Date</th>
+        <th>Type</th>
+        <th>Travel Time</th>
+        <th class="unfold-more"></th>
+      </tr>
+      <ng-container >
+        <tr #tableRow>
+          <td>{{this.mission.id}}</td>
+          <td>{{this.mission.date}}</td>
+          <td>{{this.mission.type}}</td>
+          <td>
+            {{this.mission.travelTime}} seconds
+          </td>
+          <td
+            class="unfold-more"
+            [attr.rowspan]="isExpanded ? 2 : 1"
+            (click) = "onExpand()"
+          >
+            <div class="center">
+              <p>show maps</p>
+            </div>
+          </td>
+        </tr>
+        <tr *ngIf="this.isExpanded">
+          <td colspan="4">
+            <div class="center flex-column">
+              <div class="span-items">
+                <button mat-button (click)="this.droneService.savedMissionLogs = this.mission.logs" routerLink="/logs" matTooltip="mission logs">Inspect logs</button>
+                <div class="drone-list">
+                  <p>Drones :</p>
+                  <ng-container *ngFor="let drone of this.mission.drones">
+                    <p>{{drone.name}}</p>
+                  </ng-container>
+                </div>
+              </div>
+              <div class="maps">
+                <ng-container *ngFor="let drone of this.mission.drones"> 
+                  <svg [attr.viewBox]="this.mission.type === 'simulation' ? '-2.5 -2.5 5 5' : '-2 -2 4 4'" #svg>
+                    <g>
+                      <circle
+                      *ngFor="let point of this.mission.dronesPoints[drone.id]"
+                      fill="indianred"
+                      [attr.cx]="point.x"
+                      [attr.cy]="point.y"
+                      r="0.02"
+                      />
+                    </g>
+                    <use
+                    xlink:href="/assets/drone.svg#drone"
+                    [attr.x]="this.mission.type === 'simulation' ? this.mission.drones[drone.id].yPosition : this.mission.drones[drone.id].xPosition"
+                    [attr.y]="this.mission.type === 'simulation' ? this.mission.drones[drone.id].xPosition : this.mission.drones[drone.id].yPosition"
+                    width="0.15"
+                    height="0.15"
+                    fill="lightseagreen"
+                    />
+                    <line
+                    x1="0"
+                    y1="-400"
+                    x2="0"
+                    y2="400"
+                    stroke="black"
+                    stroke-width="0.02"
+                    stroke-dasharray="0.05 0.05"
+                    stroke-opacity="0.40"
+                    />
+                    <line
+                    x1="-400"
+                    y1="0"
+                    x2="400"
+                    y2="0"
+                    stroke="black"
+                    stroke-width="0.02"
+                    stroke-dasharray="0.05 0.05"
+                    stroke-opacity="0.40"
+                    />
+                  </svg>
+                </ng-container>
+                <svg [attr.viewBox]="this.mission.type === 'simulation' ? '-2.5 -2.5 5 5' : '-2 -2 4 4'" #svg>
+                  <g>
+                    <circle
+                    *ngFor="let point of this.mission.allPoints"
+                    fill="indianred"
+                    [attr.cx]="point.x"
+                    [attr.cy]="point.y"
+                    r="0.02"
+                    />
+                  </g>
+                  <use
+                  *ngFor="let mapDrone of this.mission.drones"
+                  xlink:href="/assets/drone.svg#drone"
+                  [attr.x]="this.mission.type === 'simulation' ? mapDrone.yPosition : mapDrone.xPosition"
+                  [attr.y]="this.mission.type === 'simulation' ? mapDrone.xPosition : mapDrone.yPosition"
+                  width="0.15"
+                  height="0.15"
+                  fill="lightseagreen"
+                  />
+                  <line
+                  x1="0"
+                  y1="-400"
+                  x2="0"
+                  y2="400"
+                  stroke="black"
+                  stroke-width="0.02"
+                  stroke-dasharray="0.05 0.05"
+                  stroke-opacity="0.40"
+                  />
+                  <line
+                  x1="-400"
+                  y1="0"
+                  x2="400"
+                  y2="0"
+                  stroke="black"
+                  stroke-width="0.02"
+                  stroke-dasharray="0.05 0.05"
+                  stroke-opacity="0.40"
+                  />
+                </svg>
+              </div>
+            </div>
+          </td>
+        </tr>
+      </ng-container>
+    </table>
+  </ng-container>

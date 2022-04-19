@@ -1,0 +1,85 @@
+table {
+  border-collapse: collapse;
+  width: 100%;
+  table-layout: fixed;
+  margin-bottom: 2rem;
+
+  td,
+  th {
+    border: 3px solid rgba($color: #118f50, $alpha: 0.4);
+    padding: 8px;
+    flex-wrap: wrap;
+    overflow-y: hidden;
+  }
+
+  th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: rgba($color: #118f50, $alpha: 0.2);
+    color: white;
+    flex-wrap: wrap;
+  }
+
+  .unfold-more {
+    width: 2rem;
+  }
+
+  .center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .center.flex-column {
+    flex-direction: column;
+  }
+
+  .span-items {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .drone-list {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    margin: 0.5rem -0.5rem;
+
+    // p {
+    //   margin-bottom: 0.5rem;
+    // }
+
+    > * {
+      margin: 0 0.5rem;
+    }
+  }
+}
+
+p {
+  font-weight: bold;
+}
+
+svg {
+  width: 20%;
+  height: 20%;
+  min-width: 12rem;
+  min-height: 12rem;
+  text-align: center;
+  background-color: azure;
+}
+
+.maps {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 2rem;
+  // margin-left: ;
+}
+
+.mat-button {
+  background-color: rgba($color: rgb(200, 218, 207), $alpha: 0.25);
+  // width: 100%;
+  font-size: 90%;
+}

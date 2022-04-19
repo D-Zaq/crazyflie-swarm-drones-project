@@ -11,6 +11,7 @@
 
 DroneData::DroneData(std::string name)
     : flying_{false},
+      id_("0"),
       name_(std::move(name)),
       speed_{0},
       battery_{100},
@@ -32,7 +33,7 @@ std::string DroneData::encode()
     std::string leftDistance = std::to_string(sensorDistance_.left);
     std::string rightDistance = std::to_string(sensorDistance_.right);
 
-    std::string data = name_ + " " + speed + " " + battery + " " + xPosition + " " + yPosition + " " + zPosition + " " + angle + " " + frontDistance + " " + backDistance + " " + leftDistance + " " + rightDistance + " " + state_;
+    std::string data = id_ + " " + name_ + " " + speed + " " + battery + " " + xPosition + " " + yPosition + " " + zPosition + " " + angle + " " + frontDistance + " " + backDistance + " " + leftDistance + " " + rightDistance + " " + state_;
     return data.append("\n");
 }
 
@@ -46,4 +47,3 @@ void DroneData::update(std::float_t battery, const Vec4 &pos, const float_t &yaw
     pos_ = pos;
     sensorDistance_ = sensorDistance;
 }
-

@@ -11,7 +11,8 @@ from message import Message
 from connect_log_param import ConnectLog
 from real_drone import RealDrone
 
-logging.basicConfig(level=logging.ERROR)
+# logging.basicConfig(level=logging.ERROR)
+
 
 class AppChannel:
 
@@ -21,8 +22,6 @@ class AppChannel:
         self.log: Union[ConnectLog, None] = None
         self.connexionState: bool = False
         self.state: str = "Disconnected"
-
-
 
     def connect(self, droneUri: str) -> None:
         """Assign the client to the connection. Add callbacks for the
@@ -51,9 +50,20 @@ class AppChannel:
 
         thread.start()
 
+    # def _app_packet_received(self, data):
+    #     (ledIsOn, ) = struct.unpack("<B", data)
+    #     print(f"Received ledIsOn state: {bool(ledIsOn)}")
+
     def _app_packet_received(self, data):
-        (ledIsOn, ) = struct.unpack("<B", data)
-        print(f"Received ledIsOn state: {bool(ledIsOn)}")
+        (ledIsOn, state, ) = struct.unpack("<Bi", data)
+        print(f"Received drone data: {bool(ledIsOn), int(state)}")  
+        if(state == 0):
+            self.state = 'LED'
+        elif(state == 1):
+            self.state = 'In Mission'
+        elif(state == 2):
+            self.state = 'Landing'
+
 
     def connected(self) -> None:
         """ This callback is called form the Crazyflie API when a Crazyflie
@@ -63,7 +73,6 @@ class AppChannel:
             f'New Crazyradio client connected on uri {self.uri}')
         time.sleep(2)
         self.log.start_printing(self._cf, self.uri)
-
 
     def disconnected(self, droneUri) -> None:
         """Callback when the Crazyflie is disconnected (called in all cases)"""
@@ -86,7 +95,8 @@ class AppChannel:
         print('in AppChannel send message')
         print(command)
         print(struct.pack("<c", command.encode('utf-8')))
-        self._cf.appchannel.send_packet(struct.pack("<c", command.encode('utf-8')))
+        self._cf.appchannel.send_packet(
+            struct.pack("<c", command.encode('utf-8')))
 
     def closeClient(self) -> None:
         self._cf.close_link()

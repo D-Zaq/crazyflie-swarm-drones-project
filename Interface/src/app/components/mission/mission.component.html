@@ -1,0 +1,89 @@
+
+<div class="missions">
+  <ng-container *ngIf="this.droneService.isSimulation; else realDronesMap">
+    <svg [attr.viewBox]="'-2.5 -2.5 5 5'" #svg>
+      <g>
+        <circle
+        *ngFor="let point of this.droneService.simPoints"
+        fill="blue"
+        [attr.cx]="point.x"
+        [attr.cy]="point.y"
+        r="0.02"
+        />
+      </g>
+      <use
+      *ngFor="let mapDrone of this.droneService.mapSimDrones"
+      xlink:href="/assets/drone.svg#drone"
+      [attr.x]="mapDrone.yPosition"
+      [attr.y]="mapDrone.xPosition"
+      width="0.15"
+      height="0.15"
+      fill="blue"
+      />
+      <line
+      x1="0"
+      y1="-400"
+      x2="0"
+      y2="400"
+      stroke="black"
+      stroke-width="0.02"
+      stroke-dasharray="0.05 0.05"
+      stroke-opacity="0.40"
+      />
+      <line
+      x1="-400"
+      y1="0"
+      x2="400"
+      y2="0"
+      stroke="black"
+      stroke-width="0.02"
+      stroke-dasharray="0.05 0.05"
+      stroke-opacity="0.40"
+      />
+    </svg>
+  </ng-container>  
+  
+  <ng-template #realDronesMap>
+    <svg [attr.viewBox]="'-2 -2 4 4'" #svg>
+      <g>
+        <circle
+        *ngFor="let point of this.droneService.realPoints"
+        fill="green"
+        [attr.cx]="point.x"
+        [attr.cy]="point.y"
+        r="0.02"
+        />
+      </g>
+      <use
+      *ngFor="let mapRealDrone of this.droneService.mapRealDrones"
+      xlink:href="/assets/drone.svg#drone"
+      [attr.x]="mapRealDrone.xPosition"
+      [attr.y]="mapRealDrone.yPosition"
+      width="0.15"
+      height="0.15"
+      fill="green"
+      />
+      <line
+      x1="0"
+      y1="-400"
+      x2="0"
+      y2="400"
+      stroke="green"
+      stroke-width="0.02"
+      stroke-dasharray="0.05 0.05"
+      stroke-opacity="0.40"
+      />
+      <line
+      x1="-400"
+      y1="0"
+      x2="400"
+      y2="0"
+      stroke="green"
+      stroke-width="0.02"
+      stroke-dasharray="0.05 0.05"
+      stroke-opacity="0.40"
+      />
+    </svg>
+  </ng-template> 
+  </div>
+  
