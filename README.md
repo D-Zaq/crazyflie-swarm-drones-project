@@ -71,5 +71,5 @@ psql
 
 Note: Avant de d'effectuer les commandes suivantes, il est important de s'assurer que le serveur **et** l'interface soient lancés
 
-Lancer le script sim_launch.sh situé à la racine du dossier simulation.
+Lancer le script sim_launch.sh situé à la racine du dossier simulation.\n
 Appuyer sur le bouton "play"
