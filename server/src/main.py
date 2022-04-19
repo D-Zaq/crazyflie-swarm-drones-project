@@ -1,6 +1,9 @@
 # coding=utf-8
+import cflib.bootloader
+import cflib.crtp
 from crypt import methods
 import os
+import pathlib
 import re
 import requests
 import threading
@@ -201,38 +204,53 @@ if __name__ == '__main__':
         if isinstance(handler, logging.FileHandler):
             handler.setFormatter(formatter)
 
-    argosServerThread = ArgosServer.start()
-    logging.info('Argos server launched')
-    argosServerThread.join()
+    # argosServerThread = ArgosServer.start()
+    # logging.info('Argos server launched')
+    # argosServerThread.join()
 
     CrazyflieServerThread = CrazyflieServer().start()
 
     logging.info('Crazyflie server launched')
     CrazyflieServerThread.join()
 
-    logging.info('app launched')
-    # start_runner()
-    app.run()
+    # logging.info('app launched')
+    # # start_runner()
+    # app.run()
 
+    targets = [cflib.bootloader.Target('cf2', 'stm32', 'fw')]  # noqa
+    cwd = pathlib.Path.cwd()
+    print(cwd)
+
+    firmwarePath = cwd / '..' / '..' / 'crazyflie-firmware' / \
+        'flashed_firware' / 'src' / 'main.c'
+    outPath = cwd / 'out'
     # for clink in clinks:
-    # logging.info(f'Flashing {clink}...')
-    # bl = cflib.bootloader.Bootloader(clink)
 
-    # try:
-    #     ok = bl.start_bootloader(warm_boot=True)
-    # except AttributeError:
-    #     logging.error(f'...bad clink provided')
-    #     continue
+    bin: pathlib.Path = cwd / 'out' / 'cf2.bin'
 
-    # if not ok:
-    #     logging.error(f'...failed to warm boot')
-    #     continue
+    if not outPath.is_dir():
+        outPath.mkdir()
 
-    # bl.flash(self.bin, ProjectLoader.targets)
-    # bl.reset_to_firmware()
+    # with firmwarePath.open('w') as out:
+    #             out.write(code)
 
-    # bl.close()
-    # logging.log(SUCCESS_LEVEL_NUM, f'...success')
+    print(f"Flashing 'radio://0/80/2M/E7E7E7E732'...")
+    bl = cflib.bootloader.Bootloader('radio://0/80/2M/E7E7E7E732')
+
+    try:
+        ok = bl.start_bootloader(warm_boot=True)
+    except AttributeError:
+        print(f'...bad clink provided')
+        # continue
+
+    if not ok:
+        print(f'...failed to warm boot')
+        # continue
+
+    bl.flash(bin, targets)
+    bl.reset_to_firmware()
+
+    bl.close()
 
 
 # def exitHandler(sig, frame):
