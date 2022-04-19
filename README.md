@@ -2,7 +2,7 @@ Liens Youtube :
 
 RF1 : https://youtu.be/13IK0fUkqR0
 
-RF2 (simulation) : https://youtu.be/disSh0j17Xk
+RF2 et RF4 (simulation) : https://youtu.be/DDPy3zP6av8
 
 RF2 (physique) : https://youtu.be/0ldOjo93YiA
 
@@ -10,13 +10,15 @@ RF3 (simulation) : https://youtu.be/6V3i5QbMqSM
 
 RF3 (physique) : https://youtu.be/6oj3N6FtFUk
 
-RF4 (simulation) : https://youtu.be/oqQtMK2dclg
-
 RF4 (physique) : https://youtu.be/0ldOjo93YiA
 
-RF5 (simulation) : https://youtu.be/QU_WdWpacfs
+RF5 (simulation) : https://youtu.be/_wsYKvkqE_U
 
 RF5 (physique) : https://youtu.be/0ldOjo93YiA
+
+RF6 (simulation) : https://youtu.be/ZjJxnp08VyY
+
+RF7 (simulation): https://youtu.be/HtsJeYMvS48 et https://youtu.be/f4pQGaMIH9o
 
 RF8 RF9 et RF11 (simulation): https://youtu.be/wgHPegepmkc
 
@@ -33,6 +35,12 @@ RC1 (simulation) : https://www.youtube.com/watch?v=EOlxl1FAvlE
 RC1 (physique) : https://youtu.be/ZCaThBH-fKE
 
 RF2 RF3 RF4 RF5 RF6 RF7 RF8 RF9 et RF11 (physique) : https://youtu.be/435cvL4hRAc
+
+RC2: https://youtu.be/ZYtIfvIZdOM
+
+RC3: https://youtu.be/fqE2uKaNJmc
+
+RC5: https://youtu.be/0Ivn4ZESiYs
 
 Pour faire fonctionner chacune des composantes, il faut suivre ces commandes :
 
