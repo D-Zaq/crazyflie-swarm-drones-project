@@ -18,11 +18,21 @@ RF5 (simulation) : https://youtu.be/QU_WdWpacfs
 
 RF5 (physique) : https://youtu.be/0ldOjo93YiA
 
-RF10 : https://youtu.be/bQ1Ze0OMX84
+RF8 RF9 et RF11 (simulation): https://youtu.be/wgHPegepmkc
+
+RF10 (RR) : https://youtu.be/gvLCnpMKphQ
+
+RF13 : https://youtube.com/shorts/S4xfAArf5-k?feature=share
+
+RF17 et RF18 (simulation) : https://youtu.be/cMP4kRYs6wc
+
+RF17 et RF18 (physique): https://youtu.be/hpVkW4-mHgo
 
 RC1 (simulation) : https://www.youtube.com/watch?v=EOlxl1FAvlE
 
 RC1 (physique) : https://youtu.be/ZCaThBH-fKE
+
+RF2 RF3 RF4 RF5 RF6 RF7 RF8 RF9 et RF11 (physique) : https://youtu.be/435cvL4hRAc
 
 Pour faire fonctionner chacune des composantes, il faut suivre ces commandes :
 
@@ -33,6 +43,8 @@ Se rendre au dossier Interface et exécuter les commandes suivantes :
 
 npm install
 ng add @angular/material
+npm install firebase @angular/fire --save
+npm install duration
 ng serve –open
 
 
