@@ -112,11 +112,13 @@ class CrazyflieServer(metaclass=Singleton):
                     '======================> Sending message to drone : ', targetDrone.uri)
 
                 targetDrone.sendMessage(commandAction)
-    
+
     @staticmethod
     def createDrones():
-        drone1 = RealDrone(name='radio://0/80/2M/E7E7E7E731')
-        drone2 = RealDrone(name='radio://0/80/2M/E7E7E7E732')
+        drone1 = RealDrone(name='radio://0/80/2M/E7E7E7E731', speed='0', battery='0', xPosition=0, yPosition=0, zPosition=0,
+                           angle='0', frontDistance='500', backDistance='500', leftDistance='500', rightDistance='500', state='Disconnected')
+        drone2 = RealDrone(name='radio://0/80/2M/E7E7E7E732', speed='0', battery='0', xPosition=0, yPosition=0, zPosition=0,
+                           angle='0', frontDistance='500', backDistance='500', leftDistance='500', rightDistance='500', state='Disconnected')
         drones = [drone1, drone2]
         for drone in CrazyflieServer.drones:
             tmpDrone = drone.create_drone()
@@ -125,4 +127,3 @@ class CrazyflieServer(metaclass=Singleton):
             elif drone.uri == "radio://0/80/2M/E7E7E7E732":
                 drones[1] = tmpDrone
         return drones
-

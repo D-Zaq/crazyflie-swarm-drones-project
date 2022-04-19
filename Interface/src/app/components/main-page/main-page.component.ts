@@ -60,15 +60,6 @@ export class MainPageComponent implements OnInit {
           },
           )
           this.missionEnded = this.checkMissionEnd(this.simDrones);
-          // if(this.simDrones.length != 0) {
-          //   this.missionEnded = true;
-          //   for(let i=0; this.simDrones.length; i++){
-          //     if(this.simDrones[i].state != 'on_the_ground'){
-          //       this.missionEnded = false;
-          //     }
-          //   }
-          // if(this.missionEnded) this.saveMission();
-          // }
         }
 
         this.droneService.getLogs().subscribe(res => {
@@ -101,6 +92,7 @@ export class MainPageComponent implements OnInit {
         (error)=>{
 
         })
+        this.missionEnded = this.checkRealMissionEnd(this.realDrones);
       }
     });
   }
@@ -124,6 +116,18 @@ export class MainPageComponent implements OnInit {
         return false;
       }
     }
+    this.saveMission();
+    return true;
+  }
+
+  checkRealMissionEnd(realDrones: Drone[]): boolean{
+
+    for(let i=0; i< realDrones.length; i++){
+      if(realDrones[i].state != 'landed'){
+          return false;
+      }
+    }
+    this.missionEnded =true;
     this.saveMission();
     return true;
   }
@@ -208,6 +212,7 @@ export class MainPageComponent implements OnInit {
   }
   
   saveMission(): void {
+    if(!this.isSimulation) this.missionEnded = true;
     if(this.droneService.missionSaved === false && this.missionEnded && !this.droneService.missionCanceled){
       this.droneService.missionSaved = true;
       const dateNow: Date = new Date();
