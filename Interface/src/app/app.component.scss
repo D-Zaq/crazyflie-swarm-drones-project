@@ -22,6 +22,14 @@
   background-color: rgba($color: rgb(118, 233, 162), $alpha: 0.25);
 }
 
+button.button:hover {
+  background-color: rgba($color: rgb(44, 102, 129), $alpha: 0.25);
+}
+
+button.button:focus {
+  background-color: rgba($color: rgb(10, 19, 78), $alpha: 0.55);
+}
+
 .icon {
   color: invert($color: #000000);
   // font-size: large;
