@@ -55,15 +55,20 @@ class AppChannel:
     #     print(f"Received ledIsOn state: {bool(ledIsOn)}")
 
     def _app_packet_received(self, data):
-        (ledIsOn, state, ) = struct.unpack("<Bi", data)
-        print(f"Received drone data: {bool(ledIsOn), int(state)}")  
+        (state,) = struct.unpack("<i", data)
+        print(f"Received drone data: {int(state)}")  
         if(state == 0):
-            self.state = 'LED'
+            self.state = 'On the ground'
         elif(state == 1):
-            self.state = 'In Mission'
+            self.state = 'in mission'
         elif(state == 2):
-            self.state = 'Landing'
-
+            self.state = 'landed'
+        elif(state == 3):
+            self.state = 'crashed'
+        elif(state == 4):
+            self.state = 'returning to base'
+        elif(state == 5):
+            self.state = 'Error'
 
     def connected(self) -> None:
         """ This callback is called form the Crazyflie API when a Crazyflie

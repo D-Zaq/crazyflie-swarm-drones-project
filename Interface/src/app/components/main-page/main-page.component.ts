@@ -129,7 +129,7 @@ export class MainPageComponent implements OnInit {
   }
 
   startMission(): void {
-    this.simDrones[0].state = "not_landed"
+    if(this.isSimulation) this.simDrones[0].state = "not_landed";
     this.droneService.missionSaved = false;
     this.droneService.missionCanceled =false;
     this.missionEnded = false;
