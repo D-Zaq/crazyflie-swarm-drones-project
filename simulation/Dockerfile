@@ -78,7 +78,7 @@ RUN cd /root/simulation &&\
     make -j $(nproc)
 
 #TODO: make .sh file to replace CMD
-#CMD cd simulation && argos3 -c ./experiments/crazyflie_sensing.argos
+CMD cd simulation && argos3 -c ./experiments/crazyflie_sensing.argos
 
 
 
