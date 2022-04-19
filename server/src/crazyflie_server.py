@@ -28,7 +28,7 @@ class CrazyflieServer(metaclass=Singleton):
         return thread
 
     @staticmethod
-    def startServer():
+    def startServer() -> None:
         cflib.crtp.init_drivers(enable_debug_driver=False)
         # while not CrazyflieServer.isCrazyradioConnected() and \
         #         CrazyflieServer.running:
@@ -43,7 +43,7 @@ class CrazyflieServer(metaclass=Singleton):
         threading.Thread(target=CrazyflieServer.findNewDrones).start()
 
     @staticmethod
-    def findNewDrones():
+    def findNewDrones() -> None:
         while CrazyflieServer.running:
             nDrones = len(CrazyflieServer.drones)
             if nDrones < CrazyflieServer.MAX_DRONE_NUMBER:
@@ -79,20 +79,20 @@ class CrazyflieServer(metaclass=Singleton):
         return available
 
     @staticmethod
-    def stopServer():
+    def stopServer() -> None:
         CrazyflieServer.running = False
         for drone in CrazyflieServer.drones:
             drone.closeClient()
 
     @staticmethod
-    def connectClient(interface):
+    def connectClient(interface) -> None:
         drone = AppChannel()
         CrazyflieServer.drones.add(drone)
         drone.connect(interface[0])
         logging.info('Crazyflie connect to client')
 
     @staticmethod
-    def sendCommand(command):
+    def sendCommand(command) -> None:
         print('in Crazyflie server send message')
         commandStr = command.decode("utf-8")
         commandStr = re.sub('[}"{]', '', commandStr)

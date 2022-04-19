@@ -27,11 +27,9 @@ class ArgosServer(metaclass=Singleton):
         return thread
 
     @staticmethod
-    def startServer():
+    def startServer() -> None:
         logging.info(f"launching ARGoS")
         s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-        # s.setblocking(False)
-        # s.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
         s.bind((ArgosServer.SOCKET_HOST, ArgosServer.SOCKET_PORT))
         s.listen()
         ArgosServer.server = None
@@ -39,7 +37,7 @@ class ArgosServer(metaclass=Singleton):
         threading.Thread(target=ArgosServer.connectServ).start()
 
     @staticmethod
-    def connectServ():
+    def connectServ() -> None:
         while ArgosServer.running:
             if ArgosServer.accepted is False:
                 logging.info("connecting to ARGoS")
@@ -50,7 +48,7 @@ class ArgosServer(metaclass=Singleton):
             time.sleep(1)
 
     @staticmethod
-    def sendCommand(command):
+    def sendCommand(command) -> None:
         logging.info("Sending command to ARGoS")
         if(command == "s"):
             flyCommand = "e"
