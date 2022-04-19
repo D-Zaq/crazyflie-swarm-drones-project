@@ -40,12 +40,12 @@ def test_close_client_calls_cf_close_link_and_sets_connexion_state_to_false(mock
     spy.assert_called()
     assert channel.connexionState == False
 
-def test_create_drones_returns_expected_object_and_state_to_Connected():
+def test_create_drone_returns_expected_object_and_state_to_Connected():
     global channel
     channel.uri = 'radio://0/80/2M/E7E7E7E731'
     channel.connexionState = True
 
-    ExpectedDrone = RealDrone(name='radio://0/80/2M/E7E7E7E731', speed='None', battery= '50.0', xPosition= '-0.0002851971366908401', yPosition= '-0.23085884749889374', zPosition= '0.008457029238343239', angle= '-0.2579251825809479', frontDistance= '191.0', backDistance= '205.0', leftDistance= '164.0', rightDistance= '170.0', state='Connected')
+    ExpectedDrone = RealDrone(name='radio://0/80/2M/E7E7E7E731', speed='None', battery= '50.0', xPosition= -0.0002851971366908401, yPosition= -0.23085884749889374, zPosition= 0.008457029238343239, angle= '-0.2579251825809479', frontDistance= '191.0', backDistance= '205.0', leftDistance= '164.0', rightDistance= '170.0', state='Connected')
     try:
         os.remove('positionE7E7E7E731.csv')
         os.remove('batteryE7E7E7E731.csv')
@@ -71,7 +71,7 @@ def test_create_drones_returns_expected_object_and_state_to_Connected():
         writer.writerow(['radio://0/80/2M/E7E7E7E731',0.0,50.0])
         csvfile.close ()
 
-    ResultDrone = channel.create_drones()
+    ResultDrone = channel.create_drone()
 
     os.remove('positionE7E7E7E731.csv')
     os.remove('batteryE7E7E7E731.csv')
@@ -79,12 +79,12 @@ def test_create_drones_returns_expected_object_and_state_to_Connected():
 
     assert ResultDrone == ExpectedDrone
 
-def test_create_drones_returns_expected_object_and_state_to_Disconnected():
+def test_create_drone_returns_expected_object_and_state_to_Disconnected():
     global channel
     channel.uri = 'radio://0/80/2M/E7E7E7E731'
     channel.connexionState = False
 
-    ExpectedDrone = RealDrone(name='radio://0/80/2M/E7E7E7E731', speed='None', battery= '50.0', xPosition= '-0.0002851971366908401', yPosition= '-0.23085884749889374', zPosition= '0.008457029238343239', angle= '-0.2579251825809479', frontDistance= '191.0', backDistance= '205.0', leftDistance= '164.0', rightDistance= '170.0', state='Disconnected')
+    ExpectedDrone = RealDrone(name='radio://0/80/2M/E7E7E7E731', speed='None', battery= '50.0', xPosition= -0.0002851971366908401, yPosition= -0.23085884749889374, zPosition= 0.008457029238343239, angle= '-0.2579251825809479', frontDistance= '191.0', backDistance= '205.0', leftDistance= '164.0', rightDistance= '170.0', state='Disconnected')
     try:
         os.remove('positionE7E7E7E731.csv')
         os.remove('batteryE7E7E7E731.csv')
@@ -110,7 +110,7 @@ def test_create_drones_returns_expected_object_and_state_to_Disconnected():
         writer.writerow(['radio://0/80/2M/E7E7E7E731',0.0,50.0])
         csvfile.close ()
 
-    ResultDrone = channel.create_drones()
+    ResultDrone = channel.create_drone()
 
     os.remove('positionE7E7E7E731.csv')
     os.remove('batteryE7E7E7E731.csv')
@@ -119,13 +119,13 @@ def test_create_drones_returns_expected_object_and_state_to_Disconnected():
     assert ResultDrone == ExpectedDrone
 
 
-def test_create_drones_returns_expected_object_and_state_to_In_Mission():
+def test_create_drone_returns_expected_object_and_state_to_In_Mission():
     global channel
     channel.uri = 'radio://0/80/2M/E7E7E7E731'
     channel.connexionState = True
     channel.state = 'In Mission'
 
-    ExpectedDrone = RealDrone(name='radio://0/80/2M/E7E7E7E731', speed='None', battery= '50.0', xPosition= '-0.0002851971366908401', yPosition= '-0.23085884749889374', zPosition= '0.008457029238343239', angle= '-0.2579251825809479', frontDistance= '191.0', backDistance= '205.0', leftDistance= '164.0', rightDistance= '170.0', state='In Mission')
+    ExpectedDrone = RealDrone(name='radio://0/80/2M/E7E7E7E731', speed='None', battery= '50.0', xPosition= -0.0002851971366908401, yPosition= -0.23085884749889374, zPosition= 0.008457029238343239, angle= '-0.2579251825809479', frontDistance= '191.0', backDistance= '205.0', leftDistance= '164.0', rightDistance= '170.0', state='In Mission')
     try:
         os.remove('positionE7E7E7E731.csv')
         os.remove('batteryE7E7E7E731.csv')
@@ -151,7 +151,7 @@ def test_create_drones_returns_expected_object_and_state_to_In_Mission():
         writer.writerow(['radio://0/80/2M/E7E7E7E731',0.0,50.0])
         csvfile.close ()
 
-    ResultDrone = channel.create_drones()
+    ResultDrone = channel.create_drone()
 
     os.remove('positionE7E7E7E731.csv')
     os.remove('batteryE7E7E7E731.csv')
