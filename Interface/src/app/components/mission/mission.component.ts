@@ -91,7 +91,7 @@ export class MissionComponent implements OnInit {
               Object.assign(this.droneService.mapRealDrones[droneIndex], drone);
             }
 
-            this.addRealPoint(this.droneService.mapSimDrones[i]); 
+            this.addRealPoint(this.droneService.mapRealDrones[i]); 
             }  
             },
             (error)=>{

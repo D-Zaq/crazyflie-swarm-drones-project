@@ -175,16 +175,16 @@ if __name__ == '__main__':
         os.remove('positionE7E7E7E731.csv')
         os.remove('batteryE7E7E7E731.csv')
         os.remove('distanceE7E7E7E731.csv')
-    except :
-        print ('Already deleted') 
+    except:
+        print('Already deleted')
 
     try:
         os.remove('positionE7E7E7E732.csv')
         os.remove('batteryE7E7E7E732.csv')
         os.remove('distanceE7E7E7E732.csv')
-    except :
-        print ('Already deleted')
-        
+    except:
+        print('Already deleted')
+
     # To test 'Identify': comment lines: argosServer = server() , argosServer.connectServ()
     # To test ARGoS sim: comment lines: CrazyflieServerThread = CrazyflieServer().start() , CrazyflieServerThread.join()
     cflib.crtp.init_drivers(enable_debug_driver=False)
@@ -213,6 +213,26 @@ if __name__ == '__main__':
     logging.info('app launched')
     # start_runner()
     app.run()
+
+    # for clink in clinks:
+    # logging.info(f'Flashing {clink}...')
+    # bl = cflib.bootloader.Bootloader(clink)
+
+    # try:
+    #     ok = bl.start_bootloader(warm_boot=True)
+    # except AttributeError:
+    #     logging.error(f'...bad clink provided')
+    #     continue
+
+    # if not ok:
+    #     logging.error(f'...failed to warm boot')
+    #     continue
+
+    # bl.flash(self.bin, ProjectLoader.targets)
+    # bl.reset_to_firmware()
+
+    # bl.close()
+    # logging.log(SUCCESS_LEVEL_NUM, f'...success')
 
 
 # def exitHandler(sig, frame):
