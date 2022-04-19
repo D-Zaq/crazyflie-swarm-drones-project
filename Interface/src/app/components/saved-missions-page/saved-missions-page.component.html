@@ -1,0 +1,25 @@
+<div class="content">
+    <div class="title">
+        <h1> Missions history:</h1>
+        <button mat-button (click)="this.deleteAllMissions()">Delete All Missions</button>
+    </div>
+        <div class="text">
+            <label id="example-radio-group-label">Order missions by :</label>
+        </div>
+            <mat-radio-group
+                aria-labelledby="example-radio-group-label"
+                class="example-radio-group"
+                [(ngModel)]="orderOption"
+                color="warn"
+                >
+                
+                <mat-radio-button class="example-radio-button" *ngFor="let option of options" [value]="option" (click)="this.onOrder(option)">
+                    {{option}}
+                </mat-radio-button>
+            </mat-radio-group>
+
+    <app-saved-missions
+    [mission]="mission"
+    *ngFor="let mission of this.missions"
+    ></app-saved-missions>
+</div>

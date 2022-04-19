@@ -2,19 +2,23 @@ table {
   border-collapse: collapse;
   width: 100%;
   table-layout: fixed;
+  margin-bottom: 2rem;
 
   td,
   th {
-    border: 1px solid rgba($color: #118f50, $alpha: 0.4);
+    border: 3px solid rgba($color: #118f50, $alpha: 0.4);
     padding: 8px;
+    flex-wrap: wrap;
+    overflow-y: hidden;
   }
 
   th {
     padding-top: 12px;
     padding-bottom: 12px;
     text-align: left;
-    background-color: #4a4b52;
+    background-color: rgba($color: #118f50, $alpha: 0.2);
     color: white;
+    flex-wrap: wrap;
   }
 
   .unfold-more {
@@ -28,6 +32,11 @@ table {
   }
 
   .center.flex-column {
+    flex-direction: column;
+  }
+
+  .span-items {
+    display: flex;
     flex-direction: column;
   }
 
@@ -53,10 +62,10 @@ p {
 }
 
 svg {
-  width: 40%;
-  height: 40%;
-  //   min-width: 17rem;
-  //   min-height: 17rem;
+  width: 20%;
+  height: 20%;
+  min-width: 12rem;
+  min-height: 12rem;
   text-align: center;
   background-color: azure;
 }
@@ -65,6 +74,12 @@ svg {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
-  gap: 5rem;
+  gap: 2rem;
   // margin-left: ;
+}
+
+.mat-button {
+  background-color: rgba($color: rgb(200, 218, 207), $alpha: 0.25);
+  // width: 100%;
+  font-size: 90%;
 }

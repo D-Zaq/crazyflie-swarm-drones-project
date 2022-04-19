@@ -83,18 +83,18 @@ section.drones-section {
   margin-bottom: 2rem;
   // margin-top: 2rem;
   overflow-y: auto;
+  margin: auto;
 }
 
 .missions {
-  display: flex;
-  justify-content: center;
+  width: 90%;
+  padding: 1.5%;
+  background-color: rgba($color: rgb(77, 116, 117), $alpha: 0.25);
+  border: 2px solid #4a4b52;
+  box-shadow: 0px 0px 11px 5px rgba(196, 176, 176, 0.25);
+  border-radius: 0.5rem;
+  margin: auto;
   // margin-left: ;
-}
-svg {
-  width: 50%;
-  height: 50%;
-  text-align: center;
-  background-color: azure;
 }
 
 .mat-button {
@@ -110,4 +110,18 @@ svg {
   flex-wrap: wrap;
   gap: 1rem;
   margin-bottom: 1rem;
+}
+
+::ng-deep .green-snackbar {
+  color: white;
+  background-color: rgba($color: rgb(21, 95, 49), $alpha: 0.65);
+}
+
+::ng-deep .red-snackbar {
+  color: white;
+  background-color: rgba($color: rgb(148, 44, 17), $alpha: 0.65);
+}
+
+mat-icon {
+  margin-right: 2px;
 }

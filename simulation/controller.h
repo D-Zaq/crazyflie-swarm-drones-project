@@ -31,28 +31,22 @@
 /* Definitions for random number generation */
 #include <argos3/core/utility/math/rng.h>
 
-#include <stdlib.h>
-#include <time.h>
-#include <cstdint>
-#include<cmath>
+#include <stdlib.h> 
+#include <time.h> 
 
-#include "drone_data.h"
 /*
  * All the ARGoS stuff in the 'argos' namespace.
  * With this statement, you save typing argos:: every time.
  */
 using namespace argos;
 
-static uint16_t id = 0;
-static int socke;
-
 /*
  * A controller is simply an implementation of the CCI_Controller class.
  */
-class CCrazyflieSensing : public CCI_Controller
-{
+class CCrazyflieSensing : public CCI_Controller {
 
 public:
+
    /* Class constructor. */
    CCrazyflieSensing();
    /* Class destructor. */
@@ -63,7 +57,7 @@ public:
     * The 't_node' variable points to the <parameters> section in the XML
     * file in the <controllers><footbot_foraging_controller> section.
     */
-   virtual void Init(TConfigurationNode &t_node);
+   virtual void Init(TConfigurationNode& t_node);
 
    int connectServer();
 
@@ -73,11 +67,7 @@ public:
 
    void Explore();
 
-   void ReturnToBase();
-
-   bool checkIfNear(CVector3 cPos, CVector3 initPos);
-
-   int Randomize(int seed);
+   int Randomize();
 
    /*
     * This function is called once every time step.
@@ -110,51 +100,44 @@ public:
     */
    bool Land();
 
-   /*
-    * This function sends a message to the server via socket
-    */
-   int SendCommand(std::string message);
-
 private:
+
    /* Pointer to the crazyflie distance sensor */
-   CCI_CrazyflieDistanceScannerSensor *m_pcDistance;
+   CCI_CrazyflieDistanceScannerSensor* m_pcDistance;
 
-   /* Pointer to the position actuator */
-   CCI_QuadRotorPositionActuator *m_pcPropellers;
-
+    /* Pointer to the position actuator */
+   CCI_QuadRotorPositionActuator* m_pcPropellers;
+   
    /* Pointer to the range and bearing actuator */
-   CCI_RangeAndBearingActuator *m_pcRABA;
+   CCI_RangeAndBearingActuator*  m_pcRABA;
 
    /* Pointer to the range and bearing sensor */
-   CCI_RangeAndBearingSensor *m_pcRABS;
+   CCI_RangeAndBearingSensor* m_pcRABS;
 
    /* Pointer to the positioning sensor */
-   CCI_PositioningSensor *m_pcPos;
+   CCI_PositioningSensor* m_pcPos;
 
    /* Pointer to the battery sensor */
-   CCI_BatterySensor *m_pcBattery;
+   CCI_BatterySensor* m_pcBattery;
 
    /* The random number generator */
-   CRandom::CRNG *m_pcRNG;
+   CRandom::CRNG* m_pcRNG;
 
    /* Current step */
    uint m_uiCurrentStep;
-
-   /* Initial Position */
+    
+   /* Initial Position */ 
    CVector3 m_cInitialPosition;
 
-   // int sock;
+   int sock;
    bool flying;
-   bool batteryLevelLow;
+   bool firstTime;
    int state;
    int explore_state;
    CVector3 lastPositionL;
    CVector3 lastPositionR;
    CVector3 lastPositionB;
    CVector3 lastPositionF;
-   uint16_t id_;
-   CVector3 path[2500];
-   DroneData drone_data_;
 };
 
 #endif

@@ -21,7 +21,7 @@ export interface Drone {
     xPosition: any;
     yPosition: any;
     zPosition: any;
-    angle: string;
+    angle: any;
     frontDistance: any;
     backDistance: any;
     leftDistance: any;
@@ -87,8 +87,8 @@ export const DRONE_2: Drone = {
 
 export const MAP_DRONE_1: MapDrone = {
     name: "radio://0/80/2M/E7E7E7E731",
-    xPosition: "0",
-    yPosition: "0",
+    xPosition: 0,
+    yPosition: 0,
     angle: '0',
     frontDistance: MAX_REAL_RANGE,
     backDistance: MAX_REAL_RANGE,
@@ -99,8 +99,8 @@ export const MAP_DRONE_1: MapDrone = {
 
 export const MAP_DRONE_2: MapDrone = {
     name: "radio://0/80/2M/E7E7E7E732",
-    xPosition: "0",
-    yPosition: "0",
+    xPosition: 0,
+    yPosition: 0,
     angle: '0',
     frontDistance: MAX_REAL_RANGE,
     backDistance: MAX_REAL_RANGE,
@@ -276,5 +276,5 @@ export enum Command
 
 export interface CommandStruct {
     droneURI: string;
-    command: Command;
+    command: Command | string;
 }

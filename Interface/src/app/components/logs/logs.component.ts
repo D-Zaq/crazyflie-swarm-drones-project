@@ -4,10 +4,6 @@ import { startWith, takeUntil } from 'rxjs/operators';
 import { DronesService } from 'src/app/services/drones/drones.service';
 
 
-type InterfaceLog = {
-  date: string;
-  message: string;
-};
 
 @Component({
   selector: 'app-logs',
@@ -16,7 +12,7 @@ type InterfaceLog = {
 })
 export class LogsComponent implements OnInit {
 
-  logs: InterfaceLog[] = [];
+  
   private unsubscribe = (new Subject<void>());
 
   constructor(public droneService: DronesService) { }
@@ -28,9 +24,9 @@ export class LogsComponent implements OnInit {
         takeUntil(this.unsubscribe),
       )
       .subscribe(()=>this.droneService.getLogs().subscribe(res => {
-        this.logs = [];
+        this.droneService.logs = [];
         for(let i=0; res.length; i++){
-          this.logs.unshift({
+          this.droneService.logs.unshift({
             date: new Date(res[i].timestamp * 1000).toString(),
             message: res[i].log,
           });
