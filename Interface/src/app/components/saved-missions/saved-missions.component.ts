@@ -11,16 +11,14 @@ export class SavedMissionsComponent implements OnInit {
 
   isExpanded:boolean = false;
   @Input() mission = {} as Mission;
-  // timeInMinutes: any;
   timeInSecondes: any;
   constructor(public droneService:DronesService) { }
 
   ngOnInit(): void {
     this.mission.dronesPoints = JSON.parse(this.mission.dronesPoints);
-    // this.timeInMinutes = this.mission.travelTime.minutes;
   }
 
-  onExpand(){
+  onExpand(): void{
     this.isExpanded = !this.isExpanded;
   }
 }

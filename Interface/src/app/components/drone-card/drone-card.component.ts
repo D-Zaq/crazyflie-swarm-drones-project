@@ -16,7 +16,6 @@ export class DroneCardComponent implements OnInit {
   simMapDrone = {} as MapDrone;
   realMapDrone = {} as MapDrone;
   id: any;
-  pi = Math.PI;
 
   constructor(public droneService:DronesService) { }
 

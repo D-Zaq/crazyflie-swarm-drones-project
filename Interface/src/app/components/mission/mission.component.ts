@@ -7,12 +7,6 @@ import { Vec2 } from 'src/app/objects/vec2';
 import { DronesService } from 'src/app/services/drones/drones.service';
 
 
-// export interface Vec2 {
-//   x: number;
-//   y: number;
-// }
-
-
 @Component({
   selector: 'app-mission',
   templateUrl: './mission.component.html',
@@ -20,10 +14,7 @@ import { DronesService } from 'src/app/services/drones/drones.service';
 })
 export class MissionComponent implements OnInit {
 
-  // mapSimDrones: MapDrone[] = [];
   private unsubscribe$ = (new Subject<void>());
-  // simPoints: Vec2[]= [];
-  realPoints: Vec2[]= [];
   
   constructor(public droneService:DronesService) {
     
@@ -101,7 +92,7 @@ export class MissionComponent implements OnInit {
       });
   }
 
-  ngOnDestroy(){
+  ngOnDestroy(): void{
     this.unsubscribe$.next();
     this.unsubscribe$.complete();
   }

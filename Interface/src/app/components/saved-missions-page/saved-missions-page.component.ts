@@ -11,7 +11,6 @@ import { DronesService } from 'src/app/services/drones/drones.service';
 export class SavedMissionsPageComponent implements OnInit {
 
   missions: Mission[] =[];
-  string = "nnnnnnnnnnnnnnnnnnnn";
   orderOption: string = "Date (descendant)";
   options: string[] = ['Date (descendant)', 'Date (ascendant)','Id (ascendant)', 'Id (descendant)', 'Simulation missions', 'Real missions', 'Travel time (ascendant)', 'Travel time (descendant)', 'Number of drones (ascendant)', 'Number of drones (descendant)'];
 
@@ -83,7 +82,7 @@ export class SavedMissionsPageComponent implements OnInit {
     }
   }
 
-  order(field: string, query:any){
+  order(field: string, query:any): void{
     this.missions.length = 0;
     this.angularFirestore.collection("crazyflieApp", ref => ref.orderBy(field, query)).get().subscribe((response)=>{
       response.forEach((data) => {
