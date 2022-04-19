@@ -9,6 +9,8 @@ import {Command, CommandStruct, Drone, DRONE_1, DRONE_2, SIM_DRONE_1, SIM_DRONE_
 import { Mission } from 'src/app/objects/mission';
 import { DronesService, ServerSimDrone } from 'src/app/services/drones/drones.service';
 
+declare var require: any
+
 export interface Vec2 {
   x: number;
   y: number;

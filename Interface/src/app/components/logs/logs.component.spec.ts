@@ -1,22 +1,31 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed, inject, getTestBed, tick, fakeAsync } from '@angular/core/testing';
 
 import { LogsComponent } from './logs.component';
+import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
+
 
 describe('LogsComponent', () => {
+
+  let injector: TestBed;
   let component: LogsComponent;
   let fixture: ComponentFixture<LogsComponent>;
+  let httpMock: HttpTestingController;
+
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
+      imports: [HttpClientTestingModule],
       declarations: [ LogsComponent ]
     })
-    .compileComponents();
-  });
-
-  beforeEach(() => {
+    injector = getTestBed();
     fixture = TestBed.createComponent(LogsComponent);
     component = fixture.componentInstance;
-    fixture.detectChanges();
+    httpMock = injector.get(HttpTestingController);
+  });
+
+  afterEach(() =>
+  {
+      httpMock.verify();
   });
 
   it('should create', () => {
