@@ -65,25 +65,51 @@ public:
     */
    virtual void Init(TConfigurationNode &t_node);
 
+
+   /* This function iniate the socket connection with the server */
    int connectServer();
 
+   /* This function read the socket buffer, containing the commands from the interface */
    char readBuffer();
 
+   /* This function converts the command (char) into a state (int) */
    void CheckState();
 
-   void Explore();
-
-   void ReturnToBase();
-
-   bool checkIfNear(CVector3 cPos, CVector3 initPos);
-
-   int Randomize(int seed);
-
-   /*
+    /*
     * This function is called once every time step.
     * The length of the time step is set in the XML file.
     */
    virtual void ControlStep();
+
+   /* This function explore the map and avoid obstacles
+      If there is no obstacle near the drone: random walk
+      If an obstacle is in the way, the drone move to it's right */
+   void Explore();
+
+   /* This function generate random number for the random walk */
+   int Randomize(int seed);
+
+   /*
+    * This function lifts the drone from the ground
+    */
+   bool TakeOff();
+
+   /* This function return the drones within 50cm of they're initial position by doing the inverse path, 
+      collected while exploring */
+   void ReturnToBase();
+
+   /* This function rcheck if a drone is within 50cm of its original point. */
+   bool checkIfNear(CVector3 cPos, CVector3 initPos);
+
+   /*
+    * This function returns the drone to the ground
+    */
+   bool Land();
+
+   /*
+    * This function sends a message to the server via socket
+    */
+   int SendCommand(std::string message);
 
    /*
     * This function resets the controller to its state right after the
@@ -99,21 +125,6 @@ public:
     * completeness.
     */
    virtual void Destroy() {}
-
-   /*
-    * This function lifts the drone from the ground
-    */
-   bool TakeOff();
-
-   /*
-    * This function returns the drone to the ground
-    */
-   bool Land();
-
-   /*
-    * This function sends a message to the server via socket
-    */
-   int SendCommand(std::string message);
 
 private:
    /* Pointer to the crazyflie distance sensor */

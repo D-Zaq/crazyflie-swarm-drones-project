@@ -141,16 +141,16 @@ void CCrazyflieSensing::CheckState()
    switch (command)
    {
    case 'e':
-      this->state = 1;
+      state = 1;
       break;
    case 's':
-      this->state = 2;
+      state = 2;
       break;
    case 'b':
-      this->state = 3;
+      state = 3;
       break;
    case 'c':
-      this->state = 4;
+      state = 4;
       break;
    case 'i':
       SendCommand(drone_data_.encode());
@@ -166,10 +166,6 @@ LOOP
 
 void CCrazyflieSensing::ControlStep()
 {
-   // TODO: Different states
-   //  For now:
-   //  'e' = empty, 's' = start aka takeoff, 'c' = stop aka land
-
    CheckState();
 
    const auto battery =
@@ -177,39 +173,39 @@ void CCrazyflieSensing::ControlStep()
 
    if (battery < 0.30)
    {
-      if (this->flying)
+      if (flying)
       {
-         this->state = 3;
+         state = 3;
          // LOGERR << "Mission ended - battery level low" << std::endl;
       }
       else
       {
-         this->batteryLevelLow = true;
+         batteryLevelLow = true;
          // LOGERR << "Can't start mission - battery level low" << std::endl;
       }
    }
 
-   switch (this->state)
+   switch (state)
    {
    case 1:
-      if (!this->flying && !this->batteryLevelLow)
+      if (!flying && !batteryLevelLow)
       {
          drone_data_.setState("flying");
          TakeOff();
-         this->flying = true;
+         flying = true;
          m_cInitialPosition = m_pcPos->GetReading().Position;
          m_cInitialPosition.SetZ(2.0f);
       }
       break;
    case 2:
-      if (this->flying)
+      if (flying)
       {
          drone_data_.setState("in_mission");
          Explore();
       }
       break;
    case 3:
-      if (this->flying)
+      if (flying)
       {
          drone_data_.setState("returning_to_base");
          ReturnToBase();
@@ -217,11 +213,11 @@ void CCrazyflieSensing::ControlStep()
       break;
 
    case 4:
-      if (this->flying)
+      if (flying)
       {
          // drone_data_.setState("on_the_ground");
          Land();
-         this->flying = false;
+         flying = false;
       }
       break;
    }
@@ -420,10 +416,10 @@ void CCrazyflieSensing::ReturnToBase()
 
    if (checkIfNear(cPos, m_cInitialPosition))
    {
-      if (this->flying)
+      if (flying)
       {
          Land();
-         this->flying = false;
+         flying = false;
       }
    }
 }
