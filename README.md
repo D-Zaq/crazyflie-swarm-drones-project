@@ -1,4 +1,4 @@
-Liens Youtube :
+**Liens Youtube** 
 
 RF1 : https://youtu.be/13IK0fUkqR0
 
@@ -50,10 +50,15 @@ Pour faire fonctionner chacune des composantes, il faut suivre ces commandes :
 Se rendre au dossier Interface et exécuter les commandes suivantes :
 
 npm install
+
 ng add @angular/material
+
 npm install firebase @angular/fire --save
+
 npm install duration
+
 ng serve –open
+
 
 
 
@@ -62,12 +67,15 @@ ng serve –open
 Se rendre au dossier server et exécuter les commandes suivantes :
 
 pip3 install pipenv
+
 virtualenv nomEnv
+
 source nomEnv/bin/activate
+
 pip3 install flask
+
 pip3 install flask-cors
-pipenv install sqlalchemy psycopg2-binary
-pipenv install flask marshmallow
+
 pip3 install -r requirements.txt
 
 
@@ -75,7 +83,7 @@ Ensuite se rendre au dossier server/src et lancer le serveur avec :
 
 python3 “main.py”
 
-**Base de données : **
+**Base de données**
 
 Il faut noter que la base de données est configurée, mais pas obligatoire pour faire fonctionner le système à ce niveau du projet.
 
@@ -94,3 +102,9 @@ Note: Avant de d'effectuer les commandes suivantes, il est important de s'assure
 Lancer le script sim_launch.sh situé à la racine du dossier simulation.
 
 Appuyer sur le bouton "play"
+
+**Convention de codage**
+
+C++: Google C++ Style Guide (https://google.github.io/styleguide/cppguide.html)
+
+Python
