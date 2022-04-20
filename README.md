@@ -1,46 +1,73 @@
-**Liens Youtube** 
+# INF3995 - Projet 3 Équipe 103
 
-RF1 : https://youtu.be/13IK0fUkqR0
+# Prérequis
+* [Docker](https://docs.docker.com/get-docker/)
+* [Docker Compose](https://docs.docker.com/compose/install/)
+* [x11Docker](https://github.com/mviereck/x11docker)
 
-RF2 et RF4 (simulation) : https://youtu.be/DDPy3zP6av8
+# Cloner le répertoire avec tous les sous-modules
 
-RF2 (physique) : https://youtu.be/0ldOjo93YiA
+```
+git clone --recurse-submodules https://gitlab.com/polytechnique-montr-al/inf3995/20221/equipe-103/INF3995-103.git
+```
 
-RF3 (simulation) : https://youtu.be/6V3i5QbMqSM
+# Liens Démos Videos
 
-RF3 (physique) : https://youtu.be/6oj3N6FtFUk
+1. RF1 : https://youtu.be/13IK0fUkqR0
 
-RF4 (physique) : https://youtu.be/0ldOjo93YiA
+2. RF2 et RF4 (simulation) : https://youtu.be/DDPy3zP6av8
 
-RF5 (simulation) : https://youtu.be/_wsYKvkqE_U
+3. RF2 (physique) : https://youtu.be/0ldOjo93YiA
 
-RF5 (physique) : https://youtu.be/0ldOjo93YiA
+4. RF3 (simulation) : https://youtu.be/6V3i5QbMqSM
 
-RF6 (simulation) : https://youtu.be/ZjJxnp08VyY
+5. RF3 (physique) : https://youtu.be/6oj3N6FtFUk
 
-RF7 (simulation): https://youtu.be/HtsJeYMvS48 et https://youtu.be/f4pQGaMIH9o
+6. RF4 (physique) : https://youtu.be/0ldOjo93YiA
 
-RF8 RF9 et RF11 (simulation): https://youtu.be/wgHPegepmkc
+7. RF5 (simulation) : https://youtu.be/_wsYKvkqE_U
 
-RF10 (RR) : https://youtu.be/gvLCnpMKphQ
+8. RF5 (physique) : https://youtu.be/0ldOjo93YiA
 
-RF13 : https://youtube.com/shorts/S4xfAArf5-k?feature=share
+9. RF6 (simulation) : https://youtu.be/ZjJxnp08VyY
 
-RF17 et RF18 (simulation) : https://youtu.be/cMP4kRYs6wc
+10. RF7 (simulation): https://youtu.be/HtsJeYMvS48 et https://youtu.be/f4pQGaMIH9o
 
-RF17 et RF18 (physique): https://youtu.be/hpVkW4-mHgo
+11. RF8 RF9 et RF11 (simulation): https://youtu.be/wgHPegepmkc
 
-RC1 (simulation) : https://www.youtube.com/watch?v=EOlxl1FAvlE
+12. RF10 (RR) : https://youtu.be/gvLCnpMKphQ
 
-RC1 (physique) : https://youtu.be/ZCaThBH-fKE
+13. RF13 : https://youtube.com/shorts/S4xfAArf5-k?feature=share
 
-RF2 RF3 RF4 RF5 RF6 RF7 RF8 RF9 et RF11 (physique) : https://youtu.be/435cvL4hRAc
+14. RF17 et RF18 (simulation) : https://youtu.be/cMP4kRYs6wc
 
-RC2: https://youtu.be/ZYtIfvIZdOM
+15. RF17 et RF18 (physique): https://youtu.be/hpVkW4-mHgo
 
-RC3: https://youtu.be/fqE2uKaNJmc
+16. RC1 (simulation) : https://www.youtube.com/watch?v=EOlxl1FAvlE
 
-RC5: https://youtu.be/0Ivn4ZESiYs
+17. RC1 (physique) : https://youtu.be/ZCaThBH-fKE
+
+18. RF2 RF3 RF4 RF5 RF6 RF7 RF8 RF9 et RF11 (physique) : https://youtu.be/435cvL4hRAc
+
+19. RC2: https://youtu.be/ZYtIfvIZdOM
+
+20. RC3: https://youtu.be/fqE2uKaNJmc
+
+21. RC5: https://youtu.be/0Ivn4ZESiYs
+
+# Pour tout démarrer
+```
+./start.sh
+```
+
+## FrontEnd
+
+Le frontend est construit en typescript avec Angular.
+
+Pour le démarrer en utilisant docker compose:
+```
+docker-compose up --build inf3995-frontend
+```
 
 Pour faire fonctionner chacune des composantes, il faut suivre ces commandes :
 
@@ -83,17 +110,6 @@ Ensuite se rendre au dossier server/src et lancer le serveur avec :
 
 python3 “main.py”
 
-**Base de données**
-
-Il faut noter que la base de données est configurée, mais pas obligatoire pour faire fonctionner le système à ce niveau du projet.
-
-PgAdmin4:
-Activer virtualenv dans le dossier ou se trouve pgAdmin4 : source pgadmin4/bin/activate
-Lance pgAdmin4 : pgadmin4
-
-PostgresSQL :
-sudo su - postgres
-psql
 
 **Simulation**
 
@@ -103,7 +119,7 @@ Lancer le script sim_launch.sh situé à la racine du dossier simulation.
 
 Appuyer sur le bouton "play"
 
-**Convention de codage**
+# Convention de codage
 
 C++: Google C++ Style Guide (https://google.github.io/styleguide/cppguide.html)
 
