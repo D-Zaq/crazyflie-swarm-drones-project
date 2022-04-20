@@ -1,11 +1,7 @@
 # coding=utf-8
 from crypt import methods
 import os
-import re
-import requests
-import threading
-import time
-from xml.etree.ElementTree import tostring
+#from xml.etree.ElementTree import tostring
 from flask_cors import CORS
 from scipy import rand
 from flask import Flask, jsonify, request
@@ -70,17 +66,12 @@ def handleSimMapDataPolling():
 
 @app.route('/logs', methods=["GET"])
 def handleLogsPolling():
-    # print("llllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllll GGGGGGGGGGEEEEEEEEEEEEEEEETTTTTTTTTTTTTTTTT")
     return jsonify(logs)
 
 
 @app.route('/crazyflieData', methods=["GET"])
 def handleCFLogsPolling():
     drones = CrazyflieServer.createDrones()
-    # print('start')
-    for drone in drones:
-        print('Drone physique : ====================> ', drone)
-    # print('end')
     return jsonify(drones)
 
 

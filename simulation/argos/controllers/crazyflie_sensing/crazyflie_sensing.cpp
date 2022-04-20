@@ -396,6 +396,7 @@ bool CCrazyflieSensing::TakeOff()
    if (Abs(cPos.GetZ() - 2.0f) < 0.01f)
       return false;
    cPos.SetZ(2.0f);
+   LOGERR << "Takeoff coords: " << cPos << std::endl;
    m_pcPropellers->SetAbsolutePosition(cPos);
    return true;
 }
@@ -449,6 +450,7 @@ bool CCrazyflieSensing::Land()
    CVector3 cPos = m_pcPos->GetReading().Position;
    cPos.SetZ(0.0f);
    m_pcPropellers->SetAbsolutePosition(cPos);
+   LOGERR << "Land coords: " << cPos << std::endl;
    return true;
 }
 
