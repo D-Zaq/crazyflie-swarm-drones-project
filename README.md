@@ -1,4 +1,4 @@
-# INF3995 - Projet 3 Équipe 103
+# Projet 3 INF3995 - Équipe 103
 
 # Prérequis
 * [Docker](https://docs.docker.com/get-docker/)
@@ -11,7 +11,7 @@
 git clone --recurse-submodules https://gitlab.com/polytechnique-montr-al/inf3995/20221/equipe-103/INF3995-103.git
 ```
 
-# Liens Démos Videos
+## Liens Démos Videos
 
 1. RF1 : https://youtu.be/13IK0fUkqR0
 
@@ -60,7 +60,7 @@ git clone --recurse-submodules https://gitlab.com/polytechnique-montr-al/inf3995
 ./start.sh
 ```
 
-## FrontEnd
+## Interface
 
 Le frontend est construit en typescript avec Angular.
 
@@ -68,59 +68,60 @@ Pour le démarrer en utilisant docker compose:
 ```
 docker-compose up --build inf3995-frontend
 ```
+Ou sans docker compose:
 
-Pour faire fonctionner chacune des composantes, il faut suivre ces commandes :
-
-
-**Interface**
-
-Se rendre au dossier Interface et exécuter les commandes suivantes :
-
+```
+cd Interface
 npm install
-
 ng add @angular/material
-
 npm install firebase @angular/fire --save
-
 npm install duration
-
 ng serve –open
+```
+
+## Serveur Web
 
 
+Le Back-end est construit en utilisant Python avec le framework Flask
 
+Pour le démarrer en utilisant docker compose:
+```
+docker-compose up --build inf3995-backend
+```
+Ou sans docker compose:
 
-**Serveur Web**
-
-Se rendre au dossier server et exécuter les commandes suivantes :
-
+```
+cd Server
 pip3 install pipenv
-
 virtualenv nomEnv
-
 source nomEnv/bin/activate
-
 pip3 install flask
-
 pip3 install flask-cors
-
 pip3 install -r requirements.txt
-
+```
 
 Ensuite se rendre au dossier server/src et lancer le serveur avec : 
+```
+python3 main.py
+```
 
-python3 “main.py”
+## Crazyflie-firmware
+Ce sous-module contient le code de l'embarqué. C'est le code préalablement flashé dans les drônes pour que ces derniers executnet les requis.
 
-
-**Simulation**
-
-Note: Avant de d'effectuer les commandes suivantes, il est important de s'assurer que le serveur **et** l'interface soient lancés
+## Simulation
+### Note: Avant de d'effectuer les commandes suivantes, il est important de s'assurer que le serveur **ET** l'interface soient en éxecution
 
 Lancer le script sim_launch.sh situé à la racine du dossier simulation.
 
 Appuyer sur le bouton "play"
 
+# Tests
+Description des tests du système présent dans le fichier test.pdf
+
 # Convention de codage
 
-C++: Google C++ Style Guide (https://google.github.io/styleguide/cppguide.html)
+- ## Typescript: [Google Typescript Style Guide](https://google.github.io/styleguide/tsguide.html)
 
-Python
+- ## C: [Google C++ Style Guide](https://google.github.io/styleguide/cppguide.html)
+
+- ## Python: [Google Python Style Guide](https://google.github.io/styleguide/pyguide.html)
