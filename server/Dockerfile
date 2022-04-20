@@ -66,11 +66,11 @@ RUN cd ../root/INF3995-103/server &&\
 
 #RUN cd ../root/INF3995-103/server/src
 
-WORKDIR /root/INF3995-103/server/src
-RUN python3 main.py
+# WORKDIR /root/INF3995-103/server/src
+#RUN python3 main.py
 
-ENTRYPOINT [ "python3","main.py" ] 
-#CMD ["python3", "main.py"]
+ENTRYPOINT [ "python3" ]
+CMD [" ./src/main.py"]
 #CMD ["/python3 main.py"]
 
     

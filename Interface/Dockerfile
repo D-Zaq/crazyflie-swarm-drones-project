@@ -23,10 +23,11 @@ RUN cd ../root/INF3995-103/Interface &&\
     npm install firebase @angular/fire --save &&\
     #Install Duration
     npm install duration &&\
-    ng serve --open
+    # ng serve --open
+
+CMD [ "npm","start" ]
 
 #ENTRYPOINT ["ng","serve","--open"]
-#CMD ["ng","serve","--open"]
 #ENTRYPOINT ["npm","start"]
 
     
