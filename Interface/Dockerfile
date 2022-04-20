@@ -1,33 +1,23 @@
 FROM node:latest
 
-# Different usefull ports (Angular, Flask, Postgresql)
 EXPOSE 4200
-
-#################################
-#          YOUR CODE            #
-#################################
 
 # Add dummy argument to force rebuild starting from that point
 ARG UPDATE_CODE=unknown
 
 COPY ./ /root/INF3995-103/Interface
 
+WORKDIR /root/INF3995-103/Interface
 # Install Angular packages
-RUN cd ../root/INF3995-103/Interface &&\
-    npm install &&\
-    # Install Angular CLI
-    npm install -g @angular/cli &&\
+RUN npm install
     # Install Angular Material
-    npm install -g @angular/material &&\
+RUN npm install -g @angular/material
     #Install Firebase
-    npm install firebase @angular/fire --save &&\
+RUN npm install firebase @angular/fire --save
     #Install Duration
-    npm install duration &&\
-    # ng serve --open
+RUN npm install duration
 
 CMD [ "npm","start" ]
 
-#ENTRYPOINT ["ng","serve","--open"]
-#ENTRYPOINT ["npm","start"]
-
+EXPOSE 4200
     
