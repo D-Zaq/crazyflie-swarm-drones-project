@@ -55,6 +55,10 @@ git clone --recurse-submodules https://gitlab.com/polytechnique-montr-al/inf3995
 
 21. [RC5:](https://youtu.be/0Ivn4ZESiYs)
 
+# Pour tout démarrer
+```
+./start.sh
+```
 
 ## Interface
 
@@ -62,7 +66,7 @@ Le frontend est construit en typescript avec Angular.
 
 Pour le démarrer en utilisant docker compose:
 ```
-docker-compose up --build interface
+docker-compose up --build Interface
 ```
 Ou sans docker compose:
 
@@ -107,7 +111,14 @@ Ce sous-module contient le code de l'embarqué. C'est le code préalablement fla
 ## Simulation
 ### Note: Avant de d'effectuer les commandes suivantes, il est important de s'assurer que le serveur **ET** l'interface soient en éxecution
 
-Lancer le script sim_launch.sh situé à la racine du dossier simulation.
+Pour le démarrer en utilisant docker compose:
+```
+docker-compose up --build simulation
+```
+Puis Lancer le script sim_launch.sh situé à la racine du dossier simulation.
+```
+./simulation.sim_launch.sh
+```
 
 Appuyer sur le bouton "play"
 
