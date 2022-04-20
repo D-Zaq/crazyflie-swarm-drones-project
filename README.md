@@ -55,10 +55,6 @@ git clone --recurse-submodules https://gitlab.com/polytechnique-montr-al/inf3995
 
 21. [RC5:](https://youtu.be/0Ivn4ZESiYs)
 
-# Pour tout démarrer
-```
-./start.sh
-```
 
 ## Interface
 
@@ -66,7 +62,7 @@ Le frontend est construit en typescript avec Angular.
 
 Pour le démarrer en utilisant docker compose:
 ```
-docker-compose up --build inf3995-frontend
+docker-compose up --build interface
 ```
 Ou sans docker compose:
 
@@ -86,7 +82,7 @@ Le Back-end est construit en utilisant Python avec le framework Flask
 
 Pour le démarrer en utilisant docker compose:
 ```
-docker-compose up --build inf3995-backend
+docker-compose up --build server
 ```
 Ou sans docker compose:
 
