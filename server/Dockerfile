@@ -64,7 +64,13 @@ RUN cd ../root/INF3995-103/server &&\
     pip3 install flask-cors &&\
     pip3 install -r requirements.txt
 
-RUN cd ../root/INF3995-103/server/src &&\
-    python3 main.py
+#RUN cd ../root/INF3995-103/server/src
+
+WORKDIR /root/INF3995-103/server/src
+RUN python3 main.py
+
+ENTRYPOINT [ "python3","main.py" ] 
+#CMD ["python3", "main.py"]
+#CMD ["/python3 main.py"]
 
     

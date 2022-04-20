@@ -1,7 +1,7 @@
 FROM node:latest
 
 # Different usefull ports (Angular, Flask, Postgresql)
-EXPOSE 80 4200
+EXPOSE 4200
 
 #################################
 #          YOUR CODE            #
@@ -13,7 +13,7 @@ ARG UPDATE_CODE=unknown
 COPY ./ /root/INF3995-103/Interface
 
 # Install Angular packages
-RUN cd ../root/INF3995-103/Interface/ &&\
+RUN cd ../root/INF3995-103/Interface &&\
     npm install &&\
     # Install Angular CLI
     npm install -g @angular/cli &&\
@@ -23,6 +23,10 @@ RUN cd ../root/INF3995-103/Interface/ &&\
     npm install firebase @angular/fire --save &&\
     #Install Duration
     npm install duration &&\
-    #Run Interface
     ng serve --open
+
+#ENTRYPOINT ["ng","serve","--open"]
+#CMD ["ng","serve","--open"]
+#ENTRYPOINT ["npm","start"]
+
     
