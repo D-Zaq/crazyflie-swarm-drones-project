@@ -1,0 +1,6 @@
+bin/*
+cf2.*
+
+# System Files
+.DS_Store
+**/.DS_Store
